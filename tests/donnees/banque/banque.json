@@ -1,0 +1,8 @@
+{
+  "listes": [
+    { "id": "t1", "type": "mots", "nom": "Thème un", "fichier": "mots-t1.tsv" },
+    { "id": "t2", "type": "mots", "nom": "Thème deux", "fichier": "mots-t2.tsv" },
+    { "id": "5t", "type": "part5", "nom": "Part 5, test", "fichier": "part5-t.tsv" },
+    { "id": "2t", "type": "part2", "nom": "Part 2, test", "fichier": "part2-t.tsv" }
+  ]
+}

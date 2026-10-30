@@ -1,0 +1,22 @@
+{
+  "listes": [
+    { "id": "bureau", "type": "mots", "nom": "Bureau et réunions", "fichier": "mots-bureau.tsv" },
+    { "id": "rh", "type": "mots", "nom": "Personnel et carrière", "fichier": "mots-rh.tsv" },
+    { "id": "finance", "type": "mots", "nom": "Finance et comptabilité", "fichier": "mots-finance.tsv" },
+    { "id": "commerce", "type": "mots", "nom": "Ventes et clients", "fichier": "mots-commerce.tsv" },
+    { "id": "production", "type": "mots", "nom": "Production et logistique", "fichier": "mots-production.tsv" },
+    { "id": "voyages", "type": "mots", "nom": "Voyages et événements", "fichier": "mots-voyages.tsv" },
+    { "id": "locaux", "type": "mots", "nom": "Locaux et technique", "fichier": "mots-locaux.tsv" },
+    { "id": "loisirs", "type": "mots", "nom": "Vie courante", "fichier": "mots-loisirs.tsv" },
+    { "id": "pieges", "type": "mots", "nom": "Pièges et faux amis", "fichier": "mots-pieges.tsv" },
+    { "id": "liens", "type": "mots", "nom": "Liens et particules", "fichier": "mots-liens.tsv" },
+    { "id": "5a", "type": "part5", "nom": "Part 5, série A", "fichier": "part5-a.tsv" },
+    { "id": "5b", "type": "part5", "nom": "Part 5, série B", "fichier": "part5-b.tsv" },
+    { "id": "5c", "type": "part5", "nom": "Part 5, série C", "fichier": "part5-c.tsv" },
+    { "id": "5d", "type": "part5", "nom": "Part 5, série D", "fichier": "part5-d.tsv" },
+    { "id": "5e", "type": "part5", "nom": "Part 5, série E", "fichier": "part5-e.tsv" },
+    { "id": "2a", "type": "part2", "nom": "Part 2, série A", "fichier": "part2-a.tsv" },
+    { "id": "2b", "type": "part2", "nom": "Part 2, série B", "fichier": "part2-b.tsv" },
+    { "id": "2c", "type": "part2", "nom": "Part 2, série C", "fichier": "part2-c.tsv" }
+  ]
+}

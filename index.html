@@ -1,0 +1,1580 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#e8edf4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1420" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Cap 945">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="description" content="Préparation au TOEIC Listening &amp; Reading, niveau C1 : vocabulaire à seaux, Part 5 et Part 2.">
+<title>Cap 945</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<style>
+@font-face{font-family:"AndikaX";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/andika-400-ext.woff2") format("woff2");unicode-range:U+20,U+A0,U+100-130,U+132-148,U+14A-151,U+154-17F,U+1CD-1DC,U+2020}
+@font-face{font-family:"AndikaX";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/andika-400-latin.woff2") format("woff2");unicode-range:U+20-7E,U+A0-FF,U+131,U+152-153,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+2212}
+@font-face{font-family:"AndikaX";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/andika-700-ext.woff2") format("woff2");unicode-range:U+20,U+A0,U+100-130,U+132-148,U+14A-151,U+154-17F,U+1CD-1DC,U+2020}
+@font-face{font-family:"AndikaX";font-style:normal;font-weight:700;font-display:swap;src:url("fonts/andika-700-latin.woff2") format("woff2");unicode-range:U+20-7E,U+A0-FF,U+131,U+152-153,U+2013-2014,U+2018-201A,U+201C-201E,U+2022,U+2026,U+2032-2033,U+2039-203A,U+2212}
+
+/* Cap 945: a study notebook for the TOEIC. Light = blue-ruled paper and navy ink, dark = night desk.
+   Every colour is a token defined in each theme block; text tokens keep 4.5:1 on --page and --bg. */
+:root{
+  --ui:"AndikaX",ui-rounded,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --tz:1;
+}
+:root[data-text="l"]{--tz:1.12}
+:root[data-text="xl"]{--tz:1.25}
+:root{
+  --bg:#e8edf4;        /* desk */
+  --page:#fbfcfe;      /* paper */
+  --ink:#172033;       /* navy ink */
+  --pencil:#46526a;    /* secondary text */
+  --faint:#56617a;     /* captions */
+  --rule:#d0d8e4;      /* hairlines */
+  --accent:#2b56a8;    /* active state, links */
+  --on-accent:#ffffff;
+  --ok:#1d7546;        /* right answer */
+  --ok-soft:#e2f2e8;
+  --ko:#b9342a;        /* wrong answer, red pen */
+  --ko-soft:#fbe6e3;
+  --warn:#8a5a00;      /* late clock */
+  --mark:#fde9a6;      /* highlighter under the word in an example */
+  --bar:#7d9bd4;       /* chart bars */
+  --shadow:rgba(23,32,51,.16);
+  --veil:rgba(23,32,51,.42);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme]){
+    --bg:#0f1420; --page:#18202f; --ink:#e4e9f2; --pencil:#aab4c6; --faint:#919cb0; --rule:#2b3547;
+    --accent:#8fb2f5; --on-accent:#0e1730; --ok:#7fd3a0; --ok-soft:#163223; --ko:#ff9488; --ko-soft:#3a1d1b;
+    --warn:#f2c46b; --mark:#4d4320; --bar:#5b78b5; --shadow:rgba(0,0,0,.55); --veil:rgba(0,0,0,.6);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0f1420; --page:#18202f; --ink:#e4e9f2; --pencil:#aab4c6; --faint:#919cb0; --rule:#2b3547;
+  --accent:#8fb2f5; --on-accent:#0e1730; --ok:#7fd3a0; --ok-soft:#163223; --ko:#ff9488; --ko-soft:#3a1d1b;
+  --warn:#f2c46b; --mark:#4d4320; --bar:#5b78b5; --shadow:rgba(0,0,0,.55); --veil:rgba(0,0,0,.6);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:calc(16px * var(--tz));line-height:1.45;
+  -webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
+[hidden]{display:none!important}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+mark{background:var(--mark);color:inherit;border-radius:3px;padding:0 2px}
+i[lang="en"]{font-style:italic}
+
+/* ---------- shell ---------- */
+.app{position:fixed;inset:0;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.top{flex:none;display:flex;align-items:center;gap:10px;padding:10px 16px 6px;max-width:680px;width:100%;margin:0 auto}
+.brand{font-size:22px;line-height:1;margin:0;font-weight:700;letter-spacing:.01em;white-space:nowrap}
+.brand b{color:var(--accent)}
+.counts{margin-left:auto;display:flex;gap:6px;min-width:0}
+.count{display:flex;align-items:baseline;gap:5px;padding:4px 10px;border:1px solid var(--rule);border-radius:999px;
+  background:var(--page);font-size:13px;color:var(--pencil);white-space:nowrap}
+.count b{font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
+main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.view{max-width:680px;margin:0 auto;padding:6px 16px 32px}
+.tabs{order:1;flex:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--page);border-top:1px solid var(--rule);
+  padding:0 max(env(safe-area-inset-left,0px),4px) env(safe-area-inset-bottom,0px) max(env(safe-area-inset-right,0px),4px)}
+.tab{appearance:none;border:0;background:none;color:var(--faint);padding:8px 0 7px;min-height:54px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2px;font-size:12px;position:relative}
+.tab svg{width:24px;height:24px}
+.tab[aria-current="page"]{color:var(--ink)}
+.tab[aria-current="page"]::before{content:"";position:absolute;top:-1px;left:28%;right:28%;height:2px;background:var(--accent);border-radius:0 0 2px 2px}
+h2{font-size:calc(19px * var(--tz));margin:14px 0 6px}
+h3{font-size:calc(16px * var(--tz));margin:18px 0 6px}
+p{margin:6px 0}
+.small{font-size:calc(14px * var(--tz));color:var(--pencil)}
+.faint{color:var(--faint)}
+.loading{padding:40px 0;text-align:center;color:var(--pencil)}
+
+/* ---------- controls ---------- */
+.btn{appearance:none;border:1.5px solid var(--rule);background:var(--page);color:var(--ink);border-radius:12px;padding:9px 16px;min-height:44px;
+  font-size:calc(16px * var(--tz));display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:700}
+.btn.danger{color:var(--ko);border-color:var(--ko)}
+.btn.big{width:100%;min-height:52px;font-size:calc(17px * var(--tz))}
+.btn.small{min-height:36px;padding:5px 12px;font-size:calc(14px * var(--tz));border-radius:10px}
+.btn:disabled{opacity:.5;cursor:default}
+.btn svg{width:20px;height:20px;flex:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.row > .btn{flex:1 1 0}
+.box{background:var(--page);border:1px solid var(--rule);border-radius:16px;padding:14px 16px;margin:12px 0;box-shadow:0 1px 2px var(--shadow)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--rule);border-radius:12px;background:var(--bg);padding:3px;gap:3px}
+.seg button{appearance:none;border:0;background:none;border-radius:9px;padding:6px 4px;min-height:38px;font-size:calc(14px * var(--tz));color:var(--pencil)}
+.seg button[aria-pressed="true"]{background:var(--page);color:var(--ink);font-weight:700;box-shadow:0 1px 3px var(--shadow)}
+.field{margin:12px 0}
+.field > .lbl{display:block;font-size:calc(14px * var(--tz));color:var(--pencil);margin-bottom:5px}
+.hint{font-size:calc(13px * var(--tz));color:var(--faint);margin:5px 2px 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-flex;align-items:center;gap:4px;border:1px solid var(--rule);border-radius:999px;padding:2px 10px;font-size:calc(13px * var(--tz));
+  color:var(--pencil);background:var(--page);white-space:nowrap}
+.chip.new{border-color:var(--accent);color:var(--accent)}
+.chip.ko{border-color:var(--ko);color:var(--ko)}
+.chip.ok{border-color:var(--ok);color:var(--ok)}
+button.chip{appearance:none;min-height:34px;padding:4px 12px}
+button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.switchrow{display:flex;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--rule)}
+.switchrow:first-child{border-top:0}
+.switchrow .txt{flex:1;min-width:0}
+.switchrow .txt small{display:block;color:var(--faint);font-size:calc(13px * var(--tz))}
+.switch{appearance:none;flex:none;width:50px;height:30px;border-radius:999px;border:1.5px solid var(--rule);background:var(--bg);position:relative;padding:0;transition:background .15s}
+.switch::after{content:"";position:absolute;top:3px;left:3px;width:21px;height:21px;border-radius:50%;background:var(--faint);transition:transform .15s,background .15s}
+.switch[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
+.switch[aria-checked="true"]::after{transform:translateX(20px);background:var(--on-accent)}
+.switch:disabled{opacity:.45}
+input[type="search"],input[type="date"],input[type="text"]{width:100%;font-size:max(16px, calc(16px * var(--tz)));padding:10px 12px;border:1.5px solid var(--rule);
+  border-radius:12px;background:var(--page);color:var(--ink);min-height:46px}
+.say{appearance:none;flex:none;border:1.5px solid var(--rule);background:var(--page);color:var(--accent);border-radius:50%;width:38px;height:38px;
+  display:inline-grid;place-items:center;padding:0;vertical-align:middle}
+.say svg{width:20px;height:20px}
+.say.playing{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.keys{display:none;margin:14px 2px 0;font-size:calc(13px * var(--tz));color:var(--faint);text-align:center}
+.keys kbd{font-family:var(--ui);font-size:calc(12px * var(--tz));border:1px solid var(--rule);border-bottom-width:2px;border-radius:5px;padding:0 5px;background:var(--page);color:var(--pencil)}
+@media (hover:hover) and (pointer:fine){ .keys{display:block} }
+
+/* ---------- vocabulary ---------- */
+.vcard{background:var(--page);border:1px solid var(--rule);border-radius:18px;box-shadow:0 2px 8px var(--shadow);padding:16px 18px 18px;margin:8px 0 14px;min-height:230px;
+  display:flex;flex-direction:column}
+.v-meta{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:calc(13px * var(--tz));color:var(--faint)}
+.v-meta .v-list{margin-left:auto}
+.v-front{flex:1;display:flex;align-items:center;justify-content:center;text-align:center;padding:22px 0 18px;min-height:130px}
+.v-en{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.v-en > span{font-size:calc(30px * var(--tz));font-weight:700;line-height:1.2;overflow-wrap:anywhere}
+.v-fr{font-size:calc(22px * var(--tz));line-height:1.35}
+.v-back{border-top:1.5px dashed var(--rule);padding-top:14px;text-align:center}
+.v-back .v-en > span{font-size:calc(26px * var(--tz))}
+.v-ex{font-size:calc(17px * var(--tz));margin:14px 0 4px;text-align:left;display:flex;gap:10px;align-items:flex-start}
+.v-ex span{flex:1}
+.v-exfr{font-size:calc(15px * var(--tz));color:var(--pencil);text-align:left;margin:2px 48px 0 0}
+.v-note{text-align:left;font-size:calc(14px * var(--tz));background:var(--bg);border-radius:10px;padding:8px 12px;margin:12px 0 0;color:var(--ink)}
+.v-note::before{content:"À retenir · ";font-weight:700;color:var(--accent)}
+.grades{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grade{appearance:none;border:2px solid var(--rule);border-radius:14px;background:var(--page);min-height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;padding:6px}
+.grade b{font-size:26px;line-height:1}
+.grade span{font-size:calc(13px * var(--tz));color:var(--pencil)}
+.grade.ko b{color:var(--ko)} .grade.ok b{color:var(--ok)}
+.grade.ko{border-color:color-mix(in srgb,var(--ko) 45%,var(--rule))}
+.grade.ok{border-color:color-mix(in srgb,var(--ok) 45%,var(--rule))}
+.empty{text-align:center;padding:36px 8px;color:var(--pencil)}
+.empty strong{display:block;font-size:calc(19px * var(--tz));color:var(--ink);margin-bottom:6px}
+.foot{margin-top:18px;display:flex;justify-content:center}
+.wlist{list-style:none;margin:8px 0 0;padding:0}
+.wlist li{border-top:1px solid var(--rule)}
+.wrow{appearance:none;border:0;background:none;width:100%;text-align:left;padding:9px 2px;display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:baseline}
+.wrow .en{font-weight:700}
+.wrow .fr{grid-column:1;color:var(--pencil);font-size:calc(14px * var(--tz))}
+.wrow .st{grid-column:2;grid-row:1 / span 2;font-size:calc(12px * var(--tz));color:var(--faint);white-space:nowrap;align-self:center}
+.wmore{padding:0 2px 12px;font-size:calc(15px * var(--tz))}
+.wmore .v-ex{margin-top:4px}
+
+/* ---------- question series (Part 5, Part 2) ---------- */
+.intro{color:var(--pencil);margin:4px 0 2px}
+.stats{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:calc(14px * var(--tz));color:var(--pencil);margin:8px 0}
+.stats b{color:var(--ink)}
+.runbar{display:flex;align-items:center;gap:10px;margin:6px 0 8px}
+.runbar .pos{font-size:calc(14px * var(--tz));color:var(--pencil)}
+.clock{margin-left:auto;font-size:calc(15px * var(--tz));font-weight:700;color:var(--pencil);min-width:3.2em;text-align:right}
+.clock.late{color:var(--warn)}
+.clock.low{color:var(--ko)}
+.track{height:4px;border-radius:2px;background:var(--rule);overflow:hidden;margin-bottom:12px}
+.track i{display:block;height:100%;background:var(--accent);width:0;transition:width .2s}
+.sentence{font-size:calc(19px * var(--tz));line-height:1.6;background:var(--page);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;margin:0 0 4px}
+.gap{display:inline-block;min-width:5.5em;border-bottom:2px solid var(--ink);margin:0 2px;height:1.1em;vertical-align:baseline}
+.fill{font-weight:700;border-bottom:2px solid currentColor;padding:0 2px}
+.fill.ok{color:var(--ok)} .fill.ko{color:var(--ko)}
+.opts{display:grid;gap:8px;margin:14px 0}
+.opt{appearance:none;display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--rule);border-radius:12px;background:var(--page);
+  padding:9px 14px;min-height:50px;font-size:calc(17px * var(--tz))}
+.opt .L{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;border:1.5px solid var(--rule);font-weight:700;
+  font-size:calc(14px * var(--tz));color:var(--pencil)}
+.opt:disabled{cursor:default;color:var(--ink)}
+.opt.sel{border-color:var(--accent)}
+.opt.sel .L{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)}
+.opt.ok .L{background:var(--ok);border-color:var(--ok);color:var(--page)}
+.opt.ko{border-color:var(--ko);background:var(--ko-soft)}
+.opt.ko .L{background:var(--ko);border-color:var(--ko);color:var(--page)}
+.opt.dim{opacity:.62}
+.feedback{background:var(--page);border:1px solid var(--rule);border-radius:16px;padding:12px 16px 14px;margin:4px 0 12px}
+.fb-head{font-weight:700;font-size:calc(17px * var(--tz));display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.fb-head.ok{color:var(--ok)} .fb-head.ko{color:var(--ko)}
+.fb-head .t{margin-left:auto;font-weight:400;font-size:calc(14px * var(--tz));color:var(--faint)}
+.expl{margin:8px 0}
+.trad{color:var(--pencil);font-size:calc(15px * var(--tz))}
+details.more{margin:6px 0}
+details.more summary{color:var(--accent);cursor:pointer;font-size:calc(15px * var(--tz));min-height:34px;display:flex;align-items:center}
+.abc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 10px}
+.abc .opt{justify-content:center;min-height:76px;font-size:calc(28px * var(--tz));font-weight:700;padding:6px}
+.listen{display:flex;align-items:center;gap:14px;background:var(--page);border:1px solid var(--rule);border-radius:16px;padding:14px 16px;min-height:86px}
+.listen .msg{flex:1;color:var(--pencil)}
+.listen .msg b{display:block;color:var(--ink);font-size:calc(17px * var(--tz))}
+.wave{flex:none;width:46px;height:46px;border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;gap:4px}
+.wave i{width:4px;height:12px;border-radius:2px;background:var(--accent);opacity:.5}
+.wave.on i{opacity:1;animation:wave 1s ease-in-out infinite}
+.wave.on i:nth-child(2){animation-delay:.15s} .wave.on i:nth-child(3){animation-delay:.3s}
+@keyframes wave{0%,100%{height:10px}50%{height:26px}}
+.window{height:6px;border-radius:3px;background:var(--rule);overflow:hidden;margin-top:10px}
+.window i{display:block;height:100%;width:100%;background:var(--warn)}
+.window.run i{width:0;transition:width 5s linear}
+.readtext{background:var(--page);border:1px dashed var(--rule);border-radius:12px;padding:10px 14px;margin:10px 0}
+.tr-opts{list-style:none;padding:0;margin:8px 0}
+.tr-opts li{display:flex;gap:8px;align-items:baseline;padding:4px 0}
+.tr-opts li b{flex:none;width:2.2em;color:var(--pencil)}
+.tr-opts li.ok{color:var(--ok);font-weight:700}
+.tr-opts li.ko{color:var(--ko);text-decoration:line-through}
+.tq{font-weight:700;display:flex;gap:10px;align-items:center}
+.tq span{flex:1}
+.score{text-align:center;margin:10px 0 4px}
+.score b{display:block;font-size:calc(44px * var(--tz));line-height:1.1}
+.score span{color:var(--pencil)}
+.errlist{margin:6px 0}
+.errlist details{border-top:1px solid var(--rule);padding:4px 0}
+.errlist summary{cursor:pointer;padding:8px 0;list-style-position:outside;margin-left:18px}
+.errlist .eb{padding:0 0 10px 18px;font-size:calc(15px * var(--tz))}
+.confirm{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+
+/* ---------- progress ---------- */
+.bars{display:grid;gap:9px;margin:10px 0}
+.brow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;font-size:calc(14px * var(--tz))}
+.brow .bt{grid-column:1 / -1;height:10px;border-radius:5px;background:var(--bg);position:relative;overflow:hidden;border:1px solid var(--rule)}
+.brow .bt i{position:absolute;left:0;top:0;bottom:0;background:var(--bar)}
+.brow .bt i.good{background:var(--ok)}
+.brow .bt u{position:absolute;top:-2px;bottom:-2px;width:2px;background:var(--ink);opacity:.55;text-decoration:none}
+.brow .v{color:var(--pencil);font-variant-numeric:tabular-nums}
+.cols{display:grid;grid-template-columns:repeat(var(--n,7),1fr);gap:6px;align-items:end;height:120px;margin:12px 0 4px}
+.cols .c{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:3px}
+.cols .c i{display:block;width:100%;max-width:36px;border-radius:5px 5px 0 0;background:var(--bar);min-height:2px}
+.cols .c.miss i{background:var(--ko)}
+.cols .c span{font-size:calc(12px * var(--tz));color:var(--pencil);font-variant-numeric:tabular-nums}
+.axis{display:grid;grid-template-columns:repeat(var(--n,7),1fr);gap:6px;text-align:center;font-size:calc(12px * var(--tz));color:var(--faint)}
+.big{font-size:calc(30px * var(--tz));font-weight:700;line-height:1.15}
+
+/* ---------- sheet, toast, update bar ---------- */
+.sheet{position:fixed;inset:0;z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.veil{position:absolute;inset:0;background:var(--veil)}
+.panel{position:relative;background:var(--page);width:100%;max-width:680px;max-height:88vh;border-radius:18px 18px 0 0;display:flex;flex-direction:column;
+  padding-bottom:env(safe-area-inset-bottom,0px);box-shadow:0 -4px 20px var(--shadow)}
+.panel-head{display:flex;align-items:center;gap:10px;padding:12px 12px 6px 18px}
+.panel-head h2{margin:0;flex:1;font-size:calc(18px * var(--tz))}
+.close{appearance:none;border:0;background:var(--bg);color:var(--ink);width:38px;height:38px;border-radius:50%;font-size:22px;line-height:1;padding:0}
+#sheet-body{overflow-y:auto;padding:4px 18px 20px}
+.toast{position:fixed;left:16px;right:16px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:30;max-width:520px;margin:0 auto;background:var(--ink);color:var(--page);
+  border-radius:12px;padding:10px 14px;font-size:calc(15px * var(--tz));box-shadow:0 4px 16px var(--shadow);text-align:center}
+.updatebar{position:fixed;left:16px;right:16px;top:calc(8px + env(safe-area-inset-top,0px));z-index:25;max-width:520px;margin:0 auto;background:var(--page);
+  border:1.5px solid var(--accent);border-radius:12px;padding:8px 10px 8px 14px;display:flex;align-items:center;gap:10px;box-shadow:0 4px 16px var(--shadow)}
+.updatebar span{flex:1}
+
+:root[data-motion="reduce"] *{transition:none!important;animation:none!important}
+@media (prefers-reduced-motion:reduce){ *{transition:none!important;animation:none!important} }
+
+/* ---------- computer screen ---------- */
+@media (min-width:900px) and (min-height:500px){
+  .app{display:grid;grid-template-columns:210px minmax(0,1fr);grid-template-rows:auto minmax(0,1fr)}
+  .top{grid-column:2;max-width:760px}
+  .tabs{order:0;grid-column:1;grid-row:1 / span 2;display:flex;flex-direction:column;gap:4px;border-top:0;border-right:1px solid var(--rule);padding:64px 10px 16px}
+  .tab{flex-direction:row;justify-content:flex-start;gap:12px;padding:10px 14px;min-height:46px;border-radius:12px;font-size:15px}
+  .tab[aria-current="page"]{background:var(--bg)}
+  .tab[aria-current="page"]::before{top:10px;bottom:10px;left:0;right:auto;width:3px;height:auto;border-radius:0 2px 2px 0}
+  main{grid-column:2}
+  .view{max-width:760px}
+  .sheet{justify-content:flex-end;align-items:stretch}
+  .panel{max-width:520px;max-height:none;height:100%;border-radius:0}
+  .toast{bottom:24px}
+}
+</style>
+<script>
+/* the theme and the text size, before the first paint */
+function applyLook(s) {
+  const r = document.documentElement;
+  const t = s && (s.theme === "light" || s.theme === "dark") ? s.theme : null;
+  if (t) r.dataset.theme = t; else delete r.dataset.theme;
+  r.dataset.text = s && (s.textSize === "l" || s.textSize === "xl") ? s.textSize : "m";
+  const dark = t ? t === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  for (const m of document.querySelectorAll('meta[name="theme-color"]')) {
+    if (!m.dataset.media) m.dataset.media = m.getAttribute("media") || "";
+    if (t) { m.removeAttribute("media"); m.content = dark ? "#0f1420" : "#e8edf4"; }
+    else { m.setAttribute("media", m.dataset.media); m.content = /dark/.test(m.dataset.media) ? "#0f1420" : "#e8edf4"; }
+  }
+}
+try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).settings || {}); } catch (e) {}
+</script>
+</head>
+<body>
+<div class="app" id="app">
+  <header class="top">
+    <h1 class="brand">Cap <b>945</b></h1>
+    <div class="counts" id="counts" aria-live="polite"></div>
+  </header>
+  <nav class="tabs" aria-label="Sections">
+    <button type="button" class="tab" data-view="mots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="6.5" width="13" height="14" rx="2"/><path d="M7.5 3.5h11a2 2 0 0 1 2 2v12"/></svg>Mots</button>
+    <button type="button" class="tab" data-view="lecture"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="4.5" y="3.5" width="15" height="17" rx="2"/><path d="M8 8.5h8M8 12.5h3.5M14 12.5h2M8 16.5h6"/></svg>Lecture</button>
+    <button type="button" class="tab" data-view="ecoute"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3.5" y="13.5" width="4.5" height="7" rx="1.6"/><rect x="16" y="13.5" width="4.5" height="7" rx="1.6"/></svg>Écoute</button>
+    <button type="button" class="tab" data-view="progres"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20v-6M10 20V9M15 20v-8M20 20V5"/></svg>Progrès</button>
+    <button type="button" class="tab" data-view="reglages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h9M18 7h2M4 17h3M12 17h8"/><circle cx="15.5" cy="7" r="2.3"/><circle cx="9.5" cy="17" r="2.3"/></svg>Réglages</button>
+  </nav>
+  <main id="main">
+    <div class="view loading" id="loading">Chargement des questions…</div>
+
+    <section class="view" id="view-mots" hidden aria-label="Vocabulaire">
+      <div id="v-study">
+        <div class="vcard" id="vcard" tabindex="-1"></div>
+        <button type="button" class="btn primary big" id="v-turn">Voir la réponse</button>
+        <div class="grades" id="v-grades" hidden>
+          <button type="button" class="grade ko" data-g="0"><b>×</b><span>Je ne savais pas</span></button>
+          <button type="button" class="grade ok" data-g="1"><b>√</b><span>Je savais</span></button>
+        </div>
+        <p class="keys"><kbd>Espace</kbd> réponse · <kbd>1</kbd> × · <kbd>2</kbd> √ · <kbd>L</kbd> écouter</p>
+      </div>
+      <div class="empty" id="v-empty" hidden></div>
+      <div class="foot"><button type="button" class="btn small" id="v-browse">Tous les mots</button></div>
+    </section>
+
+    <section class="view" id="view-lecture" hidden aria-label="Lecture, Part 5">
+      <div id="p5-home"></div>
+      <div id="p5-run" hidden>
+        <div class="runbar"><span class="pos" id="p5-pos"></span><span class="clock num" id="p5-clock"></span><button type="button" class="btn small" id="p5-stop">Arrêter</button></div>
+        <div class="track"><i id="p5-track"></i></div>
+        <p class="sentence" id="p5-text" lang="en"></p>
+        <div class="opts" id="p5-opts"></div>
+        <div class="feedback" id="p5-fb" hidden></div>
+        <p class="keys"><kbd>1</kbd>–<kbd>4</kbd> ou <kbd>A</kbd>–<kbd>D</kbd> répondre · <kbd>Entrée</kbd> suivante</p>
+      </div>
+      <div id="p5-done" hidden></div>
+    </section>
+
+    <section class="view" id="view-ecoute" hidden aria-label="Écoute, Part 2">
+      <div id="p2-home"></div>
+      <div id="p2-run" hidden>
+        <div class="runbar"><span class="pos" id="p2-pos"></span><span class="clock num" id="p2-clock"></span><button type="button" class="btn small" id="p2-stop">Arrêter</button></div>
+        <div class="track"><i id="p2-track"></i></div>
+        <div class="listen">
+          <div class="wave" id="p2-wave" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="msg" id="p2-msg"></div>
+          <button type="button" class="btn small" id="p2-replay" hidden>Réécouter</button>
+        </div>
+        <div class="window" id="p2-window" hidden><i></i></div>
+        <div id="p2-read" hidden></div>
+        <div class="opts abc" id="p2-opts"></div>
+        <div class="feedback" id="p2-fb" hidden></div>
+        <p class="keys"><kbd>1</kbd>–<kbd>3</kbd> ou <kbd>A</kbd>–<kbd>C</kbd> répondre · <kbd>R</kbd> réécouter · <kbd>Entrée</kbd> suivante</p>
+      </div>
+      <div id="p2-done" hidden></div>
+    </section>
+
+    <section class="view" id="view-progres" hidden aria-label="Progrès"></section>
+    <section class="view" id="view-reglages" hidden aria-label="Réglages"></section>
+  </main>
+
+  <div class="sheet" id="sheet" hidden>
+    <div class="veil" data-close></div>
+    <div class="panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+      <div class="panel-head"><h2 id="sheet-title"></h2><button type="button" class="close" data-close aria-label="Fermer">×</button></div>
+      <div id="sheet-body"></div>
+    </div>
+  </div>
+  <div class="updatebar" id="updatebar" role="status" hidden>
+    <span>Nouvelle version de l’appli prête.</span>
+    <button type="button" class="btn primary small" id="update-reload">Recharger</button>
+  </div>
+  <div class="toast" id="toast" role="status" hidden></div>
+</div>
+
+<script>
+"use strict";
+const BUILD = "30 octobre 2026 à 12 h 01";
+
+/* ---------- constants ---------- */
+const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
+const DELAYS = [1, 3, 7, 14, 30, 60];             // vocabulary: days before a word of bucket 1, 2… comes back
+const TOP = DELAYS.length;                         // last bucket
+const GAP = 4;                                     // a missed word comes back after at least 4 other cards
+const ERR_DELAYS = [1, 7, 30];                     // mistakes notebook: a missed question comes back after 1, then 7, then 30 days
+const P5_SECONDS = 20;                             // C1 pace for a Part 5 question (exam mode: 20 s × questions)
+const P2_WINDOW = 5000;                            // Part 2 exam: time to answer once the three responses are heard
+const C1_MARK = 90;                                // rough share of right answers behind a C1 score (≈ 945/990), shown on the bars
+const LETTERS = "ABCD";
+const NB = " ";                               // narrow no-break space, before : ; ! ? in French
+const P5_TAGS = { forme: "Forme du mot", verbe: "Temps et formes verbales", vocab: "Vocabulaire", lien: "Connecteurs",
+  prep: "Prépositions", pronom: "Pronoms et déterminants", compar: "Comparatifs" };
+const P2_TYPES = { wh: "Questions en Wh-", "oui-non": "Questions fermées", choix: "Questions à choix", "neg-tag": "Négatives et tags",
+  demande: "Demandes et offres", affirm: "Affirmations" };
+const ACCENTS = [
+  { id: "us", nom: "Américain", re: /^en[-_]US/i },
+  { id: "gb", nom: "Britannique", re: /^en[-_]GB/i },
+  { id: "au", nom: "Australien", re: /^en[-_](AU|NZ)/i },
+  { id: "ca", nom: "Canadien", re: /^en[-_]CA/i },
+];
+// novelty and robotic voices of Apple devices: useless for listening practice
+const ODD_VOICES = /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Pipe Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley)\b/i;
+const SIZES = { p5: [10, 20, 30], p2: [10, 15, 25] };
+const DEFAULTS = { theme: "auto", textSize: "m", firstSide: "en", autoAudio: true, newOrder: "mix", rate: 1,
+  accents: ["us", "gb", "au", "ca"], p5Size: 20, p5Mode: "train", p5Tag: "", p2Size: 15, p2Mode: "train", p2Tag: "",
+  exam: "", view: "mots" };
+
+/* ---------- utilities ---------- */
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+function frTypo(s) { return String(s).replace(/ ([:;!?»])/g, NB + "$1").replace(/« /g, "«" + NB); }
+function frHTML(s) { return frTypo(esc(s)).replace(/\*([^*]+)\*/g, '<i lang="en">$1</i>'); }   // *word*: an English word in French text
+function exHTML(s) { return esc(s).replace(/\{([^{}]+)\}/g, "<mark>$1</mark>"); }              // {word}: the word in its example
+function plain(s) { return String(s || "").replace(/[{}*]/g, ""); }
+function plural(n, one, many) { return n + " " + (n > 1 ? many : one); }
+function pct(a, b) { return b ? Math.round(100 * a / b) : 0; }
+function fold(s) { return String(s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/’/g, "'"); }
+function hash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function shuffle(a) { for (let k = a.length - 1; k > 0; k--) { const r = Math.floor(Math.random() * (k + 1)); [a[k], a[r]] = [a[r], a[k]]; } return a; }
+function clock(ms) { const s = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); }
+
+function dayNum(t = Date.now()) {                  // the day starts at 4:00, like Anki
+  const d = new Date(t - 4 * 3600e3);
+  return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 864e5);
+}
+function dateOfDay(n) { const u = new Date(n * 864e5); return new Date(u.getUTCFullYear(), u.getUTCMonth(), u.getUTCDate(), 12); }
+function dayOfISO(s) { const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(s || ""); return m ? Math.floor(Date.UTC(+m[1], +m[2] - 1, +m[3]) / 864e5) : null; }
+const fmtDate = new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long", year: "numeric" });
+const fmtDay = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+const fmtWd = new Intl.DateTimeFormat("fr-FR", { weekday: "narrow" });
+function dateText(n) { return fmtDate.format(dateOfDay(n)).replace(/^1 /, "1er ").replace(/(\d|1er) /, "$1 "); }
+function dayText(n, today) {
+  if (n <= today) return "aujourd’hui";
+  if (n === today + 1) return "demain";
+  return fmtDay.format(dateOfDay(n)).replace(/ 1 /, " 1er ");
+}
+
+/* ---------- state ---------- */
+function blank() {
+  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice() }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs: { p5: null, p2: null } };
+}
+function isObj(x) { return !!x && typeof x === "object" && !Array.isArray(x); }
+function cleanRun(r) {
+  if (!isObj(r) || !Array.isArray(r.ids) || !r.ids.length || !Array.isArray(r.ans) || !Number.isInteger(r.i)) return null;
+  if (r.i < 0 || r.i >= r.ids.length || r.ans.length > r.i + 1) return null;
+  if (r.mode !== "exam") r.mode = "train";
+  if (r.left != null && !(Number.isFinite(r.left) && r.left >= 0)) r.left = null;
+  return r;
+}
+function normalizeState(s) {
+  const st = blank();
+  if (!isObj(s)) return st;
+  const S = st.settings = { ...st.settings, ...(isObj(s.settings) ? s.settings : {}) };
+  for (const [k, ok] of [["theme", ["auto", "light", "dark"]], ["textSize", ["m", "l", "xl"]], ["firstSide", ["en", "fr"]],
+    ["newOrder", ["mix", "lists"]], ["rate", [0.8, 0.9, 1, 1.1]], ["p5Mode", ["train", "exam"]], ["p2Mode", ["train", "exam"]],
+    ["p5Size", SIZES.p5], ["p2Size", SIZES.p2], ["view", ["mots", "lecture", "ecoute", "progres", "reglages"]]]) {
+    if (!ok.includes(S[k])) S[k] = DEFAULTS[k];
+  }
+  S.autoAudio = S.autoAudio !== false;
+  S.accents = Array.isArray(S.accents) ? S.accents.filter(a => ACCENTS.some(A => A.id === a)) : DEFAULTS.accents.slice();
+  if (typeof S.p5Tag !== "string" || (S.p5Tag && !P5_TAGS[S.p5Tag])) S.p5Tag = "";
+  if (typeof S.p2Tag !== "string" || (S.p2Tag && !P2_TYPES[S.p2Tag])) S.p2Tag = "";
+  if (!dayOfISO(S.exam)) S.exam = "";
+  for (const k of ["words", "q", "lists", "log"]) if (isObj(s[k])) st[k] = s[k];
+  for (const [id, c] of Object.entries(st.words)) {
+    if (!isObj(c) || !Number.isInteger(c.b)) { delete st.words[id]; continue; }
+    c.b = Math.max(0, Math.min(TOP, c.b));
+    if (c.b > 0 && !Number.isFinite(c.d)) c.d = dayNum();
+  }
+  for (const [id, q] of Object.entries(st.q)) if (!isObj(q) || !Number.isFinite(q.r)) delete st.q[id];
+  st.seq = Number.isFinite(s.seq) ? s.seq : 0;
+  const runs = isObj(s.runs) ? s.runs : {};
+  st.runs = { p5: cleanRun(runs.p5), p2: cleanRun(runs.p2) };
+  return st;
+}
+function loadState() {
+  try { const raw = localStorage.getItem(KEY); if (raw) return normalizeState(JSON.parse(raw)); } catch (e) {}
+  return blank();
+}
+let saveWarned = false;
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(state)); }
+  catch (e) { if (!saveWarned) { saveWarned = true; toast("Enregistrement impossible : la mémoire de l’appareil est pleine ?", 5000); } }
+}
+let state = loadState();
+
+/* ---------- the bank: banque/banque.json and its TSV files ---------- */
+let BANK = null;                                   // banque.json
+let VLISTS = [], WORDS = [], WBYID = new Map();    // vocabulary lists and words
+let P5 = [], P2 = [], QBYID = new Map();           // questions
+let ORDER = [];                                    // words of the active lists, in the order of the first pass
+let missingFiles = [];
+
+function parseTSV(text) {
+  const lines = String(text).replace(/^﻿/, "").split(/\r?\n/);
+  const head = (lines.shift() || "").split("\t").map(h => h.trim().toLowerCase());
+  const rows = [];
+  for (const line of lines) {
+    if (!line.trim() || line.startsWith("#")) continue;
+    const cells = line.split("\t"), o = {};
+    head.forEach((h, i) => { o[h] = (cells[i] || "").trim(); });
+    rows.push(o);
+  }
+  return rows;
+}
+async function getText(url) {
+  const res = await fetch(url, { cache: "no-cache" });
+  if (!res.ok) throw new Error(url + " : " + res.status);
+  return res.text();
+}
+async function loadBank() {
+  const cfg = JSON.parse(await getText("banque/banque.json"));
+  const files = (cfg.listes || []).filter(f => f && f.id && f.fichier && ["mots", "part5", "part2"].includes(f.type));
+  const texts = await Promise.all(files.map(f => getText("banque/" + f.fichier).catch(() => null)));
+  buildBank(files, texts);
+}
+function buildBank(files, texts) {
+  BANK = files; VLISTS = []; WORDS = []; WBYID = new Map(); P5 = []; P2 = []; QBYID = new Map(); missingFiles = [];
+  files.forEach((f, fi) => {
+    const text = texts[fi];
+    if (text == null) { missingFiles.push(f.nom || f.fichier); return; }
+    const rows = parseTSV(text);
+    if (f.type === "mots") {
+      const L = { id: f.id, nom: f.nom || f.id, ids: [], actif: f.actif !== false };
+      const seen = new Map();
+      rows.forEach((r, o) => {
+        if (!r.anglais || !r.francais) return;
+        let id = f.id + ":" + r.anglais;
+        const n = (seen.get(id) || 0) + 1; seen.set(id, n);
+        if (n > 1) id += "#" + n;
+        const w = { id, list: f.id, en: r.anglais, cat: r.nature || "", fr: r.francais, ex: r.exemple || "", exfr: r.traduction || "", note: r.note || "", o };
+        WORDS.push(w); WBYID.set(id, w); L.ids.push(id);
+      });
+      VLISTS.push(L);
+    } else {
+      const p5 = f.type === "part5";
+      for (const r of rows) {
+        const ans = (p5 ? "ABCD" : "ABC").indexOf((r.reponse || "").toUpperCase());
+        if (!r.id || ans < 0 || QBYID.has(r.id)) continue;
+        if (p5 ? !(r.phrase || "").includes("-------") || !r.d : !r.question || !r.c) continue;
+        const q = p5
+          ? { id: r.id, kind: "p5", set: f.id, text: r.phrase, opts: [r.a, r.b, r.c, r.d], ans, tag: r.competence, lvl: r.niveau, expl: r.explication, tr: r.traduction }
+          : { id: r.id, kind: "p2", set: f.id, text: r.question, opts: [r.a, r.b, r.c], ans, tag: r.type, expl: r.explication, tq: r.tq, topts: [r.ta, r.tb, r.tc] };
+        (p5 ? P5 : P2).push(q); QBYID.set(q.id, q);
+      }
+    }
+  });
+  for (const k of ["p5", "p2"]) {                  // a saved series keeps only the questions still in the bank
+    const run = state.runs[k];
+    if (!run) continue;
+    const ids = run.ids.filter((id, i) => i < run.i || QBYID.has(id));
+    if (ids.length !== run.ids.length) { run.ids = ids; if (run.i >= ids.length) state.runs[k] = null; }
+  }
+  buildOrder();
+}
+function listOn(id) {
+  const L = VLISTS.find(x => x.id === id);
+  const mine = state.lists[id];
+  return mine && typeof mine.on === "boolean" ? mine.on : !L || L.actif;
+}
+function listName(id) { const L = VLISTS.find(x => x.id === id); return L ? L.nom : id; }
+function buildOrder() {
+  const ids = [], met = new Set();
+  for (const L of VLISTS) if (listOn(L.id)) for (const id of L.ids) if (!met.has(id)) { met.add(id); ids.push(id); }
+  if (state.settings.newOrder === "mix") ids.sort((a, b) => hash(a) - hash(b));   // mixed, but always the same order
+  ORDER = ids;
+}
+
+/* ---------- vocabulary planning: buckets 0 to 6 and one line ---------- */
+// Card (absent = never seen): {b bucket, d day due (bucket ≥ 1), k state.seq when missed (bucket 0 after a ×),
+// r reviews, l lapses (× from bucket ≥ 1), t day of the last review, s day of the first}.
+// Line: missed words that have rested GAP cards, words due, new words (first pass), then missed words still resting.
+function card(id) { return state.words[id]; }
+function inPass(id) { const c = card(id); return !c || (c.b === 0 && c.k == null); }
+function lineOf() {
+  const today = dayNum(), ready = [], due = [], fresh = [], resting = [];
+  for (const id of ORDER) {
+    const c = card(id);
+    if (!c || (c.b === 0 && c.k == null)) fresh.push(id);
+    else if (c.b === 0) (state.seq - c.k > GAP ? ready : resting).push([c.k, 0, id]);   // seq counts the × itself
+    else if (c.d <= today) due.push([c.d, c.t || 0, id]);
+  }
+  const by = (a, b) => a[0] - b[0] || a[1] - b[1];
+  return [...ready.sort(by), ...due.sort(by)].map(x => x[2]).concat(fresh, resting.sort(by).map(x => x[2]));
+}
+function vocabCounts() {
+  const today = dayNum();
+  let fresh = 0, rev = 0;
+  for (const id of ORDER) {
+    const c = card(id);
+    if (!c || (c.b === 0 && c.k == null)) fresh++;
+    else if (c.b === 0 || c.d <= today) rev++;
+  }
+  return { fresh, rev };
+}
+function logAdd(key, n = 1) {
+  const d = dayNum(), L = state.log[d] || (state.log[d] = {});
+  L[key] = (L[key] || 0) + n;
+}
+function applyGrade(id, ok) {
+  const today = dayNum();
+  const c = state.words[id] || { b: 0, r: 0, l: 0 };
+  const first = !c.r;
+  if (!ok) {
+    if (c.b > 0) c.l = (c.l || 0) + 1;
+    c.b = 0; c.k = state.seq; delete c.d;
+  } else {
+    c.b = Math.min(TOP, c.b + 1); c.d = today + DELAYS[c.b - 1]; delete c.k;
+  }
+  c.r = (c.r || 0) + 1; c.t = today;
+  if (first) c.s = today;
+  state.words[id] = c;
+  state.seq++;
+  logAdd(first ? "n" : "r");
+}
+
+/* ---------- speech: the device's English voices ---------- */
+const SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.8a4.5 4.5 0 0 1 0 6.4M18 6.3a8 8 0 0 1 0 11.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+const speech = {
+  ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function",
+  voices: [],                                      // {v, accent}
+  token: 0, timer: 0, btn: null, keep: [], loaded: false,
+  load(last) {                                     // last: no more waiting, an empty list means no voice
+    if (!this.ok) return;
+    let vs = [];
+    try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
+    const out = [], names = new Set();
+    for (const A of ACCENTS) {
+      const mine = vs.filter(v => A.re.test(v.lang) && !ODD_VOICES.test(v.name));
+      const local = mine.filter(v => v.localService !== false);   // a network voice is silent offline
+      for (const v of (local.length ? local : mine)) if (!names.has(v.name)) { names.add(v.name); out.push({ v, accent: A.id }); }
+    }
+    const changed = out.length !== this.voices.length || ((vs.length || last) && !this.loaded);
+    this.voices = out;
+    if (vs.length || last) this.loaded = true;
+    if (changed) voicesChanged();
+  },
+  has() { return this.ok && this.voices.length > 0; },
+  pool() {
+    const allowed = state.settings.accents;
+    const p = this.voices.filter(x => allowed.includes(x.accent));
+    return p.length ? p : this.voices;
+  },
+  count(accent) { return this.voices.filter(x => x.accent === accent).length; },
+  stop() {
+    this.token++;
+    clearTimeout(this.timer);
+    try { if (this.ok) speechSynthesis.cancel(); } catch (e) {}
+    this.mark(null);
+  },
+  mark(btn) {
+    if (this.btn) this.btn.classList.remove("playing");
+    this.btn = btn;
+    if (btn) btn.classList.add("playing");
+  },
+  // parts: [{text, voice, pitch, after (pause in ms)}]; done(true) once everything has been said
+  seq(parts, done, btn) {
+    if (!this.ok) { if (done) done(false); return; }
+    this.stop();
+    const tok = this.token;
+    const step = k => {
+      if (tok !== this.token) return;
+      if (k >= parts.length) { this.mark(null); if (done) done(true); return; }
+      const p = parts[k];
+      this.utter(p, () => { if (tok === this.token) this.timer = setTimeout(() => step(k + 1), p.after || 0); });
+    };
+    this.mark(btn || null);
+    this.timer = setTimeout(() => step(0), 80);    // Safari drops an utterance spoken right after cancel()
+  },
+  utter(p, next) {
+    let fired = false, dog = 0;
+    const go = () => { if (fired) return; fired = true; clearTimeout(dog); next(); };
+    try {
+      const u = new SpeechSynthesisUtterance(plain(p.text));
+      u.lang = p.voice ? p.voice.lang : "en-US";
+      if (p.voice) { try { u.voice = p.voice; } catch (e) {} }
+      u.rate = state.settings.rate;
+      u.pitch = p.pitch || 1;
+      u.onend = go; u.onerror = go;
+      this.keep.push(u); if (this.keep.length > 12) this.keep.shift();   // Safari: a collected utterance never ends
+      speechSynthesis.speak(u);
+    } catch (e) { go(); return; }
+    dog = setTimeout(go, 5000 + String(p.text).length * 110 / state.settings.rate);   // onend sometimes never comes
+  },
+  say(text, voice, btn) { this.seq([{ text, voice }], null, btn); },
+};
+function wordVoice(id) {
+  const p = speech.pool();
+  return p.length ? p[hash(id) % p.length].v : null;     // the same voice for a word every time, accents in turn
+}
+function voicePair() {
+  const p = speech.pool();
+  if (!p.length) return { q: null, r: null, pq: 1, pr: 0.85 };
+  const a = p[Math.floor(Math.random() * p.length)];
+  const others = p.filter(x => x.v.name !== a.v.name);
+  const b = others.length ? others[Math.floor(Math.random() * others.length)] : a;
+  return { q: a.v, r: b.v, pq: 1, pr: b === a ? 0.85 : 1 };   // one voice only: a lower pitch for the second speaker
+}
+function voicesChanged() {
+  if (current === "reglages") renderSettings();
+  if (current === "ecoute" && !$("#p2-home").hidden) renderHome("p2");
+}
+
+/* ---------- views ---------- */
+let current = null;
+function showView(v) {
+  if (current === "lecture" && v !== "lecture") suspend("p5");
+  if (current === "ecoute" && v !== "ecoute") suspend("p2");
+  if (v !== "mots") speech.stop();
+  current = v;
+  if (state.settings.view !== v) { state.settings.view = v; save(); }
+  for (const t of $$(".tab")) t.setAttribute("aria-current", t.dataset.view === v ? "page" : "false");
+  for (const s of $$("main > .view")) s.hidden = s.id !== "view-" + v;
+  $("#main").scrollTop = 0;
+  renderView();
+}
+function renderView() {
+  if (!BANK) return;
+  if (current === "mots") vShow();
+  else if (current === "lecture") renderKind("p5");
+  else if (current === "ecoute") renderKind("p2");
+  else if (current === "progres") renderProgress();
+  else if (current === "reglages") renderSettings();
+  renderCounts();
+}
+function countHTML(n, label) { return `<span class="count"><b>${n}</b>${label}</span>`; }
+function renderCounts() {
+  const el = $("#counts");
+  if (!BANK) { el.innerHTML = ""; return; }
+  if (current === "mots") {
+    const { fresh, rev } = vocabCounts();
+    el.innerHTML = countHTML(rev, "à revoir") + countHTML(fresh, "nouveaux");
+  } else if (current === "lecture" || current === "ecoute") {
+    const st = qStats(current === "lecture" ? P5 : P2);
+    el.innerHTML = countHTML(st.due, st.due > 1 ? "erreurs" : "erreur") + countHTML(st.total - st.seen, "nouvelles");
+  } else el.innerHTML = "";
+}
+
+/* ---------- vocabulary study ---------- */
+const vstudy = { cur: null, turned: false };
+function vShow() {                                 // the tab shown again: the same card, unless the line moved on
+  const line = lineOf(), before = vstudy.cur;
+  if (!(vstudy.turned && line.includes(before))) { vstudy.cur = line[0] || null; vstudy.turned = false; }
+  renderVocab(vstudy.cur !== before);
+}
+function vNext() {
+  vstudy.cur = lineOf()[0] || null;
+  vstudy.turned = false;
+  renderVocab(true);
+  renderCounts();
+}
+function statusChip(id) {
+  const c = card(id);
+  if (!c || inPass(id)) return '<span class="chip new">Nouveau</span>';
+  if (c.b === 0) return '<span class="chip ko">À reprendre</span>';
+  return `<span class="chip">Seau ${c.b}</span>`;
+}
+function enHTML(w) {
+  return `<div class="v-en"><span lang="en">${esc(w.en)}</span><button type="button" class="say" data-say="word" aria-label="Écouter le mot">${SPEAKER}</button></div>`;
+}
+function exampleHTML(w) {
+  if (!w.ex) return "";
+  return `<p class="v-ex"><span lang="en">${exHTML(w.ex)}</span><button type="button" class="say" data-say="ex" aria-label="Écouter l’exemple">${SPEAKER}</button></p>` +
+    (w.exfr ? `<p class="v-exfr">${frHTML(w.exfr)}</p>` : "");
+}
+function renderVocab(fresh) {
+  const w = WBYID.get(vstudy.cur);
+  const empty = $("#v-empty");
+  $("#v-study").hidden = !w;
+  empty.hidden = !!w;
+  if (!w) {
+    if (!ORDER.length) empty.innerHTML = `<strong>Aucun thème actif</strong>Choisis des thèmes de vocabulaire dans Réglages.`;
+    else {
+      const today = dayNum();
+      let next = null, n = 0;
+      for (const id of ORDER) { const c = card(id); if (c && c.b > 0 && (next == null || c.d < next)) next = c.d; }
+      if (next != null) for (const id of ORDER) { const c = card(id); if (c && c.b > 0 && c.d === next) n++; }
+      empty.innerHTML = `<strong>Tout est revu</strong>` + (next != null ? `Prochaine révision ${dayText(next, today)}${NB}: ${plural(n, "mot", "mots")}.` : "");
+    }
+    return;
+  }
+  const en = state.settings.firstSide === "en";
+  const fr = `<div class="v-fr">${frHTML(w.fr)}</div>`;
+  const note = w.note ? `<p class="v-note">${frHTML(w.note)}</p>` : "";
+  $("#vcard").innerHTML = `<div class="v-meta">${statusChip(w.id)}<span>${esc(w.cat)}</span><span class="v-list">${esc(listName(w.list))}</span></div>` +
+    `<div class="v-front">${en ? enHTML(w) : fr}</div>` +
+    (vstudy.turned ? `<div class="v-back">${en ? fr : enHTML(w)}${exampleHTML(w)}${note}</div>` : "");
+  $("#v-turn").hidden = vstudy.turned;
+  $("#v-grades").hidden = !vstudy.turned;
+  if (fresh && state.settings.autoAudio && current === "mots" && (en ? !vstudy.turned : vstudy.turned)) sayWord();
+}
+function sayWord(btn) {
+  const w = WBYID.get(vstudy.cur);
+  if (w) speech.say(w.en, wordVoice(w.id), btn || $('#vcard [data-say="word"]'));
+}
+function vTurn() {
+  if (!vstudy.cur || vstudy.turned) return;
+  const had = document.activeElement === $("#v-turn");
+  vstudy.turned = true;
+  renderVocab(true);
+  if (had) $("#vcard").focus({ preventScroll: true });   // not on √: Space twice must not grade a word
+}
+function vGrade(ok) {
+  if (!vstudy.cur || !vstudy.turned) return;
+  applyGrade(vstudy.cur, ok);
+  save();
+  vNext();
+  if (document.activeElement && document.activeElement.closest("#v-grades")) $("#v-turn").focus({ preventScroll: true });
+}
+function wordStatus(id) {
+  const c = card(id);
+  if (!c || inPass(id)) return "nouveau";
+  if (c.b === 0) return "à reprendre";
+  return "seau " + c.b;
+}
+function browseSheet() {
+  openSheet("Tous les mots", `<input type="search" id="w-q" placeholder="Chercher en anglais ou en français" autocomplete="off" spellcheck="false">` +
+    `<p class="small" id="w-n"></p><ul class="wlist" id="w-list"></ul>`);
+  const run = () => {
+    const f = fold($("#w-q").value.trim());
+    const hits = f ? WORDS.filter(w => fold(w.en).includes(f) || fold(w.fr).includes(f)) : WORDS;
+    $("#w-n").textContent = plural(hits.length, "mot", "mots") + (hits.length > 200 ? " : les 200 premiers" : "");
+    $("#w-list").innerHTML = hits.slice(0, 200).map(w => `<li><button type="button" class="wrow" data-w="${esc(w.id)}" aria-expanded="false">` +
+      `<span class="en" lang="en">${esc(w.en)}</span><span class="fr">${frHTML(w.fr)}</span><span class="st">${esc(wordStatus(w.id))}${listOn(w.list) ? "" : " · thème inactif"}</span>` +
+      `</button><div class="wmore" hidden></div></li>`).join("");
+  };
+  $("#w-q").addEventListener("input", run);
+  $("#w-list").addEventListener("click", e => {
+    const say = e.target.closest("[data-say]");
+    if (say) { const w = WBYID.get(say.dataset.id); if (w) speech.say(say.dataset.say === "ex" ? w.ex : w.en, wordVoice(w.id), say); return; }
+    const b = e.target.closest(".wrow");
+    if (!b) return;
+    const w = WBYID.get(b.dataset.w), more = b.nextElementSibling, open = more.hidden;
+    more.hidden = !open;
+    b.setAttribute("aria-expanded", String(open));
+    if (open) more.innerHTML = `<p class="small">${esc(w.cat)} · ${esc(listName(w.list))}</p>` +
+      exampleHTML(w).replace(/data-say="(\w+)"/g, `data-say="$1" data-id="${esc(w.id)}"`) +
+      `<p><button type="button" class="btn small" data-say="word" data-id="${esc(w.id)}">${SPEAKER} Écouter le mot</button></p>` +
+      (w.note ? `<p class="v-note">${frHTML(w.note)}</p>` : "");
+  });
+  run();
+}
+
+/* ---------- question series: Part 5 and Part 2 ---------- */
+// Question record (absent = never asked): {r answers, ok right, l wrong, f 1 if right the first time, e step in the
+// mistakes notebook (0: out, 1…: after a mistake), d day it comes back, t day of the last answer, ms its time, a its choice}.
+// Series: {mode "train"|"exam", tag, ids, i current, ans [{id, c choice (-1 none), ok, ms}], start, left (Part 5 exam, ms)}.
+const live = { p5: {}, p2: {} };                   // what is on screen: timers, voices, the results of the last series
+function qStats(pool) {
+  const today = dayNum(), tags = {};
+  let seen = 0, first = 0, errs = 0, due = 0;
+  for (const q of pool) {
+    const T = tags[q.tag] || (tags[q.tag] = { total: 0, n: 0, ok: 0 });
+    T.total++;
+    const s = state.q[q.id];
+    if (!s || !s.r) continue;
+    seen++; T.n++;
+    if (s.f) { first++; T.ok++; }
+    if (s.e >= 1) { errs++; if (s.d <= today) due++; }
+  }
+  return { total: pool.length, seen, first, errs, due, tags };
+}
+function recordAnswer(q, ok, ms, choice) {
+  const today = dayNum();
+  const s = state.q[q.id] || { r: 0, ok: 0, l: 0, e: 0 };
+  if (!s.r) s.f = ok ? 1 : 0;
+  s.r++;
+  if (ok) s.ok++; else s.l++;
+  s.t = today; s.ms = Math.round(ms); s.a = choice;
+  if (!ok) { s.e = 1; s.d = today + ERR_DELAYS[0]; }
+  else if (s.e >= 1) {
+    if (s.e < ERR_DELAYS.length) { s.d = today + ERR_DELAYS[s.e]; s.e++; }
+    else { s.e = 0; delete s.d; }
+  }
+  state.q[q.id] = s;
+  logAdd(q.kind);
+  if (ok) logAdd(q.kind + "ok");
+  if (q.kind === "p5") logAdd("p5ms", Math.round(ms));
+}
+function pickSeries(kind, size, tag) {
+  const pool = (kind === "p5" ? P5 : P2).filter(q => !tag || q.tag === tag);
+  const today = dayNum(), errs = [], fresh = [], old = [], later = [];
+  for (const q of pool) {
+    const s = state.q[q.id];
+    if (!s || !s.r) fresh.push(q.id);
+    else if (s.e >= 1) (s.d <= today ? errs : later).push([s.d, s.t || 0, q.id]);
+    else old.push([s.t || 0, 0, q.id]);
+  }
+  const by = (a, b) => a[0] - b[0] || a[1] - b[1];
+  errs.sort(by); old.sort(by); later.sort(by); shuffle(fresh);
+  const half = Math.ceil(size / 2);
+  let pick = errs.slice(0, half).map(x => x[2]);   // the mistakes due first, half the series at most while new ones remain
+  pick = pick.concat(fresh.slice(0, size - pick.length));
+  pick = pick.concat(errs.slice(half).map(x => x[2]).slice(0, size - pick.length));
+  pick = pick.concat(old.map(x => x[2]).slice(0, size - pick.length));
+  pick = pick.concat(later.map(x => x[2]).slice(0, size - pick.length));
+  return shuffle(pick);
+}
+function panel(kind, which) {
+  for (const w of ["home", "run", "done"]) $(`#${kind}-${w}`).hidden = w !== which;
+}
+function renderKind(kind) {
+  const L = live[kind];
+  if (L.done) { panel(kind, "done"); $(`#${kind}-done`).innerHTML = doneHTML(kind, L.done.run, L.done.why); return; }
+  if (state.runs[kind] && L.on) { showQuestion(kind); return; }
+  renderHome(kind);
+}
+function segHTML(key, items) {
+  const v = state.settings[key];
+  return `<div class="seg" role="group">` + items.map(([val, label]) =>
+    `<button type="button" data-set="${key}" data-v="${val}" aria-pressed="${String(v === val)}">${label}</button>`).join("") + `</div>`;
+}
+function voiceLine() {
+  if (!speech.ok) return `<p class="hint">Cet appareil ne lit pas le texte à voix haute : la question et les réponses s’afficheront à l’écran.</p>`;
+  if (!speech.has()) return `<p class="hint">${speech.loaded ? "Aucune voix anglaise trouvée sur cet appareil" : "Recherche des voix anglaises…"} Sans voix, la question et les réponses s’affichent à l’écran.</p>`;
+  const acc = ACCENTS.filter(A => speech.count(A.id) && state.settings.accents.includes(A.id)).map(A => A.nom.toLowerCase());
+  return `<p class="hint">Voix ${acc.length ? acc.join(", ") : "anglaises"} (${plural(speech.pool().length, "voix", "voix")}) : réglables dans Réglages.</p>`;
+}
+function renderHome(kind) {
+  panel(kind, "home");
+  const S = state.settings, p5 = kind === "p5", pool = p5 ? P5 : P2, tags = p5 ? P5_TAGS : P2_TYPES;
+  const st = qStats(pool), run = state.runs[kind];
+  let h = `<h2>${p5 ? "Part 5 · phrases à trous" : "Part 2 · question-réponse"}</h2>`;
+  h += `<p class="intro">${p5
+    ? "Une phrase, quatre propositions : choisis celle qui complète la phrase. Au niveau C1, vise 20 secondes par question."
+    : "Une question ou une remarque, puis trois réponses, entendues une seule fois. Choisis la réponse logique : rien n’est écrit avant ta réponse."}</p>`;
+  if (!pool.length) return void ($(`#${kind}-home`).innerHTML = h + `<div class="empty"><strong>Pas encore de questions</strong>Les fichiers de la banque n’ont pas pu être lus.</div>`);
+  const avg = p5 ? avgTime() : null;
+  h += `<div class="stats"><span><b>${st.seen}</b> sur ${st.total} faites</span>` +
+    (st.seen ? `<span><b>${pct(st.first, st.seen)}${NB}%</b> au premier essai</span>` : "") +
+    (avg ? `<span><b>${avg}${NB}s</b> par question (7 jours)</span>` : "") + `</div>`;
+  if (st.errs) h += `<p class="small">Carnet d’erreurs${NB}: ${plural(st.errs, "question", "questions")}, dont <b>${st.due}</b> à revoir aujourd’hui. Elles passent en premier dans les séries.</p>`;
+  if (run) {
+    const n = run.ids.length;
+    h += `<div class="box"><b>Série en cours</b><p class="small">${run.mode === "exam" ? "Examen" : "Entraînement"} · question ${Math.min(run.i + 1, n)} sur ${n}` +
+      (run.mode === "exam" && p5 && run.left != null ? ` · ${clock(run.left)} restantes` : "") + `</p>` +
+      `<div class="row" id="${kind}-runbtns"><button type="button" class="btn primary" data-act="resume">Reprendre</button><button type="button" class="btn" data-act="drop">Abandonner</button></div></div>`;
+  } else {
+    const noVoice = !p5 && !speech.has();
+    h += `<div class="field"><span class="lbl">Mode</span>${segHTML(kind + "Mode", [["train", "Entraînement"], ["exam", "Examen"]])}` +
+      `<p class="hint">${S[kind + "Mode"] === "exam"
+        ? (p5 ? `${P5_SECONDS}${NB}s par question au chronomètre, correction à la fin.` : "Une seule écoute, 5 secondes pour répondre, correction à la fin.")
+        : (p5 ? "Correction et explication après chaque question." : "Correction, texte et traduction après chaque question ; tu peux réécouter.")}</p></div>`;
+    h += `<div class="field"><span class="lbl">Nombre de questions</span>${segHTML(kind + "Size", SIZES[kind].map(n => [n, String(n)]))}</div>`;
+    h += `<div class="field"><span class="lbl">${p5 ? "Compétence" : "Type de question"}</span><div class="chips">` +
+      `<button type="button" class="chip" data-tag="" aria-pressed="${String(!S[kind + "Tag"])}">Toutes</button>` +
+      Object.entries(tags).filter(([t]) => st.tags[t]).map(([t, label]) =>
+        `<button type="button" class="chip" data-tag="${t}" aria-pressed="${String(S[kind + "Tag"] === t)}">${label}</button>`).join("") + `</div></div>`;
+    if (!p5) h += voiceLine();
+    const blocked = noVoice && S.p2Mode === "exam";
+    h += `<button type="button" class="btn primary big" data-act="start"${blocked ? " disabled" : ""}>Commencer</button>`;
+    if (blocked) h += `<p class="hint">Le mode examen demande une voix anglaise.</p>`;
+  }
+  $(`#${kind}-home`).innerHTML = h;
+}
+function avgTime() {
+  const today = dayNum();
+  let n = 0, ms = 0;
+  for (let d = today - 6; d <= today; d++) { const L = state.log[d]; if (L && L.p5) { n += L.p5; ms += L.p5ms || 0; } }
+  return n ? Math.round(ms / n / 1000) : null;
+}
+function startRun(kind) {
+  const S = state.settings;
+  const ids = pickSeries(kind, S[kind + "Size"], S[kind + "Tag"]);
+  if (!ids.length) { toast("Aucune question pour ce choix."); return; }
+  const exam = S[kind + "Mode"] === "exam";
+  state.runs[kind] = { mode: exam ? "exam" : "train", tag: S[kind + "Tag"], ids, i: 0, ans: [], start: Date.now(),
+    left: kind === "p5" && exam ? ids.length * P5_SECONDS * 1000 : null };
+  live[kind] = { on: true };
+  save();
+  showQuestion(kind);
+  renderCounts();
+}
+function curQ(kind) { const run = state.runs[kind]; return run ? QBYID.get(run.ids[run.i]) : null; }
+function answered(kind) { const run = state.runs[kind]; return !!run && run.ans.length > run.i; }
+function stopTimers(kind) {
+  const L = live[kind];
+  clearInterval(L.tick); clearTimeout(L.window); clearTimeout(L.after);
+  L.tick = L.window = L.after = 0;
+}
+function showQuestion(kind) {
+  const run = state.runs[kind], q = curQ(kind);
+  if (!run) { renderHome(kind); return; }
+  if (!q) { finish(kind, "end"); return; }
+  if (run.mode === "exam" && answered(kind)) { next(kind); return; }   // answered just before a reload
+  stopTimers(kind);
+  const now = Date.now();
+  const L = live[kind] = { on: true, shownAt: now, resumedAt: now, heardAt: 0, V: kind === "p2" ? voicePair() : null };
+  panel(kind, "run");
+  const n = run.ids.length, done = answered(kind);
+  $(`#${kind}-pos`).textContent = `${run.mode === "exam" ? "Examen" : "Entraînement"} · question ${run.i + 1} sur ${n}`;
+  $(`#${kind}-track`).style.width = pct(run.i, n) + "%";
+  if (kind === "p5") {
+    $("#p5-text").innerHTML = sentenceHTML(q, null);
+    $("#p5-opts").innerHTML = q.opts.map((o, k) => `<button type="button" class="opt" data-c="${k}"><span class="L">${LETTERS[k]}</span><span lang="en">${esc(o)}</span></button>`).join("");
+    $("#p5-fb").hidden = true;
+    if (done) showFeedback(kind);
+    else { L.tick = setInterval(() => tickP5(), 250); tickP5(); }
+  } else {
+    $("#p2-opts").innerHTML = [0, 1, 2].map(k => `<button type="button" class="opt" data-c="${k}" aria-label="Réponse ${LETTERS[k]}">${LETTERS[k]}</button>`).join("");
+    $("#p2-fb").hidden = true;
+    $("#p2-read").hidden = true;
+    $("#p2-window").hidden = true;
+    $("#p2-clock").textContent = "";
+    if (done) showFeedback(kind);
+    else p2Play();
+  }
+  if (!done) { const f = $(`#${kind}-opts .opt`); if (document.activeElement && document.activeElement.closest(`#${kind}-run`)) f.focus({ preventScroll: true }); }
+}
+function sentenceHTML(q, fill, cls) {
+  const [a, ...b] = q.text.split("-------");
+  const gap = fill == null ? `<span class="gap"><span class="sr">trou</span></span>` : `<span class="fill ${cls || "ok"}">${esc(fill)}</span>`;
+  return esc(a) + gap + esc(b.join("-------"));
+}
+function remaining(kind) {
+  const run = state.runs[kind], L = live[kind];
+  return run.left - (Date.now() - L.resumedAt);
+}
+function tickP5() {
+  const run = state.runs.p5, L = live.p5, c = $("#p5-clock");
+  if (!run) return;
+  if (run.mode === "exam") {
+    const left = remaining("p5");
+    c.textContent = clock(left);
+    c.classList.toggle("low", left < 60000);
+    c.classList.remove("late");
+    if (left <= 0) { run.left = 0; finish("p5", "time"); }
+  } else {
+    const s = Math.floor((Date.now() - L.shownAt) / 1000);
+    c.textContent = s + NB + "s";
+    c.classList.toggle("late", s >= P5_SECONDS);
+    c.classList.remove("low");
+  }
+}
+function choose(kind, c) {
+  const run = state.runs[kind], q = curQ(kind), L = live[kind];
+  if (!run || !q || answered(kind)) return;
+  if (kind === "p2") { speech.stop(); clearTimeout(L.window); }
+  clearInterval(L.tick);
+  const now = Date.now();
+  const ms = kind === "p5" ? now - L.shownAt : (L.heardAt ? Math.max(0, now - L.heardAt) : 0);
+  const ok = c === q.ans;
+  if (run.mode === "exam" && kind === "p5") { run.left = Math.max(0, remaining("p5")); L.resumedAt = now; }
+  recordAnswer(q, ok, ms, c);
+  run.ans.push({ id: q.id, c, ok, ms: Math.round(ms) });
+  save();
+  renderCounts();
+  if (run.mode === "exam") {
+    $$(`#${kind}-opts .opt`).forEach((b, k) => { b.disabled = true; if (k === c) b.classList.add("sel"); });
+    if (kind === "p2") $("#p2-window").hidden = true;
+    const i = run.i;
+    L.after = setTimeout(() => { if (state.runs[kind] === run && run.i === i) next(kind); }, c < 0 ? 900 : 300);
+  } else showFeedback(kind);
+}
+function showFeedback(kind) {
+  const run = state.runs[kind], q = curQ(kind), a = run.ans[run.i];
+  const L = live[kind];
+  clearInterval(L.tick); clearTimeout(L.window);
+  $$(`#${kind}-opts .opt`).forEach((b, k) => {
+    b.disabled = true;
+    b.classList.toggle("ok", k === q.ans);
+    b.classList.toggle("ko", k === a.c && !a.ok);
+    b.classList.toggle("dim", k !== q.ans && k !== a.c);
+  });
+  const last = run.i + 1 >= run.ids.length;
+  const head = a.ok ? `<div class="fb-head ok">√ Bonne réponse` : `<div class="fb-head ko">× ${a.c < 0 ? "Pas de réponse" : "Raté"}${NB}: c’était (${LETTERS[q.ans]})`;
+  let h;
+  if (kind === "p5") {
+    $("#p5-text").innerHTML = sentenceHTML(q, q.opts[q.ans], "ok");
+    $("#p5-clock").textContent = Math.round(a.ms / 1000) + NB + "s";
+    h = head + `<span class="t">${Math.round(a.ms / 1000)}${NB}s</span></div>` +
+      `<p class="chips"><span class="chip">${esc(P5_TAGS[q.tag] || q.tag)}</span>${q.lvl ? `<span class="chip">${esc(q.lvl)}</span>` : ""}</p>` +
+      `<p class="expl">${frHTML(q.expl)}</p>` + (q.tr ? `<p class="trad">${frHTML(q.tr)}</p>` : "");
+  } else {
+    $("#p2-window").hidden = true;
+    $("#p2-read").hidden = true;
+    setListen(false, "Écouté", "");
+    $("#p2-replay").hidden = !speech.has();
+    h = head + `</div>` + transcriptHTML(q, a);
+  }
+  h += `<button type="button" class="btn primary big" data-act="next">${last ? "Voir le résultat" : "Suivante"}</button>`;
+  const fb = $(`#${kind}-fb`);
+  fb.innerHTML = h;
+  fb.hidden = false;
+  const nb = fb.querySelector('[data-act="next"]');
+  if (document.activeElement && (document.activeElement.closest(`#${kind}-run`) || document.activeElement === document.body)) nb.focus({ preventScroll: true });
+  if (kind === "p5") fb.scrollIntoView({ block: "nearest", behavior: "smooth" });
+}
+function transcriptHTML(q, a) {
+  return `<p class="tq"><span lang="en">${esc(q.text)}</span><button type="button" class="say" data-say-q="${esc(q.id)}" aria-label="Réécouter">${SPEAKER}</button></p>` +
+    `<ul class="tr-opts">` + q.opts.map((o, k) => `<li class="${k === q.ans ? "ok" : a && k === a.c ? "ko" : ""}"><b>(${LETTERS[k]})</b><span lang="en">${esc(o)}</span></li>`).join("") + `</ul>` +
+    `<p class="chips"><span class="chip">${esc(P2_TYPES[q.tag] || q.tag)}</span></p>` +
+    `<p class="expl">${frHTML(q.expl)}</p>` +
+    `<details class="more"><summary>Traduction</summary><p class="trad">${frHTML(q.tq)}</p><ul class="tr-opts">` +
+    q.topts.map((t, k) => `<li><b>(${LETTERS[k]})</b><span>${frHTML(t)}</span></li>`).join("") + `</ul></details>`;
+}
+function next(kind) {
+  const run = state.runs[kind];
+  if (!run || !answered(kind)) return;
+  run.i++;
+  if (run.i >= run.ids.length) { finish(kind, "end"); return; }
+  save();
+  showQuestion(kind);
+}
+function finish(kind, why) {
+  const run = state.runs[kind];
+  if (!run) return;
+  stopTimers(kind);
+  if (kind === "p2") speech.stop();
+  state.runs[kind] = null;
+  save();
+  live[kind] = { done: { run, why } };
+  panel(kind, "done");
+  $(`#${kind}-done`).innerHTML = doneHTML(kind, run, why);
+  $("#main").scrollTop = 0;
+  renderCounts();
+}
+function suspend(kind) {                           // leaving the tab or the app: the clock stops, the voice too
+  const run = state.runs[kind], L = live[kind];
+  if (!run || !L.on) return;
+  if (kind === "p5" && run.mode === "exam" && !answered(kind) && L.tick) { run.left = Math.max(0, remaining(kind)); save(); }
+  stopTimers(kind);
+  if (kind === "p2") speech.stop();
+}
+function doneHTML(kind, run, why) {
+  const p5 = kind === "p5", tags = p5 ? P5_TAGS : P2_TYPES;
+  const missed = why === "time" ? run.ids.slice(run.ans.length) : [];   // exam time over: the questions left count as wrong
+  const base = why === "stop" ? run.ans.length : run.ans.length + missed.length;
+  const ok = run.ans.filter(a => a.ok).length;
+  let h = `<h2>${why === "time" ? "Temps écoulé" : why === "stop" ? "Série arrêtée" : "Série terminée"}</h2>`;
+  if (!base) return h + `<p class="intro">Aucune réponse dans cette série.</p>` + doneBtns();
+  h += `<div class="score"><b class="num">${ok} / ${base}</b><span>${pct(ok, base)}${NB}% de bonnes réponses · repère C1${NB}: environ ${C1_MARK}${NB}%</span></div>`;
+  if (p5) {
+    const times = run.ans.filter(a => a.c >= 0).map(a => a.ms);
+    if (times.length) {
+      const avg = Math.round(times.reduce((s, x) => s + x, 0) / times.length / 1000);
+      h += `<p class="small" style="text-align:center">${avg}${NB}s par question en moyenne (objectif${NB}: ${P5_SECONDS}${NB}s)</p>`;
+    }
+  }
+  const by = {};
+  for (const a of run.ans) { const q = QBYID.get(a.id); if (!q) continue; const T = by[q.tag] || (by[q.tag] = { n: 0, ok: 0 }); T.n++; if (a.ok) T.ok++; }
+  for (const id of missed) { const q = QBYID.get(id); if (!q) continue; const T = by[q.tag] || (by[q.tag] = { n: 0, ok: 0 }); T.n++; }
+  h += `<h3>${p5 ? "Par compétence" : "Par type de question"}</h3><div class="bars">` +
+    Object.keys(tags).filter(t => by[t]).map(t => barHTML(tags[t], by[t].ok, by[t].n)).join("") + `</div>`;
+  const errs = run.ans.filter(a => !a.ok).map(a => [QBYID.get(a.id), a]).concat(missed.map(id => [QBYID.get(id), null])).filter(x => x[0]);
+  if (errs.length) {
+    h += `<h3>À revoir (${errs.length})</h3><p class="small">Ces questions reviennent demain dans tes séries${missed.length ? ", sauf celles laissées sans réponse" : ""}.</p><div class="errlist">` +
+      errs.map(([q, a]) => `<details><summary>${p5 ? `<span lang="en">${sentenceHTML(q, q.opts[q.ans], "ok")}</span>` : `<span lang="en">${esc(q.text)}</span>`}</summary><div class="eb">` +
+        (p5
+          ? `<p>${a && a.c >= 0 ? `Ta réponse${NB}: <span class="fill ko" lang="en">${esc(q.opts[a.c])}</span> · ` : a ? "Pas de réponse · " : "Pas eu le temps · "}bonne réponse${NB}: (${LETTERS[q.ans]}) <b lang="en">${esc(q.opts[q.ans])}</b></p>` +
+            `<p class="chips"><span class="chip">${esc(P5_TAGS[q.tag] || q.tag)}</span>${q.lvl ? `<span class="chip">${esc(q.lvl)}</span>` : ""}</p>` +
+            `<p class="expl">${frHTML(q.expl)}</p>` + (q.tr ? `<p class="trad">${frHTML(q.tr)}</p>` : "")
+          : transcriptHTML(q, a)) + `</div></details>`).join("") + `</div>`;
+  } else h += `<p class="intro" style="text-align:center">Aucune erreur. Bravo${NB}!</p>`;
+  return h + doneBtns();
+}
+function doneBtns() {
+  return `<div class="row" style="margin-top:18px"><button type="button" class="btn" data-act="home">Terminer</button><button type="button" class="btn primary" data-act="again">Nouvelle série</button></div>`;
+}
+function barHTML(label, ok, n) {
+  const p = pct(ok, n);
+  return `<div class="brow"><span>${esc(label)}</span><span class="v">${n ? p + NB + "% · " + n : "–"}</span>` +
+    `<span class="bt"><i class="${p >= C1_MARK ? "good" : ""}" style="width:${p}%"></i><u style="left:${C1_MARK}%"></u></span></div>`;
+}
+
+/* ---------- Part 2: listening ---------- */
+function setListen(on, title, text) {
+  $("#p2-wave").classList.toggle("on", !!on);
+  $("#p2-msg").innerHTML = `<b>${title}</b>${text || ""}`;
+}
+function p2Parts(q, V) {
+  return [
+    { text: q.text, voice: V.q, pitch: V.pq, after: 900 },
+    { text: "A. " + q.opts[0], voice: V.r, pitch: V.pr, after: 650 },
+    { text: "B. " + q.opts[1], voice: V.r, pitch: V.pr, after: 650 },
+    { text: "C. " + q.opts[2], voice: V.r, pitch: V.pr, after: 0 },
+  ];
+}
+function p2Play() {
+  const run = state.runs.p2, q = curQ("p2"), L = live.p2;
+  if (!run || !q || answered("p2")) return;
+  clearTimeout(L.window);
+  $("#p2-window").hidden = true;
+  if (!speech.has()) {                             // no voice: the text, to read
+    $("#p2-read").hidden = false;
+    $("#p2-read").innerHTML = `<p class="tq"><span lang="en">${esc(q.text)}</span></p><ul class="tr-opts">` +
+      q.opts.map((o, k) => `<li><b>(${LETTERS[k]})</b><span lang="en">${esc(o)}</span></li>`).join("") + `</ul>`;
+    setListen(false, "À lire", "Pas de voix anglaise sur cet appareil.");
+    $("#p2-replay").hidden = true;
+    L.heardAt = Date.now();
+    return;
+  }
+  setListen(true, "Écoute…", run.mode === "exam" ? "Une seule écoute." : "");
+  $("#p2-replay").hidden = true;
+  const tok = L;
+  speech.seq(p2Parts(q, L.V), () => {
+    if (live.p2 !== tok || answered("p2")) return;
+    L.heardAt = Date.now();
+    if (run.mode === "exam") {
+      setListen(false, "À toi", "Choisis A, B ou C.");
+      const w = $("#p2-window");
+      w.hidden = false; w.classList.remove("run");
+      void w.offsetWidth;                          // restart the bar
+      w.classList.add("run");
+      L.window = setTimeout(() => { if (live.p2 === tok && !answered("p2")) choose("p2", -1); }, P2_WINDOW);
+    } else {
+      setListen(false, "À toi", "Choisis A, B ou C, ou réécoute.");
+      $("#p2-replay").hidden = false;
+    }
+  });
+}
+function replayItem(id, btn) {
+  const q = QBYID.get(id);
+  if (!q || !speech.has()) return;
+  speech.seq(p2Parts(q, voicePair()), null, btn);
+}
+
+/* ---------- progress ---------- */
+function renderProgress() {
+  const today = dayNum(), S = state.settings;
+  let h = `<h2>Examen</h2>`;
+  const ex = dayOfISO(S.exam);
+  if (ex == null) h += `<p class="intro">Règle la date de l’examen dans Réglages pour suivre ton rythme.</p>`;
+  else if (ex < today) h += `<p class="intro">Examen passé le ${dateText(ex)}.</p>`;
+  else h += `<p><span class="big num">${ex - today}</span> ${ex - today > 1 ? "jours" : "jour"} avant l’examen, le ${dateText(ex)}.</p>`;
+
+  // vocabulary
+  const n = Array(TOP + 1).fill(0);
+  let seen = 0, fresh = 0;
+  for (const id of ORDER) { if (inPass(id)) fresh++; else { seen++; n[card(id).b]++; } }
+  const { rev } = vocabCounts();
+  let newDays = 0, newWords = 0;
+  for (let d = today - 13; d <= today; d++) { const L = state.log[d]; if (L && L.n) { newWords += L.n; newDays++; } }
+  const pace = newWords / 14;
+  h += `<h2>Vocabulaire</h2><div class="stats"><span><b>${seen}</b> mots vus sur ${ORDER.length}</span><span><b>${rev}</b> à revoir aujourd’hui</span></div>`;
+  const max = Math.max(1, ...n);
+  h += `<div class="cols" style="--n:${TOP + 1}">` + n.map((x, b) => `<div class="c${b === 0 ? " miss" : ""}"><span>${x}</span><i style="height:${Math.round(100 * x / max)}%"></i></div>`).join("") + `</div>` +
+    `<div class="axis" style="--n:${TOP + 1}">` + n.map((x, b) => `<span>${b === 0 ? "raté" : "seau " + b}</span>`).join("") + `</div>`;
+  h += `<p class="hint">Seau 1 à ${TOP}${NB}: le mot revient après ${DELAYS.map(d => d).join(", ")} jours. Raté${NB}: il revient dans la séance.</p>`;
+  if (fresh) {
+    const p = Math.round(pace * 10) / 10;
+    let t = pace ? `Ces deux dernières semaines${NB}: ${p.toLocaleString("fr-FR")} ${p >= 2 ? "nouveaux mots" : "nouveau mot"} par jour en moyenne` : `Pas de nouveaux mots ces deux dernières semaines`;
+    if (pace) t += `, soit tous les mots vus vers le ${dateText(today + Math.ceil(fresh / pace))}`;
+    t += ".";
+    if (ex != null && ex - 30 > today) t += ` Pour les avoir tous vus un mois avant l’examen${NB}: ${plural(Math.ceil(fresh / (ex - 30 - today)), "nouveau mot", "nouveaux mots")} par jour.`;
+    h += `<p class="small">${t}</p>`;
+  } else if (ORDER.length) h += `<p class="small">Tous les mots des thèmes actifs ont été vus au moins une fois.</p>`;
+
+  // questions
+  for (const kind of ["p5", "p2"]) {
+    const p5 = kind === "p5", pool = p5 ? P5 : P2, tags = p5 ? P5_TAGS : P2_TYPES, st = qStats(pool);
+    h += `<h2>${p5 ? "Lecture · Part 5" : "Écoute · Part 2"}</h2><div class="stats"><span><b>${st.seen}</b> sur ${st.total} faites</span>` +
+      (st.seen ? `<span><b>${pct(st.first, st.seen)}${NB}%</b> au premier essai</span>` : "") +
+      (p5 && avgTime() ? `<span><b>${avgTime()}${NB}s</b> par question (7 jours)</span>` : "") +
+      `<span><b>${st.errs}</b> dans le carnet d’erreurs</span></div>`;
+    if (st.seen) {
+      h += `<div class="bars">` + Object.keys(tags).filter(t => st.tags[t] && st.tags[t].n)
+        .sort((a, b) => st.tags[a].ok / st.tags[a].n - st.tags[b].ok / st.tags[b].n)
+        .map(t => barHTML(tags[t], st.tags[t].ok, st.tags[t].n)).join("") + `</div>`;
+      h += `<p class="hint">Réussite au premier essai, la plus faible en haut. Le trait marque le repère C1 (${C1_MARK}${NB}%).</p>`;
+    } else h += `<p class="small">Pas encore de série.</p>`;
+  }
+
+  // activity
+  const days = [];
+  for (let d = today - 13; d <= today; d++) { const L = state.log[d] || {}; days.push([d, (L.n || 0) + (L.r || 0) + (L.p5 || 0) + (L.p2 || 0)]); }
+  const top = Math.max(1, ...days.map(x => x[1]));
+  h += `<h2>Deux dernières semaines</h2><p class="small">Cartes et questions par jour${NB}: ${days.reduce((s, x) => s + x[1], 0)} en tout.</p>` +
+    `<div class="cols" style="--n:14;height:90px">` + days.map(([d, x]) => `<div class="c"><span>${x || ""}</span><i style="height:${Math.round(100 * x / top)}%"></i></div>`).join("") + `</div>` +
+    `<div class="axis" style="--n:14">` + days.map(([d]) => `<span>${fmtWd.format(dateOfDay(d))}</span>`).join("") + `</div>`;
+  $("#view-progres").innerHTML = h;
+}
+
+/* ---------- settings ---------- */
+function switchHTML(attr, val, on, label, disabled) {
+  return `<button type="button" class="switch" role="switch" ${attr}="${esc(val)}" aria-checked="${String(!!on)}" aria-label="${esc(label)}"${disabled ? " disabled" : ""}></button>`;
+}
+function renderSettings() {
+  const S = state.settings;
+  let h = `<h2>Vocabulaire</h2><div class="box">`;
+  for (const L of VLISTS) {
+    const seen = L.ids.filter(id => !inPass(id)).length;
+    h += `<div class="switchrow"><div class="txt">${esc(L.nom)}<small>${plural(L.ids.length, "mot", "mots")}${seen ? `, ${seen} vus` : ""}</small></div>${switchHTML("data-list", L.id, listOn(L.id), L.nom)}</div>`;
+  }
+  if (!VLISTS.length) h += `<p class="small">Aucun thème dans la banque.</p>`;
+  h += `</div>`;
+  h += `<div class="field"><span class="lbl">Nouveaux mots</span>${segHTML("newOrder", [["mix", "Thèmes mélangés"], ["lists", "Thème par thème"]])}</div>`;
+  h += `<div class="field"><span class="lbl">Face montrée d’abord</span>${segHTML("firstSide", [["en", "Anglais"], ["fr", "Français"]])}</div>`;
+  h += `<div class="box"><div class="switchrow"><div class="txt">Lire le mot à voix haute<small>Quand la carte montre l’anglais.</small></div>${switchHTML("data-flag", "autoAudio", S.autoAudio, "Lire le mot à voix haute")}</div></div>`;
+
+  h += `<h2>Voix</h2>`;
+  if (!speech.ok) h += `<p class="small">Cet appareil ne lit pas le texte à voix haute.</p>`;
+  else {
+    h += `<p class="small">Le TOEIC fait entendre des accents américain, britannique, australien et canadien. Choisis ceux que tu veux entendre.</p><div class="box">`;
+    for (const A of ACCENTS) {
+      const c = speech.count(A.id);
+      h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + " sur cet appareil" : "aucune voix sur cet appareil"}</small></div>` +
+        (c ? `<button type="button" class="btn small" data-try="${A.id}">Essayer</button>` : "") +
+        switchHTML("data-acc", A.id, S.accents.includes(A.id), A.nom, !c) + `</div>`;
+    }
+    h += `</div><div class="field"><span class="lbl">Vitesse</span>${segHTML("rate", [[0.8, "Lente"], [0.9, "Posée"], [1, "Normale"], [1.1, "Rapide"]])}</div>`;
+    h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais. Les voix « améliorées » sont bien plus naturelles.</p>`;
+  }
+
+  h += `<h2>Examen</h2><div class="field"><label class="lbl" for="exam-date">Date de l’examen</label><input type="date" id="exam-date" value="${esc(S.exam)}"></div>`;
+
+  h += `<h2>Affichage</h2><div class="field"><span class="lbl">Thème</span>${segHTML("theme", [["auto", "Automatique"], ["light", "Clair"], ["dark", "Sombre"]])}</div>`;
+  h += `<div class="field"><span class="lbl">Taille du texte</span>${segHTML("textSize", [["m", "Normale"], ["l", "Grande"], ["xl", "Très grande"]])}</div>`;
+
+  h += `<h2>Sauvegarde</h2><p class="small">Ta progression reste sur cet appareil. Garde-en une copie de temps en temps.</p>` +
+    `<div class="row"><button type="button" class="btn" id="backup-save">Exporter</button><button type="button" class="btn" id="backup-load">Importer</button></div>` +
+    `<input type="file" id="backup-file" accept="application/json,.json" hidden>`;
+
+  h += `<h2>Appli</h2><div class="box"><div class="switchrow"><div class="txt">Version du ${esc(BUILD)}<small>${plural(WORDS.length, "mot", "mots")}, ${P5.length} questions de Part 5, ${P2.length} de Part 2` +
+    `${missingFiles.length ? `. Fichiers non lus${NB}: ${esc(missingFiles.join(", "))}` : ""}</small></div><button type="button" class="btn small" id="app-update">Vérifier</button></div></div>`;
+  if (!matchMedia("(display-mode: standalone)").matches && !navigator.standalone)
+    h += `<p class="hint">Pour l’installer sur l’iPhone${NB}: dans Safari, Partager › Sur l’écran d’accueil. Elle marche ensuite hors ligne.</p>`;
+  $("#view-reglages").innerHTML = h;
+}
+function setSetting(key, raw) {
+  const S = state.settings;
+  const val = ["rate", "p5Size", "p2Size"].includes(key) ? Number(raw) : raw;
+  if (S[key] === val) return;
+  S[key] = val;
+  save();
+  if (key === "theme" || key === "textSize") applyLook(S);
+  if (key === "newOrder") { buildOrder(); vstudy.cur = null; }
+  if (key === "firstSide") vstudy.turned = false;
+  renderView();
+}
+
+/* ---------- backup ---------- */
+async function exportBackup() {
+  const d = new Date(), name = `cap945-${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}.json`;
+  const text = JSON.stringify({ app: "cap945", v: 1, at: d.toISOString(), state }, null, 1);
+  const file = new File([text], name, { type: "application/json" });
+  try {
+    if (navigator.canShare && navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], title: "Sauvegarde Cap 945" }); return; }
+  } catch (e) { if (e && e.name === "AbortError") return; }
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(file); a.download = name;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(a.href), 4000);
+  toast("Sauvegarde enregistrée : " + name);
+}
+function importBackup(file) {
+  const r = new FileReader();
+  r.onload = () => {
+    let data = null;
+    try { data = JSON.parse(r.result); } catch (e) {}
+    if (!data || data.app !== "cap945" || !isObj(data.state)) { toast("Ce fichier n’est pas une sauvegarde de Cap 945."); return; }
+    const when = data.at ? new Date(data.at) : null;
+    openSheet("Importer la sauvegarde", `<p>Remplacer ta progression actuelle par celle du fichier${when && !isNaN(when) ? ` du ${dateText(dayNum(when.getTime()))}` : ""}${NB}?</p>` +
+      `<p class="small">Ce qui n’est que sur cet appareil sera perdu.</p><div class="confirm"><button type="button" class="btn primary" id="imp-yes">Remplacer</button><button type="button" class="btn" data-close>Annuler</button></div>`);
+    $("#imp-yes").addEventListener("click", () => {
+      state = normalizeState(data.state);
+      live.p5 = {}; live.p2 = {}; vstudy.cur = null;
+      save(); applyLook(state.settings); buildOrder();
+      closeSheet();
+      toast("Sauvegarde importée.");
+      renderView();
+    });
+  };
+  r.readAsText(file);
+}
+
+/* ---------- sheet, toast, update ---------- */
+let sheetFrom = null;
+function openSheet(title, html) {
+  sheetFrom = document.activeElement;
+  $("#sheet-title").textContent = title;
+  $("#sheet-body").innerHTML = html;
+  $("#sheet").hidden = false;
+  const f = $("#sheet-body input, #sheet-body button") || $("#sheet .close");
+  f.focus({ preventScroll: true });
+}
+function closeSheet() {
+  $("#sheet").hidden = true;
+  $("#sheet-body").innerHTML = "";
+  if (sheetFrom && document.contains(sheetFrom)) sheetFrom.focus({ preventScroll: true });
+}
+let toastT = 0;
+function toast(msg, ms = 2800) {
+  const t = $("#toast");
+  t.textContent = frTypo(msg); t.hidden = false;
+  clearTimeout(toastT); toastT = setTimeout(() => { t.hidden = true; }, ms);
+}
+let swReg = null, swChecked = Date.now();
+async function updateApp() {
+  const b = $("#app-update");
+  b.disabled = true; b.textContent = "Recherche…";
+  try {
+    await loadBank().catch(() => {});
+    if (swReg) {
+      await swReg.update().catch(() => {});
+      const w = swReg.installing || swReg.waiting;
+      if (w) {
+        toast("Nouvelle version trouvée : rechargement…");
+        await new Promise(r => { const t = setTimeout(r, 4000); w.addEventListener("statechange", () => { if (w.state === "activated") { clearTimeout(t); r(); } }); });
+        location.reload();
+        return;
+      }
+    }
+    toast("L’appli est à jour. Banque de questions relue.");
+    renderView();
+  } finally { b.disabled = false; b.textContent = "Vérifier"; }
+}
+
+/* ---------- wiring ---------- */
+function onKindClick(kind, e) {
+  const t = e.target;
+  const opt = t.closest(".opt[data-c]");
+  if (opt && !opt.disabled) { choose(kind, Number(opt.dataset.c)); return; }
+  const sq = t.closest("[data-say-q]");
+  if (sq) { replayItem(sq.dataset.sayQ, sq); return; }
+  const set = t.closest("[data-set]");
+  if (set) { setSetting(set.dataset.set, set.dataset.v); return; }
+  const tag = t.closest("[data-tag]");
+  if (tag) { state.settings[kind + "Tag"] = tag.dataset.tag; save(); renderHome(kind); return; }
+  const act = t.closest("[data-act]");
+  if (!act) return;
+  const a = act.dataset.act;
+  if (a === "start" || a === "again") { live[kind] = {}; startRun(kind); }
+  else if (a === "resume") { live[kind] = { on: true }; showQuestion(kind); }
+  else if (a === "drop") {
+    $(`#${kind}-runbtns`).innerHTML = `<p class="small" style="flex-basis:100%">Abandonner cette série${NB}? Tes réponses déjà données restent comptées.</p>` +
+      `<button type="button" class="btn danger" data-act="drop-yes">Abandonner</button><button type="button" class="btn" data-act="home">Garder</button>`;
+  } else if (a === "drop-yes") { state.runs[kind] = null; live[kind] = {}; save(); renderHome(kind); renderCounts(); }
+  else if (a === "home") { live[kind] = {}; renderHome(kind); $("#main").scrollTop = 0; }
+  else if (a === "next") next(kind);
+}
+function bind() {
+  for (const t of $$(".tab")) t.addEventListener("click", () => showView(t.dataset.view));
+  $("#v-turn").addEventListener("click", vTurn);
+  $("#vcard").addEventListener("click", e => {
+    const s = e.target.closest("[data-say]");
+    if (s) { e.stopPropagation(); const w = WBYID.get(vstudy.cur); if (w) speech.say(s.dataset.say === "ex" ? w.ex : w.en, wordVoice(w.id), s); return; }
+    if (!vstudy.turned) vTurn();
+  });
+  $("#v-grades").addEventListener("click", e => { const g = e.target.closest(".grade"); if (g) vGrade(g.dataset.g === "1"); });
+  $("#v-browse").addEventListener("click", browseSheet);
+  for (const kind of ["p5", "p2"]) {
+    $(`#view-${kind === "p5" ? "lecture" : "ecoute"}`).addEventListener("click", e => onKindClick(kind, e));
+    $(`#${kind}-stop`).addEventListener("click", () => finish(kind, "stop"));
+  }
+  $("#p2-replay").addEventListener("click", () => { if (!answered("p2")) p2Play(); else { const q = curQ("p2"); if (q) speech.seq(p2Parts(q, live.p2.V), null, $("#p2-replay")); } });
+  $("#view-reglages").addEventListener("click", e => {
+    const t = e.target;
+    const set = t.closest("[data-set]");
+    if (set) { setSetting(set.dataset.set, set.dataset.v); return; }
+    const sw = t.closest(".switch");
+    if (sw && !sw.disabled) {
+      const on = sw.getAttribute("aria-checked") !== "true";
+      if (sw.dataset.list) {
+        state.lists[sw.dataset.list] = { on };
+        buildOrder(); vstudy.cur = null;
+      } else if (sw.dataset.acc) {
+        const A = state.settings.accents.filter(x => x !== sw.dataset.acc);
+        if (on) A.push(sw.dataset.acc);
+        state.settings.accents = A;
+      } else if (sw.dataset.flag) state.settings[sw.dataset.flag] = on;
+      save();
+      sw.setAttribute("aria-checked", String(on));
+      renderCounts();
+      return;
+    }
+    const tr = t.closest("[data-try]");
+    if (tr) {
+      const vs = speech.voices.filter(x => x.accent === tr.dataset.try);
+      const v = vs[Math.floor(Math.random() * vs.length)];
+      if (v) speech.say("Could you send me the revised schedule before Friday’s meeting?", v.v, tr);
+      return;
+    }
+    if (t.closest("#backup-save")) exportBackup();
+    else if (t.closest("#backup-load")) $("#backup-file").click();
+    else if (t.closest("#app-update")) updateApp();
+  });
+  $("#view-reglages").addEventListener("change", e => {
+    if (e.target.id === "exam-date") { state.settings.exam = dayOfISO(e.target.value) ? e.target.value : ""; save(); }
+    if (e.target.id === "backup-file" && e.target.files[0]) { importBackup(e.target.files[0]); e.target.value = ""; }
+  });
+  $("#sheet").addEventListener("click", e => { if (e.target.closest("[data-close]")) closeSheet(); });
+  $("#update-reload").addEventListener("click", () => location.reload());
+  const unlock = () => {                           // Safari speaks only once a first utterance came from a touch or a key
+    if (!speech.ok || speech.unlocked) return;
+    speech.unlocked = true;
+    try { const u = new SpeechSynthesisUtterance(" "); u.volume = 0; speechSynthesis.speak(u); } catch (e) {}
+  };
+  document.addEventListener("pointerdown", unlock, { capture: true });
+  document.addEventListener("keydown", unlock, { capture: true });
+  document.addEventListener("keydown", onKey);
+  document.addEventListener("visibilitychange", onVisibility);
+  matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => applyLook(state.settings));
+  window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { state = loadState(); buildOrder(); renderView(); } });
+}
+function onKey(e) {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (!$("#sheet").hidden) { if (e.key === "Escape") closeSheet(); return; }
+  const tag = (e.target.tagName || "").toLowerCase();
+  if (tag === "input" || tag === "select" || tag === "textarea") return;
+  const k = e.key.toLowerCase(), go = k === " " || k === "enter";
+  const el = document.activeElement;
+  const btn = el && el !== document.body && el.matches("button, a, summary") && !el.matches('.tab[aria-current="page"]');
+  if (current === "mots" && vstudy.cur && !$("#v-study").hidden) {
+    if (go) { if (btn) return; e.preventDefault(); vTurn(); }   // a focused button keeps its own Space and Enter
+    else if (vstudy.turned && (k === "1" || k === "2")) { e.preventDefault(); vGrade(k === "2"); }
+    else if (k === "l") { e.preventDefault(); sayWord(); }
+    return;
+  }
+  const kind = current === "lecture" ? "p5" : current === "ecoute" ? "p2" : null;
+  if (!kind || !state.runs[kind] || $(`#${kind}-run`).hidden) return;
+  const n = kind === "p5" ? 4 : 3;
+  let c = "1234".indexOf(k);
+  if (c < 0 && k.length === 1) c = "abcd".indexOf(k);
+  if (c >= 0 && c < n && !answered(kind)) { e.preventDefault(); choose(kind, c); }
+  else if (go && answered(kind) && state.runs[kind].mode === "train" && !(btn && !el.matches('[data-act="next"]'))) { e.preventDefault(); next(kind); }
+  else if (k === "r" && kind === "p2") { e.preventDefault(); $("#p2-replay").hidden || $("#p2-replay").click(); }
+}
+function onVisibility() {                          // the app in the background: the clock stops, the question starts again on return
+  const kind = current === "lecture" ? "p5" : current === "ecoute" ? "p2" : null;
+  if (document.hidden) { if (kind) suspend(kind); speech.stop(); return; }
+  if (kind && state.runs[kind] && live[kind].on && !$(`#${kind}-run`).hidden) showQuestion(kind);
+  if (swReg && Date.now() - swChecked > 30 * 60e3) { swChecked = Date.now(); swReg.update().catch(() => {}); }
+  if (current === "mots" && !vstudy.turned) vShow();
+  renderCounts();
+}
+
+async function init() {
+  applyLook(state.settings);
+  bind();
+  speech.load();
+  if (speech.ok) {
+    try { speechSynthesis.addEventListener("voiceschanged", () => speech.load()); } catch (e) {}
+    for (const t of [300, 1200, 3000]) setTimeout(() => speech.load(t === 3000), t);   // Safari does not always say when its voices are ready
+  }
+  try { if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {}); } catch (e) {}
+  current = null;
+  try { await loadBank(); }
+  catch (e) {
+    $("#loading").innerHTML = `Impossible de charger la banque de questions. Vérifie la connexion, puis <button type="button" class="btn small" id="retry">Réessayer</button>`;
+    $("#retry").addEventListener("click", () => location.reload());
+    return;
+  }
+  $("#loading").hidden = true;
+  for (const k of ["p5", "p2"]) if (state.runs[k]) live[k] = {};   // a series saved before: offered on its tab
+  showView(state.settings.view);
+  if (missingFiles.length) toast(`Fichiers non lus${NB}: ${missingFiles.join(", ")}.`, 4000);
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("sw.js").then(reg => {
+      swReg = reg;
+      const watch = w => { if (w) w.addEventListener("statechange", () => { if (w.state === "installed" && navigator.serviceWorker.controller) $("#updatebar").hidden = false; }); };
+      reg.addEventListener("updatefound", () => watch(reg.installing));
+    }).catch(() => {});
+  }
+}
+init();
+</script>
+</body>
+</html>
