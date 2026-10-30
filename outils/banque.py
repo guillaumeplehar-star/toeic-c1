@@ -5,6 +5,7 @@
     py outils\\banque.py verifier      contrôle tout ; code 1 s'il y a une erreur
     py outils\\banque.py stats         répartition des réponses, compétences, niveaux et types par fichier
     py outils\\banque.py corriger      remplace les apostrophes droites par ’ et retire les espaces en trop
+    py outils\\banque.py doublons      questions trop proches (même bonne réponse et phrase semblable, ou phrase presque identique)
 
 Format des fichiers : outils/consignes.md.
 """
@@ -228,9 +229,53 @@ def fix():
     print("%d fichier(s) modifié(s)." % changed)
 
 
+STOP = set("the a an of to in on for and or is are was were be been by with at from that this it as our your their all any will would "
+           "has have had not no please its his her they we you he she which who".split())
+
+
+def content_words(s):
+    return {w for w in re.findall(r"[a-z’']+", s.lower().replace("-------", " ")) if w not in STOP and len(w) > 2}
+
+
+def doubles():
+    """Paires de questions trop proches, dans une même série ou entre deux séries."""
+    config = load_config()
+    items = []
+    for entry in config.get("listes", []):
+        if entry.get("type") not in ("part5", "part2"):
+            continue
+        path = os.path.join(BANQUE, entry["fichier"])
+        if not os.path.exists(path):
+            continue
+        head, rows = read_rows(path)
+        want = HEADERS[entry["type"]]
+        for _, cells in rows:
+            if len(cells) != len(want):
+                continue
+            r = dict(zip(want, cells))
+            letters = "abcd" if entry["type"] == "part5" else "abc"
+            right = r[letters["ABCD".index(r["reponse"])]] if r["reponse"] in "ABCD"[:len(letters)] else ""
+            text = r["phrase"] if entry["type"] == "part5" else r["question"]
+            items.append((entry["type"], r["id"], right.lower().strip(), content_words(text), text))
+    found = 0
+    for i in range(len(items)):
+        for j in range(i + 1, len(items)):
+            a, b = items[i], items[j]
+            if a[0] != b[0] or not a[3] or not b[3]:
+                continue
+            sim = len(a[3] & b[3]) / len(a[3] | b[3])
+            if sim >= 0.5 or (a[2] == b[2] and sim >= 0.25):
+                found += 1
+                print("%s ~ %s  (%.0f %%%s)\n    %s\n    %s" % (a[1], b[1], 100 * sim, ", même réponse : " + a[2] if a[2] == b[2] else "", a[4], b[4]))
+    print("%d paire(s) trop proche(s)." % found)
+
+
 def main():
     utf8()
     cmd = sys.argv[1] if len(sys.argv) > 1 else "verifier"
+    if cmd == "doublons":
+        doubles()
+        return
     if cmd == "verifier":
         sys.exit(verify())
     if cmd == "stats":

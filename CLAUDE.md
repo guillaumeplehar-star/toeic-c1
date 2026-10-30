@@ -26,7 +26,7 @@ estimé par partie, tirage selon les points faibles, synchronisation entre appar
 | `fonts/` | Andika (police `"AndikaX"`, sous-ensembles latins, licence OFL), reprise de 形音义. |
 | `banque/` | Le contenu : `banque.json` (liste des fichiers : `id`, `type` = `mots` / `part5` / `part2`, `nom`, `fichier`, `actif` facultatif) et un `.tsv` par fichier. |
 | `outils/consignes.md` | Format exact des fichiers et règles de rédaction et de relecture (à donner aux agents qui écrivent du contenu). |
-| `outils/banque.py` | `verifier`, `stats`, `corriger` (apostrophes droites). |
+| `outils/banque.py` | `verifier`, `stats`, `corriger` (apostrophes droites), `doublons` (questions trop proches entre séries : à lancer après tout ajout de questions). |
 | `outils/version_appli.py` | À lancer après toute modification de l’appli : `const BUILD` et `VERSION`/`EXTRA` de `sw.js`. |
 | `outils/icones.py` | Refait les icônes (Pillow). |
 | `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/`). Voix simulée : `window.__said`. |

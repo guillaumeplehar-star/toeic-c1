@@ -116,6 +116,7 @@ py outils\banque.py verifier
 ```
 
 `py outils\banque.py stats` donne la répartition des réponses et des compétences par fichier,
+`py outils\banque.py doublons` liste les questions trop proches d’une série à l’autre,
 `py outils\banque.py corriger` remplace les apostrophes droites par ’.
 
 Ne change jamais l’`id` d’une question ni le mot anglais d’une carte déjà apprise : la progression y est attachée.
