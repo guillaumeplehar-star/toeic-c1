@@ -6,8 +6,10 @@ l’écran d’accueil, hors ligne. Ordinateur sous Windows (PowerShell ; Python
 en français. Petite sœur de 形音义 (dépôt `xingyinyi`, flashcards de chinois) : même façon de faire, même planning
 en seaux pour le vocabulaire.
 
-**Ce dépôt est le site publié** (GitHub Pages, branche `main`, racine). Pas de framework, pas de compilation :
-`index.html` contient tout le HTML, le CSS et le JavaScript.
+**Ce dépôt est le site publié** (GitHub Pages, branche `main`, racine) : dépôt
+https://github.com/guillaumeplehar-star/toeic-c1, site https://guillaumeplehar-star.github.io/toeic-c1/. Pas de
+framework, pas de compilation : `index.html` contient tout le HTML, le CSS et le JavaScript. Publier : `git add -A`,
+`git commit`, `git push` (une à deux minutes).
 
 Version 1 : vocabulaire, Part 5, Part 2. Prévu ensuite (v2) : Parts 3-4 (conversations et exposés, avec questions
 lues avant l’audio) et Parts 6-7 (textes à trous, lecture simple, double, triple) ; (v3) examens blancs avec score

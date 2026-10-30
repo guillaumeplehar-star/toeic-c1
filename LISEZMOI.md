@@ -12,7 +12,7 @@ Cette première version couvre trois choses :
 
 ## 1. Installer l’appli sur l’iPhone
 
-1. Ouvre l’adresse de l’appli dans **Safari** (voir la section 7 pour la publier).
+1. Ouvre https://guillaumeplehar-star.github.io/toeic-c1/ dans **Safari**.
 2. Touche **Partager**, puis **Sur l’écran d’accueil**.
 3. Ouvre-la depuis l’écran d’accueil : elle garde sa copie et marche sans réseau.
 
@@ -141,11 +141,8 @@ Captures d’écran dans `tests/sortie/captures`.
 
 ### Publier sur GitHub Pages
 
-Une fois : crée un dépôt sur GitHub, ajoute-le comme `origin`, pousse la branche `main`, puis dans les réglages
-du dépôt : **Pages › Deploy from a branch › main / (root)**. L’adresse sera
-`https://<ton compte>.github.io/<nom du dépôt>/`.
-
-Ensuite, à chaque changement :
+Le dépôt est https://github.com/guillaumeplehar-star/toeic-c1 (public, branche `main`) ; GitHub Pages publie sa
+racine sur https://guillaumeplehar-star.github.io/toeic-c1/. À chaque changement :
 
 ```powershell
 git add -A
