@@ -1,0 +1,191 @@
+{
+  "sets": [
+    {
+      "id": "3t-001",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi, Daniel. Did you get a chance to look at the revised budget for the trade fair?"
+        ],
+        [
+          "M",
+          "I did. The booth rental went up, but we saved on printing by ordering the brochures online."
+        ],
+        [
+          "W",
+          "Good. What about travel? Four of us are going to Chicago."
+        ],
+        [
+          "M",
+          "Flights are booked. The hotel is the only thing left, and the cheaper one near the venue is full."
+        ],
+        [
+          "W",
+          "Then let’s ask the organizers. They usually reserve rooms for exhibitors at a discount."
+        ],
+        [
+          "M",
+          "Good idea. I’ll call them this afternoon."
+        ]
+      ],
+      "lines_fr": [
+        "Salut Daniel. Tu as pu regarder le budget révisé du salon ?",
+        "Oui. La location du stand a augmenté, mais on a économisé sur l’impression en commandant les brochures en ligne.",
+        "Bien. Et le voyage ? Nous allons à Chicago à quatre.",
+        "Les vols sont réservés. Il ne reste que l’hôtel, et le moins cher, près du lieu, est complet.",
+        "Alors demandons aux organisateurs. Ils réservent souvent des chambres à prix réduit pour les exposants.",
+        "Bonne idée. Je les appelle cet après-midi."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What event are the speakers preparing for?",
+          "opts": [
+            "A product launch",
+            "A trade fair",
+            "A training session",
+            "A job fair"
+          ],
+          "ans": "B",
+          "type": "sujet",
+          "expl": "La femme parle du *budget for the trade fair*.",
+          "q_fr": "À quel événement les interlocuteurs se préparent-ils ?"
+        },
+        {
+          "q": "How did the speakers reduce costs?",
+          "opts": [
+            "By sharing a booth",
+            "By choosing a cheaper hotel",
+            "By ordering brochures online",
+            "By flying economy"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*We saved on printing by ordering the brochures online.* L’hôtel bon marché est complet : piège.",
+          "q_fr": "Comment les interlocuteurs ont-ils réduit les coûts ?"
+        },
+        {
+          "q": "What will the man do this afternoon?",
+          "opts": [
+            "Contact the organizers",
+            "Book flights",
+            "Print brochures",
+            "Visit the venue"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "*I’ll call them this afternoon* : *them* reprend *the organizers*.",
+          "q_fr": "Que va faire l’homme cet après-midi ?"
+        }
+      ]
+    },
+    {
+      "id": "3t-002",
+      "speakers": {
+        "W": "f",
+        "M": "m",
+        "M2": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Priya, Tom, the client moved the presentation to Thursday morning."
+        ],
+        [
+          "W",
+          "Thursday? The slides won’t be ready by then."
+        ],
+        [
+          "M2",
+          "I can finish the charts tonight if Priya sends me the sales figures."
+        ],
+        [
+          "W",
+          "I’ll send them right after this meeting."
+        ],
+        [
+          "M",
+          "Great. Then let’s rehearse on Wednesday afternoon, after lunch."
+        ],
+        [
+          "M2",
+          "Room B is booked all day, so we’ll need another room. The schedule is on the board."
+        ]
+      ],
+      "lines_fr": [
+        "Priya, Tom, le client a avancé la présentation à jeudi matin.",
+        "Jeudi ? Les diapositives ne seront pas prêtes.",
+        "Je peux finir les graphiques ce soir si Priya m’envoie les chiffres de ventes.",
+        "Je les envoie juste après cette réunion.",
+        "Parfait. Alors répétons mercredi après-midi, après le déjeuner.",
+        "La salle B est réservée toute la journée, il nous faudra une autre salle. Le planning est au tableau."
+      ],
+      "graphic": {
+        "title": "Room availability, Wednesday",
+        "rows": [
+          [
+            "Room",
+            "Free"
+          ],
+          [
+            "Room A",
+            "9:00 to 11:00"
+          ],
+          [
+            "Room B",
+            "Booked all day"
+          ],
+          [
+            "Room C",
+            "2:00 to 5:00"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "Why is the woman concerned?",
+          "opts": [
+            "A client canceled a meeting",
+            "Some slides may not be finished",
+            "A room is too small",
+            "Sales have fallen"
+          ],
+          "ans": "B",
+          "type": "inference",
+          "expl": "*The slides won’t be ready by then* : elle craint de ne pas finir à temps.",
+          "q_fr": "Pourquoi la femme est-elle inquiète ?"
+        },
+        {
+          "q": "What does the woman agree to do?",
+          "opts": [
+            "Rehearse alone",
+            "Call the client",
+            "Send some figures",
+            "Prepare the charts"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "Tom demande les chiffres de ventes ; elle répond *I’ll send them right after this meeting*.",
+          "q_fr": "Qu’est-ce que la femme accepte de faire ?"
+        },
+        {
+          "q": "Look at the graphic. Which room will the speakers most likely use?",
+          "opts": [
+            "Room A",
+            "Room B",
+            "Room C",
+            "The client’s office"
+          ],
+          "ans": "C",
+          "type": "graphique",
+          "expl": "Ils répètent mercredi après-midi et la salle B est prise : seule la salle C est libre l’après-midi (2:00 to 5:00).",
+          "q_fr": "Regardez le graphique. Quelle salle les interlocuteurs vont-ils sans doute utiliser ?"
+        }
+      ]
+    }
+  ]
+}

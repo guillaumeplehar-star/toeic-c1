@@ -1,8 +1,52 @@
 {
   "listes": [
-    { "id": "t1", "type": "mots", "nom": "Thème un", "fichier": "mots-t1.tsv" },
-    { "id": "t2", "type": "mots", "nom": "Thème deux", "fichier": "mots-t2.tsv" },
-    { "id": "5t", "type": "part5", "nom": "Part 5, test", "fichier": "part5-t.tsv" },
-    { "id": "2t", "type": "part2", "nom": "Part 2, test", "fichier": "part2-t.tsv" }
+    {
+      "id": "t1",
+      "type": "mots",
+      "nom": "Thème un",
+      "fichier": "mots-t1.tsv"
+    },
+    {
+      "id": "t2",
+      "type": "mots",
+      "nom": "Thème deux",
+      "fichier": "mots-t2.tsv"
+    },
+    {
+      "id": "5t",
+      "type": "part5",
+      "nom": "Part 5, test",
+      "fichier": "part5-t.tsv"
+    },
+    {
+      "id": "2t",
+      "type": "part2",
+      "nom": "Part 2, test",
+      "fichier": "part2-t.tsv"
+    },
+    {
+      "id": "3t",
+      "type": "part3",
+      "nom": "Part 3, test",
+      "fichier": "part3-t.json"
+    },
+    {
+      "id": "4t",
+      "type": "part4",
+      "nom": "Part 4, test",
+      "fichier": "part4-t.json"
+    },
+    {
+      "id": "6t",
+      "type": "part6",
+      "nom": "Part 6, test",
+      "fichier": "part6-t.json"
+    },
+    {
+      "id": "7t",
+      "type": "part7",
+      "nom": "Part 7, test",
+      "fichier": "part7-t.json"
+    }
   ]
 }

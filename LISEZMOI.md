@@ -4,11 +4,14 @@ Appli d’entraînement au **TOEIC Listening & Reading**, pour viser le niveau *
 Elle s’installe sur l’iPhone depuis Safari et marche ensuite hors ligne. Tout le contenu est original : aucune
 question d’ETS ni d’un manuel publié.
 
-Cette première version couvre trois choses :
+Elle couvre :
 
 - **Mots** : le vocabulaire du TOEIC au niveau B2+ à C1, en cartes à seaux, avec la voix ;
-- **Lecture** : la Part 5 (phrases à trous), en entraînement ou en examen chronométré ;
-- **Écoute** : la Part 2 (question-réponse), lue par les voix anglaises de l’appareil.
+- **Lecture** : Part 5 (phrases à trous), Part 6 (textes à trous), Part 7 (documents simples, doubles, triples) ;
+- **Écoute** : Part 2 (question-réponse), Part 3 (conversations), Part 4 (exposés), lues par les voix anglaises de
+  l’appareil.
+
+Chaque partie se fait en entraînement ou en examen chronométré. La Part 1 (photos) n’est pas proposée.
 
 ## 1. Installer l’appli sur l’iPhone
 
@@ -74,6 +77,33 @@ avec deux voix différentes et des accents variés. Choisis la réponse logique.
 Les accents entendus se règlent dans **Réglages › Voix** (américain, britannique, australien, canadien), avec la
 vitesse. Sans voix anglaise sur l’appareil, le texte s’affiche à la place, et le mode examen n’est pas proposé.
 
+## 4 bis. Parts 3, 4, 6 et 7 : des lots de questions
+
+En haut des onglets Lecture et Écoute, choisis la partie : Part 5, 6 ou 7 ; Part 2, 3 ou 4. Dans les Parts 3, 4,
+6 et 7, une série est faite de **lots** : une conversation, un exposé, un texte ou un groupe de documents, avec
+toutes leurs questions. Tu réponds aux questions dans l’ordre que tu veux, puis tu touches **Valider**.
+
+- **Part 3** (conversations à deux ou trois) et **Part 4** (annonces, messages, bulletins, visites guidées…) : les
+  trois questions sont écrites, la conversation non. Les voix suivent les personnes : une voix de femme pour « the
+  woman », une voix d’homme pour « the man » (quand l’appareil en a). Certaines questions s’appuient sur un
+  graphique (programme, liste de prix…) affiché avec elles.
+  - Entraînement : tu peux réécouter ; après Valider, la transcription (qui dit quoi), la traduction et
+    l’explication de chaque question.
+  - Examen : comme le jour de l’épreuve, quelques secondes pour lire les questions, une seule écoute, puis
+    8 secondes par question ; le lot se valide de lui-même.
+- **Part 6** : un texte à quatre trous, dont une phrase entière à choisir. Le mot choisi s’écrit dans le texte ;
+  touche un trou pour aller à sa question. Objectif : 40 secondes par trou.
+- **Part 7** : un, deux ou trois documents (courriels, articles, formulaires, textos, factures…). Le filtre
+  « Un document » / « Plusieurs » choisit les lots. Objectif : une minute par question, le rythme qu’il faut pour
+  finir la Part 7.
+
+En examen, les Parts 6 et 7 ont un seul chronomètre pour toute la série ; quand il arrive à zéro, ce qui est coché
+sur le lot en cours compte, et les lots restants comptent comme faux. Les questions ratées entrent au carnet
+d’erreurs, et leur lot revient en priorité dans les séries suivantes.
+
+Au clavier : 1 à 4 (ou A à D) répond à la première question encore libre, Entrée valide puis passe au lot
+suivant, R réécoute.
+
 ## 5. Progrès
 
 - le compte à rebours jusqu’à l’examen (date à régler dans Réglages) ;
@@ -107,9 +137,9 @@ puis http://localhost:8000.
 
 ### La banque de contenu
 
-`banque/banque.json` liste les fichiers ; chaque fichier `.tsv` (texte séparé par des tabulations, lisible dans un
-tableur) contient soit des mots, soit des questions de Part 5, soit des questions de Part 2. Le format exact et les
-règles de rédaction sont dans `outils/consignes.md`. Après toute modification :
+`banque/banque.json` liste les fichiers. Les mots et les Parts 2 et 5 sont dans des fichiers `.tsv` (texte séparé
+par des tabulations, lisible dans un tableur) ; les Parts 3, 4, 6 et 7, faites de lots, dans des fichiers `.json`.
+Le format exact et les règles de rédaction sont dans `outils/consignes.md`. Après toute modification :
 
 ```powershell
 py outils\banque.py verifier
@@ -119,7 +149,8 @@ py outils\banque.py verifier
 `py outils\banque.py doublons` liste les questions trop proches d’une série à l’autre,
 `py outils\banque.py corriger` remplace les apostrophes droites par ’.
 
-Ne change jamais l’`id` d’une question ni le mot anglais d’une carte déjà apprise : la progression y est attachée.
+Ne change jamais l’`id` d’une question ou d’un lot, ni l’ordre des questions d’un lot, ni le mot anglais d’une carte
+déjà apprise : la progression y est attachée.
 Une modification de la banque n’a pas besoin d’une nouvelle version de l’appli : elle se relit à l’ouverture.
 
 ### Après une modification de l’appli

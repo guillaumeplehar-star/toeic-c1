@@ -231,6 +231,39 @@ details.more summary{color:var(--accent);cursor:pointer;font-size:calc(15px * va
 .window i{display:block;height:100%;width:100%;background:var(--warn)}
 .window.run i{width:0;transition:width 5s linear}
 .readtext{background:var(--page);border:1px dashed var(--rule);border-radius:12px;padding:10px 14px;margin:10px 0}
+/* sets: documents, recordings, several questions answered together */
+.partsel{margin:4px 0 8px}
+.doc{background:var(--page);border:1px solid var(--rule);border-radius:14px;padding:12px 16px;margin:0 0 12px;font-size:calc(16px * var(--tz));line-height:1.55}
+.doc p{margin:8px 0}
+.doc h3{margin:4px 0 6px;font-size:calc(17px * var(--tz))}
+.doc-kind{font-size:calc(12px * var(--tz));color:var(--faint);text-transform:uppercase;letter-spacing:.06em}
+.doc .chat{display:block;padding:2px 0}
+.mk{color:var(--accent)}
+.blank{display:inline-block;min-width:4.5em;border-bottom:2px solid var(--ink);padding:0 3px;font-weight:700}
+.blank .n{display:inline-grid;place-items:center;width:1.45em;height:1.45em;border-radius:50%;background:var(--bg);border:1px solid var(--rule);
+  font-size:.75em;margin-right:4px;color:var(--pencil);vertical-align:.1em}
+.blank[data-b]{cursor:pointer}
+.blank.on{color:var(--accent);border-color:var(--accent)}
+.blank.ok{color:var(--ok);border-color:var(--ok)}
+.blank.ko{color:var(--ok);border-color:var(--ko)}
+.blank.ko s{color:var(--ko);font-weight:400}
+.tblwrap{overflow-x:auto;margin:10px 0}
+.tbl{border-collapse:collapse;font-size:calc(14px * var(--tz));min-width:60%;background:var(--page)}
+.tbl caption{text-align:left;font-weight:700;padding:4px 0}
+.tbl th,.tbl td{border:1px solid var(--rule);padding:5px 9px;text-align:left;vertical-align:top}
+.tbl th{background:var(--bg)}
+.sqs{list-style:none;padding:0;margin:14px 0 0;counter-reset:sq}
+.sq{margin:0 0 14px;padding-top:10px;border-top:1px solid var(--rule)}
+.sq .qt{font-weight:700;margin:0 0 6px;display:flex;gap:8px}
+.sq .qt::before{counter-increment:sq;content:counter(sq) ".";color:var(--accent);flex:none}
+.sq .opts{margin:6px 0}
+.sq .opt{min-height:44px;font-size:calc(16px * var(--tz))}
+.sqfb{margin:6px 0 0}
+.setact{margin:8px 0 6px}
+.lines p{margin:6px 0}
+.lines .who{color:var(--accent);margin-right:4px}
+.lines .trad{display:block;font-size:calc(14px * var(--tz))}
+.trad-doc{font-size:calc(15px * var(--tz));color:var(--pencil)}
 .tr-opts{list-style:none;padding:0;margin:8px 0}
 .tr-opts li{display:flex;gap:8px;align-items:baseline;padding:4px 0}
 .tr-opts li b{flex:none;width:2.2em;color:var(--pencil)}
@@ -354,6 +387,8 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
         <p class="keys"><kbd>1</kbd>–<kbd>4</kbd> ou <kbd>A</kbd>–<kbd>D</kbd> répondre · <kbd>Entrée</kbd> suivante</p>
       </div>
       <div id="p5-done" hidden></div>
+      <div id="p6-home" hidden></div><div id="p6-run" hidden></div><div id="p6-done" hidden></div>
+      <div id="p7-home" hidden></div><div id="p7-run" hidden></div><div id="p7-done" hidden></div>
     </section>
 
     <section class="view" id="view-ecoute" hidden aria-label="Écoute, Part 2">
@@ -373,6 +408,8 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
         <p class="keys"><kbd>1</kbd>–<kbd>3</kbd> ou <kbd>A</kbd>–<kbd>C</kbd> répondre · <kbd>R</kbd> réécouter · <kbd>Entrée</kbd> suivante</p>
       </div>
       <div id="p2-done" hidden></div>
+      <div id="p3-home" hidden></div><div id="p3-run" hidden></div><div id="p3-done" hidden></div>
+      <div id="p4-home" hidden></div><div id="p4-run" hidden></div><div id="p4-done" hidden></div>
     </section>
 
     <section class="view" id="view-progres" hidden aria-label="Progrès"></section>
@@ -420,10 +457,31 @@ const ACCENTS = [
 ];
 // novelty and robotic voices of Apple devices: useless for listening practice
 const ODD_VOICES = /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Pipe Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley)\b/i;
-const SIZES = { p5: [10, 20, 30], p2: [10, 15, 25] };
+const P6_SECONDS = 40;                             // C1 pace for a Part 6 question (16 questions in about 10 min)
+const P7_SECONDS = 60;                             // and for Part 7 (54 questions in about 55 min)
+const P34_WINDOW = 8000;                           // Parts 3-4 exam: time per question once the audio is over (+4 s with a graphic)
+const PREREAD = 3000;                              // Parts 3-4 exam: time per question to read them before the audio
+const P34_TYPES = { sujet: "Sujet et contexte", detail: "Détails", inference: "Déductions", action: "Suite et demandes",
+  intention: "Intention du locuteur", graphique: "Graphiques" };
+const P6_TYPES = { ...P5_TAGS, phrase: "Phrase à insérer" };
+const P7_TYPES = { idee: "Idée principale", detail: "Détails", inference: "Déductions", vocab: "Vocabulaire", "vrai-faux": "Vrai ou faux",
+  insertion: "Phrase à insérer", intention: "Intention", croise: "Documents croisés" };
+// the six parts: p2 and p5 one question at a time, the others by sets (a text or a recording and its questions)
+const KINDS = {
+  p2: { tab: "ecoute", nom: "Part 2", titre: "question-réponse", tags: P2_TYPES },
+  p3: { tab: "ecoute", nom: "Part 3", titre: "conversations", tags: P34_TYPES, sets: true, listen: true, unit: ["conversation", "conversations"] },
+  p4: { tab: "ecoute", nom: "Part 4", titre: "exposés", tags: P34_TYPES, sets: true, listen: true, unit: ["exposé", "exposés"] },
+  p5: { tab: "lecture", nom: "Part 5", titre: "phrases à trous", tags: P5_TAGS },
+  p6: { tab: "lecture", nom: "Part 6", titre: "textes à trous", tags: P6_TYPES, sets: true, unit: ["texte", "textes"], pace: P6_SECONDS },
+  p7: { tab: "lecture", nom: "Part 7", titre: "lecture", tags: P7_TYPES, sets: true, unit: ["lot", "lots"], pace: P7_SECONDS },
+};
+const TAB_KINDS = { lecture: ["p5", "p6", "p7"], ecoute: ["p2", "p3", "p4"] };
+const SET_FILTERS = { p7: [["", "Tous"], ["simple", "Un document"], ["multiple", "Plusieurs"]] };
+const SIZES = { p5: [10, 20, 30], p2: [10, 15, 25], p3: [3, 5, 10], p4: [3, 5, 10], p6: [2, 4, 6], p7: [2, 4, 8] };
 const DEFAULTS = { theme: "auto", textSize: "m", firstSide: "en", autoAudio: true, newOrder: "mix", rate: 1,
   accents: ["us", "gb", "au", "ca"], p5Size: 20, p5Mode: "train", p5Tag: "", p2Size: 15, p2Mode: "train", p2Tag: "",
-  exam: "", view: "mots" };
+  p3Size: 5, p3Mode: "train", p3Tag: "", p4Size: 5, p4Mode: "train", p4Tag: "", p6Size: 4, p6Mode: "train", p6Tag: "",
+  p7Size: 4, p7Mode: "train", p7Tag: "", readPart: "p5", listenPart: "p2", exam: "", view: "mots" };
 
 /* ---------- utilities ---------- */
 const $ = (s, r = document) => r.querySelector(s);
@@ -439,6 +497,7 @@ function fold(s) { return String(s || "").toLowerCase().normalize("NFD").replace
 function hash(s) { let h = 2166136261; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
 function shuffle(a) { for (let k = a.length - 1; k > 0; k--) { const r = Math.floor(Math.random() * (k + 1)); [a[k], a[r]] = [a[r], a[k]]; } return a; }
 function clock(ms) { const s = Math.max(0, Math.ceil(ms / 1000)); return Math.floor(s / 60) + ":" + String(s % 60).padStart(2, "0"); }
+const reducedMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function dayNum(t = Date.now()) {                  // the day starts at 4:00, like Anki
   const d = new Date(t - 4 * 3600e3);
@@ -458,7 +517,9 @@ function dayText(n, today) {
 
 /* ---------- state ---------- */
 function blank() {
-  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice() }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs: { p5: null, p2: null } };
+  const runs = {};
+  for (const k in KINDS) runs[k] = null;
+  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice() }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs };
 }
 function isObj(x) { return !!x && typeof x === "object" && !Array.isArray(x); }
 function cleanRun(r) {
@@ -472,15 +533,17 @@ function normalizeState(s) {
   const st = blank();
   if (!isObj(s)) return st;
   const S = st.settings = { ...st.settings, ...(isObj(s.settings) ? s.settings : {}) };
-  for (const [k, ok] of [["theme", ["auto", "light", "dark"]], ["textSize", ["m", "l", "xl"]], ["firstSide", ["en", "fr"]],
-    ["newOrder", ["mix", "lists"]], ["rate", [0.8, 0.9, 1, 1.1]], ["p5Mode", ["train", "exam"]], ["p2Mode", ["train", "exam"]],
-    ["p5Size", SIZES.p5], ["p2Size", SIZES.p2], ["view", ["mots", "lecture", "ecoute", "progres", "reglages"]]]) {
-    if (!ok.includes(S[k])) S[k] = DEFAULTS[k];
-  }
+  const allowed = [["theme", ["auto", "light", "dark"]], ["textSize", ["m", "l", "xl"]], ["firstSide", ["en", "fr"]],
+    ["newOrder", ["mix", "lists"]], ["rate", [0.8, 0.9, 1, 1.1]], ["readPart", TAB_KINDS.lecture], ["listenPart", TAB_KINDS.ecoute],
+    ["view", ["mots", "lecture", "ecoute", "progres", "reglages"]]];
+  for (const k in KINDS) allowed.push([k + "Mode", ["train", "exam"]], [k + "Size", SIZES[k]]);
+  for (const [k, ok] of allowed) if (!ok.includes(S[k])) S[k] = DEFAULTS[k];
   S.autoAudio = S.autoAudio !== false;
   S.accents = Array.isArray(S.accents) ? S.accents.filter(a => ACCENTS.some(A => A.id === a)) : DEFAULTS.accents.slice();
-  if (typeof S.p5Tag !== "string" || (S.p5Tag && !P5_TAGS[S.p5Tag])) S.p5Tag = "";
-  if (typeof S.p2Tag !== "string" || (S.p2Tag && !P2_TYPES[S.p2Tag])) S.p2Tag = "";
+  for (const k in KINDS) {                         // a filter: a skill (Parts 2 and 5) or a kind of set (Part 7)
+    const t = S[k + "Tag"], ok = KINDS[k].sets ? (SET_FILTERS[k] || []).map(x => x[0]) : ["", ...Object.keys(KINDS[k].tags)];
+    if (typeof t !== "string" || !ok.includes(t)) S[k + "Tag"] = "";
+  }
   if (!dayOfISO(S.exam)) S.exam = "";
   for (const k of ["words", "q", "lists", "log"]) if (isObj(s[k])) st[k] = s[k];
   for (const [id, c] of Object.entries(st.words)) {
@@ -491,7 +554,7 @@ function normalizeState(s) {
   for (const [id, q] of Object.entries(st.q)) if (!isObj(q) || !Number.isFinite(q.r)) delete st.q[id];
   st.seq = Number.isFinite(s.seq) ? s.seq : 0;
   const runs = isObj(s.runs) ? s.runs : {};
-  st.runs = { p5: cleanRun(runs.p5), p2: cleanRun(runs.p2) };
+  for (const k in KINDS) st.runs[k] = cleanRun(runs[k]);
   return st;
 }
 function loadState() {
@@ -509,6 +572,7 @@ let state = loadState();
 let BANK = null;                                   // banque.json
 let VLISTS = [], WORDS = [], WBYID = new Map();    // vocabulary lists and words
 let P5 = [], P2 = [], QBYID = new Map();           // questions
+let SETS = {}, QS = {}, SBYID = new Map();         // Parts 3, 4, 6, 7: sets by part, their questions by part, sets by id
 let ORDER = [];                                    // words of the active lists, in the order of the first pass
 let missingFiles = [];
 
@@ -531,15 +595,23 @@ async function getText(url) {
 }
 async function loadBank() {
   const cfg = JSON.parse(await getText("banque/banque.json"));
-  const files = (cfg.listes || []).filter(f => f && f.id && f.fichier && ["mots", "part5", "part2"].includes(f.type));
+  const files = (cfg.listes || []).filter(f => f && f.id && f.fichier && /^(mots|part[2-7])$/.test(f.type));
   const texts = await Promise.all(files.map(f => getText("banque/" + f.fichier).catch(() => null)));
   buildBank(files, texts);
 }
 function buildBank(files, texts) {
   BANK = files; VLISTS = []; WORDS = []; WBYID = new Map(); P5 = []; P2 = []; QBYID = new Map(); missingFiles = [];
+  SETS = { p3: [], p4: [], p6: [], p7: [] }; QS = { p3: [], p4: [], p6: [], p7: [] }; SBYID = new Map();
   files.forEach((f, fi) => {
     const text = texts[fi];
     if (text == null) { missingFiles.push(f.nom || f.fichier); return; }
+    if (/^part[3467]$/.test(f.type)) {
+      let data = null;
+      try { data = JSON.parse(text); } catch (e) {}
+      if (!data || !Array.isArray(data.sets)) { missingFiles.push(f.nom || f.fichier); return; }
+      for (const s of data.sets) addSet("p" + f.type.slice(4), f.id, s);
+      return;
+    }
     const rows = parseTSV(text);
     if (f.type === "mots") {
       const L = { id: f.id, nom: f.nom || f.id, ids: [], actif: f.actif !== false };
@@ -566,14 +638,33 @@ function buildBank(files, texts) {
       }
     }
   });
-  for (const k of ["p5", "p2"]) {                  // a saved series keeps only the questions still in the bank
+  for (const k in KINDS) {                         // a saved series keeps only the questions or sets still in the bank
     const run = state.runs[k];
     if (!run) continue;
-    const ids = run.ids.filter((id, i) => i < run.i || QBYID.has(id));
+    const ids = run.ids.filter((id, i) => i < run.i || (KINDS[k].sets ? SBYID.has(id) : QBYID.has(id)));
     if (ids.length !== run.ids.length) { run.ids = ids; if (run.i >= ids.length) state.runs[k] = null; }
   }
   buildOrder();
 }
+function addSet(kind, file, s) {
+  // a set (outils/consignes.md): its questions take the set's id and their rank, 3a-001-2
+  if (!isObj(s) || !s.id || SBYID.has(s.id) || !Array.isArray(s.questions) || !s.questions.length) return;
+  const set = { id: s.id, kind, file, speakers: isObj(s.speakers) ? s.speakers : {}, lines: Array.isArray(s.lines) ? s.lines : [],
+    lines_fr: Array.isArray(s.lines_fr) ? s.lines_fr : [], graphic: isObj(s.graphic) ? s.graphic : null, label: s.kind || "",
+    text: s.text || "", text_fr: s.text_fr || "", docs: Array.isArray(s.docs) ? s.docs.filter(isObj) : [],
+    docs_fr: Array.isArray(s.docs_fr) ? s.docs_fr : [], qs: [] };
+  if (KINDS[kind].listen ? !set.lines.length : kind === "p6" ? !set.text : !set.docs.length) return;
+  s.questions.forEach((q, i) => {
+    const ans = LETTERS.indexOf(String(q && q.ans || "").toUpperCase());
+    if (!isObj(q) || ans < 0 || !Array.isArray(q.opts) || q.opts.length !== 4) return;
+    const item = { id: s.id + "-" + (i + 1), kind, set: s.id, qi: set.qs.length, text: q.q || "", opts: q.opts.map(String), ans,
+      tag: q.type || "", expl: q.expl || "", tq: q.q_fr || "" };
+    set.qs.push(item); QS[kind].push(item); QBYID.set(item.id, item);
+  });
+  if (!set.qs.length) return;
+  SETS[kind].push(set); SBYID.set(set.id, set);
+}
+function pool(kind) { return kind === "p5" ? P5 : kind === "p2" ? P2 : (QS[kind] || []); }
 function listOn(id) {
   const L = VLISTS.find(x => x.id === id);
   const mine = state.lists[id];
@@ -639,7 +730,7 @@ function applyGrade(id, ok) {
 const SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.8a4.5 4.5 0 0 1 0 6.4M18 6.3a8 8 0 0 1 0 11.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
 const speech = {
   ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function",
-  voices: [],                                      // {v, accent}
+  voices: [],                                      // {v, accent, sex: "f", "m" or null}
   token: 0, timer: 0, btn: null, keep: [], loaded: false,
   load(last) {                                     // last: no more waiting, an empty list means no voice
     if (!this.ok) return;
@@ -649,7 +740,7 @@ const speech = {
     for (const A of ACCENTS) {
       const mine = vs.filter(v => A.re.test(v.lang) && !ODD_VOICES.test(v.name));
       const local = mine.filter(v => v.localService !== false);   // a network voice is silent offline
-      for (const v of (local.length ? local : mine)) if (!names.has(v.name)) { names.add(v.name); out.push({ v, accent: A.id }); }
+      for (const v of (local.length ? local : mine)) if (!names.has(v.name)) { names.add(v.name); out.push({ v, accent: A.id, sex: voiceSex(v.name) }); }
     }
     const changed = out.length !== this.voices.length || ((vs.length || last) && !this.loaded);
     this.voices = out;
@@ -717,16 +808,43 @@ function voicePair() {
   const b = others.length ? others[Math.floor(Math.random() * others.length)] : a;
   return { q: a.v, r: b.v, pq: 1, pr: b === a ? 0.85 : 1 };   // one voice only: a lower pitch for the second speaker
 }
+// a voice's sex from its name (Apple, Microsoft, Google voices), so that “the woman” of a conversation is a woman’s voice
+const FEMALE_VOICES = /^(Samantha|Allison|Ava|Susan|Victoria|Vicki|Joelle|Noelle|Nicky|Zoe|Karen|Catherine|Matilda|Moira|Tessa|Veena|Fiona|Kate|Serena|Martha|Stephanie|Zira|Hazel|Heera|Linda|Jenny|Aria|Michelle|Sonia|Libby|Maisie|Natasha|Clara|Emily|Ana|Emma|Sara|Siri Female|US English)\b/i;
+const MALE_VOICES = /^(Alex|Aaron|Tom|Evan|Nathan|Daniel|Arthur|Oliver|Jamie|Gordon|Lee|Rishi|David|Mark|George|James|Ravi|Richard|Sean|Guy|Ryan|Liam|William|Christopher|Eric|Roger|Brian|Andrew|Thomas|Siri Male)\b/i;
+function voiceSex(name) {
+  const n = String(name || "").replace(/^(Microsoft|Google)\s+/i, "");
+  if (/\bfemale\b/i.test(n) || FEMALE_VOICES.test(n)) return "f";
+  if (/\bmale\b/i.test(n) || MALE_VOICES.test(n)) return "m";
+  return null;
+}
+function castVoices(speakers) {
+  // one voice per speaker, of the speaker's sex when the device has one, different voices for different speakers;
+  // otherwise a pitch tells them apart (higher for a woman, lower for a man)
+  const p = speech.pool(), used = new Set(), cast = {};
+  const pick = list => list.length ? list[Math.floor(Math.random() * list.length)] : null;
+  for (const [key, sex] of Object.entries(speakers || {})) {
+    let x = pick(p.filter(y => y.sex === sex && !used.has(y.v.name)));
+    let pitch = 1;
+    if (!x && (x = pick(p.filter(y => y.sex === sex)))) pitch = sex === "m" ? 0.82 : 1.18;   // the same voice twice: a second pitch
+    if (!x) {
+      x = pick(p.filter(y => !y.sex && !used.has(y.v.name))) || pick(p.filter(y => !y.sex)) || pick(p);
+      if (x) pitch = x.sex && x.sex !== sex ? (sex === "m" ? 0.7 : 1.35) : (sex === "m" ? 0.88 : 1.12);
+    }
+    if (x) used.add(x.v.name);
+    cast[key] = { voice: x ? x.v : null, pitch };
+  }
+  return cast;
+}
 function voicesChanged() {
   if (current === "reglages") renderSettings();
-  if (current === "ecoute" && !$("#p2-home").hidden) renderHome("p2");
+  if (current === "ecoute") { const k = state.settings.listenPart; if (!$(`#${k}-home`).hidden) renderHome(k); }
 }
 
 /* ---------- views ---------- */
 let current = null;
+function partOf(tab) { return tab === "lecture" ? state.settings.readPart : tab === "ecoute" ? state.settings.listenPart : null; }
 function showView(v) {
-  if (current === "lecture" && v !== "lecture") suspend("p5");
-  if (current === "ecoute" && v !== "ecoute") suspend("p2");
+  if ((current === "lecture" || current === "ecoute") && v !== current) suspend(partOf(current));
   if (v !== "mots") speech.stop();
   current = v;
   if (state.settings.view !== v) { state.settings.view = v; save(); }
@@ -738,8 +856,7 @@ function showView(v) {
 function renderView() {
   if (!BANK) return;
   if (current === "mots") vShow();
-  else if (current === "lecture") renderKind("p5");
-  else if (current === "ecoute") renderKind("p2");
+  else if (current === "lecture" || current === "ecoute") renderKind(partOf(current));
   else if (current === "progres") renderProgress();
   else if (current === "reglages") renderSettings();
   renderCounts();
@@ -752,7 +869,7 @@ function renderCounts() {
     const { fresh, rev } = vocabCounts();
     el.innerHTML = countHTML(rev, "à revoir") + countHTML(fresh, "nouveaux");
   } else if (current === "lecture" || current === "ecoute") {
-    const st = qStats(current === "lecture" ? P5 : P2);
+    const st = qStats(pool(partOf(current)));
     el.innerHTML = countHTML(st.due, st.due > 1 ? "erreurs" : "erreur") + countHTML(st.total - st.seen, "nouvelles");
   } else el.innerHTML = "";
 }
@@ -865,8 +982,10 @@ function browseSheet() {
 /* ---------- question series: Part 5 and Part 2 ---------- */
 // Question record (absent = never asked): {r answers, ok right, l wrong, f 1 if right the first time, e step in the
 // mistakes notebook (0: out, 1…: after a mistake), d day it comes back, t day of the last answer, ms its time, a its choice}.
-// Series: {mode "train"|"exam", tag, ids, i current, ans [{id, c choice (-1 none), ok, ms}], start, left (Part 5 exam, ms)}.
-const live = { p5: {}, p2: {} };                   // what is on screen: timers, voices, the results of the last series
+// Series: {mode "train"|"exam", tag, ids, i current, ans [{id, c choice (-1 none), ok, ms}], start, left (reading exam, ms)}.
+// By sets (Parts 3, 4, 6, 7): ids are set ids, ans holds one array of answers per set, sel the choices on screen.
+const live = {};                                   // what is on screen: timers, voices, the results of the last series
+for (const k in KINDS) live[k] = {};
 function qStats(pool) {
   const today = dayNum(), tags = {};
   let seen = 0, first = 0, errs = 0, due = 0;
@@ -896,16 +1015,34 @@ function recordAnswer(q, ok, ms, choice) {
   state.q[q.id] = s;
   logAdd(q.kind);
   if (ok) logAdd(q.kind + "ok");
-  if (q.kind === "p5") logAdd("p5ms", Math.round(ms));
+  if (q.kind === "p5" || q.kind === "p6" || q.kind === "p7") logAdd(q.kind + "ms", Math.round(ms));
 }
 function pickSeries(kind, size, tag) {
-  const pool = (kind === "p5" ? P5 : P2).filter(q => !tag || q.tag === tag);
+  // questions (Parts 2 and 5) or sets (the others, whose questions are all answered together): the mistakes due
+  // first, then new ones, then the oldest
   const today = dayNum(), errs = [], fresh = [], old = [], later = [];
-  for (const q of pool) {
-    const s = state.q[q.id];
-    if (!s || !s.r) fresh.push(q.id);
-    else if (s.e >= 1) (s.d <= today ? errs : later).push([s.d, s.t || 0, q.id]);
-    else old.push([s.t || 0, 0, q.id]);
+  if (KINDS[kind].sets) {
+    for (const set of SETS[kind]) {
+      if ((tag === "simple" && set.docs.length !== 1) || (tag === "multiple" && set.docs.length < 2)) continue;
+      let seen = false, due = null, wait = null, t = 0;
+      for (const q of set.qs) {
+        const s = state.q[q.id];
+        if (!s || !s.r) continue;
+        seen = true; t = Math.max(t, s.t || 0);
+        if (s.e >= 1) { if (s.d <= today) due = Math.min(due == null ? s.d : due, s.d); else wait = Math.min(wait == null ? s.d : wait, s.d); }
+      }
+      if (!seen) fresh.push(set.id);
+      else if (due != null) errs.push([due, t, set.id]);
+      else if (wait != null) later.push([wait, t, set.id]);
+      else old.push([t, 0, set.id]);
+    }
+  } else {
+    for (const q of pool(kind).filter(q => !tag || q.tag === tag)) {
+      const s = state.q[q.id];
+      if (!s || !s.r) fresh.push(q.id);
+      else if (s.e >= 1) (s.d <= today ? errs : later).push([s.d, s.t || 0, q.id]);
+      else old.push([s.t || 0, 0, q.id]);
+    }
   }
   const by = (a, b) => a[0] - b[0] || a[1] - b[1];
   errs.sort(by); old.sort(by); later.sort(by); shuffle(fresh);
@@ -917,15 +1054,16 @@ function pickSeries(kind, size, tag) {
   pick = pick.concat(later.map(x => x[2]).slice(0, size - pick.length));
   return shuffle(pick);
 }
-function panel(kind, which) {
-  for (const w of ["home", "run", "done"]) $(`#${kind}-${w}`).hidden = w !== which;
+function panel(kind, which) {                      // one panel on the tab: this part's home, series or results
+  for (const k of TAB_KINDS[KINDS[kind].tab]) for (const w of ["home", "run", "done"]) $(`#${k}-${w}`).hidden = !(k === kind && w === which);
 }
 function renderKind(kind) {
   const L = live[kind];
   if (L.done) { panel(kind, "done"); $(`#${kind}-done`).innerHTML = doneHTML(kind, L.done.run, L.done.why); return; }
-  if (state.runs[kind] && L.on) { showQuestion(kind); return; }
+  if (state.runs[kind] && L.on) { show(kind); return; }
   renderHome(kind);
 }
+function show(kind) { if (KINDS[kind].sets) showSet(kind); else showQuestion(kind); }
 function segHTML(key, items) {
   const v = state.settings[key];
   return `<div class="seg" role="group">` + items.map(([val, label]) =>
@@ -937,67 +1075,90 @@ function voiceLine() {
   const acc = ACCENTS.filter(A => speech.count(A.id) && state.settings.accents.includes(A.id)).map(A => A.nom.toLowerCase());
   return `<p class="hint">Voix ${acc.length ? acc.join(", ") : "anglaises"} (${plural(speech.pool().length, "voix", "voix")}) : réglables dans Réglages.</p>`;
 }
+const INTROS = {
+  p2: "Une question ou une remarque, puis trois réponses, entendues une seule fois. Choisis la réponse logique : rien n’est écrit avant ta réponse.",
+  p3: "Une conversation entre deux ou trois personnes, puis trois questions écrites. Lis les questions avant l’écoute, comme le jour de l’examen.",
+  p4: "Un exposé (annonce, message, bulletin, visite guidée…), puis trois questions écrites. Lis-les avant l’écoute.",
+  p5: "Une phrase, quatre propositions : choisis celle qui complète la phrase. Au niveau C1, vise 20 secondes par question.",
+  p6: "Un texte à quatre trous : des mots, et une phrase entière à choisir. Le contexte des autres phrases compte. Vise 40 secondes par trou.",
+  p7: "Un, deux ou trois documents (courriels, articles, formulaires, textos…) et leurs questions. Vise une minute par question pour finir la Part 7 à temps.",
+};
+const MODE_HINTS = {
+  exam: { p2: "Une seule écoute, 5 secondes pour répondre, correction à la fin.",
+    p3: "Quelques secondes pour lire les questions, une seule écoute, puis 8 secondes par question ; correction à la fin.",
+    p4: "Quelques secondes pour lire les questions, une seule écoute, puis 8 secondes par question ; correction à la fin.",
+    p5: `${P5_SECONDS} s par question au chronomètre, correction à la fin.`,
+    p6: `${P6_SECONDS} s par trou au chronomètre, correction à la fin.`,
+    p7: `${P7_SECONDS} s par question au chronomètre, correction à la fin.` },
+  train: { p2: "Correction, texte et traduction après chaque question ; tu peux réécouter.",
+    p3: "Tu peux réécouter ; après ta réponse, la transcription, la traduction et les explications.",
+    p4: "Tu peux réécouter ; après ta réponse, la transcription, la traduction et les explications.",
+    p5: "Correction et explication après chaque question.",
+    p6: "Correction, explications et traduction après chaque texte.",
+    p7: "Correction, explications et traduction après chaque lot." },
+};
+function partSelHTML(kind) {
+  return `<div class="seg partsel" role="group" aria-label="Partie">` + TAB_KINDS[KINDS[kind].tab].map(k =>
+    `<button type="button" data-part="${k}" aria-pressed="${String(k === kind)}">${KINDS[k].nom}</button>`).join("") + `</div>`;
+}
 function renderHome(kind) {
   panel(kind, "home");
-  const S = state.settings, p5 = kind === "p5", pool = p5 ? P5 : P2, tags = p5 ? P5_TAGS : P2_TYPES;
-  const st = qStats(pool), run = state.runs[kind];
-  let h = `<h2>${p5 ? "Part 5 · phrases à trous" : "Part 2 · question-réponse"}</h2>`;
-  h += `<p class="intro">${p5
-    ? "Une phrase, quatre propositions : choisis celle qui complète la phrase. Au niveau C1, vise 20 secondes par question."
-    : "Une question ou une remarque, puis trois réponses, entendues une seule fois. Choisis la réponse logique : rien n’est écrit avant ta réponse."}</p>`;
-  if (!pool.length) return void ($(`#${kind}-home`).innerHTML = h + `<div class="empty"><strong>Pas encore de questions</strong>Les fichiers de la banque n’ont pas pu être lus.</div>`);
-  const avg = p5 ? avgTime() : null;
-  h += `<div class="stats"><span><b>${st.seen}</b> sur ${st.total} faites</span>` +
+  const S = state.settings, K = KINDS[kind], qp = pool(kind), st = qStats(qp), run = state.runs[kind];
+  let h = partSelHTML(kind) + `<h2>${K.nom} · ${K.titre}</h2><p class="intro">${frTypo(INTROS[kind])}</p>`;
+  if (!qp.length) return void ($(`#${kind}-home`).innerHTML = h + `<div class="empty"><strong>Pas encore de questions</strong>Les fichiers de cette partie n’ont pas pu être lus.</div>`);
+  const avg = avgTime(kind);
+  h += `<div class="stats"><span><b>${st.seen}</b> sur ${st.total} questions faites</span>` +
+    (K.sets ? `<span>${plural(SETS[kind].length, K.unit[0], K.unit[1])}</span>` : "") +
     (st.seen ? `<span><b>${pct(st.first, st.seen)}${NB}%</b> au premier essai</span>` : "") +
     (avg ? `<span><b>${avg}${NB}s</b> par question (7 jours)</span>` : "") + `</div>`;
-  if (st.errs) h += `<p class="small">Carnet d’erreurs${NB}: ${plural(st.errs, "question", "questions")}, dont <b>${st.due}</b> à revoir aujourd’hui. Elles passent en premier dans les séries.</p>`;
+  if (st.errs) h += `<p class="small">Carnet d’erreurs${NB}: ${plural(st.errs, "question", "questions")}, dont <b>${st.due}</b> à revoir aujourd’hui. ` +
+    `${K.sets ? "Leurs " + K.unit[1] + " passent" : "Elles passent"} en premier dans les séries.</p>`;
   if (run) {
-    const n = run.ids.length;
-    h += `<div class="box"><b>Série en cours</b><p class="small">${run.mode === "exam" ? "Examen" : "Entraînement"} · question ${Math.min(run.i + 1, n)} sur ${n}` +
-      (run.mode === "exam" && p5 && run.left != null ? ` · ${clock(run.left)} restantes` : "") + `</p>` +
+    const n = run.ids.length, unit = K.sets ? K.unit[0] : "question";
+    h += `<div class="box"><b>Série en cours</b><p class="small">${run.mode === "exam" ? "Examen" : "Entraînement"} · ${unit} ${Math.min(run.i + 1, n)} sur ${n}` +
+      (run.mode === "exam" && run.left != null ? ` · ${clock(run.left)} restantes` : "") + `</p>` +
       `<div class="row" id="${kind}-runbtns"><button type="button" class="btn primary" data-act="resume">Reprendre</button><button type="button" class="btn" data-act="drop">Abandonner</button></div></div>`;
   } else {
-    const noVoice = !p5 && !speech.has();
+    const listen = kind === "p2" || K.listen, noVoice = listen && !speech.has();
     h += `<div class="field"><span class="lbl">Mode</span>${segHTML(kind + "Mode", [["train", "Entraînement"], ["exam", "Examen"]])}` +
-      `<p class="hint">${S[kind + "Mode"] === "exam"
-        ? (p5 ? `${P5_SECONDS}${NB}s par question au chronomètre, correction à la fin.` : "Une seule écoute, 5 secondes pour répondre, correction à la fin.")
-        : (p5 ? "Correction et explication après chaque question." : "Correction, texte et traduction après chaque question ; tu peux réécouter.")}</p></div>`;
-    h += `<div class="field"><span class="lbl">Nombre de questions</span>${segHTML(kind + "Size", SIZES[kind].map(n => [n, String(n)]))}</div>`;
-    h += `<div class="field"><span class="lbl">${p5 ? "Compétence" : "Type de question"}</span><div class="chips">` +
-      `<button type="button" class="chip" data-tag="" aria-pressed="${String(!S[kind + "Tag"])}">Toutes</button>` +
-      Object.entries(tags).filter(([t]) => st.tags[t]).map(([t, label]) =>
-        `<button type="button" class="chip" data-tag="${t}" aria-pressed="${String(S[kind + "Tag"] === t)}">${label}</button>`).join("") + `</div></div>`;
-    if (!p5) h += voiceLine();
-    const blocked = noVoice && S.p2Mode === "exam";
+      `<p class="hint">${frTypo(MODE_HINTS[S[kind + "Mode"]][kind])}</p></div>`;
+    h += `<div class="field"><span class="lbl">Nombre de ${K.sets ? K.unit[1] : "questions"}</span>${segHTML(kind + "Size", SIZES[kind].map(n => [n, String(n)]))}</div>`;
+    const filters = K.sets ? (SET_FILTERS[kind] || []) : [["", "Toutes"], ...Object.entries(K.tags).filter(([t]) => st.tags[t])];
+    if (filters.length) h += `<div class="field"><span class="lbl">${kind === "p5" ? "Compétence" : kind === "p2" ? "Type de question" : "Documents"}</span><div class="chips">` +
+      filters.map(([t, label]) => `<button type="button" class="chip" data-tag="${t}" aria-pressed="${String(S[kind + "Tag"] === t)}">${label}</button>`).join("") + `</div></div>`;
+    if (listen) h += voiceLine();
+    const blocked = noVoice && S[kind + "Mode"] === "exam";
     h += `<button type="button" class="btn primary big" data-act="start"${blocked ? " disabled" : ""}>Commencer</button>`;
     if (blocked) h += `<p class="hint">Le mode examen demande une voix anglaise.</p>`;
   }
   $(`#${kind}-home`).innerHTML = h;
 }
-function avgTime() {
+function avgTime(kind) {                           // seconds per question over the last 7 days (reading parts)
   const today = dayNum();
   let n = 0, ms = 0;
-  for (let d = today - 6; d <= today; d++) { const L = state.log[d]; if (L && L.p5) { n += L.p5; ms += L.p5ms || 0; } }
+  for (let d = today - 6; d <= today; d++) { const L = state.log[d]; if (L && L[kind] && L[kind + "ms"]) { n += L[kind]; ms += L[kind + "ms"]; } }
   return n ? Math.round(ms / n / 1000) : null;
 }
 function startRun(kind) {
-  const S = state.settings;
+  const S = state.settings, K = KINDS[kind];
   const ids = pickSeries(kind, S[kind + "Size"], S[kind + "Tag"]);
   if (!ids.length) { toast("Aucune question pour ce choix."); return; }
   const exam = S[kind + "Mode"] === "exam";
+  const nq = K.sets ? ids.reduce((n, id) => n + SBYID.get(id).qs.length, 0) : ids.length;
+  const pace = kind === "p5" ? P5_SECONDS : K.listen ? 0 : K.pace || 0;   // reading exam: one clock for the whole series
   state.runs[kind] = { mode: exam ? "exam" : "train", tag: S[kind + "Tag"], ids, i: 0, ans: [], start: Date.now(),
-    left: kind === "p5" && exam ? ids.length * P5_SECONDS * 1000 : null };
+    left: exam && pace ? nq * pace * 1000 : null };
   live[kind] = { on: true };
   save();
-  showQuestion(kind);
+  show(kind);
   renderCounts();
 }
 function curQ(kind) { const run = state.runs[kind]; return run ? QBYID.get(run.ids[run.i]) : null; }
 function answered(kind) { const run = state.runs[kind]; return !!run && run.ans.length > run.i; }
 function stopTimers(kind) {
   const L = live[kind];
-  clearInterval(L.tick); clearTimeout(L.window); clearTimeout(L.after);
-  L.tick = L.window = L.after = 0;
+  clearInterval(L.tick); clearTimeout(L.window); clearTimeout(L.after); clearTimeout(L.pre);
+  L.tick = L.window = L.after = L.pre = 0;
 }
 function showQuestion(kind) {
   const run = state.runs[kind], q = curQ(kind);
@@ -1016,7 +1177,7 @@ function showQuestion(kind) {
     $("#p5-opts").innerHTML = q.opts.map((o, k) => `<button type="button" class="opt" data-c="${k}"><span class="L">${LETTERS[k]}</span><span lang="en">${esc(o)}</span></button>`).join("");
     $("#p5-fb").hidden = true;
     if (done) showFeedback(kind);
-    else { L.tick = setInterval(() => tickP5(), 250); tickP5(); }
+    else { L.tick = setInterval(() => tick(kind), 250); tick(kind); }
   } else {
     $("#p2-opts").innerHTML = [0, 1, 2].map(k => `<button type="button" class="opt" data-c="${k}" aria-label="Réponse ${LETTERS[k]}">${LETTERS[k]}</button>`).join("");
     $("#p2-fb").hidden = true;
@@ -1037,19 +1198,25 @@ function remaining(kind) {
   const run = state.runs[kind], L = live[kind];
   return run.left - (Date.now() - L.resumedAt);
 }
-function tickP5() {
-  const run = state.runs.p5, L = live.p5, c = $("#p5-clock");
-  if (!run) return;
-  if (run.mode === "exam") {
-    const left = remaining("p5");
+function tick(kind) {                              // reading parts: the series' countdown (exam) or this question's time
+  const run = state.runs[kind], L = live[kind], c = $(`#${kind}-clock`);
+  if (!run || !c) return;
+  if (run.mode === "exam" && run.left != null) {
+    const left = remaining(kind);
     c.textContent = clock(left);
     c.classList.toggle("low", left < 60000);
     c.classList.remove("late");
-    if (left <= 0) { run.left = 0; finish("p5", "time"); }
+    if (left <= 0) {
+      run.left = 0;
+      if (KINDS[kind].sets && !answered(kind)) checkSet(kind, true);   // what is marked on the last set counts
+      finish(kind, "time");
+    }
   } else {
     const s = Math.floor((Date.now() - L.shownAt) / 1000);
-    c.textContent = s + NB + "s";
-    c.classList.toggle("late", s >= P5_SECONDS);
+    const set = KINDS[kind].sets ? SBYID.get(run.ids[run.i]) : null;
+    const target = set ? (KINDS[kind].pace || 0) * set.qs.length : P5_SECONDS;
+    c.textContent = set ? clock(s * 1000) : s + NB + "s";
+    c.classList.toggle("late", s >= target);
     c.classList.remove("low");
   }
 }
@@ -1119,15 +1286,16 @@ function next(kind) {
   const run = state.runs[kind];
   if (!run || !answered(kind)) return;
   run.i++;
+  delete run.sel;
   if (run.i >= run.ids.length) { finish(kind, "end"); return; }
   save();
-  showQuestion(kind);
+  show(kind);
 }
 function finish(kind, why) {
   const run = state.runs[kind];
   if (!run) return;
   stopTimers(kind);
-  if (kind === "p2") speech.stop();
+  if (kind === "p2" || KINDS[kind].listen) speech.stop();
   state.runs[kind] = null;
   save();
   live[kind] = { done: { run, why } };
@@ -1139,41 +1307,50 @@ function finish(kind, why) {
 function suspend(kind) {                           // leaving the tab or the app: the clock stops, the voice too
   const run = state.runs[kind], L = live[kind];
   if (!run || !L.on) return;
-  if (kind === "p5" && run.mode === "exam" && !answered(kind) && L.tick) { run.left = Math.max(0, remaining(kind)); save(); }
+  if (run.mode === "exam" && run.left != null && !answered(kind) && L.tick) { run.left = Math.max(0, remaining(kind)); save(); }
   stopTimers(kind);
-  if (kind === "p2") speech.stop();
+  if (kind === "p2" || KINDS[kind].listen) speech.stop();
 }
 function doneHTML(kind, run, why) {
-  const p5 = kind === "p5", tags = p5 ? P5_TAGS : P2_TYPES;
-  const missed = why === "time" ? run.ids.slice(run.ans.length) : [];   // exam time over: the questions left count as wrong
-  const base = why === "stop" ? run.ans.length : run.ans.length + missed.length;
-  const ok = run.ans.filter(a => a.ok).length;
+  const K = KINDS[kind], p5 = kind === "p5", tags = K.tags;
+  const answers = K.sets ? run.ans.flat() : run.ans;
+  let missed = why === "time" ? run.ids.slice(run.ans.length) : [];   // exam time over: the questions left count as wrong
+  if (K.sets) missed = missed.flatMap(id => (SBYID.get(id) || { qs: [] }).qs.map(q => q.id));
+  const base = why === "stop" ? answers.length : answers.length + missed.length;
+  const ok = answers.filter(a => a.ok).length;
   let h = `<h2>${why === "time" ? "Temps écoulé" : why === "stop" ? "Série arrêtée" : "Série terminée"}</h2>`;
   if (!base) return h + `<p class="intro">Aucune réponse dans cette série.</p>` + doneBtns();
   h += `<div class="score"><b class="num">${ok} / ${base}</b><span>${pct(ok, base)}${NB}% de bonnes réponses · repère C1${NB}: environ ${C1_MARK}${NB}%</span></div>`;
-  if (p5) {
-    const times = run.ans.filter(a => a.c >= 0).map(a => a.ms);
+  const pace = p5 ? P5_SECONDS : K.listen ? 0 : K.pace || 0;
+  if (pace) {
+    const times = answers.filter(a => a.c >= 0).map(a => a.ms);
     if (times.length) {
       const avg = Math.round(times.reduce((s, x) => s + x, 0) / times.length / 1000);
-      h += `<p class="small" style="text-align:center">${avg}${NB}s par question en moyenne (objectif${NB}: ${P5_SECONDS}${NB}s)</p>`;
+      h += `<p class="small" style="text-align:center">${avg}${NB}s par question en moyenne (objectif${NB}: ${pace}${NB}s)</p>`;
     }
   }
   const by = {};
-  for (const a of run.ans) { const q = QBYID.get(a.id); if (!q) continue; const T = by[q.tag] || (by[q.tag] = { n: 0, ok: 0 }); T.n++; if (a.ok) T.ok++; }
+  for (const a of answers) { const q = QBYID.get(a.id); if (!q) continue; const T = by[q.tag] || (by[q.tag] = { n: 0, ok: 0 }); T.n++; if (a.ok) T.ok++; }
   for (const id of missed) { const q = QBYID.get(id); if (!q) continue; const T = by[q.tag] || (by[q.tag] = { n: 0, ok: 0 }); T.n++; }
   h += `<h3>${p5 ? "Par compétence" : "Par type de question"}</h3><div class="bars">` +
     Object.keys(tags).filter(t => by[t]).map(t => barHTML(tags[t], by[t].ok, by[t].n)).join("") + `</div>`;
-  const errs = run.ans.filter(a => !a.ok).map(a => [QBYID.get(a.id), a]).concat(missed.map(id => [QBYID.get(id), null])).filter(x => x[0]);
+  const errs = answers.filter(a => !a.ok).map(a => [QBYID.get(a.id), a]).concat(missed.map(id => [QBYID.get(id), null])).filter(x => x[0]);
   if (errs.length) {
     h += `<h3>À revoir (${errs.length})</h3><p class="small">Ces questions reviennent demain dans tes séries${missed.length ? ", sauf celles laissées sans réponse" : ""}.</p><div class="errlist">` +
-      errs.map(([q, a]) => `<details><summary>${p5 ? `<span lang="en">${sentenceHTML(q, q.opts[q.ans], "ok")}</span>` : `<span lang="en">${esc(q.text)}</span>`}</summary><div class="eb">` +
-        (p5
+      errs.map(([q, a]) => `<details><summary>${p5 ? `<span lang="en">${sentenceHTML(q, q.opts[q.ans], "ok")}</span>`
+        : K.sets ? setErrTitle(q) : `<span lang="en">${esc(q.text)}</span>`}</summary><div class="eb">` +
+        (p5 || K.sets
           ? `<p>${a && a.c >= 0 ? `Ta réponse${NB}: <span class="fill ko" lang="en">${esc(q.opts[a.c])}</span> · ` : a ? "Pas de réponse · " : "Pas eu le temps · "}bonne réponse${NB}: (${LETTERS[q.ans]}) <b lang="en">${esc(q.opts[q.ans])}</b></p>` +
-            `<p class="chips"><span class="chip">${esc(P5_TAGS[q.tag] || q.tag)}</span>${q.lvl ? `<span class="chip">${esc(q.lvl)}</span>` : ""}</p>` +
-            `<p class="expl">${frHTML(q.expl)}</p>` + (q.tr ? `<p class="trad">${frHTML(q.tr)}</p>` : "")
+            `<p class="chips"><span class="chip">${esc(tags[q.tag] || q.tag)}</span>${q.lvl ? `<span class="chip">${esc(q.lvl)}</span>` : ""}</p>` +
+            `<p class="expl">${frHTML(q.expl)}</p>` + (q.tr ? `<p class="trad">${frHTML(q.tr)}</p>` : "") + (q.tq ? `<p class="trad">${frHTML(q.tq)}</p>` : "")
           : transcriptHTML(q, a)) + `</div></details>`).join("") + `</div>`;
   } else h += `<p class="intro" style="text-align:center">Aucune erreur. Bravo${NB}!</p>`;
   return h + doneBtns();
+}
+function setErrTitle(q) {                          // a question of a set, in the list of mistakes
+  const set = SBYID.get(q.set), K = KINDS[q.kind];
+  const where = `${K.unit[0][0].toUpperCase() + K.unit[0].slice(1)} ${set ? set.id : ""}`;
+  return `<span class="small">${esc(where)} · </span>` + (q.text ? `<span lang="en">${esc(q.text)}</span>` : `trou ${q.qi + 1}`);
 }
 function doneBtns() {
   return `<div class="row" style="margin-top:18px"><button type="button" class="btn" data-act="home">Terminer</button><button type="button" class="btn primary" data-act="again">Nouvelle série</button></div>`;
@@ -1185,9 +1362,10 @@ function barHTML(label, ok, n) {
 }
 
 /* ---------- Part 2: listening ---------- */
-function setListen(on, title, text) {
-  $("#p2-wave").classList.toggle("on", !!on);
-  $("#p2-msg").innerHTML = `<b>${title}</b>${text || ""}`;
+function setListen(on, title, text, kind = "p2") {
+  const w = $(`#${kind}-wave`), m = $(`#${kind}-msg`);
+  if (w) w.classList.toggle("on", !!on);
+  if (m) m.innerHTML = `<b>${title}</b>${frTypo(text || "")}`;
 }
 function p2Parts(q, V) {
   return [
@@ -1236,6 +1414,245 @@ function replayItem(id, btn) {
   speech.seq(p2Parts(q, voicePair()), null, btn);
 }
 
+/* ---------- sets: Parts 3 and 4 (a recording), 6 and 7 (documents), several questions answered together ---------- */
+const SPEAKER_NAMES = { W: "Femme", M: "Homme", W2: "Femme 2", M2: "Homme 2" };
+function curSet(kind) { const run = state.runs[kind]; return run ? SBYID.get(run.ids[run.i]) : null; }
+function tableHTML(t) {
+  const rows = Array.isArray(t && t.rows) ? t.rows : [];
+  if (rows.length < 2) return "";
+  return `<div class="tblwrap"><table class="tbl" lang="en">${t.title ? `<caption>${esc(t.title)}</caption>` : ""}` +
+    `<thead><tr>${rows[0].map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>` +
+    rows.slice(1).map(r => `<tr>${r.map(c => `<td>${esc(c)}</td>`).join("")}</tr>`).join("") + `</tbody></table></div>`;
+}
+function docLine(line) {                           // a text message, an e-mail header, or a plain line
+  const e = esc(line);
+  const chat = /^([^:()]{1,40}) \(([^)]{3,20})\):\s(.*)$/.exec(line);
+  if (chat) return `<span class="chat"><b>${esc(chat[1])}</b> <span class="faint">(${esc(chat[2])})</span> ${esc(chat[3])}</span>`;
+  return e.replace(/^(To|From|Date|Subject|Re|Cc|Sent|Attachment):/, "<b>$1:</b>");
+}
+function docTextHTML(text, blank) {
+  // paragraphs (\n\n) and lines (\n); [1]…[4]: Part 6 blanks (blank(n) gives their HTML), Part 7 insertion marks
+  return String(text).split(/\n{2,}/).map(par => `<p>${par.split("\n").map(docLine).join("<br>")}</p>`).join("")
+    .replace(/\[([1-4])\]/g, (m, n) => blank ? blank(+n) : `<b class="mk">[${n}]</b>`);
+}
+function blankHTML(kind, set, n) {
+  const run = state.runs[kind], q = set.qs[n - 1];
+  if (!q) return `[${n}]`;
+  const a = answered(kind) ? run.ans[run.i][n - 1] : null, c = a ? a.c : (run.sel || [])[n - 1];
+  if (a) return a.ok ? `<span class="blank ok">${esc(q.opts[q.ans])}</span>`
+    : `<span class="blank ko">${c >= 0 ? `<s>${esc(q.opts[c])}</s> ` : ""}${esc(q.opts[q.ans])}</span>`;
+  return `<span class="blank${c >= 0 ? " on" : ""}" data-b="${n - 1}"><span class="n">${n}</span>${c >= 0 ? esc(q.opts[c]) : ""}</span>`;
+}
+function docsHTML(kind, set) {
+  if (kind === "p6") return `<article class="doc" lang="en">${set.label ? `<div class="doc-kind">${esc(set.label)}</div>` : ""}` +
+    docTextHTML(set.text, n => blankHTML(kind, set, n)) + `</article>`;
+  return set.docs.map((d, i) => `<article class="doc" lang="en"><div class="doc-kind">${set.docs.length > 1 ? `Document ${i + 1} · ` : ""}${esc(d.kind || "")}</div>` +
+    (d.title ? `<h3>${esc(d.title)}</h3>` : "") + docTextHTML(d.text || "") + (d.table ? tableHTML(d.table) : "") + `</article>`).join("");
+}
+function setQuestionsHTML(kind, set) {
+  return `<ol class="sqs">` + set.qs.map((q, i) => `<li class="sq" data-qi="${i}">` +
+    `<p class="qt">${q.text ? `<span lang="en">${esc(q.text)}</span>` : `Trou ${i + 1}`}</p>` +
+    `<div class="opts">${q.opts.map((o, k) => `<button type="button" class="opt" data-qi="${i}" data-c="${k}"><span class="L">${LETTERS[k]}</span>` +
+      `<span lang="en">${esc(o)}</span></button>`).join("")}</div><div class="sqfb" hidden></div></li>`).join("") + `</ol>`;
+}
+function showSet(kind) {
+  const run = state.runs[kind], set = curSet(kind), K = KINDS[kind];
+  if (!run) { renderHome(kind); return; }
+  if (!set) { finish(kind, "end"); return; }
+  if (run.mode === "exam" && answered(kind)) { next(kind); return; }   // validated just before a reload
+  stopTimers(kind);
+  if (K.listen) speech.stop();
+  const now = Date.now(), done = answered(kind);
+  const L = live[kind] = { on: true, shownAt: now, resumedAt: now, heardAt: 0, cast: K.listen ? castVoices(set.speakers) : null };
+  if (!Array.isArray(run.sel) || run.sel.length !== set.qs.length) run.sel = set.qs.map(() => -1);
+  panel(kind, "run");
+  const n = run.ids.length;
+  let h = `<div class="runbar"><span class="pos">${run.mode === "exam" ? "Examen" : "Entraînement"} · ${K.unit[0]} ${run.i + 1} sur ${n}</span>` +
+    `<span class="clock num" id="${kind}-clock"></span><button type="button" class="btn small" data-act="stop">Arrêter</button></div>` +
+    `<div class="track"><i style="width:${pct(run.i, n)}%"></i></div>`;
+  if (K.listen) h += `<div class="listen"><div class="wave" id="${kind}-wave" aria-hidden="true"><i></i><i></i><i></i></div><div class="msg" id="${kind}-msg"></div>` +
+    `<button type="button" class="btn small" data-act="replay" id="${kind}-replay" hidden>Réécouter</button></div>` +
+    `<div class="window" id="${kind}-window" hidden><i></i></div><div id="${kind}-read" hidden></div>` + (set.graphic ? tableHTML(set.graphic) : "");
+  else h += docsHTML(kind, set);
+  h += setQuestionsHTML(kind, set) + `<div id="${kind}-fb"></div>` +
+    `<div class="setact" id="${kind}-act"><button type="button" class="btn primary big" data-act="check">Valider</button></div>` +
+    `<p class="keys"><kbd>1</kbd>–<kbd>4</kbd> ou <kbd>A</kbd>–<kbd>D</kbd> répondre à la première question libre · <kbd>Entrée</kbd> valider, puis suivant${K.listen ? " · <kbd>R</kbd> réécouter" : ""}</p>`;
+  $(`#${kind}-run`).innerHTML = h;
+  $("#main").scrollTop = 0;
+  markSel(kind);
+  if (done) { showSetFeedback(kind); return; }
+  if (K.listen) setPlay(kind);
+  else { L.tick = setInterval(() => tick(kind), 250); tick(kind); }
+}
+function markSel(kind) {                           // the choices made so far, on the buttons and in the Part 6 blanks
+  const run = state.runs[kind], set = curSet(kind);
+  if (!run || !set || answered(kind)) return;
+  $$(`#${kind}-run .opt[data-qi]`).forEach(b => b.classList.toggle("sel", run.sel[+b.dataset.qi] === +b.dataset.c));
+  if (kind === "p6") $$(`#${kind}-run .blank[data-b]`).forEach(el => { el.outerHTML = blankHTML(kind, set, +el.dataset.b + 1); });
+}
+function pickSel(kind, qi, c) {
+  const run = state.runs[kind];
+  if (!run || answered(kind) || !run.sel || qi < 0 || qi >= run.sel.length) return;
+  run.sel[qi] = c;
+  save();
+  markSel(kind);
+}
+function setLines(set, cast) {
+  return set.lines.map(([k, t]) => ({ text: t, voice: cast && cast[k] ? cast[k].voice : null, pitch: cast && cast[k] ? cast[k].pitch : 1, after: 380 }));
+}
+function setPlay(kind) {
+  const run = state.runs[kind], set = curSet(kind), L = live[kind];
+  if (!run || !set || answered(kind)) return;
+  clearTimeout(L.window); clearTimeout(L.pre); clearInterval(L.tick);
+  const w = $(`#${kind}-window`), replay = $(`#${kind}-replay`), exam = run.mode === "exam";
+  w.hidden = true; replay.hidden = true;
+  if (!speech.has()) {                             // no voice: the transcript, to read
+    const r = $(`#${kind}-read`);
+    r.hidden = false;
+    r.innerHTML = `<div class="readtext">${transcriptLinesHTML(set, false)}</div>`;
+    setListen(false, "À lire", "Pas de voix anglaise sur cet appareil.", kind);
+    L.heardAt = Date.now();
+    return;
+  }
+  const go = () => {
+    if (live[kind] !== L || answered(kind)) return;
+    clearInterval(L.tick);
+    setListen(true, "Écoute…", exam ? "Une seule écoute." : "", kind);
+    speech.seq(setLines(set, L.cast), () => {
+      if (live[kind] !== L || answered(kind)) return;
+      L.heardAt = Date.now();
+      if (exam) {
+        const ms = set.qs.length * P34_WINDOW + (set.graphic ? 4000 : 0);
+        setListen(false, "À toi", `Réponds aux questions : ${Math.round(ms / 1000)} secondes.`, kind);
+        w.hidden = false; w.classList.remove("run");
+        const bar = w.querySelector("i");
+        bar.style.transitionDuration = ms + "ms";
+        void w.offsetWidth;                        // restart the bar
+        w.classList.add("run");
+        L.window = setTimeout(() => { if (live[kind] === L && !answered(kind)) checkSet(kind); }, ms);
+      } else {
+        setListen(false, "À toi", "Réponds aux questions, ou réécoute.", kind);
+        replay.hidden = false;
+      }
+    });
+  };
+  if (exam) {                                      // as in the test: a few seconds to read the questions first
+    const end = Date.now() + set.qs.length * PREREAD;
+    const countdown = () => setListen(false, "Lis les questions", `L’écoute commence dans ${Math.max(0, Math.ceil((end - Date.now()) / 1000))} s.`, kind);
+    countdown();
+    L.tick = setInterval(countdown, 250);
+    L.pre = setTimeout(go, end - Date.now());
+  } else go();
+}
+function checkSet(kind, last) {                    // last: the exam's time is over, no move to the next set
+  const run = state.runs[kind], set = curSet(kind), L = live[kind], K = KINDS[kind];
+  if (!run || !set || answered(kind)) return;
+  const now = Date.now();
+  if (run.mode === "exam" && run.left != null && !last) { run.left = Math.max(0, remaining(kind)); L.resumedAt = now; }
+  stopTimers(kind);
+  if (K.listen) speech.stop();
+  const total = K.listen ? (L.heardAt ? now - L.heardAt : 0) : now - L.shownAt;
+  const ms = total / set.qs.length;
+  run.ans.push(set.qs.map((q, i) => {
+    const c = Number.isInteger(run.sel && run.sel[i]) ? run.sel[i] : -1, ok = c === q.ans;
+    recordAnswer(q, ok, ms, c);
+    return { id: q.id, c, ok, ms: Math.round(ms) };
+  }));
+  save();
+  renderCounts();
+  if (last) return;
+  if (run.mode === "exam") {
+    const i = run.i;
+    L.after = setTimeout(() => { if (state.runs[kind] === run && run.i === i) next(kind); }, 250);
+  } else showSetFeedback(kind);
+}
+function transcriptLinesHTML(set, fr) {
+  const many = Object.keys(set.speakers).length > 1;
+  return `<div class="lines">` + set.lines.map(([k, t], i) => `<p>${many ? `<b class="who">${SPEAKER_NAMES[k] || esc(k)}</b> ` : ""}` +
+    `<span lang="en">${esc(t)}</span>${fr && set.lines_fr[i] ? `<span class="trad">${frHTML(set.lines_fr[i])}</span>` : ""}</p>`).join("") + `</div>`;
+}
+function showSetFeedback(kind) {
+  const run = state.runs[kind], set = curSet(kind), K = KINDS[kind], L = live[kind];
+  const ans = run.ans[run.i];
+  stopTimers(kind);
+  set.qs.forEach((q, i) => {
+    const a = ans[i], li = $(`#${kind}-run .sq[data-qi="${i}"]`);
+    if (!li) return;
+    li.querySelectorAll(".opt").forEach((b, k) => {
+      b.disabled = true;
+      b.classList.remove("sel");
+      b.classList.toggle("ok", k === q.ans);
+      b.classList.toggle("ko", k === a.c && !a.ok);
+      b.classList.toggle("dim", k !== q.ans && k !== a.c);
+    });
+    const fb = li.querySelector(".sqfb");
+    fb.hidden = false;
+    fb.innerHTML = `<div class="fb-head ${a.ok ? "ok" : "ko"}">${a.ok ? "√ Bonne réponse" : `× ${a.c < 0 ? "Pas de réponse" : "Raté"}${NB}: c’était (${LETTERS[q.ans]})`}</div>` +
+      `<p class="chips"><span class="chip">${esc(K.tags[q.tag] || q.tag)}</span></p><p class="expl">${frHTML(q.expl)}</p>` +
+      (q.tq ? `<p class="trad">${frHTML(q.tq)}</p>` : "");
+  });
+  if (kind === "p6") $$(`#${kind}-run .blank`).forEach((el, n) => { el.outerHTML = blankHTML(kind, set, n + 1); });
+  let h = "";
+  if (K.listen) {
+    setListen(false, "Écouté", "", kind);
+    const r = $(`#${kind}-read`); if (r) r.hidden = true;
+    const w = $(`#${kind}-window`); if (w) w.hidden = true;
+    $(`#${kind}-replay`).hidden = !speech.has();
+    h += `<div class="box"><b>Transcription</b>${transcriptLinesHTML(set, false)}</div>` +
+      `<details class="more"><summary>Traduction</summary>${transcriptLinesHTML(set, true)}</details>`;
+  } else {
+    const fr = kind === "p6" ? [set.text_fr] : set.docs_fr;
+    h += `<details class="more"><summary>Traduction</summary>` + fr.map(t => `<div class="doc trad-doc">${docTextHTML(t || "").replace(/<b class="mk">\[\d\]<\/b>/g, "")}</div>`).join("") + `</details>`;
+  }
+  const lastSet = run.i + 1 >= run.ids.length;
+  $(`#${kind}-fb`).innerHTML = h;
+  $(`#${kind}-act`).innerHTML = `<button type="button" class="btn primary big" data-act="next">${lastSet ? "Voir le résultat" : "Suivant"}</button>`;
+  const nb = $(`#${kind}-act [data-act="next"]`);
+  if (document.activeElement && (document.activeElement.closest(`#${kind}-run`) || document.activeElement === document.body)) nb.focus({ preventScroll: true });
+  if (L) L.on = true;
+}
+function onSetClick(kind, e) {                     // inside a set on screen; false: not for this handler
+  const t = e.target;
+  const opt = t.closest(".opt[data-qi]");
+  if (opt) { if (!opt.disabled) pickSel(kind, +opt.dataset.qi, +opt.dataset.c); return true; }
+  const blank = t.closest(".blank[data-b]");       // Part 6: a blank of the text leads to its question
+  if (blank) {
+    const li = $(`#${kind}-run .sq[data-qi="${blank.dataset.b}"]`);
+    if (li) { li.scrollIntoView({ block: "start", behavior: reducedMotion() ? "auto" : "smooth" }); const b = li.querySelector(".opt"); if (b) b.focus({ preventScroll: true }); }
+    return true;
+  }
+  const act = t.closest("[data-act]");
+  if (!act) return false;
+  const a = act.dataset.act;
+  if (a === "check") { checkSet(kind); return true; }
+  if (a === "stop") { finish(kind, "stop"); return true; }
+  if (a === "replay") {
+    if (!answered(kind)) setPlay(kind);
+    else { const set = curSet(kind); if (set) speech.seq(setLines(set, live[kind].cast), null, act); }
+    return true;
+  }
+  return false;
+}
+function onSetKey(kind, e, k, go) {
+  const run = state.runs[kind];
+  if (!run) return;
+  let c = "1234".indexOf(k);
+  if (c < 0 && k.length === 1) c = "abcd".indexOf(k);
+  if (c >= 0 && !answered(kind)) {
+    const qi = run.sel.indexOf(-1);
+    if (qi >= 0) { e.preventDefault(); pickSel(kind, qi, c); }
+    return;
+  }
+  if (go) {
+    if (focusedButton() && !document.activeElement.matches('[data-act="next"], [data-act="check"]')) return;
+    e.preventDefault();
+    if (!answered(kind)) checkSet(kind);
+    else if (run.mode === "train") next(kind);
+    return;
+  }
+  if (k === "r" && KINDS[kind].listen) { const b = $(`#${kind}-replay`); if (b && !b.hidden) { e.preventDefault(); b.click(); } }
+}
+
 /* ---------- progress ---------- */
 function renderProgress() {
   const today = dayNum(), S = state.settings;
@@ -1268,11 +1685,12 @@ function renderProgress() {
   } else if (ORDER.length) h += `<p class="small">Tous les mots des thèmes actifs ont été vus au moins une fois.</p>`;
 
   // questions
-  for (const kind of ["p5", "p2"]) {
-    const p5 = kind === "p5", pool = p5 ? P5 : P2, tags = p5 ? P5_TAGS : P2_TYPES, st = qStats(pool);
-    h += `<h2>${p5 ? "Lecture · Part 5" : "Écoute · Part 2"}</h2><div class="stats"><span><b>${st.seen}</b> sur ${st.total} faites</span>` +
+  for (const kind of [...TAB_KINDS.ecoute, ...TAB_KINDS.lecture]) {
+    const K = KINDS[kind], tags = K.tags, st = qStats(pool(kind)), avg = avgTime(kind);
+    if (!st.total) continue;
+    h += `<h2>${K.tab === "lecture" ? "Lecture" : "Écoute"} · ${K.nom}</h2><div class="stats"><span><b>${st.seen}</b> sur ${st.total} faites</span>` +
       (st.seen ? `<span><b>${pct(st.first, st.seen)}${NB}%</b> au premier essai</span>` : "") +
-      (p5 && avgTime() ? `<span><b>${avgTime()}${NB}s</b> par question (7 jours)</span>` : "") +
+      (avg ? `<span><b>${avg}${NB}s</b> par question (7 jours)</span>` : "") +
       `<span><b>${st.errs}</b> dans le carnet d’erreurs</span></div>`;
     if (st.seen) {
       h += `<div class="bars">` + Object.keys(tags).filter(t => st.tags[t] && st.tags[t].n)
@@ -1284,7 +1702,10 @@ function renderProgress() {
 
   // activity
   const days = [];
-  for (let d = today - 13; d <= today; d++) { const L = state.log[d] || {}; days.push([d, (L.n || 0) + (L.r || 0) + (L.p5 || 0) + (L.p2 || 0)]); }
+  for (let d = today - 13; d <= today; d++) {
+    const L = state.log[d] || {};
+    days.push([d, (L.n || 0) + (L.r || 0) + Object.keys(KINDS).reduce((s, k) => s + (L[k] || 0), 0)]);
+  }
   const top = Math.max(1, ...days.map(x => x[1]));
   h += `<h2>Deux dernières semaines</h2><p class="small">Cartes et questions par jour${NB}: ${days.reduce((s, x) => s + x[1], 0)} en tout.</p>` +
     `<div class="cols" style="--n:14;height:90px">` + days.map(([d, x]) => `<div class="c"><span>${x || ""}</span><i style="height:${Math.round(100 * x / top)}%"></i></div>`).join("") + `</div>` +
@@ -1332,7 +1753,8 @@ function renderSettings() {
     `<div class="row"><button type="button" class="btn" id="backup-save">Exporter</button><button type="button" class="btn" id="backup-load">Importer</button></div>` +
     `<input type="file" id="backup-file" accept="application/json,.json" hidden>`;
 
-  h += `<h2>Appli</h2><div class="box"><div class="switchrow"><div class="txt">Version du ${esc(BUILD)}<small>${plural(WORDS.length, "mot", "mots")}, ${P5.length} questions de Part 5, ${P2.length} de Part 2` +
+  const parts = Object.keys(KINDS).sort().filter(k => pool(k).length).map(k => `${KINDS[k].nom.slice(5)}${NB}: ${pool(k).length}`);
+  h += `<h2>Appli</h2><div class="box"><div class="switchrow"><div class="txt">Version du ${esc(BUILD)}<small>${plural(WORDS.length, "mot", "mots")} ; questions par partie, ${parts.join(", ")}` +
     `${missingFiles.length ? `. Fichiers non lus${NB}: ${esc(missingFiles.join(", "))}` : ""}</small></div><button type="button" class="btn small" id="app-update">Vérifier</button></div></div>`;
   if (!matchMedia("(display-mode: standalone)").matches && !navigator.standalone)
     h += `<p class="hint">Pour l’installer sur l’iPhone${NB}: dans Safari, Partager › Sur l’écran d’accueil. Elle marche ensuite hors ligne.</p>`;
@@ -1340,7 +1762,7 @@ function renderSettings() {
 }
 function setSetting(key, raw) {
   const S = state.settings;
-  const val = ["rate", "p5Size", "p2Size"].includes(key) ? Number(raw) : raw;
+  const val = key === "rate" || /^p\dSize$/.test(key) ? Number(raw) : raw;
   if (S[key] === val) return;
   S[key] = val;
   save();
@@ -1430,6 +1852,19 @@ async function updateApp() {
 /* ---------- wiring ---------- */
 function onKindClick(kind, e) {
   const t = e.target;
+  const part = t.closest("[data-part]");
+  if (part) {                                      // another part of the tab (Part 5, 6, 7 or Part 2, 3, 4)
+    const to = part.dataset.part;
+    if (to !== kind && KINDS[to]) {
+      suspend(kind);
+      state.settings[KINDS[to].tab === "lecture" ? "readPart" : "listenPart"] = to;
+      save();
+      renderKind(to);
+      renderCounts();
+    }
+    return;
+  }
+  if (KINDS[kind].sets && !$(`#${kind}-run`).hidden && onSetClick(kind, e)) return;
   const opt = t.closest(".opt[data-c]");
   if (opt && !opt.disabled) { choose(kind, Number(opt.dataset.c)); return; }
   const sq = t.closest("[data-say-q]");
@@ -1442,7 +1877,7 @@ function onKindClick(kind, e) {
   if (!act) return;
   const a = act.dataset.act;
   if (a === "start" || a === "again") { live[kind] = {}; startRun(kind); }
-  else if (a === "resume") { live[kind] = { on: true }; showQuestion(kind); }
+  else if (a === "resume") { live[kind] = { on: true }; show(kind); }
   else if (a === "drop") {
     $(`#${kind}-runbtns`).innerHTML = `<p class="small" style="flex-basis:100%">Abandonner cette série${NB}? Tes réponses déjà données restent comptées.</p>` +
       `<button type="button" class="btn danger" data-act="drop-yes">Abandonner</button><button type="button" class="btn" data-act="home">Garder</button>`;
@@ -1460,10 +1895,8 @@ function bind() {
   });
   $("#v-grades").addEventListener("click", e => { const g = e.target.closest(".grade"); if (g) vGrade(g.dataset.g === "1"); });
   $("#v-browse").addEventListener("click", browseSheet);
-  for (const kind of ["p5", "p2"]) {
-    $(`#view-${kind === "p5" ? "lecture" : "ecoute"}`).addEventListener("click", e => onKindClick(kind, e));
-    $(`#${kind}-stop`).addEventListener("click", () => finish(kind, "stop"));
-  }
+  for (const tab of ["lecture", "ecoute"]) $(`#view-${tab}`).addEventListener("click", e => onKindClick(partOf(tab), e));
+  for (const kind of ["p5", "p2"]) $(`#${kind}-stop`).addEventListener("click", () => finish(kind, "stop"));
   $("#p2-replay").addEventListener("click", () => { if (!answered("p2")) p2Play(); else { const q = curQ("p2"); if (q) speech.seq(p2Parts(q, live.p2.V), null, $("#p2-replay")); } });
   $("#view-reglages").addEventListener("click", e => {
     const t = e.target;
@@ -1514,6 +1947,10 @@ function bind() {
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => applyLook(state.settings));
   window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { state = loadState(); buildOrder(); renderView(); } });
 }
+function focusedButton() {                         // a visible button with the focus keeps its own Space and Enter
+  const el = document.activeElement;               // (a button hidden with its panel may keep the focus)
+  return !!el && el !== document.body && el.matches("button, a, summary") && !el.matches('.tab[aria-current="page"]') && el.getClientRects().length > 0;
+}
 function onKey(e) {
   if (e.metaKey || e.ctrlKey || e.altKey) return;
   if (!$("#sheet").hidden) { if (e.key === "Escape") closeSheet(); return; }
@@ -1521,15 +1958,16 @@ function onKey(e) {
   if (tag === "input" || tag === "select" || tag === "textarea") return;
   const k = e.key.toLowerCase(), go = k === " " || k === "enter";
   const el = document.activeElement;
-  const btn = el && el !== document.body && el.matches("button, a, summary") && !el.matches('.tab[aria-current="page"]');
+  const btn = focusedButton();
   if (current === "mots" && vstudy.cur && !$("#v-study").hidden) {
     if (go) { if (btn) return; e.preventDefault(); vTurn(); }   // a focused button keeps its own Space and Enter
     else if (vstudy.turned && (k === "1" || k === "2")) { e.preventDefault(); vGrade(k === "2"); }
     else if (k === "l") { e.preventDefault(); sayWord(); }
     return;
   }
-  const kind = current === "lecture" ? "p5" : current === "ecoute" ? "p2" : null;
+  const kind = partOf(current);
   if (!kind || !state.runs[kind] || $(`#${kind}-run`).hidden) return;
+  if (KINDS[kind].sets) { onSetKey(kind, e, k, go); return; }
   const n = kind === "p5" ? 4 : 3;
   let c = "1234".indexOf(k);
   if (c < 0 && k.length === 1) c = "abcd".indexOf(k);
@@ -1538,9 +1976,9 @@ function onKey(e) {
   else if (k === "r" && kind === "p2") { e.preventDefault(); $("#p2-replay").hidden || $("#p2-replay").click(); }
 }
 function onVisibility() {                          // the app in the background: the clock stops, the question starts again on return
-  const kind = current === "lecture" ? "p5" : current === "ecoute" ? "p2" : null;
+  const kind = partOf(current);
   if (document.hidden) { if (kind) suspend(kind); speech.stop(); return; }
-  if (kind && state.runs[kind] && live[kind].on && !$(`#${kind}-run`).hidden) showQuestion(kind);
+  if (kind && state.runs[kind] && live[kind].on && !$(`#${kind}-run`).hidden) show(kind);
   if (swReg && Date.now() - swChecked > 30 * 60e3) { swChecked = Date.now(); swReg.update().catch(() => {}); }
   if (current === "mots" && !vstudy.turned) vShow();
   renderCounts();
@@ -1563,7 +2001,7 @@ async function init() {
     return;
   }
   $("#loading").hidden = true;
-  for (const k of ["p5", "p2"]) if (state.runs[k]) live[k] = {};   // a series saved before: offered on its tab
+  for (const k in KINDS) if (state.runs[k]) live[k] = {};   // a series saved before: offered on its tab
   showView(state.settings.view);
   if (missingFiles.length) toast(`Fichiers non lus${NB}: ${missingFiles.join(", ")}.`, 4000);
   if ("serviceWorker" in navigator) {

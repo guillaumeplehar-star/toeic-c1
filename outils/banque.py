@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Contrôle de la banque de Cap 945 (banque/banque.json et ses fichiers TSV).
 
-    py outils\\banque.py verifier      contrôle tout ; code 1 s'il y a une erreur
+    py outils\\banque.py verifier      contrôle tout ; code 1 s'il y a une erreur (TSV : mots, Parts 2 et 5 ; JSON : Parts 3, 4, 6, 7)
     py outils\\banque.py stats         répartition des réponses, compétences, niveaux et types par fichier
     py outils\\banque.py corriger      remplace les apostrophes droites par ’ et retire les espaces en trop
     py outils\\banque.py doublons      questions trop proches (même bonne réponse et phrase semblable, ou phrase presque identique)
@@ -16,7 +16,7 @@ import sys
 from collections import Counter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BANQUE = os.path.join(ROOT, "banque")
+BANQUE = os.environ.get("CAP945_BANQUE") or os.path.join(ROOT, "banque")   # autre dossier : les tests
 
 HEADERS = {
     "mots": ["anglais", "nature", "francais", "exemple", "traduction", "note"],
@@ -161,6 +161,176 @@ def check_file(entry, errors, warnings, seen_ids, seen_words):
     return stats
 
 
+SET_TYPES = {
+    "part3": {"sujet", "detail", "inference", "action", "intention", "graphique"},
+    "part4": {"sujet", "detail", "inference", "action", "intention", "graphique"},
+    "part6": COMPETENCES | {"phrase"},
+    "part7": {"idee", "detail", "inference", "vocab", "vrai-faux", "insertion", "intention", "croise"},
+}
+SPEAKERS = {"W": "f", "M": "m", "W2": "f", "M2": "m"}
+MARKS = ["[1]", "[2]", "[3]", "[4]"]
+
+
+def strings(o):
+    if isinstance(o, str):
+        yield o
+    elif isinstance(o, list):
+        for x in o:
+            yield from strings(x)
+    elif isinstance(o, dict):
+        for x in o.values():
+            yield from strings(x)
+
+
+def check_table(t, err, what):
+    if t is None:
+        return
+    rows = t.get("rows") if isinstance(t, dict) else None
+    if not isinstance(rows, list) or len(rows) < 2 or not all(isinstance(r, list) and r for r in rows):
+        err("%s : il faut {\"title\", \"rows\"} avec au moins deux lignes" % what)
+    elif len({len(r) for r in rows}) != 1:
+        err("%s : lignes de longueurs différentes" % what)
+
+
+def check_sets(entry, errors, warnings, seen_ids):
+    """Parts 3, 4, 6, 7 : un fichier JSON de lots ; voir outils/consignes.md."""
+    kind, name = entry["type"], entry["fichier"]
+    path = os.path.join(BANQUE, name)
+    if not os.path.exists(path):
+        errors.append("%s : fichier absent" % name)
+        return None
+    try:
+        with open(path, encoding="utf-8-sig") as fh:
+            data = json.load(fh)
+    except Exception as e:
+        errors.append("%s : JSON illisible (%s)" % (name, e))
+        return None
+    sets = data.get("sets") if isinstance(data, dict) else None
+    if not isinstance(sets, list):
+        errors.append("%s : il faut un objet {\"sets\": [ … ]}" % name)
+        return None
+    m = re.match(r"part([3467])-([a-z]+)\.json$", name)
+    prefix = (m.group(1) + m.group(2) + "-") if m else None
+    stats = {"n": 0, "q": 0, "rep": Counter(), "tag": Counter(), "lvl": Counter()}
+    for k, s in enumerate(sets, 1):
+        sid = s.get("id", "") if isinstance(s, dict) else ""
+        where = "%s %s" % (name, sid or "lot %d" % k)
+
+        def err(msg):
+            errors.append("%s : %s" % (where, msg))
+
+        def warn(msg):
+            warnings.append("%s : %s" % (where, msg))
+
+        if not isinstance(s, dict):
+            err("pas un objet")
+            continue
+        if sid in seen_ids:
+            err("id déjà utilisé (%s)" % seen_ids[sid])
+        seen_ids[sid] = name
+        if prefix and not re.fullmatch(re.escape(prefix) + r"\d{3}", sid):
+            err("id attendu %s000" % prefix)
+        texts = list(strings(s))
+        if any("'" in t for t in texts):
+            err("apostrophe droite (py outils\\banque.py corriger)")
+        if any('"' in t for t in texts):
+            err("guillemet droit dans un texte")
+        qs = s.get("questions")
+        if not isinstance(qs, list) or not qs:
+            err("pas de questions")
+            continue
+        graphic_q = sum(1 for q in qs if isinstance(q, dict) and q.get("type") == "graphique")
+        if kind in ("part3", "part4"):
+            sp = s.get("speakers")
+            if not isinstance(sp, dict) or any(SPEAKERS.get(key) != v for key, v in sp.items()):
+                err("speakers : clés W, M, W2, M2 avec f ou m")
+                sp = {}
+            want = (2, 3) if kind == "part3" else (1, 1)
+            if not want[0] <= len(sp) <= want[1]:
+                err("%d locuteur(s) au lieu de %s" % (len(sp), "2 ou 3" if kind == "part3" else "1"))
+            lines = s.get("lines")
+            if not isinstance(lines, list) or not lines or not all(isinstance(l, list) and len(l) == 2 and l[0] in sp and l[1].strip() for l in lines):
+                err("lines : liste de [locuteur, réplique] avec des locuteurs de speakers")
+                lines = []
+            if set(l[0] for l in lines) != set(sp):
+                warn("un locuteur ne parle pas")
+            fr = s.get("lines_fr")
+            if not isinstance(fr, list) or len(fr) != len(lines) or not all(isinstance(x, str) and x.strip() for x in fr):
+                err("lines_fr : une traduction par réplique")
+            n = sum(words(l[1]) for l in lines)
+            lo, hi = (80, 170) if kind == "part3" else (100, 190)
+            if not lo <= n <= hi:
+                warn("%d mots" % n)
+            if len(qs) != 3:
+                err("%d questions au lieu de 3" % len(qs))
+            check_table(s.get("graphic"), err, "graphic")
+            if bool(s.get("graphic")) != bool(graphic_q):
+                err("un graphic va avec une question de type graphique, et inversement")
+        elif kind == "part6":
+            text = s.get("text", "")
+            pos = [text.find(mk) for mk in MARKS]
+            if any(text.count(mk) != 1 for mk in MARKS) or pos != sorted(pos):
+                err("le texte doit contenir [1], [2], [3], [4] une fois chacun, dans l'ordre")
+            if not str(s.get("text_fr", "")).strip():
+                err("text_fr vide")
+            if len(qs) != 4:
+                err("%d questions au lieu de 4" % len(qs))
+            if sum(1 for q in qs if isinstance(q, dict) and q.get("type") == "phrase") != 1:
+                err("il faut une question de type phrase, une seule")
+            if not 70 <= words(text) <= 190:
+                warn("texte de %d mots" % words(text))
+        else:
+            docs = s.get("docs")
+            if not isinstance(docs, list) or not 1 <= len(docs) <= 3 or not all(isinstance(d, dict) and str(d.get("text", "")).strip() for d in docs):
+                err("docs : 1 à 3 documents avec un text")
+                docs = []
+            for d in docs:
+                check_table(d.get("table"), err, "table")
+            fr = s.get("docs_fr")
+            if not isinstance(fr, list) or len(fr) != len(docs) or not all(isinstance(x, str) and x.strip() for x in fr):
+                err("docs_fr : une traduction par document")
+            if len(docs) == 1 and not 2 <= len(qs) <= 4:
+                warn("lot simple avec %d questions" % len(qs))
+            if len(docs) > 1 and len(qs) != 5:
+                warn("lot de %d documents avec %d questions" % (len(docs), len(qs)))
+            types = [q.get("type") for q in qs if isinstance(q, dict)]
+            if "croise" in types and len(docs) < 2:
+                err("question croise dans un lot d'un seul document")
+            if len(docs) > 1 and "croise" not in types:
+                warn("pas de question croise")
+            if "insertion" in types:
+                if not any(all(str(d.get("text", "")).count(mk) == 1 for mk in MARKS) for d in docs):
+                    err("question insertion sans les marques [1] à [4] dans un document")
+            stats["lvl"]["%d doc." % len(docs)] += 1
+        for i, q in enumerate(qs, 1):
+            if not isinstance(q, dict):
+                err("question %d : pas un objet" % i)
+                continue
+            opts = q.get("opts")
+            if not isinstance(opts, list) or len(opts) != 4 or not all(isinstance(o, str) and o.strip() for o in opts):
+                err("question %d : il faut quatre propositions" % i)
+            elif len({o.lower() for o in opts}) != 4:
+                err("question %d : deux propositions identiques" % i)
+            if q.get("ans") not in ("A", "B", "C", "D"):
+                err("question %d : ans %s" % (i, q.get("ans")))
+            if q.get("type") not in SET_TYPES[kind]:
+                err("question %d : type inconnu %s" % (i, q.get("type")))
+            if q.get("type") == "insertion" and opts != MARKS:
+                err("question %d : insertion, opts = [1] à [4]" % i)
+            need = ["expl"] if kind == "part6" else ["q", "expl", "q_fr"]
+            for f in need:
+                if not str(q.get(f, "")).strip():
+                    err("question %d : %s vide" % (i, f))
+            for f in ("expl", "q_fr"):
+                if str(q.get(f, "")).count("*") % 2:
+                    err("question %d : astérisques sans paire dans %s" % (i, f))
+            stats["rep"][q.get("ans")] += 1
+            stats["tag"][q.get("type")] += 1
+        stats["n"] += 1
+        stats["q"] += len(qs)
+    return stats
+
+
 def verify(show_stats=False):
     config = load_config()
     errors, warnings, seen_ids, seen_words = [], [], {}, {}
@@ -170,12 +340,25 @@ def verify(show_stats=False):
         for k in ("id", "type", "nom", "fichier"):
             if not entry.get(k):
                 errors.append("banque.json : entrée sans « %s » : %s" % (k, entry))
-        if entry.get("type") not in HEADERS:
+        if entry.get("type") not in HEADERS and entry.get("type") not in SET_TYPES:
             errors.append("banque.json : type inconnu %s" % entry.get("type"))
             continue
         if entry["id"] in ids:
             errors.append("banque.json : id %s en double" % entry["id"])
         ids.add(entry["id"])
+        if entry["type"] in SET_TYPES:
+            st = check_sets(entry, errors, warnings, seen_ids)
+            if st is None:
+                continue
+            total[entry["type"]] += st["q"]
+            line = "%-22s %4d lots, %d questions" % (entry["fichier"], st["n"], st["q"])
+            if show_stats:
+                line += "  réponses " + " ".join("%s %d" % kv for kv in sorted(st["rep"].items()))
+                line += "  | " + ", ".join("%s %d" % kv for kv in st["tag"].most_common())
+                if st["lvl"]:
+                    line += "  | " + ", ".join("%s %d" % kv for kv in sorted(st["lvl"].items()))
+            print(line)
+            continue
         st = check_file(entry, errors, warnings, seen_ids, seen_words)
         if st is None:
             continue
@@ -187,7 +370,8 @@ def verify(show_stats=False):
             if st["lvl"]:
                 line += "  | " + ", ".join("%s %d" % kv for kv in sorted(st["lvl"].items()))
         print(line)
-    print("Total : %d mots, %d questions de Part 5, %d de Part 2." % (total["mots"], total["part5"], total["part2"]))
+    print("Total : %d mots ; questions : Part 2 %d, Part 3 %d, Part 4 %d, Part 5 %d, Part 6 %d, Part 7 %d." % (
+        total["mots"], total["part2"], total["part3"], total["part4"], total["part5"], total["part6"], total["part7"]))
     for w in warnings[:60]:
         print("  attention  " + w)
     if len(warnings) > 60:
@@ -206,6 +390,26 @@ def fix():
     for entry in config.get("listes", []):
         path = os.path.join(BANQUE, entry.get("fichier", ""))
         if not os.path.exists(path):
+            continue
+        if entry.get("type") in SET_TYPES:            # JSON : the apostrophes inside the texts
+            with open(path, encoding="utf-8-sig") as fh:
+                raw = fh.read()
+            data = json.loads(raw)
+
+            def tidy(o):
+                if isinstance(o, str):
+                    return re.sub(r" {2,}", " ", o.strip()).replace("'", "’")
+                if isinstance(o, list):
+                    return [tidy(x) for x in o]
+                if isinstance(o, dict):
+                    return {k: tidy(v) for k, v in o.items()}
+                return o
+            new = json.dumps(tidy(data), ensure_ascii=False, indent=2) + "\n"
+            if new != raw:
+                changed += 1
+                with open(path, "w", encoding="utf-8", newline="\n") as fh:
+                    fh.write(new)
+                print("corrigé : " + entry["fichier"])
             continue
         with open(path, encoding="utf-8-sig", newline="") as fh:
             text = fh.read()

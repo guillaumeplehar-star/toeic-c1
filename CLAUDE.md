@@ -11,10 +11,10 @@ https://github.com/guillaumeplehar-star/toeic-c1, site https://guillaumeplehar-s
 framework, pas de compilation : `index.html` contient tout le HTML, le CSS et le JavaScript. Publier : `git add -A`,
 `git commit`, `git push` (une à deux minutes).
 
-Version 1 : vocabulaire, Part 5, Part 2. Prévu ensuite (v2) : Parts 3-4 (conversations et exposés, avec questions
-lues avant l’audio) et Parts 6-7 (textes à trous, lecture simple, double, triple) ; (v3) examens blancs avec score
-estimé par partie, tirage selon les points faibles, synchronisation entre appareils (le serveur Cloudflare de
-形音义 peut servir, avec un préfixe de code à part). La Part 1 (photos) est laissée de côté.
+Version 1 : vocabulaire, Part 5, Part 2. Version 2 : Parts 3-4 (conversations et exposés, questions écrites lues
+avant l’audio) et Parts 6-7 (textes à trous ; lecture simple, double, triple). Prévu ensuite (v3) : examens blancs
+avec score estimé par partie, tirage selon les points faibles, synchronisation entre appareils (le serveur
+Cloudflare de 形音义 peut servir, avec un préfixe de code à part). La Part 1 (photos) est laissée de côté.
 
 ## Fichiers
 
@@ -24,12 +24,12 @@ estimé par partie, tirage selon les points faibles, synchronisation entre appar
 | `sw.js` | Service worker : réseau d’abord (4 s au plus), sinon copie locale (caches `cap945-…`). |
 | `manifest.webmanifest`, `*.png` | Installation sur l’écran d’accueil ; icônes dessinées par `outils/icones.py`. |
 | `fonts/` | Andika (police `"AndikaX"`, sous-ensembles latins, licence OFL), reprise de 形音义. |
-| `banque/` | Le contenu : `banque.json` (liste des fichiers : `id`, `type` = `mots` / `part5` / `part2`, `nom`, `fichier`, `actif` facultatif) et un `.tsv` par fichier. |
+| `banque/` | Le contenu : `banque.json` (liste des fichiers : `id`, `type` = `mots` / `part2` … `part7`, `nom`, `fichier`, `actif` facultatif), un `.tsv` par fichier de mots ou de Parts 2 et 5, un `.json` de lots (`{"sets": […]}`) par fichier des Parts 3, 4, 6, 7. |
 | `outils/consignes.md` | Format exact des fichiers et règles de rédaction et de relecture (à donner aux agents qui écrivent du contenu). |
 | `outils/banque.py` | `verifier`, `stats`, `corriger` (apostrophes droites), `doublons` (questions trop proches entre séries : à lancer après tout ajout de questions). |
 | `outils/version_appli.py` | À lancer après toute modification de l’appli : `const BUILD` et `VERSION`/`EXTRA` de `sw.js`. |
 | `outils/icones.py` | Refait les icônes (Pillow). |
-| `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/`). Voix simulée : `window.__said`. |
+| `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/` ; lots JSON écrits par `tests/donnees/fabrique_lots.py`). Voix simulée : `window.__said` (Samantha et Karen voix de femme, Daniel voix d’homme). L’examen de Part 3 tourne sur une horloge simulée (`page.clock`). |
 | `LISEZMOI.md` | Guide de l’utilisateur, à tenir à jour quand une fonction visible change. |
 
 ## Commandes (PowerShell : une commande par ligne)
@@ -48,8 +48,13 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   absent : Automatique), `data-text` (`m`, `l`, `xl` → `--tz`) et la couleur des `<meta name="theme-color">`.
 - **Constantes** : `KEY = "cap945.v1"` (état ; **ne jamais renommer**), `DELAYS = [1,3,7,14,30,60]` (seaux 1 à 6),
   `TOP`, `GAP = 4` (un mot raté revient après au moins 4 autres cartes), `ERR_DELAYS = [1,7,30]` (carnet d’erreurs),
-  `P5_SECONDS = 20`, `P2_WINDOW = 5000`, `C1_MARK = 90`, `P5_TAGS`, `P2_TYPES`, `ACCENTS`, `ODD_VOICES` (voix
-  fantaisie d’Apple écartées), `SIZES`, `DEFAULTS`, `BUILD`.
+  `P5_SECONDS = 20`, `P6_SECONDS = 40`, `P7_SECONDS = 60` (rythme visé par question, et chronomètre de l’examen),
+  `P2_WINDOW = 5000`, `P34_WINDOW = 8000` (par question, +4 s avec un graphique), `PREREAD = 3000` (lecture des
+  questions avant l’audio, par question), `C1_MARK = 90`, `P5_TAGS`, `P2_TYPES`, `P34_TYPES`, `P6_TYPES`, `P7_TYPES`,
+  **`KINDS`** (les six parties `p2` … `p7` : onglet, nom, types de questions, `sets` pour les parties par lots,
+  `listen`, `unit`, `pace`), `TAB_KINDS`, `SET_FILTERS` (Part 7 : un document ou plusieurs), `ACCENTS`, `ODD_VOICES`
+  (voix fantaisie d’Apple écartées), `FEMALE_VOICES`/`MALE_VOICES` (sexe d’une voix d’après son nom), `SIZES`,
+  `DEFAULTS` (`pNMode`, `pNSize`, `pNTag` par partie, `readPart`, `listenPart`), `BUILD`.
 - **État** : `{v:1, settings, words, q, lists, log, seq, runs}`. `words[id]` = carte de vocabulaire (absente = jamais
   vue) `{b seau, d jour dû (b ≥ 1), k valeur de seq au ×, r, l oublis, t, s}`. `q[id]` = question
   `{r réponses, ok, l, f 1 si réussie au premier essai, e étape du carnet (0 dehors), d jour de retour, t, ms, a choix}`.
@@ -75,7 +80,20 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   `finish(kind, why)` (`end`, `stop`, `time`) → `doneHTML`, `suspend` (onglet quitté ou appli en arrière-plan :
   chronomètre arrêté, voix coupée ; au retour `showQuestion`). `live[kind]` : ce qui est à l’écran (minuteries,
   voix de l’item, `done` = résultats de la dernière série). Panneaux `#p5-home`/`#p5-run`/`#p5-done` (`panel`).
-- **Voix** : `speech` (`load(last)` : voix anglaises par accent, locales d’abord, sans `ODD_VOICES` ; `pool()` selon
+- **Lots** (Parts 3, 4, 6, 7) : `addSet` (chaque question prend l’id du lot et son rang, `3a-001-2`, et entre dans
+  `QBYID`, `QS[kind]`), `SETS[kind]`, `SBYID`, `pool(kind)` (questions d’une partie). Série : `ids` = ids de lots,
+  `ans` = un tableau de réponses par lot, `sel` = choix en cours (enregistrés, repris après un rechargement).
+  `pickSeries` traite un lot comme un tout (dû si une de ses questions est due). `showSet` (dessine le lot :
+  `docsHTML` avec `docTextHTML`/`docLine` (textos, en-têtes de courriel, marques `[1]`), trous de Part 6 `blankHTML`,
+  `tableHTML`, `setQuestionsHTML`), `markSel`, `pickSel`, `setPlay` (Parts 3-4 : `castVoices(speakers)` une voix par
+  personne, de son sexe, sinon une autre hauteur ; examen : `PREREAD`, une écoute, fenêtre `P34_WINDOW`, validation
+  d’office), `checkSet(kind, last)` (enregistre chaque question ; `last` : temps de l’examen écoulé),
+  `showSetFeedback` (transcription `transcriptLinesHTML`, traductions), `onSetClick`, `onSetKey`. Un seul moteur pour
+  les deux sortes de parties : `show(kind)`, `tick(kind)` (chronomètre), `next`, `finish`, `suspend`, `doneHTML`
+  (réponses aplaties, `setErrTitle`). Panneaux `#pN-home/run/done` ; `panel` ne montre que ceux de la partie
+  choisie (`partOf(onglet)`, sélecteur `partSelHTML`, `data-part`).
+- **Voix** : `speech` (`load(last)` : voix anglaises par accent, locales d’abord, sans `ODD_VOICES`, avec leur sexe
+  `voiceSex` ; `pool()` selon
   `settings.accents` ; `seq(parts, done, btn)` enchaîne des phrases avec pauses, jeton contre les rappels périmés,
   minuterie de secours car Safari ne signale pas toujours la fin ; `stop`). `wordVoice(id)` (une voix fixe par mot),
   `voicePair()` (deux voix différentes pour la Part 2, sinon hauteur plus basse), `p2Parts`, `p2Play` (sans voix :

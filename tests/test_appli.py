@@ -200,6 +200,131 @@ def part2(page, errors):
     page.click('[data-set="p2Mode"][data-v="train"]')
 
 
+def reading_sets(page, errors):
+    print("\n— Parts 6 et 7")
+    page.click('.tab[data-view="lecture"]')
+    page.click('#p5-home [data-part="p6"]')
+    check(page.is_visible("#p6-home") and "Part 6" in page.inner_text("#p6-home"), "Lecture : on passe à la Part 6")
+    page.click('#p6-home [data-act="start"]')
+    check(page.locator("#p6-run .blank[data-b]").count() == 4, "texte à quatre trous")
+    s = page.evaluate("() => curSet('p6')")
+    for i, q in enumerate(s["qs"]):
+        page.click('#p6-run .opt[data-qi="%d"][data-c="%d"]' % (i, q["ans"] if i else (q["ans"] + 1) % 4))
+    first = s["qs"][0]
+    check(first["opts"][(first["ans"] + 1) % 4] in page.inner_text('#p6-run .doc'), "le mot choisi s'écrit dans le trou")
+    shot(page, "p6-texte", full=True)
+    page.click('#p6-run [data-act="check"]')
+    check(page.locator("#p6-run .sqfb:not([hidden])").count() == 4, "correction de chaque trou")
+    check(page.locator("#p6-run .blank.ko").count() == 1 and page.locator("#p6-run .blank.ok").count() == 3, "trous corrigés dans le texte")
+    st = state(page)["q"]
+    check(st["6t-001-1"]["e"] == 1 and st["6t-001-2"]["f"] == 1, "chaque question du texte a sa fiche (carnet d'erreurs)")
+    shot(page, "p6-correction", full=True)
+    page.click('#p6-run [data-act="next"]')
+    check("Série terminée" in page.inner_text("#p6-done") and "3 / 4" in nb(page.inner_text("#p6-done")), "bilan du texte : 3 / 4")
+    page.click('#p6-done [data-act="home"]')
+
+    page.click('#p6-home [data-part="p7"]')
+    page.click('#p7-home [data-tag="multiple"]')
+    page.click('#p7-home [data-act="start"]')
+    check(page.locator("#p7-run .doc").count() == 2 and page.locator("#p7-run .tbl").count() == 1, "lot double avec un tableau")
+    s = page.evaluate("() => curSet('p7')")
+    for q in s["qs"]:
+        page.keyboard.press(str(q["ans"] + 1))
+    check(page.locator("#p7-run .opt.sel").count() == 5, "au clavier : une réponse par question, dans l'ordre")
+    page.reload()
+    wait_ready(page)
+    check("Série en cours" in page.inner_text("#p7-home"), "Part 7 : série reprise après un rechargement")
+    page.click('#p7-home [data-act="resume"]')
+    check(page.locator("#p7-run .opt.sel").count() == 5, "les choix faits sont gardés")
+    page.keyboard.press("Enter")
+    check("Documents croisés" in page.inner_text("#p7-run") and page.locator("#p7-run .opt.ok").count() == 5, "Entrée valide : tout juste, types affichés")
+    shot(page, "p7-correction", full=True)
+    page.keyboard.press("Enter")
+    check("5 / 5" in nb(page.inner_text("#p7-done")), "bilan 5 / 5")
+    page.click('#p7-done [data-act="home"]')
+    page.click('#p7-home [data-tag=""]')
+    page.click('[data-set="p7Mode"][data-v="exam"]')
+    page.click('#p7-home [data-act="start"]')
+    nq = page.evaluate("() => state.runs.p7.ids.reduce((n, id) => n + SBYID.get(id).qs.length, 0)")
+    check(page.evaluate("() => state.runs.p7.left") == nq * 60000, "Part 7 examen : une minute par question")
+    page.click('#p7-run .opt[data-qi="0"][data-c="0"]')
+    page.evaluate("() => { state.runs.p7.left = 600; live.p7.resumedAt = Date.now(); }")
+    page.wait_for_selector("#p7-done:not([hidden])", timeout=4000)
+    check("Temps écoulé" in page.inner_text("#p7-done"), "temps écoulé : le lot en cours compte avec ce qui est coché")
+    page.click('#p7-done [data-act="home"]')
+    page.click('[data-set="p7Mode"][data-v="train"]')
+    page.click('#p7-home [data-part="p5"]')
+
+
+def listening_sets(page, errors):
+    print("\n— Parts 3 et 4")
+    page.click('.tab[data-view="ecoute"]')
+    page.click('#p2-home [data-part="p3"]')
+    page.click('[data-set="p3Size"][data-v="3"]')
+    page.evaluate("() => { window.__said.length = 0; }")
+    page.click('#p3-home [data-act="start"]')
+    s = page.evaluate("() => curSet('p3')")
+    page.wait_for_function("n => window.__said.length >= n && !document.querySelector('#p3-replay').hidden", arg=len(s["lines"]), timeout=8000)
+    said = page.evaluate("() => window.__said")
+    check([x["text"] for x in said[:len(s["lines"])]] == [l[1] for l in s["lines"]], "toute la conversation est lue, réplique après réplique")
+    sex = {"Samantha": "f", "Karen": "f", "Daniel": "m"}
+    good = all(sex.get(said[i]["voice"]) == s["speakers"][l[0]] for i, l in enumerate(s["lines"]))
+    check(good, "voix de femme pour la femme, voix d'homme pour l'homme", [(l[0], said[i]["voice"]) for i, l in enumerate(s["lines"])])
+    if "M2" in s["speakers"]:
+        m1 = next(said[i] for i, l in enumerate(s["lines"]) if l[0] == "M")
+        m2 = next(said[i] for i, l in enumerate(s["lines"]) if l[0] == "M2")
+        check(m1["pitch"] != m2["pitch"] or m1["voice"] != m2["voice"], "deux hommes : deux voix ou deux hauteurs")
+    check(page.locator("#p3-run .sq").count() == 3 and s["lines"][0][1] not in page.inner_text("#p3-run"), "les questions sont écrites, la conversation non")
+    for i, q in enumerate(s["qs"]):
+        page.click('#p3-run .opt[data-qi="%d"][data-c="%d"]' % (i, q["ans"]))
+    page.click('#p3-run [data-act="check"]')
+    check(s["lines"][0][1] in page.inner_text("#p3-fb") and "Homme" in page.inner_text("#p3-fb"), "après la réponse : la transcription, avec qui parle")
+    shot(page, "p3-correction", full=True)
+    while page.evaluate("() => !!state.runs.p3"):
+        if page.is_visible('#p3-run [data-act="next"]'):
+            page.click('#p3-run [data-act="next"]')
+            continue
+        s = page.evaluate("() => curSet('p3')")
+        if s["graphic"]:
+            check(page.locator("#p3-run .tbl").count() == 1, "le graphique s'affiche avec les questions")
+        page.wait_for_function("() => !document.querySelector('#p3-replay').hidden", timeout=8000)
+        for i, q in enumerate(s["qs"]):
+            page.click('#p3-run .opt[data-qi="%d"][data-c="%d"]' % (i, q["ans"]))
+        page.click('#p3-run [data-act="check"]')
+    check("6 / 6" in nb(page.inner_text("#p3-done")), "bilan de la Part 3")
+    page.click('#p3-done [data-act="home"]')
+    page.click('#p3-home [data-part="p4"]')
+    page.click('#p4-home [data-act="start"]')
+    page.wait_for_function("() => !document.querySelector('#p4-replay').hidden", timeout=8000)
+    page.click('#p4-run [data-act="check"]')
+    check("Pas de réponse" in page.inner_text("#p4-run") and "Femme" not in page.inner_text("#p4-fb"), "Part 4 : un seul locuteur, réponses manquantes comptées")
+    page.click('#p4-run [data-act="next"]')
+    page.click('#p4-done [data-act="home"]')
+    page.click('#p4-home [data-part="p2"]')
+
+
+def listening_exam(browser, url, errors):
+    print("\n— Part 3, examen (horloge simulée)")
+    ctx, page = new_page(browser, errors)
+    page.clock.install()
+    page.goto(url)
+    page.wait_for_function("() => typeof BANK !== 'undefined' && BANK && current", timeout=15000)
+    page.click('.tab[data-view="ecoute"]')
+    page.click('#p2-home [data-part="p3"]')
+    page.click('[data-set="p3Mode"][data-v="exam"]')
+    page.click('#p3-home [data-act="start"]')
+    check("Lis les questions" in page.inner_text("#p3-msg"), "examen : d'abord le temps de lire les questions")
+    check(page.evaluate("() => window.__said.filter(s => s.text.trim()).length") == 0, "rien n'est lu pendant ce temps")
+    page.clock.run_for(10000)
+    page.clock.run_for(5000)
+    check(page.is_visible("#p3-window") and page.is_hidden("#p3-replay"), "après une seule écoute : le temps de répondre, sans réécoute")
+    page.click('#p3-run .opt[data-qi="0"][data-c="0"]')
+    page.clock.run_for(30000)
+    check(page.evaluate("() => state.runs.p3 ? state.runs.p3.i : -1") == 1, "le temps écoulé valide le lot et passe au suivant")
+    check(page.locator("#p3-run .sqfb:not([hidden])").count() == 0, "pas de correction pendant l'examen")
+    ctx.close()
+
+
 def progress_settings(page, errors):
     print("\n— Progrès et Réglages")
     page.click('.tab[data-view="progres"]')
@@ -260,6 +385,8 @@ def main():
         vocab(page, errors)
         part5(page, errors)
         part2(page, errors)
+        reading_sets(page, errors)
+        listening_sets(page, errors)
         progress_settings(page, errors)
         backup(page, errors)
         print("\n— hors ligne")
@@ -272,6 +399,8 @@ def main():
         wait_ready(page)
         check(page.evaluate("() => P5.length") == 12 and page.evaluate("() => WORDS.length") == 10, "hors ligne : l'appli et la banque se chargent")
         ctx.close()
+
+        listening_exam(browser, url, errors)
 
         print("\n— sans voix")
         ctx, page = new_page(browser, errors, voices=[])
@@ -312,17 +441,22 @@ def main():
         print("\n— vraie banque")
         real = fresh_copy("site-reel", real_bank=True)
         httpd2, url2 = serve(real)
-        expected = {"mots": 0, "part5": 0, "part2": 0}
+        expected = {"mots": 0, "part2": 0, "part3": 0, "part4": 0, "part5": 0, "part6": 0, "part7": 0}
         config = json.load(open(os.path.join(real, "banque", "banque.json"), encoding="utf-8"))
         for entry in config["listes"]:
             path = os.path.join(real, "banque", entry["fichier"])
-            if os.path.exists(path):
+            if not os.path.exists(path):
+                continue
+            if entry["fichier"].endswith(".json"):   # sets: their questions
+                expected[entry["type"]] += sum(len(s["questions"]) for s in json.load(open(path, encoding="utf-8-sig"))["sets"])
+            else:
                 lines = open(path, encoding="utf-8-sig").read().splitlines()[1:]
                 expected[entry["type"]] += sum(1 for l in lines if l.strip() and not l.startswith("#"))
         ctx, page = new_page(browser, errors)
         page.goto(url2)
         wait_ready(page)
-        got = page.evaluate("() => ({mots: WORDS.length, part5: P5.length, part2: P2.length, missing: missingFiles})")
+        got = page.evaluate("() => ({mots: WORDS.length, part2: P2.length, part3: QS.p3.length, part4: QS.p4.length, part5: P5.length, "
+                            "part6: QS.p6.length, part7: QS.p7.length, missing: missingFiles})")
         check(got["missing"] == [], "tous les fichiers de la banque sont lus", got["missing"])
         check({k: got[k] for k in expected} == expected, "chaque ligne de la banque devient une carte ou une question", (got, expected))
         page.click('.tab[data-view="lecture"]')

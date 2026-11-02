@@ -1,0 +1,81 @@
+{
+  "sets": [
+    {
+      "id": "4t-001",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Good morning, and welcome to the Harbor Museum."
+        ],
+        [
+          "W",
+          "Before we begin the tour, please note that photography is allowed in every gallery except the map room."
+        ],
+        [
+          "W",
+          "The tour lasts about an hour and ends at the gift shop on the ground floor."
+        ],
+        [
+          "W",
+          "Since the elevator is being repaired today, we will take the stairs to the second floor."
+        ],
+        [
+          "W",
+          "If you need a break at any point, there are benches in each gallery. Now, let’s get started."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour et bienvenue au musée du Port.",
+        "Avant de commencer la visite, notez que les photos sont permises dans toutes les salles sauf la salle des cartes.",
+        "La visite dure environ une heure et se termine à la boutique du rez-de-chaussée.",
+        "Comme l’ascenseur est en réparation aujourd’hui, nous prendrons l’escalier jusqu’au deuxième étage.",
+        "Si vous avez besoin d’une pause, il y a des bancs dans chaque salle. Allons-y."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who most likely is the speaker?",
+          "opts": [
+            "A shop assistant",
+            "A tour guide",
+            "A photographer",
+            "An elevator technician"
+          ],
+          "ans": "B",
+          "type": "sujet",
+          "expl": "Elle accueille les visiteurs et annonce *the tour* : c’est une guide.",
+          "q_fr": "Qui est sans doute l’oratrice ?"
+        },
+        {
+          "q": "Where is photography not permitted?",
+          "opts": [
+            "In the gift shop",
+            "On the stairs",
+            "In the map room",
+            "On the second floor"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*Photography is allowed in every gallery except the map room.*",
+          "q_fr": "Où est-il interdit de photographier ?"
+        },
+        {
+          "q": "Why does the speaker say, “there are benches in each gallery”?",
+          "opts": [
+            "To describe the museum’s furniture",
+            "To ask visitors to sit down",
+            "To reassure listeners who may get tired",
+            "To explain a new exhibit"
+          ],
+          "ans": "C",
+          "type": "intention",
+          "expl": "Elle répond à *If you need a break* : elle rassure ceux qui seraient fatigués.",
+          "q_fr": "Pourquoi l’oratrice dit-elle « il y a des bancs dans chaque salle » ?"
+        }
+      ]
+    }
+  ]
+}

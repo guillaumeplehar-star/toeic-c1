@@ -1,0 +1,56 @@
+{
+  "sets": [
+    {
+      "id": "6t-001",
+      "kind": "e-mail",
+      "text": "To: All staff\nFrom: Facilities Department\nSubject: Parking garage\n\nDear colleagues,\n\nStarting Monday, the north entrance of the parking garage will be closed [1] repairs. Please use the south entrance on Pine Street instead. [2]\n\nWe expect the work to be completed within two weeks. During this period, the number of available spaces will be [3] reduced, so we encourage you to carpool or take public transportation. Your patience is [4] appreciated.\n\nFacilities Department",
+      "text_fr": "À : tout le personnel\nDe : service des locaux\nObjet : parking\n\nChers collègues,\n\nÀ partir de lundi, l’entrée nord du parking sera fermée pour travaux. Merci d’utiliser l’entrée sud, rue Pine. Elle sera ouverte de 6 h à 22 h.\n\nNous pensons terminer les travaux en deux semaines. Pendant cette période, le nombre de places sera nettement réduit : nous vous encourageons donc au covoiturage ou aux transports en commun. Merci beaucoup de votre patience.\n\nService des locaux",
+      "questions": [
+        {
+          "opts": [
+            "for",
+            "since",
+            "during",
+            "until"
+          ],
+          "ans": "A",
+          "type": "prep",
+          "expl": "*Closed for repairs* : fermé pour travaux (le motif)."
+        },
+        {
+          "opts": [
+            "The garage was built ten years ago.",
+            "It will be open from 6 A.M. to 10 P.M.",
+            "Parking fees will increase next month.",
+            "Visitors must register at reception."
+          ],
+          "ans": "B",
+          "type": "phrase",
+          "expl": "La phrase donne les horaires de l’entrée sud qu’on vient de citer ; les autres n’ont pas de lien avec ce qui précède."
+        },
+        {
+          "opts": [
+            "significance",
+            "significant",
+            "significantly",
+            "signify"
+          ],
+          "ans": "C",
+          "type": "forme",
+          "expl": "Un adverbe modifie l’adjectif *reduced* : *significantly*."
+        },
+        {
+          "opts": [
+            "great",
+            "greater",
+            "greatness",
+            "greatly"
+          ],
+          "ans": "D",
+          "type": "forme",
+          "expl": "Un adverbe modifie le participe *appreciated* : *greatly appreciated*."
+        }
+      ]
+    }
+  ]
+}
