@@ -325,6 +325,107 @@ def listening_exam(browser, url, errors):
     ctx.close()
 
 
+def answer_current(page, kind):
+    """Répond juste à la question ou au lot à l'écran (mode examen : passe ensuite tout seul)."""
+    if kind in ("p5", "p2"):
+        q = page.evaluate("k => curQ(k)", kind)
+        page.click('#%s-opts .opt[data-c="%d"]' % (kind, q["ans"]))
+    else:
+        s = page.evaluate("k => curSet(k)", kind)
+        for i, q in enumerate(s["qs"]):
+            page.click('#%s-run .opt[data-qi="%d"][data-c="%d"]' % (kind, i, q["ans"]))
+        page.click('#%s-run [data-act="check"]' % kind)
+
+
+def mock_reading(page, errors):
+    print("\n— examen blanc : lecture")
+    page.click('.tab[data-view="examen"]')
+    check("Examen blanc" in page.inner_text("#view-examen"), "onglet Examen")
+    page.click('#view-examen [data-set="mockFormat"][data-v="read"]')
+    check("75 minutes de lecture" in nb(page.inner_text("#view-examen")), "format Lecture : 75 minutes")
+    page.click('#view-examen [data-act="mock-start"]')
+    check(page.evaluate("() => current") == "lecture" and page.is_visible("#p5-run"), "l'examen commence par la Part 5")
+    check("Examen blanc" in page.inner_text("#p5-pos") and page.inner_text("#p5-stop") == "Pause", "Part 5 en examen blanc, bouton Pause")
+    check(page.evaluate("() => state.runs.p5.left") == 75 * 60000, "une seule horloge de 75 minutes pour la lecture")
+    while page.evaluate("() => state.mock && state.mock.stages[state.mock.stage].kind === 'p5'"):
+        i = page.evaluate("() => state.runs.p5 ? state.runs.p5.i : -1")
+        answer_current(page, "p5")
+        page.wait_for_function("i => !state.runs.p5 || state.runs.p5.i > i", arg=i)
+    check(page.is_visible("#p6-run"), "puis la Part 6, sans bilan entre les deux")
+    left = page.evaluate("() => state.runs.p6.left")
+    check(0 < left < 75 * 60000, "le temps restant passe de la Part 5 à la Part 6", left)
+    page.click('#p6-run [data-act="stop"]')
+    check(page.evaluate("() => current") == "examen" and "Examen en cours" in page.inner_text("#view-examen"), "Pause : retour à l'onglet Examen")
+    page.click('.tab[data-view="lecture"]')
+    check("Examen blanc en cours" in page.inner_text("#p6-home"), "la partie en pause renvoie à l'examen")
+    page.click('#p6-home [data-act="to-exam"]')
+    page.click('#view-examen [data-act="mock-resume"]')
+    check(page.is_visible("#p6-run"), "Reprendre : on revient au texte en cours")
+    while page.evaluate("() => !!state.mock"):
+        kind = page.evaluate("() => state.mock.stages[state.mock.stage].kind")
+        n = page.evaluate("k => state.runs[k] ? state.runs[k].ans.length : -1", kind)
+        answer_current(page, kind)
+        page.wait_for_function("([k, n]) => !state.mock || !state.runs[k] || state.runs[k].ans.length > n", arg=[kind, n])
+        page.wait_for_timeout(350)
+    text = nb(page.inner_text("#view-examen"))
+    check(page.evaluate("() => current") == "examen" and "495" in text and "C1" in text, "résultat : 495 en lecture, niveau C1", text[:160])
+    m = page.evaluate("() => state.mocks[0]")
+    check(m["R"]["ok"] == m["R"]["n"] and m["total"] is None and m["format"] == "read", "examen enregistré (lecture seule, pas de total)", m)
+    shot(page, "examen-resultat")
+    page.click('#view-examen [data-act="mock-close"]')
+    check("Tes examens blancs" in page.inner_text("#view-examen"), "l'examen apparaît dans l'historique")
+    # the clock runs out in Part 5: Parts 6 and 7 count as unanswered
+    page.click('#view-examen [data-act="mock-start"]')
+    answer_current(page, "p5")
+    page.wait_for_function("() => state.runs.p5 && state.runs.p5.i === 1")
+    page.evaluate("() => { state.runs.p5.left = 500; live.p5.resumedAt = Date.now(); }")
+    page.wait_for_function("() => !state.mock", timeout=5000)
+    m = page.evaluate("() => state.mocks[0]")
+    total_q = page.evaluate("() => P5.length + QS.p6.length + QS.p7.length")
+    check(m["R"]["n"] == total_q and m["R"]["ok"] == 1, "temps écoulé : tout ce qui reste compte faux", (m["R"], total_q))
+    page.click('#view-examen [data-act="mock-close"]')
+
+
+def mock_listening(browser, url, errors):
+    print("\n— examen blanc : écoute (horloge simulée)")
+    ctx, page = new_page(browser, errors)
+    page.clock.install()
+    page.goto(url)
+    page.wait_for_function("() => typeof BANK !== 'undefined' && BANK && current", timeout=15000)
+    page.click('.tab[data-view="examen"]')
+    page.click('#view-examen [data-set="mockFormat"][data-v="listen"]')
+    page.click('#view-examen [data-act="mock-start"]')
+    check(page.evaluate("() => current") == "ecoute" and page.is_visible("#p2-run"), "l'examen d'écoute commence par la Part 2")
+    for _ in range(12):
+        if not page.evaluate("() => !!state.mock"):
+            break
+        page.clock.run_for(30000)
+    check(not page.evaluate("() => !!state.mock"), "sans réponse, les Parts 2, 3 et 4 s'enchaînent jusqu'au bout")
+    m = page.evaluate("() => state.mocks[0]")
+    expected = page.evaluate("() => P2.length + QS.p3.length + QS.p4.length")
+    check(m["L"]["n"] == expected and m["L"]["ok"] == 0 and m["L"]["score"] == 5, "score d'écoute : 5 pour aucune bonne réponse", m["L"])
+    check(page.evaluate("() => current") == "examen" and "Écoute" in page.inner_text("#view-examen"), "résultats dans l'onglet Examen")
+    ctx.close()
+
+
+def scores_and_draw(page, errors):
+    print("\n— score estimé et tirage")
+    r = page.evaluate("""() => {
+      const steps = Array.from({length: 101}, (_, i) => i / 100);
+      const mono = t => steps.every((x, i) => !i || scaled(t, x) >= scaled(t, steps[i - 1]));
+      return {l0: scaled(SCALE_L, 0), l1: scaled(SCALE_L, 1), r1: scaled(SCALE_R, 1), r9: scaled(SCALE_R, 0.9), l9: scaled(SCALE_L, 0.9),
+        mono: mono(SCALE_L) && mono(SCALE_R), c1: cefr(CEFR_L, 490), b2: cefr(CEFR_L, 489), rc1: cefr(CEFR_R, 455)}; }""")
+    check(r["l0"] == 5 and r["l1"] == 495 and r["r1"] == 495 and r["mono"], "échelle de 5 à 495, toujours croissante", r)
+    check(r["r9"] < r["l9"], "la lecture est notée plus sévèrement que l'écoute", r)
+    check(r["c1"] == "C1" and r["b2"] == "B2" and r["rc1"] == "C1", "niveaux CECRL d'ETS (C1 : 490 en écoute, 455 en lecture)", r)
+    share = page.evaluate("""() => { let a = 0; for (let k = 0; k < 4000; k++) if (weightedShuffle(['a', 'b'], x => x === 'a' ? 3 : 1)[0] === 'a') a++; return a / 4000; }""")
+    check(0.7 < share < 0.8, "tirage pondéré : un poids 3 passe devant un poids 1 trois fois sur quatre", share)
+    w = page.evaluate("""() => { const save = JSON.stringify(state.q);
+      for (const q of P5) state.q[q.id] = { r: 1, ok: q.tag === 'prep' ? 0 : 1, l: q.tag === 'prep' ? 1 : 0, f: q.tag === 'prep' ? 0 : 1, e: 0, t: dayNum() };
+      const w = tagWeights('p5'); state.q = JSON.parse(save); return w; }""")
+    check(w["prep"] > 1.3 and w["forme"] < 0.8, "une compétence ratée pèse plus qu'une compétence réussie", w)
+
+
 def progress_settings(page, errors):
     print("\n— Progrès et Réglages")
     page.click('.tab[data-view="progres"]')
@@ -387,6 +488,8 @@ def main():
         part2(page, errors)
         reading_sets(page, errors)
         listening_sets(page, errors)
+        mock_reading(page, errors)
+        scores_and_draw(page, errors)
         progress_settings(page, errors)
         backup(page, errors)
         print("\n— hors ligne")
@@ -401,6 +504,7 @@ def main():
         ctx.close()
 
         listening_exam(browser, url, errors)
+        mock_listening(browser, url, errors)
 
         print("\n— sans voix")
         ctx, page = new_page(browser, errors, voices=[])
@@ -459,7 +563,12 @@ def main():
                             "part6: QS.p6.length, part7: QS.p7.length, missing: missingFiles})")
         check(got["missing"] == [], "tous les fichiers de la banque sont lus", got["missing"])
         check({k: got[k] for k in expected} == expected, "chaque ligne de la banque devient une carte ou une question", (got, expected))
+        n = page.evaluate("""() => { const q = {}; for (const s of mockStages('full'))
+          q[s.kind] = KINDS[s.kind].sets ? s.ids.reduce((n, id) => n + SBYID.get(id).qs.length, 0) : s.ids.length; return q; }""")
+        listen, read = n.get("p2", 0) + n.get("p3", 0) + n.get("p4", 0), n.get("p5", 0) + n.get("p6", 0) + n.get("p7", 0)
+        check(listen == 94 and 98 <= read <= 106, "examen complet sur la vraie banque : 94 questions d'écoute, environ 100 de lecture", n)
         page.click('.tab[data-view="lecture"]')
+        page.click('#p5-home [data-part="p5"]') if page.is_visible('#p5-home [data-part="p5"]') else None
         page.click('#p5-home [data-act="start"]')
         check(page.is_visible("#p5-text .gap"), "une série de Part 5 démarre sur la vraie banque")
         shot(page, "vraie-banque-p5")

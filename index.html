@@ -87,7 +87,7 @@ i[lang="en"]{font-style:italic}
 .count b{font-size:16px;color:var(--ink);font-variant-numeric:tabular-nums}
 main{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch}
 .view{max-width:680px;margin:0 auto;padding:6px 16px 32px}
-.tabs{order:1;flex:none;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));background:var(--page);border-top:1px solid var(--rule);
+.tabs{order:1;flex:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));background:var(--page);border-top:1px solid var(--rule);
   padding:0 max(env(safe-area-inset-left,0px),4px) env(safe-area-inset-bottom,0px) max(env(safe-area-inset-right,0px),4px)}
 .tab{appearance:none;border:0;background:none;color:var(--faint);padding:8px 0 7px;min-height:54px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:2px;font-size:12px;position:relative}
@@ -264,6 +264,8 @@ details.more summary{color:var(--accent);cursor:pointer;font-size:calc(15px * va
 .lines .who{color:var(--accent);margin-right:4px}
 .lines .trad{display:block;font-size:calc(14px * var(--tz))}
 .trad-doc{font-size:calc(15px * var(--tz));color:var(--pencil)}
+.mocklist{list-style:none;padding:0;margin:6px 0}
+.mocklist li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-top:1px solid var(--rule);font-size:calc(15px * var(--tz))}
 .tr-opts{list-style:none;padding:0;margin:8px 0}
 .tr-opts li{display:flex;gap:8px;align-items:baseline;padding:4px 0}
 .tr-opts li b{flex:none;width:2.2em;color:var(--pencil)}
@@ -356,6 +358,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
     <button type="button" class="tab" data-view="mots"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3.5" y="6.5" width="13" height="14" rx="2"/><path d="M7.5 3.5h11a2 2 0 0 1 2 2v12"/></svg>Mots</button>
     <button type="button" class="tab" data-view="lecture"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="4.5" y="3.5" width="15" height="17" rx="2"/><path d="M8 8.5h8M8 12.5h3.5M14 12.5h2M8 16.5h6"/></svg>Lecture</button>
     <button type="button" class="tab" data-view="ecoute"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3.5" y="13.5" width="4.5" height="7" rx="1.6"/><rect x="16" y="13.5" width="4.5" height="7" rx="1.6"/></svg>Écoute</button>
+    <button type="button" class="tab" data-view="examen"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="13.5" r="7"/><path d="M12 13.5V9.5M10 3.5h4M18 7l1.3-1.3"/></svg>Examen</button>
     <button type="button" class="tab" data-view="progres"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M5 20v-6M10 20V9M15 20v-8M20 20V5"/></svg>Progrès</button>
     <button type="button" class="tab" data-view="reglages"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h9M18 7h2M4 17h3M12 17h8"/><circle cx="15.5" cy="7" r="2.3"/><circle cx="9.5" cy="17" r="2.3"/></svg>Réglages</button>
   </nav>
@@ -412,6 +415,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
       <div id="p4-home" hidden></div><div id="p4-run" hidden></div><div id="p4-done" hidden></div>
     </section>
 
+    <section class="view" id="view-examen" hidden aria-label="Examen blanc"></section>
     <section class="view" id="view-progres" hidden aria-label="Progrès"></section>
     <section class="view" id="view-reglages" hidden aria-label="Réglages"></section>
   </main>
@@ -432,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "2 novembre 2026 à 21 h 54";
+const BUILD = "2 novembre 2026 à 22 h 07";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -478,10 +482,26 @@ const KINDS = {
 const TAB_KINDS = { lecture: ["p5", "p6", "p7"], ecoute: ["p2", "p3", "p4"] };
 const SET_FILTERS = { p7: [["", "Tous"], ["simple", "Un document"], ["multiple", "Plusieurs"]] };
 const SIZES = { p5: [10, 20, 30], p2: [10, 15, 25], p3: [3, 5, 10], p4: [3, 5, 10], p6: [2, 4, 6], p7: [2, 4, 8] };
+// mock tests: questions or sets per part (p7s: questions of single-document sets, p7m: double and triple sets) and
+// minutes for reading; listening goes at the pace of the recordings. The real test: 100 + 100 questions, 75 min of reading.
+const MOCK_FORMATS = {
+  full: { nom: "Complet", duree: "2 h environ", parts: { p2: 25, p3: 13, p4: 10, p5: 30, p6: 4, p7s: 29, p7m: [2, 3] }, reading: 75 },
+  half: { nom: "Demi", duree: "1 h environ", parts: { p2: 12, p3: 7, p4: 5, p5: 15, p6: 2, p7s: 15, p7m: [1, 1] }, reading: 38 },
+  listen: { nom: "Écoute", duree: "40 min environ", parts: { p2: 25, p3: 13, p4: 10 }, reading: 0 },
+  read: { nom: "Lecture", duree: "75 min", parts: { p5: 30, p6: 4, p7s: 29, p7m: [2, 3] }, reading: 75 },
+};
+const MOCKS_MAX = 50;
+// raw score (% of right answers) to the 5-495 scale of each section: a rough estimate, ETS does not publish its tables
+// (they change with each test form); reading is scored more strictly than listening
+const SCALE_L = [[0, 5], [10, 30], [20, 85], [30, 140], [40, 195], [50, 250], [60, 300], [70, 350], [80, 405], [90, 460], [95, 485], [100, 495]];
+const SCALE_R = [[0, 5], [10, 20], [20, 65], [30, 115], [40, 165], [50, 215], [60, 265], [70, 320], [80, 375], [90, 430], [95, 465], [100, 495]];
+// ETS's minimum scores for each CEFR level
+const CEFR_L = [["C1", 490], ["B2", 400], ["B1", 275], ["A2", 110], ["A1", 60]];
+const CEFR_R = [["C1", 455], ["B2", 385], ["B1", 275], ["A2", 115], ["A1", 60]];
 const DEFAULTS = { theme: "auto", textSize: "m", firstSide: "en", autoAudio: true, newOrder: "mix", rate: 1,
   accents: ["us", "gb", "au", "ca"], p5Size: 20, p5Mode: "train", p5Tag: "", p2Size: 15, p2Mode: "train", p2Tag: "",
   p3Size: 5, p3Mode: "train", p3Tag: "", p4Size: 5, p4Mode: "train", p4Tag: "", p6Size: 4, p6Mode: "train", p6Tag: "",
-  p7Size: 4, p7Mode: "train", p7Tag: "", readPart: "p5", listenPart: "p2", exam: "", view: "mots" };
+  p7Size: 4, p7Mode: "train", p7Tag: "", readPart: "p5", listenPart: "p2", adaptive: true, mockFormat: "full", exam: "", view: "mots" };
 
 /* ---------- utilities ---------- */
 const $ = (s, r = document) => r.querySelector(s);
@@ -519,7 +539,8 @@ function dayText(n, today) {
 function blank() {
   const runs = {};
   for (const k in KINDS) runs[k] = null;
-  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice() }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs };
+  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice() }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs,
+    mock: null, mocks: [] };
 }
 function isObj(x) { return !!x && typeof x === "object" && !Array.isArray(x); }
 function cleanRun(r) {
@@ -535,7 +556,7 @@ function normalizeState(s) {
   const S = st.settings = { ...st.settings, ...(isObj(s.settings) ? s.settings : {}) };
   const allowed = [["theme", ["auto", "light", "dark"]], ["textSize", ["m", "l", "xl"]], ["firstSide", ["en", "fr"]],
     ["newOrder", ["mix", "lists"]], ["rate", [0.8, 0.9, 1, 1.1]], ["readPart", TAB_KINDS.lecture], ["listenPart", TAB_KINDS.ecoute],
-    ["view", ["mots", "lecture", "ecoute", "progres", "reglages"]]];
+    ["mockFormat", Object.keys(MOCK_FORMATS)], ["view", ["mots", "lecture", "ecoute", "examen", "progres", "reglages"]]];
   for (const k in KINDS) allowed.push([k + "Mode", ["train", "exam"]], [k + "Size", SIZES[k]]);
   for (const [k, ok] of allowed) if (!ok.includes(S[k])) S[k] = DEFAULTS[k];
   S.autoAudio = S.autoAudio !== false;
@@ -545,7 +566,11 @@ function normalizeState(s) {
     if (typeof t !== "string" || !ok.includes(t)) S[k + "Tag"] = "";
   }
   if (!dayOfISO(S.exam)) S.exam = "";
+  S.adaptive = S.adaptive !== false;
   for (const k of ["words", "q", "lists", "log"]) if (isObj(s[k])) st[k] = s[k];
+  st.mocks = Array.isArray(s.mocks) ? s.mocks.filter(m => isObj(m) && isObj(m.L) && isObj(m.R)).slice(0, MOCKS_MAX) : [];
+  st.mock = isObj(s.mock) && Array.isArray(s.mock.stages) && s.mock.stages.length && Number.isInteger(s.mock.stage)
+    && Array.isArray(s.mock.res) && MOCK_FORMATS[s.mock.format] ? s.mock : null;
   for (const [id, c] of Object.entries(st.words)) {
     if (!isObj(c) || !Number.isInteger(c.b)) { delete st.words[id]; continue; }
     c.b = Math.max(0, Math.min(TOP, c.b));
@@ -857,6 +882,7 @@ function renderView() {
   if (!BANK) return;
   if (current === "mots") vShow();
   else if (current === "lecture" || current === "ecoute") renderKind(partOf(current));
+  else if (current === "examen") renderExam();
   else if (current === "progres") renderProgress();
   else if (current === "reglages") renderSettings();
   renderCounts();
@@ -1020,7 +1046,8 @@ function recordAnswer(q, ok, ms, choice) {
 function pickSeries(kind, size, tag) {
   // questions (Parts 2 and 5) or sets (the others, whose questions are all answered together): the mistakes due
   // first, then new ones, then the oldest
-  const today = dayNum(), errs = [], fresh = [], old = [], later = [];
+  const today = dayNum(), errs = [], old = [], later = [];
+  let fresh = [];
   if (KINDS[kind].sets) {
     for (const set of SETS[kind]) {
       if ((tag === "simple" && set.docs.length !== 1) || (tag === "multiple" && set.docs.length < 2)) continue;
@@ -1045,7 +1072,12 @@ function pickSeries(kind, size, tag) {
     }
   }
   const by = (a, b) => a[0] - b[0] || a[1] - b[1];
-  errs.sort(by); old.sort(by); later.sort(by); shuffle(fresh);
+  errs.sort(by); old.sort(by); later.sort(by);
+  if (state.settings.adaptive && !tag) {           // new questions: more of the skills where the first answers fail most
+    const w = tagWeights(kind);
+    const weight = id => KINDS[kind].sets ? avgOf(SBYID.get(id).qs.map(q => w[q.tag] || 1)) : (w[QBYID.get(id).tag] || 1);
+    fresh = weightedShuffle(fresh, weight);
+  } else shuffle(fresh);
   const half = Math.ceil(size / 2);
   let pick = errs.slice(0, half).map(x => x[2]);   // the mistakes due first, half the series at most while new ones remain
   pick = pick.concat(fresh.slice(0, size - pick.length));
@@ -1053,6 +1085,22 @@ function pickSeries(kind, size, tag) {
   pick = pick.concat(old.map(x => x[2]).slice(0, size - pick.length));
   pick = pick.concat(later.map(x => x[2]).slice(0, size - pick.length));
   return shuffle(pick);
+}
+function avgOf(a) { return a.length ? a.reduce((s, x) => s + x, 0) / a.length : 0; }
+function tagWeights(kind) {
+  // weight of a question type in the draw of new questions: from first-try success, pulled towards 80 % while there
+  // are few answers; a type at 50 % comes about three times as often as one at 100 %
+  const w = {};
+  for (const [t, T] of Object.entries(qStats(pool(kind)).tags)) w[t] = 0.4 + 2.5 * (1 - (T.ok + 1.6) / (T.n + 2));
+  return w;
+}
+function weakTags(kind) {                          // the weakest types, with enough answers to say so
+  const st = qStats(pool(kind)).tags;
+  return Object.entries(st).filter(([, T]) => T.n >= 5 && T.ok / T.n < 0.9)
+    .sort((a, b) => a[1].ok / a[1].n - b[1].ok / b[1].n).slice(0, 2).map(([t, T]) => [t, pct(T.ok, T.n)]);
+}
+function weightedShuffle(items, weight) {          // random order where heavier items tend to come first (Efraimidis-Spirakis)
+  return items.map(x => [Math.pow(Math.random(), 1 / Math.max(0.05, weight(x))), x]).sort((a, b) => b[0] - a[0]).map(p => p[1]);
 }
 function panel(kind, which) {                      // one panel on the tab: this part's home, series or results
   for (const k of TAB_KINDS[KINDS[kind].tab]) for (const w of ["home", "run", "done"]) $(`#${k}-${w}`).hidden = !(k === kind && w === which);
@@ -1113,7 +1161,10 @@ function renderHome(kind) {
     (avg ? `<span><b>${avg}${NB}s</b> par question (7 jours)</span>` : "") + `</div>`;
   if (st.errs) h += `<p class="small">Carnet d’erreurs${NB}: ${plural(st.errs, "question", "questions")}, dont <b>${st.due}</b> à revoir aujourd’hui. ` +
     `${K.sets ? "Leurs " + K.unit[1] + " passent" : "Elles passent"} en premier dans les séries.</p>`;
-  if (run) {
+  if (run && run.mock) {
+    h += `<div class="box"><b>Examen blanc en cours</b><p class="small">Cette partie fait partie de l’examen blanc en pause.</p>` +
+      `<div class="row"><button type="button" class="btn primary" data-act="to-exam">Aller à l’examen</button></div></div>`;
+  } else if (run) {
     const n = run.ids.length, unit = K.sets ? K.unit[0] : "question";
     h += `<div class="box"><b>Série en cours</b><p class="small">${run.mode === "exam" ? "Examen" : "Entraînement"} · ${unit} ${Math.min(run.i + 1, n)} sur ${n}` +
       (run.mode === "exam" && run.left != null ? ` · ${clock(run.left)} restantes` : "") + `</p>` +
@@ -1126,6 +1177,9 @@ function renderHome(kind) {
     const filters = K.sets ? (SET_FILTERS[kind] || []) : [["", "Toutes"], ...Object.entries(K.tags).filter(([t]) => st.tags[t])];
     if (filters.length) h += `<div class="field"><span class="lbl">${kind === "p5" ? "Compétence" : kind === "p2" ? "Type de question" : "Documents"}</span><div class="chips">` +
       filters.map(([t, label]) => `<button type="button" class="chip" data-tag="${t}" aria-pressed="${String(S[kind + "Tag"] === t)}">${label}</button>`).join("") + `</div></div>`;
+    const weak = S.adaptive && !S[kind + "Tag"] ? weakTags(kind) : [];
+    if (weak.length) h += `<p class="hint">Les nouvelles questions insistent sur tes points faibles${NB}: ` +
+      weak.map(([t, p]) => `${esc(K.tags[t] || t)} (${p}${NB}%)`).join(", ") + `.</p>`;
     if (listen) h += voiceLine();
     const blocked = noVoice && S[kind + "Mode"] === "exam";
     h += `<button type="button" class="btn primary big" data-act="start"${blocked ? " disabled" : ""}>Commencer</button>`;
@@ -1170,7 +1224,8 @@ function showQuestion(kind) {
   const L = live[kind] = { on: true, shownAt: now, resumedAt: now, heardAt: 0, V: kind === "p2" ? voicePair() : null };
   panel(kind, "run");
   const n = run.ids.length, done = answered(kind);
-  $(`#${kind}-pos`).textContent = `${run.mode === "exam" ? "Examen" : "Entraînement"} · question ${run.i + 1} sur ${n}`;
+  $(`#${kind}-pos`).textContent = `${run.mock ? "Examen blanc" : run.mode === "exam" ? "Examen" : "Entraînement"} · question ${run.i + 1} sur ${n}`;
+  $(`#${kind}-stop`).textContent = run.mock ? "Pause" : "Arrêter";
   $(`#${kind}-track`).style.width = pct(run.i, n) + "%";
   if (kind === "p5") {
     $("#p5-text").innerHTML = sentenceHTML(q, null);
@@ -1298,6 +1353,7 @@ function finish(kind, why) {
   if (kind === "p2" || KINDS[kind].listen) speech.stop();
   state.runs[kind] = null;
   save();
+  if (run.mock && state.mock) { mockNext(kind, run, why); return; }
   live[kind] = { done: { run, why } };
   panel(kind, "done");
   $(`#${kind}-done`).innerHTML = doneHTML(kind, run, why);
@@ -1311,16 +1367,16 @@ function suspend(kind) {                           // leaving the tab or the app
   stopTimers(kind);
   if (kind === "p2" || KINDS[kind].listen) speech.stop();
 }
-function doneHTML(kind, run, why) {
+function doneHTML(kind, run, why, embedded) {         // embedded: inside the results of a mock test
   const K = KINDS[kind], p5 = kind === "p5", tags = K.tags;
   const answers = K.sets ? run.ans.flat() : run.ans;
   let missed = why === "time" ? run.ids.slice(run.ans.length) : [];   // exam time over: the questions left count as wrong
   if (K.sets) missed = missed.flatMap(id => (SBYID.get(id) || { qs: [] }).qs.map(q => q.id));
   const base = why === "stop" ? answers.length : answers.length + missed.length;
   const ok = answers.filter(a => a.ok).length;
-  let h = `<h2>${why === "time" ? "Temps écoulé" : why === "stop" ? "Série arrêtée" : "Série terminée"}</h2>`;
-  if (!base) return h + `<p class="intro">Aucune réponse dans cette série.</p>` + doneBtns();
-  h += `<div class="score"><b class="num">${ok} / ${base}</b><span>${pct(ok, base)}${NB}% de bonnes réponses · repère C1${NB}: environ ${C1_MARK}${NB}%</span></div>`;
+  let h = embedded ? "" : `<h2>${why === "time" ? "Temps écoulé" : why === "stop" ? "Série arrêtée" : "Série terminée"}</h2>`;
+  if (!base) return h + `<p class="intro">Aucune réponse dans cette série.</p>` + (embedded ? "" : doneBtns());
+  if (!embedded) h += `<div class="score"><b class="num">${ok} / ${base}</b><span>${pct(ok, base)}${NB}% de bonnes réponses · repère C1${NB}: environ ${C1_MARK}${NB}%</span></div>`;
   const pace = p5 ? P5_SECONDS : K.listen ? 0 : K.pace || 0;
   if (pace) {
     const times = answers.filter(a => a.c >= 0).map(a => a.ms);
@@ -1345,7 +1401,7 @@ function doneHTML(kind, run, why) {
             `<p class="expl">${frHTML(q.expl)}</p>` + (q.tr ? `<p class="trad">${frHTML(q.tr)}</p>` : "") + (q.tq ? `<p class="trad">${frHTML(q.tq)}</p>` : "")
           : transcriptHTML(q, a)) + `</div></details>`).join("") + `</div>`;
   } else h += `<p class="intro" style="text-align:center">Aucune erreur. Bravo${NB}!</p>`;
-  return h + doneBtns();
+  return h + (embedded ? "" : doneBtns());
 }
 function setErrTitle(q) {                          // a question of a set, in the list of mistakes
   const set = SBYID.get(q.set), K = KINDS[q.kind];
@@ -1468,8 +1524,8 @@ function showSet(kind) {
   if (!Array.isArray(run.sel) || run.sel.length !== set.qs.length) run.sel = set.qs.map(() => -1);
   panel(kind, "run");
   const n = run.ids.length;
-  let h = `<div class="runbar"><span class="pos">${run.mode === "exam" ? "Examen" : "Entraînement"} · ${K.unit[0]} ${run.i + 1} sur ${n}</span>` +
-    `<span class="clock num" id="${kind}-clock"></span><button type="button" class="btn small" data-act="stop">Arrêter</button></div>` +
+  let h = `<div class="runbar"><span class="pos">${run.mock ? "Examen blanc" : run.mode === "exam" ? "Examen" : "Entraînement"} · ${K.unit[0]} ${run.i + 1} sur ${n}</span>` +
+    `<span class="clock num" id="${kind}-clock"></span><button type="button" class="btn small" data-act="stop">${run.mock ? "Pause" : "Arrêter"}</button></div>` +
     `<div class="track"><i style="width:${pct(run.i, n)}%"></i></div>`;
   if (K.listen) h += `<div class="listen"><div class="wave" id="${kind}-wave" aria-hidden="true"><i></i><i></i><i></i></div><div class="msg" id="${kind}-msg"></div>` +
     `<button type="button" class="btn small" data-act="replay" id="${kind}-replay" hidden>Réécouter</button></div>` +
@@ -1626,7 +1682,7 @@ function onSetClick(kind, e) {                     // inside a set on screen; fa
   if (!act) return false;
   const a = act.dataset.act;
   if (a === "check") { checkSet(kind); return true; }
-  if (a === "stop") { finish(kind, "stop"); return true; }
+  if (a === "stop") { stopRun(kind); return true; }
   if (a === "replay") {
     if (!answered(kind)) setPlay(kind);
     else { const set = curSet(kind); if (set) speech.seq(setLines(set, live[kind].cast), null, act); }
@@ -1654,6 +1710,207 @@ function onSetKey(kind, e, k, go) {
   if (k === "r" && KINDS[kind].listen) { const b = $(`#${kind}-replay`); if (b && !b.hidden) { e.preventDefault(); b.click(); } }
 }
 
+/* ---------- mock tests: the parts in a row, in exam conditions, and an estimated score ---------- */
+// state.mock: {format, stages [{kind, ids}], stage, res [{kind, ids, ans, why}], start, leftR (ms of reading time left),
+// saved {kind: a series set aside until the end}}. Each stage is an exam series of its part, marked mock: finish()
+// hands it to mockNext instead of showing its results. state.mocks: the finished ones, the latest first.
+let mockDone = null;                               // the mock test just finished, for its results screen
+function scaled(table, ratio) {                    // piecewise linear, rounded to 5 like the test's scores
+  const x = Math.max(0, Math.min(100, ratio * 100));
+  for (let i = 1; i < table.length; i++) {
+    const [x0, y0] = table[i - 1], [x1, y1] = table[i];
+    if (x <= x1) return Math.round((y0 + (y1 - y0) * (x - x0) / (x1 - x0)) / 5) * 5;
+  }
+  return table[table.length - 1][1];
+}
+function cefr(table, score) { const r = table.find(([, min]) => score >= min); return r ? r[0] : "avant A1"; }
+function mockPick(kind, n, filter) {
+  // new questions or sets first, then those seen longest ago: an estimate wants questions not learnt by heart
+  const items = KINDS[kind].sets ? SETS[kind].filter(s => !filter || filter(s)).map(s => [s.id, s.qs]) : pool(kind).map(q => [q.id, [q]]);
+  const fresh = [], seen = [];
+  for (const [id, qs] of items) {
+    const t = Math.max(-1, ...qs.map(q => { const s = state.q[q.id]; return s && s.r ? s.t || 0 : -1; }));
+    (t < 0 ? fresh : seen).push([t, id]);
+  }
+  shuffle(fresh);
+  seen.sort((a, b) => a[0] - b[0]);
+  return fresh.concat(seen).slice(0, n).map(x => x[1]);
+}
+function mockStages(format) {
+  const P = MOCK_FORMATS[format].parts, stages = [];
+  const add = (kind, ids) => { if (ids.length) stages.push({ kind, ids }); };
+  for (const k of ["p2", "p3", "p4", "p5", "p6"]) if (P[k]) add(k, mockPick(k, P[k]));
+  if (P.p7s != null) {                             // single documents up to p7s questions, then double, then triple sets
+    const p7 = [];
+    let n = 0;
+    for (const id of mockPick("p7", 999, s => s.docs.length === 1)) { if (n >= P.p7s) break; p7.push(id); n += SBYID.get(id).qs.length; }
+    p7.push(...mockPick("p7", P.p7m[0], s => s.docs.length === 2), ...mockPick("p7", P.p7m[1], s => s.docs.length === 3));
+    add("p7", p7);
+  }
+  return stages;
+}
+function startMock(format) {
+  const stages = mockStages(format);
+  if (!stages.length) { toast("Pas assez de questions dans la banque."); return; }
+  state.mock = { format, stages, stage: 0, res: [], start: Date.now(), leftR: MOCK_FORMATS[format].reading * 60000, saved: {} };
+  mockDone = null;
+  startStage();
+}
+function startStage() {
+  const M = state.mock, S = M.stages[M.stage], K = KINDS[S.kind];
+  const before = state.runs[S.kind];
+  if (before && !before.mock && !M.saved[S.kind]) M.saved[S.kind] = before;   // a series in progress waits for the end of the mock
+  state.runs[S.kind] = { mode: "exam", tag: "", ids: S.ids, i: 0, ans: [], start: Date.now(), left: K.tab === "lecture" ? M.leftR : null, mock: true };
+  state.settings[K.tab === "lecture" ? "readPart" : "listenPart"] = S.kind;
+  live[S.kind] = { on: true };
+  save();
+  showView(K.tab);
+}
+function mockNext(kind, run, why) {
+  const M = state.mock;
+  M.res.push({ kind, ids: run.ids, ans: run.ans, why });
+  if (KINDS[kind].tab === "lecture") M.leftR = why === "time" ? 0 : Math.max(0, run.left == null ? M.leftR : run.left);
+  live[kind] = {};
+  M.stage++;
+  while (M.stage < M.stages.length && KINDS[M.stages[M.stage].kind].tab === "lecture" && M.leftR <= 0) {
+    const S = M.stages[M.stage];                    // no reading time left: the parts left are unanswered
+    M.res.push({ kind: S.kind, ids: S.ids, ans: [], why: "time" });
+    M.stage++;
+  }
+  save();
+  if (M.stage >= M.stages.length) { mockFinish(); return; }
+  const to = KINDS[M.stages[M.stage].kind];
+  if (to.tab !== KINDS[kind].tab) toast(to.tab === "lecture"
+    ? `Lecture${NB}: ${Math.round(M.leftR / 60000)} minutes pour ${M.stages.slice(M.stage).map(S => KINDS[S.kind].nom).join(", ")}.` : "Écoute", 4000);
+  startStage();
+}
+function mockCounts(res) {                         // per part: [questions, right answers]; unanswered ones count as wrong
+  const parts = {};
+  for (const r of res) {
+    const K = KINDS[r.kind], answers = K.sets ? r.ans.flat() : r.ans, rest = r.ids.slice(r.ans.length);
+    const n = answers.length + (r.why === "time" ? (K.sets ? rest.reduce((s, id) => s + (SBYID.has(id) ? SBYID.get(id).qs.length : 0), 0) : rest.length) : 0);
+    const P = parts[r.kind] || (parts[r.kind] = [0, 0]);
+    P[0] += n; P[1] += answers.filter(a => a.ok).length;
+  }
+  return parts;
+}
+function mockScore(parts) {
+  const sum = ks => ks.reduce((a, k) => parts[k] ? [a[0] + parts[k][0], a[1] + parts[k][1]] : a, [0, 0]);
+  const [nL, okL] = sum(TAB_KINDS.ecoute), [nR, okR] = sum(TAB_KINDS.lecture);
+  const L = { n: nL, ok: okL, score: nL ? scaled(SCALE_L, okL / nL) : null };
+  const R = { n: nR, ok: okR, score: nR ? scaled(SCALE_R, okR / nR) : null };
+  return { L, R, total: L.score != null && R.score != null ? L.score + R.score : null };
+}
+function mockFinish() {
+  const M = state.mock, F = MOCK_FORMATS[M.format], parts = mockCounts(M.res);
+  const entry = { at: Date.now(), format: M.format, parts, ...mockScore(parts), readMs: F.reading ? F.reading * 60000 - M.leftR : 0 };
+  state.mocks.unshift(entry);
+  if (state.mocks.length > MOCKS_MAX) state.mocks.length = MOCKS_MAX;
+  for (const [k, r] of Object.entries(M.saved || {})) if (!state.runs[k]) state.runs[k] = r;
+  mockDone = { M, entry };
+  state.mock = null;
+  save();
+  showView("examen");
+}
+function mockStageKind() { const M = state.mock; return M && M.stages[M.stage] ? M.stages[M.stage].kind : null; }
+function stopRun(kind) {                           // « Arrêter », or « Pause » in a mock test: back to the Examen tab
+  const run = state.runs[kind];
+  if (run && run.mock && state.mock) { suspend(kind); live[kind] = {}; showView("examen"); return; }
+  finish(kind, "stop");
+}
+function mockResume() {
+  const kind = mockStageKind();
+  if (!kind) return;
+  if (!state.runs[kind]) { startStage(); return; }
+  live[kind] = { on: true };
+  state.settings[KINDS[kind].tab === "lecture" ? "readPart" : "listenPart"] = kind;
+  showView(KINDS[kind].tab);
+}
+function mockDrop() {                              // the answers given stay in the statistics
+  const M = state.mock, kind = mockStageKind();
+  if (kind && state.runs[kind] && state.runs[kind].mock) { stopTimers(kind); state.runs[kind] = null; live[kind] = {}; }
+  for (const [k, r] of Object.entries(M.saved || {})) if (!state.runs[k]) state.runs[k] = r;
+  state.mock = null;
+  save();
+  renderExam();
+}
+function levelChip(table, score, goal) {
+  const lv = cefr(table, score);
+  return `<span class="chip${score >= goal ? " ok" : ""}">${lv}</span>`;
+}
+function mockSummary(F, P) {                       // what a format holds, with this bank
+  const s = [];
+  if (P.p2) s.push(`${P.p2} questions de Part 2`);
+  if (P.p3) s.push(`${P.p3} conversations`);
+  if (P.p4) s.push(`${P.p4} exposés`);
+  if (P.p5) s.push(`${P.p5} phrases de Part 5`);
+  if (P.p6) s.push(`${P.p6} textes de Part 6`);
+  if (P.p7s != null) s.push(`${P.p7s} questions sur documents simples et ${P.p7m[0] + P.p7m[1]} lots de plusieurs documents`);
+  return s.join(", ") + `. Durée${NB}: ${F.duree}` + (F.reading ? `, dont ${F.reading} minutes de lecture.` : ".");
+}
+function mockResultsHTML(entry, M) {
+  const one = (name, x, table, goal) => x.score == null ? "" :
+    `<div class="brow"><span>${name} ${levelChip(table, x.score, goal)}</span><span class="v"><b>${x.score}</b> / 495 · ${x.ok} sur ${x.n}</span>` +
+    `<span class="bt"><i class="${x.score >= goal ? "good" : ""}" style="width:${pct(x.score, 495)}%"></i><u style="left:${pct(goal, 495)}%"></u></span></div>`;
+  const main = entry.total != null ? entry.total : entry.L.score != null ? entry.L.score : entry.R.score;
+  const of = entry.total != null ? 990 : 495;
+  let h = `<div class="score"><b class="num">${main}</b><span>score estimé sur ${of} · ${esc(MOCK_FORMATS[entry.format].nom)}</span></div>`;
+  h += `<div class="bars">${one("Écoute", entry.L, CEFR_L, 490)}${one("Lecture", entry.R, CEFR_R, 455)}</div>`;
+  h += `<p class="hint">Objectif C1${NB}: écoute 490, lecture 455 (945 en tout). Estimation indicative${NB}: ETS ne publie pas ses tables de conversion, ` +
+    `et la Part 1 (photos), absente de l’appli, est comptée comme le reste de ton écoute.</p>`;
+  if (MOCK_FORMATS[entry.format].reading) {
+    const m = Math.round(entry.readMs / 60000);
+    h += `<p class="small">Temps de lecture${NB}: ${m < 1 ? "moins d’une minute" : plural(m, "minute", "minutes")} sur ${MOCK_FORMATS[entry.format].reading}.</p>`;
+  }
+  h += `<h3>Par partie</h3><div class="bars">` + Object.keys(KINDS).sort().filter(k => entry.parts[k])
+    .map(k => barHTML(`${KINDS[k].nom} · ${KINDS[k].titre}`, entry.parts[k][1], entry.parts[k][0])).join("") + `</div>`;
+  if (M) {
+    h += `<h3>Corrections</h3>` + M.res.map(r => {
+      const n = (entry.parts[r.kind] || [0, 0]);
+      return `<details class="more"><summary>${KINDS[r.kind].nom}${NB}: ${n[0] - n[1]} ${n[0] - n[1] > 1 ? "erreurs" : "erreur"} sur ${n[0]}</summary>` +
+        doneHTML(r.kind, { ids: r.ids, ans: r.ans }, r.why, true) + `</details>`;
+    }).join("");
+  }
+  return h + `<div class="row" style="margin-top:18px"><button type="button" class="btn primary" data-act="mock-close">Terminer</button></div>`;
+}
+function mockHistoryHTML() {
+  if (!state.mocks.length) return "";
+  const rows = state.mocks.slice(0, 10).map(m => {
+    const main = m.total != null ? `<b>${m.total}</b>` : `<b>${m.L.score != null ? m.L.score : m.R.score}</b> / 495`;
+    return `<li><span>${dateText(dayNum(m.at))} · ${esc(MOCK_FORMATS[m.format] ? MOCK_FORMATS[m.format].nom : m.format)}</span>` +
+      `<span class="num">${main}${m.L.score != null && m.R.score != null ? ` <span class="faint">(${m.L.score} + ${m.R.score})</span>` : ""}</span></li>`;
+  }).join("");
+  return `<h3>Tes examens blancs</h3><ul class="mocklist">${rows}</ul>`;
+}
+function renderExam() {
+  const S = state.settings;
+  let h = `<h2>Examen blanc</h2>`;
+  if (mockDone) h += mockResultsHTML(mockDone.entry, mockDone.M);
+  else if (state.mock) {
+    const M = state.mock, kind = mockStageKind(), K = KINDS[kind], run = state.runs[kind];
+    const left = K.tab === "lecture" ? (run && run.left != null ? run.left : M.leftR) : null;
+    h += `<div class="box"><b>Examen en cours</b><p class="small">${esc(MOCK_FORMATS[M.format].nom)} · ${K.nom}, ` +
+      `${K.sets ? K.unit[0] : "question"} ${Math.min((run ? run.i : 0) + 1, M.stages[M.stage].ids.length)} sur ${M.stages[M.stage].ids.length}` +
+      (left != null ? ` · lecture${NB}: ${clock(left)} restantes` : "") + `</p>` +
+      `<div class="row" id="mock-btns"><button type="button" class="btn primary" data-act="mock-resume">Reprendre</button>` +
+      `<button type="button" class="btn" data-act="mock-drop">Abandonner</button></div></div>`;
+  } else {
+    const F = MOCK_FORMATS[S.mockFormat];
+    const listen = !!(F.parts.p2 || F.parts.p3 || F.parts.p4), blocked = listen && !speech.has();
+    h += `<p class="intro">${frTypo("Les parties à la suite, dans les conditions du test : une seule écoute, puis la lecture au chronomètre. À la fin, un score estimé sur 990 et ton niveau dans le cadre européen.")}</p>`;
+    h += `<div class="field"><span class="lbl">Format</span>${segHTML("mockFormat", Object.entries(MOCK_FORMATS).map(([k, x]) => [k, x.nom]))}` +
+      `<p class="hint">${frTypo(mockSummary(F, F.parts))}</p></div>`;
+    if (listen) h += voiceLine();
+    h += `<button type="button" class="btn primary big" data-act="mock-start"${blocked ? " disabled" : ""}>Commencer l’examen</button>`;
+    if (blocked) h += `<p class="hint">L’écoute demande une voix anglaise.</p>`;
+    h += `<p class="hint">Tu peux faire une pause à tout moment (le chronomètre s’arrête) ; tes réponses entrent dans le carnet d’erreurs.</p>`;
+  }
+  const ex = dayOfISO(S.exam), today = dayNum();
+  if (ex != null && ex >= today) h += `<p class="small">Le vrai examen${NB}: dans ${plural(ex - today, "jour", "jours")}, le ${dateText(ex)}.</p>`;
+  if (!mockDone) h += mockHistoryHTML();
+  $("#view-examen").innerHTML = h;
+}
+
 /* ---------- progress ---------- */
 function renderProgress() {
   const today = dayNum(), S = state.settings;
@@ -1662,6 +1919,13 @@ function renderProgress() {
   if (ex == null) h += `<p class="intro">Règle la date de l’examen dans Réglages pour suivre ton rythme.</p>`;
   else if (ex < today) h += `<p class="intro">Examen passé le ${dateText(ex)}.</p>`;
   else h += `<p><span class="big num">${ex - today}</span> ${ex - today > 1 ? "jours" : "jour"} avant l’examen, le ${dateText(ex)}.</p>`;
+  const full = state.mocks.filter(m => m.total != null);
+  if (full.length) {                               // the estimated scores of the full or half mock tests, oldest first
+    const last = full.slice(0, 10).reverse();
+    h += `<p class="small">Dernier score estimé${NB}: <b>${full[0].total}</b> / 990 (écoute ${full[0].L.score}, lecture ${full[0].R.score}) · objectif C1${NB}: 945.</p>` +
+      `<div class="cols" style="--n:${last.length};height:90px">` + last.map(m => `<div class="c"><span>${m.total}</span><i style="height:${pct(m.total, 990)}%"></i></div>`).join("") + `</div>` +
+      `<div class="axis" style="--n:${last.length}">` + last.map(m => `<span>${new Date(m.at).getDate()}/${new Date(m.at).getMonth() + 1}</span>`).join("") + `</div>`;
+  } else h += `<p class="small">Pas encore d’examen blanc${NB}: l’onglet Examen en propose un complet ou partiel, avec un score estimé.</p>`;
 
   // vocabulary
   const n = Array(TOP + 1).fill(0);
@@ -1745,6 +2009,8 @@ function renderSettings() {
     h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais. Les voix « améliorées » sont bien plus naturelles.</p>`;
   }
 
+  h += `<h2>Séries</h2><div class="box"><div class="switchrow"><div class="txt">Insister sur mes points faibles<small>Les nouvelles questions viennent ` +
+    `plus souvent des compétences où tu réussis le moins au premier essai.</small></div>${switchHTML("data-flag", "adaptive", S.adaptive, "Insister sur mes points faibles")}</div></div>`;
   h += `<h2>Examen</h2><div class="field"><label class="lbl" for="exam-date">Date de l’examen</label><input type="date" id="exam-date" value="${esc(S.exam)}"></div>`;
 
   h += `<h2>Affichage</h2><div class="field"><span class="lbl">Thème</span>${segHTML("theme", [["auto", "Automatique"], ["light", "Clair"], ["dark", "Sombre"]])}</div>`;
@@ -1879,6 +2145,7 @@ function onKindClick(kind, e) {
   const a = act.dataset.act;
   if (a === "start" || a === "again") { live[kind] = {}; startRun(kind); }
   else if (a === "resume") { live[kind] = { on: true }; show(kind); }
+  else if (a === "to-exam") showView("examen");
   else if (a === "drop") {
     $(`#${kind}-runbtns`).innerHTML = `<p class="small" style="flex-basis:100%">Abandonner cette série${NB}? Tes réponses déjà données restent comptées.</p>` +
       `<button type="button" class="btn danger" data-act="drop-yes">Abandonner</button><button type="button" class="btn" data-act="home">Garder</button>`;
@@ -1897,7 +2164,21 @@ function bind() {
   $("#v-grades").addEventListener("click", e => { const g = e.target.closest(".grade"); if (g) vGrade(g.dataset.g === "1"); });
   $("#v-browse").addEventListener("click", browseSheet);
   for (const tab of ["lecture", "ecoute"]) $(`#view-${tab}`).addEventListener("click", e => onKindClick(partOf(tab), e));
-  for (const kind of ["p5", "p2"]) $(`#${kind}-stop`).addEventListener("click", () => finish(kind, "stop"));
+  for (const kind of ["p5", "p2"]) $(`#${kind}-stop`).addEventListener("click", () => stopRun(kind));
+  $("#view-examen").addEventListener("click", e => {
+    const t = e.target, set = t.closest("[data-set]");
+    if (set) { setSetting(set.dataset.set, set.dataset.v); return; }
+    const act = t.closest("[data-act]");
+    if (!act) return;
+    const a = act.dataset.act;
+    if (a === "mock-start") startMock(state.settings.mockFormat);
+    else if (a === "mock-resume") mockResume();
+    else if (a === "mock-drop") $("#mock-btns").innerHTML = `<p class="small" style="flex-basis:100%">Abandonner l’examen${NB}? Il n’aura pas de score ; tes réponses restent comptées dans tes statistiques.</p>` +
+      `<button type="button" class="btn danger" data-act="mock-drop-yes">Abandonner</button><button type="button" class="btn" data-act="mock-keep">Continuer</button>`;
+    else if (a === "mock-drop-yes") mockDrop();
+    else if (a === "mock-keep") renderExam();
+    else if (a === "mock-close") { mockDone = null; renderExam(); $("#main").scrollTop = 0; }
+  });
   $("#p2-replay").addEventListener("click", () => { if (!answered("p2")) p2Play(); else { const q = curQ("p2"); if (q) speech.seq(p2Parts(q, live.p2.V), null, $("#p2-replay")); } });
   $("#view-reglages").addEventListener("click", e => {
     const t = e.target;

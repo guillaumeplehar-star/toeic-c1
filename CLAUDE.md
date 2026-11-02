@@ -12,9 +12,10 @@ framework, pas de compilation : `index.html` contient tout le HTML, le CSS et le
 `git commit`, `git push` (une à deux minutes).
 
 Version 1 : vocabulaire, Part 5, Part 2. Version 2 : Parts 3-4 (conversations et exposés, questions écrites lues
-avant l’audio) et Parts 6-7 (textes à trous ; lecture simple, double, triple). Prévu ensuite (v3) : examens blancs
-avec score estimé par partie, tirage selon les points faibles, synchronisation entre appareils (le serveur
-Cloudflare de 形音义 peut servir, avec un préfixe de code à part). La Part 1 (photos) est laissée de côté.
+avant l’audio) et Parts 6-7 (textes à trous ; lecture simple, double, triple). Version 3 : examens blancs (onglet
+Examen, score estimé sur 990 et niveau CECRL) et tirage selon les points faibles. Idées en attente : synchronisation
+entre appareils (le serveur Cloudflare de 形音义 peut servir, avec un préfixe de code à part), séries B des Parts 3,
+4, 6, relecture séparée du vocabulaire. La Part 1 (photos) est laissée de côté.
 
 ## Fichiers
 
@@ -55,7 +56,7 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   `listen`, `unit`, `pace`), `TAB_KINDS`, `SET_FILTERS` (Part 7 : un document ou plusieurs), `ACCENTS`, `ODD_VOICES`
   (voix fantaisie d’Apple écartées), `FEMALE_VOICES`/`MALE_VOICES` (sexe d’une voix d’après son nom), `SIZES`,
   `DEFAULTS` (`pNMode`, `pNSize`, `pNTag` par partie, `readPart`, `listenPart`), `BUILD`.
-- **État** : `{v:1, settings, words, q, lists, log, seq, runs}`. `words[id]` = carte de vocabulaire (absente = jamais
+- **État** : `{v:1, settings, words, q, lists, log, seq, runs, mock, mocks}`. `words[id]` = carte de vocabulaire (absente = jamais
   vue) `{b seau, d jour dû (b ≥ 1), k valeur de seq au ×, r, l oublis, t, s}`. `q[id]` = question
   `{r réponses, ok, l, f 1 si réussie au premier essai, e étape du carnet (0 dehors), d jour de retour, t, ms, a choix}`.
   `lists[id] = {on}` (thème activé ou non par l’utilisateur ; sinon `actif` de banque.json). `log[jour] = {n nouveaux
@@ -92,6 +93,22 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   les deux sortes de parties : `show(kind)`, `tick(kind)` (chronomètre), `next`, `finish`, `suspend`, `doneHTML`
   (réponses aplaties, `setErrTitle`). Panneaux `#pN-home/run/done` ; `panel` ne montre que ceux de la partie
   choisie (`partOf(onglet)`, sélecteur `partSelHTML`, `data-part`).
+- **Tirage selon les points faibles** (`settings.adaptive`, vrai par défaut) : dans `pickSeries`, sans filtre de
+  compétence, les questions ou lots nouveaux sont mélangés par `weightedShuffle` avec le poids `tagWeights(kind)` de
+  leur type (0,4 + 2,5 × taux d’échec au premier essai, ramené vers 80 % de réussite quand il y a peu de réponses ;
+  moyenne des types pour un lot) ; les erreurs dues passent toujours d’abord. `weakTags` : les deux types les plus
+  faibles (5 réponses au moins), affichés à l’accueil de la partie.
+- **Examens blancs** (onglet `#view-examen`, `renderExam`) : `MOCK_FORMATS` (`full`, `half`, `listen`, `read` :
+  nombre de questions ou de lots par partie, `p7s` questions de documents simples, `p7m` lots doubles et triples,
+  `reading` minutes de lecture). `state.mock` `{format, stages [{kind, ids}], stage, res, leftR, saved}` : chaque
+  étape est une série `exam` de sa partie marquée `mock` (`startStage`, qui met de côté dans `saved` une série en
+  cours de la même partie) ; `finish` la passe à `mockNext` (temps de lecture restant transmis d’une partie à
+  l’autre ; plus de temps : les parties suivantes comptent sans réponse) ; `mockFinish` → `state.mocks` (50 au plus,
+  `{at, format, parts {pN: [questions, justes]}, L, R {n, ok, score}, total, readMs}`), `mockDone` pour l’écran de
+  résultats (`mockResultsHTML`, corrections par `doneHTML(…, embedded)`). `mockPick` : jamais vues d’abord, puis les plus
+  anciennes. `stopRun` : « Pause » pendant un examen (`suspend`, retour à l’onglet Examen), `mockResume`, `mockDrop`.
+  Score : `scaled(SCALE_L|SCALE_R, taux)` (interpolation, arrondi à 5, de 5 à 495 ; estimation, ETS ne publie pas ses
+  tables), `cefr(CEFR_L|CEFR_R, score)` (seuils ETS : C1 = 490 en écoute, 455 en lecture).
 - **Voix** : `speech` (`load(last)` : voix anglaises par accent, locales d’abord, sans `ODD_VOICES`, avec leur sexe
   `voiceSex` ; `pool()` selon
   `settings.accents` ; `seq(parts, done, btn)` enchaîne des phrases avec pauses, jeton contre les rappels périmés,

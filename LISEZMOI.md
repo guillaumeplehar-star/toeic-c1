@@ -104,9 +104,39 @@ d’erreurs, et leur lot revient en priorité dans les séries suivantes.
 Au clavier : 1 à 4 (ou A à D) répond à la première question encore libre, Entrée valide puis passe au lot
 suivant, R réécoute.
 
+## 4 ter. Examen blanc
+
+L’onglet **Examen** enchaîne les parties dans les conditions du test, puis donne un **score estimé** sur 990 (ou
+sur 495 pour une seule section) et ton niveau dans le cadre européen (CECRL), section par section.
+
+- **Complet** (2 h environ) : Part 2 (25 questions), Part 3 (13 conversations), Part 4 (10 exposés), puis 75 minutes
+  de lecture pour Part 5 (30 phrases), Part 6 (4 textes) et Part 7 (29 questions sur documents simples, 2 lots doubles
+  et 3 triples), comme le vrai test sans la Part 1.
+- **Demi** (1 h environ) : la moitié, avec 38 minutes de lecture.
+- **Écoute** ou **Lecture** seule.
+
+L’écoute se fait comme en mode examen : une seule écoute, le temps de répondre, puis la suite. La lecture a **une
+seule horloge** pour les trois parties : à toi de répartir ton temps ; quand elle arrive à zéro, ce qui reste compte
+faux. Les questions choisies sont d’abord celles que tu n’as jamais vues. **Pause** (en haut à droite) arrête le
+chronomètre et ramène à l’onglet Examen, d’où tu reprends ou abandonnes.
+
+Le résultat donne le score de chaque section, ton niveau (objectif C1 : écoute 490, lecture 455, soit 945), la
+réussite par partie, le temps de lecture utilisé et toutes les corrections. C’est une **estimation** : ETS ne publie
+pas ses tables de conversion (elles changent à chaque session), et la Part 1, absente de l’appli, est comptée comme
+le reste de ton écoute. L’historique de tes examens est dans l’onglet Examen, et la courbe des scores dans Progrès.
+
+## 4 quater. Tirage selon tes points faibles
+
+Dans toutes les parties, les **erreurs à revoir** passent toujours en premier. Ensuite, les nouvelles questions sont
+tirées plus souvent dans les compétences où tu réussis le moins au premier essai : une compétence à 50 % revient
+environ trois fois plus qu’une compétence à 100 %. L’accueil de chaque partie dit sur quoi les séries insistent. Le
+réglage est dans **Réglages › Séries › Insister sur mes points faibles** ; choisir une compétence précise le met de
+côté pour la série.
+
 ## 5. Progrès
 
-- le compte à rebours jusqu’à l’examen (date à régler dans Réglages) ;
+- le compte à rebours jusqu’à l’examen (date à régler dans Réglages) et la courbe des scores estimés de tes examens
+  blancs ;
 - les mots vus, leur répartition dans les seaux, ton rythme de nouveaux mots et le rythme qu’il faudrait pour avoir
   tout vu un mois avant l’examen ;
 - pour chaque partie : les questions faites, la réussite au premier essai, le temps moyen en Part 5, le carnet
