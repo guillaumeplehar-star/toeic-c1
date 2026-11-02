@@ -1,0 +1,1777 @@
+{
+  "sets": [
+    {
+      "id": "7b-001",
+      "docs": [
+        {
+          "kind": "annonce",
+          "title": "Now Hiring: Regional Logistics Coordinator",
+          "text": "Brightwater Freight Solutions, a mid-sized shipping firm based in Tacoma, is seeking a Regional Logistics Coordinator to oversee deliveries across our Pacific Northwest network. The successful candidate will schedule carrier pickups, resolve delays with warehouse managers, and prepare weekly performance reports for senior management.\n\nRequirements:\n- At least three years of experience in transportation or supply chain management\n- Proficiency with route-planning software\n- Willingness to travel to our depots in Spokane and Boise twice a month\n\nFluency in Spanish is an asset but not a requirement. The position is full-time and includes a relocation allowance for applicants who currently live more than 100 miles from Tacoma.\n\nTo apply, send a cover letter and résumé to Henrietta Coyle at hiring@brightwaterfreight.com by March 14. Interviews will be held during the week of March 24.",
+          "table": null
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Henrietta Coyle, Brightwater Freight Solutions\nFrom: Tomasz Wierzbicki\nDate: March 10\nSubject: Regional Logistics Coordinator position\n\nDear Ms. Coyle,\n\nI am writing to apply for the Regional Logistics Coordinator position advertised on your Web site. For the past five years, I have managed outbound shipments for a building-supply distributor in Sacramento, where I cut average delivery times by 18 percent after introducing a new route-planning system.\n\nI am comfortable with frequent travel; in my current role, I visit our three regional warehouses every week. I should mention that, although I studied Spanish in school, I would not describe myself as fluent.\n\nShould I be offered the position, my family and I would move to Tacoma from Sacramento, which is roughly 700 miles away. I have attached my résumé and would welcome the chance to discuss the role. Please note that I will be away at a trade fair from March 23 to 26, but I am otherwise available at short notice.\n\nSincerely,\nTomasz Wierzbicki",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Recrutement : coordinateur logistique régional\n\nBrightwater Freight Solutions, entreprise de transport de taille moyenne installée à Tacoma, recherche un coordinateur logistique régional pour superviser les livraisons dans l’ensemble de son réseau du Nord-Ouest Pacifique. La personne retenue planifiera les enlèvements par les transporteurs, réglera les retards avec les responsables d’entrepôt et préparera chaque semaine des rapports de performance pour la direction.\n\nExigences :\n- Au moins trois ans d’expérience dans le transport ou la gestion de la chaîne d’approvisionnement\n- Maîtrise des logiciels de planification d’itinéraires\n- Disposition à se rendre deux fois par mois dans nos dépôts de Spokane et de Boise\n\nLa maîtrise de l’espagnol est un atout, mais n’est pas exigée. Le poste est à temps plein et comprend une aide au déménagement pour les candidats qui habitent actuellement à plus de 100 miles (160 km) de Tacoma.\n\nPour postuler, envoyez une lettre de motivation et un CV à Henrietta Coyle, à hiring@brightwaterfreight.com, au plus tard le 14 mars. Les entretiens auront lieu la semaine du 24 mars.",
+        "À : Henrietta Coyle, Brightwater Freight Solutions\nDe : Tomasz Wierzbicki\nDate : 10 mars\nObjet : poste de coordinateur logistique régional\n\nMadame,\n\nJe vous écris pour postuler au poste de coordinateur logistique régional annoncé sur votre site web. Depuis cinq ans, je gère les expéditions sortantes d’un distributeur de matériaux de construction à Sacramento, où j’ai réduit de 18 % les délais moyens de livraison après avoir mis en place un nouveau système de planification d’itinéraires.\n\nLes déplacements fréquents ne me posent aucun problème : dans mon poste actuel, je me rends chaque semaine dans nos trois entrepôts régionaux. Je dois préciser que, bien que j’aie étudié l’espagnol à l’école, je ne dirais pas que je le parle couramment.\n\nSi le poste m’était proposé, ma famille et moi quitterions Sacramento pour Tacoma, à environ 700 miles (1 100 km) de là. Vous trouverez mon CV en pièce jointe ; je serais heureux de pouvoir parler du poste avec vous. Veuillez noter que je serai absent pour un salon professionnel du 23 au 26 mars, mais que je suis disponible rapidement le reste du temps.\n\nCordialement,\nTomasz Wierzbicki"
+      ],
+      "questions": [
+        {
+          "q": "According to the advertisement, what will the coordinator be responsible for?",
+          "opts": [
+            "Recruiting warehouse managers",
+            "Training new delivery drivers",
+            "Compiling regular reports for executives",
+            "Negotiating contracts with software vendors"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "Dans l’annonce (paragraphe 1) : *prepare weekly performance reports for senior management*, repris par *compiling regular reports for executives*. Les responsables d’entrepôt (*warehouse managers*) sont des interlocuteurs, pas des personnes à recruter.",
+          "q_fr": "D’après l’annonce, de quoi le coordinateur sera-t-il chargé ?"
+        },
+        {
+          "q": "In the advertisement, the word “asset” in paragraph 3 is closest in meaning to",
+          "opts": [
+            "property",
+            "advantage",
+            "possession",
+            "capital"
+          ],
+          "ans": "B",
+          "type": "vocab",
+          "expl": "*An asset but not a requirement* : un atout, un avantage, pas une exigence. *Property*, *possession* et *capital* traduisent *asset* au sens matériel ou financier (un bien, un actif), qui ne convient pas ici.",
+          "q_fr": "Dans l’annonce, le mot « asset » au paragraphe 3 a le sens le plus proche de"
+        },
+        {
+          "q": "Which of the qualifications mentioned in the advertisement does Mr. Wierzbicki lack?",
+          "opts": [
+            "The minimum years of experience",
+            "Familiarity with route-planning tools",
+            "A willingness to travel regularly",
+            "Fluency in a second language"
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "Dans son courriel, il dit ne pas parler couramment l’espagnol, qualité que l’annonce (paragraphe 3) cite comme un atout. Il a cinq ans d’expérience (trois sont exigés), a mis en place un système de planification d’itinéraires et se déplace déjà chaque semaine.",
+          "q_fr": "Laquelle des qualités citées dans l’annonce manque à M. Wierzbicki ?"
+        },
+        {
+          "q": "What will Mr. Wierzbicki most likely receive if he is hired?",
+          "opts": [
+            "Help with the cost of relocating",
+            "A company car for visiting the depots",
+            "Paid lessons to improve his Spanish",
+            "A bonus for accepting the job offer"
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "L’annonce offre une aide au déménagement (*relocation allowance*) aux candidats qui habitent à plus de 100 miles de Tacoma ; or M. Wierzbicki quitterait Sacramento, à environ 700 miles de Tacoma (courriel, dernier paragraphe). Voiture, cours d’espagnol et prime ne sont cités nulle part.",
+          "q_fr": "Que recevra sans doute M. Wierzbicki s’il est embauché ?"
+        },
+        {
+          "q": "What scheduling problem might affect Mr. Wierzbicki’s application?",
+          "opts": [
+            "His application will reach Ms. Coyle after the deadline.",
+            "He cannot travel to the Boise depot during March.",
+            "He will be away for part of the interview week.",
+            "He cannot begin the job until after the summer."
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Les entretiens ont lieu la semaine du 24 mars (annonce, dernier paragraphe), et il sera à un salon du 23 au 26 mars (courriel). Il écrit le 10 mars, donc avant la date limite du 14.",
+          "q_fr": "Quel problème d’emploi du temps pourrait gêner la candidature de M. Wierzbicki ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-002",
+      "docs": [
+        {
+          "kind": "programme",
+          "title": "Midwest Hospitality Forum: Day 2, Thursday, October 9",
+          "text": "All Day 2 sessions take place at the Lakeshore Convention Center and are included in the full-conference pass. Day passes are also available for $95. Because the workshops in Room 210 are limited to 30 participants, attendees must reserve a seat when they register. Workshop reservations can be changed until October 6 by contacting the registration office.",
+          "table": {
+            "title": "Thursday sessions",
+            "rows": [
+              [
+                "Time",
+                "Session",
+                "Speaker",
+                "Room"
+              ],
+              [
+                "9:00 A.M.",
+                "Opening talk: What today’s guests expect",
+                "Priya Natarajan",
+                "Main Hall"
+              ],
+              [
+                "10:30 A.M.",
+                "Workshop: Pricing rooms for peak seasons",
+                "Gustavo Ferreira",
+                "Room 210"
+              ],
+              [
+                "1:00 P.M.",
+                "Panel: Recruiting and keeping front-desk staff",
+                "Leah Okafor (moderator)",
+                "Main Hall"
+              ],
+              [
+                "2:45 P.M.",
+                "Workshop: Managing your online reputation",
+                "Deborah Klein",
+                "Room 210"
+              ],
+              [
+                "4:15 P.M.",
+                "Networking reception",
+                "—",
+                "Terrace Lounge"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "formulaire",
+          "title": "Registration Form",
+          "text": "Midwest Hospitality Forum, October 8–10\nPlease complete one form per attendee. Organizations registering three or more attendees receive 15 percent off each pass. A confirmation e-mail will be sent within two business days.",
+          "table": {
+            "title": "Attendee information",
+            "rows": [
+              [
+                "Field",
+                "Entry"
+              ],
+              [
+                "Name",
+                "Marisol Quintero"
+              ],
+              [
+                "Job title",
+                "Front Office Manager"
+              ],
+              [
+                "Organization",
+                "Harbor Point Inn"
+              ],
+              [
+                "Pass type",
+                "Day pass (Thursday)"
+              ],
+              [
+                "Workshop reservation",
+                "2:45 P.M."
+              ],
+              [
+                "Dietary needs",
+                "Vegetarian"
+              ],
+              [
+                "Colleagues also registering",
+                "Arthur Benn, Yuki Sato"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Registration Office, Midwest Hospitality Forum\nFrom: Marisol Quintero\nDate: October 2\nSubject: Changes to our Thursday plans\n\nHello,\n\nI registered last week for a Thursday day pass and reserved a seat at one of the workshops. Unfortunately, our general manager has just asked me to cover the morning shift at the front desk that day, so I won’t be able to reach the convention center before noon. My workshop won’t be affected, but I will miss the opening talk, which I was particularly looking forward to. Will a recording be available afterward?\n\nMy two colleagues are facing the opposite problem: they will have to leave at lunchtime to be back at the inn for the afternoon. They would therefore like to reserve seats at the workshop that fits their schedule instead of the one they originally chose. Please let me know whether any seats remain. If not, they would be glad to be put on a waiting list.\n\nThank you,\nMarisol Quintero",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Forum de l’hôtellerie du Midwest : 2e journée, jeudi 9 octobre\n\nToutes les séances de la 2e journée ont lieu au centre de congrès Lakeshore et sont comprises dans le pass pour l’ensemble du congrès. Des pass à la journée sont aussi proposés à 95 $. Les ateliers de la salle 210 étant limités à 30 participants, chacun doit réserver sa place au moment de l’inscription. Le choix d’atelier peut être modifié jusqu’au 6 octobre auprès du service des inscriptions.\n\nSéances du jeudi :\n9 h : allocution d’ouverture, « Ce qu’attendent les clients d’aujourd’hui », Priya Natarajan, grande salle\n10 h 30 : atelier, « Fixer le prix des chambres en haute saison », Gustavo Ferreira, salle 210\n13 h : table ronde, « Recruter et garder le personnel de réception », Leah Okafor (animatrice), grande salle\n14 h 45 : atelier, « Gérer sa réputation en ligne », Deborah Klein, salle 210\n16 h 15 : cocktail de réseautage, salon Terrace",
+        "Formulaire d’inscription\n\nForum de l’hôtellerie du Midwest, 8-10 octobre\nMerci de remplir un formulaire par participant. Les organisations qui inscrivent trois participants ou plus bénéficient de 15 % de réduction sur chaque pass. Un courriel de confirmation sera envoyé sous deux jours ouvrés.\n\nRenseignements sur le participant :\nNom : Marisol Quintero\nPoste : responsable de la réception\nOrganisation : Harbor Point Inn\nType de pass : pass à la journée (jeudi)\nRéservation d’atelier : 14 h 45\nRégime alimentaire : végétarien\nCollègues également inscrits : Arthur Benn, Yuki Sato",
+        "À : service des inscriptions, Forum de l’hôtellerie du Midwest\nDe : Marisol Quintero\nDate : 2 octobre\nObjet : changements pour jeudi\n\nBonjour,\n\nJe me suis inscrite la semaine dernière avec un pass pour le jeudi et j’ai réservé une place à l’un des ateliers. Malheureusement, notre directeur vient de me demander d’assurer le service du matin à la réception ce jour-là : je ne pourrai donc pas arriver au centre de congrès avant midi. Mon atelier n’est pas concerné, mais je vais manquer l’allocution d’ouverture, que j’attendais particulièrement. Un enregistrement sera-t-il disponible ensuite ?\n\nMes deux collègues ont le problème inverse : ils devront partir à l’heure du déjeuner pour être de retour à l’hôtel l’après-midi. Ils aimeraient donc réserver des places à l’atelier qui correspond à leur emploi du temps, au lieu de celui qu’ils avaient choisi. Pourriez-vous me dire s’il reste des places ? Sinon, ils seraient heureux d’être inscrits sur une liste d’attente.\n\nMerci,\nMarisol Quintero"
+      ],
+      "questions": [
+        {
+          "q": "What is indicated about the workshops held in Room 210?",
+          "opts": [
+            "They are led by the same speaker.",
+            "They cost extra for full-conference pass holders.",
+            "They are held only in the morning.",
+            "Participants must book a place in advance."
+          ],
+          "ans": "D",
+          "type": "vrai-faux",
+          "expl": "Le programme précise que les ateliers de la salle 210 sont limités à 30 personnes et qu’il faut réserver sa place à l’inscription. Ils ont deux intervenants différents, à 10 h 30 et à 14 h 45, et sont compris dans le pass pour tout le congrès.",
+          "q_fr": "Qu’apprend-on sur les ateliers de la salle 210 ?"
+        },
+        {
+          "q": "What is the topic of the workshop Ms. Quintero has reserved?",
+          "opts": [
+            "Setting room prices for the busiest seasons",
+            "Protecting a hotel’s image on the Internet",
+            "Hiring and keeping front-desk employees",
+            "Changes in what today’s guests expect"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Le formulaire indique une réservation pour l’atelier de 14 h 45 ; d’après le programme, c’est *Managing your online reputation* : protéger l’image de l’hôtel sur Internet. La table ronde sur le personnel de réception n’est pas un atelier.",
+          "q_fr": "Quel est le thème de l’atelier que Mme Quintero a réservé ?"
+        },
+        {
+          "q": "Why will Ms. Quintero arrive late on Thursday?",
+          "opts": [
+            "Her train has been rescheduled to a later time.",
+            "She has a meeting with her general manager.",
+            "She is needed at her workplace that morning.",
+            "She is giving a talk at another event that day."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "Courriel, paragraphe 1 : son directeur lui a demandé d’assurer le service du matin à la réception (*cover the morning shift*). Le *general manager* est cité, mais elle n’a pas de réunion avec lui.",
+          "q_fr": "Pourquoi Mme Quintero arrivera-t-elle en retard jeudi ?"
+        },
+        {
+          "q": "Whose presentation is Ms. Quintero disappointed to miss?",
+          "opts": [
+            "Priya Natarajan’s",
+            "Gustavo Ferreira’s",
+            "Leah Okafor’s",
+            "Deborah Klein’s"
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Elle regrette l’allocution d’ouverture (courriel, paragraphe 1) ; d’après le programme, elle commence à 9 h et c’est celle de Priya Natarajan. Mme Quintero n’arrivera pas avant midi.",
+          "q_fr": "Quelle intervention Mme Quintero regrette-t-elle de manquer ?"
+        },
+        {
+          "q": "Which session do Ms. Quintero’s colleagues now hope to attend?",
+          "opts": [
+            "The panel on recruiting front-desk staff",
+            "The workshop on online reputation",
+            "The networking reception",
+            "The workshop on pricing rooms"
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "Ses collègues partent à l’heure du déjeuner (courriel, paragraphe 2) et veulent l’atelier qui convient à cet horaire : d’après le programme, le seul atelier du matin est celui de 10 h 30 sur le prix des chambres. La table ronde et le cocktail ont lieu l’après-midi.",
+          "q_fr": "À quelle séance les collègues de Mme Quintero souhaitent-ils maintenant assister ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-003",
+      "docs": [
+        {
+          "kind": "facture",
+          "title": "Invoice No. 48217",
+          "text": "Crestline Office Furnishings\n2200 Mercer Avenue, Columbus, Ohio\n\nBill to: Delgado and Hart Architects, 15 Fulton Street, Columbus, Ohio\nInvoice date: May 6\nPayment due: June 5\n\nThank you for your order. Assembly is free on all orders over $2,000. Unused items may be returned within 30 days of delivery for a full refund; a 10 percent restocking fee applies after that period.",
+          "table": {
+            "title": "Order details",
+            "rows": [
+              [
+                "Item",
+                "Quantity",
+                "Unit price",
+                "Amount"
+              ],
+              [
+                "Ergonomic task chair, gray",
+                "6",
+                "$240",
+                "$1,440"
+              ],
+              [
+                "Height-adjustable desk, 60 inches",
+                "3",
+                "$385",
+                "$1,155"
+              ],
+              [
+                "Mobile filing cabinet",
+                "4",
+                "$129",
+                "$516"
+              ],
+              [
+                "Assembly service",
+                "1",
+                "$150",
+                "$150"
+              ],
+              [
+                "Total due",
+                "",
+                "",
+                "$3,261"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Billing Department, Crestline Office Furnishings\nFrom: Naledi Mokoena\nDate: May 9\nSubject: Invoice No. 48217\n\nHello,\n\nOur furniture was delivered yesterday, and your crew did an excellent job putting everything together. However, I noticed two problems with the invoice. First, we were charged for assembly, even though, according to the terms printed on your own invoice, this service should have been complimentary for us. Second, only two filing cabinets were delivered, yet we were billed for four. We had originally ordered four but reduced the quantity by phone on April 28, and your sales representative, Mr. Lindqvist, confirmed the change.\n\nIn addition, one of the desks has a scratch on its surface. We are willing to keep it if you can offer us a reasonable discount; otherwise, please arrange for a replacement.\n\nCould you send a corrected invoice before the end of the month? Our accounts department processes payments on the first of each month.\n\nBest regards,\nNaledi Mokoena\nOffice Manager, Delgado and Hart Architects",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Facture n° 48217\n\nCrestline Office Furnishings\n2200 Mercer Avenue, Columbus, Ohio\n\nFacturer à : Delgado and Hart Architects, 15 Fulton Street, Columbus, Ohio\nDate de facture : 6 mai\nÉchéance : 5 juin\n\nMerci de votre commande. Le montage est gratuit pour toute commande de plus de 2 000 $. Les articles non utilisés peuvent être retournés dans les 30 jours suivant la livraison et sont alors remboursés intégralement ; au-delà, des frais de remise en stock de 10 % s’appliquent.\n\nDétail de la commande (quantité, prix unitaire, montant) :\nFauteuil de bureau ergonomique, gris : 6, 240 $, 1 440 $\nBureau réglable en hauteur, 60 pouces (152 cm) : 3, 385 $, 1 155 $\nClasseur mobile : 4, 129 $, 516 $\nService de montage : 1, 150 $, 150 $\nTotal à payer : 3 261 $",
+        "À : service de facturation, Crestline Office Furnishings\nDe : Naledi Mokoena\nDate : 9 mai\nObjet : facture n° 48217\n\nBonjour,\n\nNos meubles ont été livrés hier, et votre équipe a fait un excellent travail de montage. J’ai toutefois relevé deux problèmes sur la facture. D’abord, le montage nous a été facturé, alors que, d’après les conditions imprimées sur votre propre facture, ce service aurait dû nous être offert. Ensuite, seuls deux classeurs ont été livrés, mais quatre nous ont été facturés. Nous en avions commandé quatre au départ, mais nous avons réduit la quantité par téléphone le 28 avril, et votre commercial, M. Lindqvist, a confirmé la modification.\n\nPar ailleurs, l’un des bureaux a une rayure sur le plateau. Nous sommes prêts à le garder si vous pouvez nous accorder une remise raisonnable ; sinon, merci d’organiser son remplacement.\n\nPourriez-vous nous envoyer une facture corrigée avant la fin du mois ? Notre service comptable traite les paiements le premier de chaque mois.\n\nCordialement,\nNaledi Mokoena\nResponsable administrative, Delgado and Hart Architects"
+      ],
+      "questions": [
+        {
+          "q": "Why did Ms. Mokoena write the e-mail?",
+          "opts": [
+            "To ask for corrections to a bill",
+            "To praise a delivery crew",
+            "To order additional furniture",
+            "To cancel part of a pending order"
+          ],
+          "ans": "A",
+          "type": "idee",
+          "expl": "Le courriel relève deux erreurs de facturation et demande une facture corrigée (dernier paragraphe). Elle félicite bien l’équipe de livraison, mais ce n’est pas le but du message ; la quantité de classeurs a déjà été réduite le 28 avril.",
+          "q_fr": "Pourquoi Mme Mokoena a-t-elle écrit ce courriel ?"
+        },
+        {
+          "q": "In the e-mail, the word “complimentary” in paragraph 1 is closest in meaning to",
+          "opts": [
+            "flattering",
+            "matching",
+            "free",
+            "additional"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*Complimentary* signifie ici gratuit, offert, comme le confirme la facture (*Assembly is free*). *Flattering* correspond à l’autre sens (élogieux) ; *matching* traduit *complementary*, mot de forme proche.",
+          "q_fr": "Dans le courriel, le mot « complimentary » au paragraphe 1 a le sens le plus proche de"
+        },
+        {
+          "q": "Why does Ms. Mokoena believe the assembly charge is incorrect?",
+          "opts": [
+            "The crew arrived later than scheduled.",
+            "Assembly was not part of the original order.",
+            "The furniture was assembled by her own staff.",
+            "The order total is above a certain amount."
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "Le courriel renvoie aux conditions imprimées sur la facture : le montage y est gratuit pour toute commande de plus de 2 000 $, et celle-ci dépasse 3 000 $. Mme Mokoena dit au contraire que l’équipe du vendeur a bien monté les meubles.",
+          "q_fr": "Pourquoi Mme Mokoena estime-t-elle que les frais de montage sont une erreur ?"
+        },
+        {
+          "q": "By how much was Delgado and Hart overcharged for the filing cabinets?",
+          "opts": [
+            "$129",
+            "$258",
+            "$387",
+            "$516"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Le courriel dit que deux classeurs ont été livrés au lieu des quatre facturés ; d’après la facture, chacun coûte 129 $, soit 258 $ de trop. 516 $ est le montant facturé pour les quatre.",
+          "q_fr": "Quelle somme a été facturée en trop à Delgado and Hart pour les classeurs ?"
+        },
+        {
+          "q": "What does Ms. Mokoena propose regarding the damaged desk?",
+          "opts": [
+            "Keeping it if the price is lowered",
+            "Having her own staff repair it",
+            "Returning it within the 30-day period",
+            "Exchanging it for a smaller model"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Courriel, paragraphe 2 : elle garderait le bureau rayé contre une remise raisonnable, sinon elle demande un remplacement. Le délai de 30 jours vient de la facture et concerne le retour d’articles non utilisés.",
+          "q_fr": "Que propose Mme Mokoena au sujet du bureau abîmé ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-004",
+      "docs": [
+        {
+          "kind": "formulaire",
+          "title": "Purchase Order No. 7731",
+          "text": "Mendoza Restaurant Supply\nOrdered by: Fennwick Street Bakery\nContact: Rosalind Achebe, Manager\nOrder date: Monday, August 18\nRequested delivery: by Friday, August 22\nShipping method: Express (two business days)\nPayment: Charged to account on file",
+          "table": {
+            "title": "Items ordered",
+            "rows": [
+              [
+                "Item",
+                "Quantity",
+                "Price"
+              ],
+              [
+                "Unbleached flour, 50-pound sack",
+                "10",
+                "$420.00"
+              ],
+              [
+                "Parchment baking sheets, case of 1,000",
+                "3",
+                "$87.00"
+              ],
+              [
+                "Stainless steel mixer bowl, 20-quart",
+                "1",
+                "$145.00"
+              ],
+              [
+                "Disposable coffee cups, 12-ounce, case of 500",
+                "4",
+                "$156.00"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "avis",
+          "title": "Shipping Notice",
+          "text": "Order No. 7731 for Fennwick Street Bakery was shipped on Wednesday, August 20, in two packages.\n\nPackage 1 contains the flour, parchment sheets, and mixer bowl. Estimated arrival: Friday, August 22.\n\nPackage 2: The 12-ounce cups you ordered are temporarily out of stock at our main warehouse. We have substituted 16-ounce cups at no additional charge. They will ship from our Riverside facility on Monday, August 25, by standard ground delivery. If you prefer not to accept this substitution, please contact customer service before August 23, and we will cancel the item and refund its full cost.\n\nThank you for choosing Mendoza Restaurant Supply.",
+          "table": null
+        },
+        {
+          "kind": "échange de textos",
+          "title": null,
+          "text": "Rosalind Achebe (9:12 A.M.): Just got the shipping notice from Mendoza. Most of our order arrives Friday, but the cups won’t even ship until next week.\nDiego Paredes (9:14 A.M.): Next week? We’ll run out by Tuesday at the latest.\nRosalind Achebe (9:15 A.M.): They’re sending bigger ones instead, for the same price.\nDiego Paredes (9:17 A.M.): That won’t work. Our lids only fit the smaller size, and customers complain when their coffee looks half-empty.\nRosalind Achebe (9:18 A.M.): Fair point. I’ll call them this morning and cancel that part of the order.\nDiego Paredes (9:20 A.M.): Good. I can pick up a few cases at the wholesale club on my way in tomorrow.\nRosalind Achebe (9:21 A.M.): Perfect. Just keep the receipt so I can add it to this month’s expenses.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Bon de commande n° 7731\n\nMendoza Restaurant Supply\nCommandé par : boulangerie Fennwick Street\nContact : Rosalind Achebe, gérante\nDate de commande : lundi 18 août\nLivraison souhaitée : au plus tard le vendredi 22 août\nMode d’expédition : express (deux jours ouvrés)\nPaiement : débité sur le compte enregistré\n\nArticles commandés (quantité, prix) :\nFarine non blanchie, sac de 50 livres (environ 23 kg) : 10, 420,00 $\nFeuilles de papier cuisson, carton de 1 000 : 3, 87,00 $\nCuve de batteur en inox, 20 quarts (environ 19 litres) : 1, 145,00 $\nGobelets à café jetables, 12 onces (environ 35 cl), carton de 500 : 4, 156,00 $",
+        "Avis d’expédition\n\nLa commande n° 7731 de la boulangerie Fennwick Street a été expédiée le mercredi 20 août, en deux colis.\n\nLe colis 1 contient la farine, le papier cuisson et la cuve du batteur. Arrivée prévue : vendredi 22 août.\n\nColis 2 : les gobelets de 12 onces que vous avez commandés sont temporairement en rupture de stock dans notre entrepôt principal. Nous les avons remplacés par des gobelets de 16 onces, sans supplément. Ils partiront de notre site de Riverside le lundi 25 août, en livraison standard par la route. Si vous ne souhaitez pas accepter ce remplacement, veuillez contacter le service client avant le 23 août : nous annulerons l’article et vous rembourserons son prix intégral.\n\nMerci d’avoir choisi Mendoza Restaurant Supply.",
+        "Rosalind Achebe (9 h 12) : Je viens de recevoir l’avis d’expédition de Mendoza. L’essentiel de la commande arrive vendredi, mais les gobelets ne partiront même pas avant la semaine prochaine.\nDiego Paredes (9 h 14) : La semaine prochaine ? On n’en aura plus mardi au plus tard.\nRosalind Achebe (9 h 15) : Ils en envoient des plus grands à la place, au même prix.\nDiego Paredes (9 h 17) : Ça ne va pas. Nos couvercles ne vont que sur la petite taille, et les clients se plaignent quand leur café a l’air à moitié vide.\nRosalind Achebe (9 h 18) : C’est juste. Je les appelle ce matin pour annuler cette partie de la commande.\nDiego Paredes (9 h 20) : Bien. Je peux prendre quelques cartons au magasin de gros en venant demain.\nRosalind Achebe (9 h 21) : Parfait. Garde juste le ticket pour que je l’ajoute aux dépenses du mois."
+      ],
+      "questions": [
+        {
+          "q": "What is indicated about Mendoza Restaurant Supply?",
+          "opts": [
+            "It charges extra for larger cups.",
+            "It ships goods from more than one location.",
+            "It will deliver the entire order on August 22.",
+            "It requires a signature upon delivery."
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "L’avis d’expédition cite un entrepôt principal et un site de Riverside. Les gobelets plus grands sont fournis sans supplément (*at no additional charge*), et une partie de la commande arrivera après le 22 août.",
+          "q_fr": "Qu’apprend-on sur Mendoza Restaurant Supply ?"
+        },
+        {
+          "q": "At 9:18 A.M., what does Ms. Achebe most likely mean when she writes, “Fair point”?",
+          "opts": [
+            "She thinks the price of the cups is reasonable.",
+            "She believes the supplier has acted fairly.",
+            "She wants to compare several offers.",
+            "She accepts Mr. Paredes’s objection."
+          ],
+          "ans": "D",
+          "type": "intention",
+          "expl": "*Fair point* : « c’est juste » ; elle reconnaît que l’objection de M. Paredes sur les couvercles est fondée et annule aussitôt les gobelets. *Fair* ne renvoie ici ni à un prix ni à une conduite honnête.",
+          "q_fr": "À 9 h 18, que veut sans doute dire Mme Achebe quand elle écrit « Fair point » ?"
+        },
+        {
+          "q": "What size of cup will Mr. Paredes most likely buy?",
+          "opts": [
+            "8-ounce",
+            "12-ounce",
+            "16-ounce",
+            "20-ounce"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Les couvercles de la boulangerie ne vont que sur la petite taille (textos, 9 h 17) : celle commandée au départ, 12 onces d’après le bon de commande. Les gobelets de 16 onces sont ceux que le fournisseur proposait en remplacement (avis d’expédition).",
+          "q_fr": "Quelle taille de gobelets M. Paredes va-t-il sans doute acheter ?"
+        },
+        {
+          "q": "How much will Fennwick Street Bakery most likely be refunded?",
+          "opts": [
+            "$87.00",
+            "$145.00",
+            "$156.00",
+            "$420.00"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Mme Achebe annule les gobelets (textos, 9 h 18) ; l’avis d’expédition promet alors le remboursement intégral de l’article, qui coûte 156 $ d’après le bon de commande. Les autres montants sont ceux d’articles livrés vendredi.",
+          "q_fr": "Quelle somme la boulangerie Fennwick Street va-t-elle sans doute se faire rembourser ?"
+        },
+        {
+          "q": "What does Ms. Achebe ask Mr. Paredes to do?",
+          "opts": [
+            "Hold on to proof of his purchase",
+            "Call the supplier",
+            "Check the supply of lids",
+            "Pick up the delivery on Friday"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Textos, 9 h 21 : *keep the receipt*, pour l’ajouter aux dépenses du mois. C’est elle-même qui appellera le fournisseur.",
+          "q_fr": "Que demande Mme Achebe à M. Paredes ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-005",
+      "docs": [
+        {
+          "kind": "article",
+          "title": "Council Approves Plan for Former Rail Yard",
+          "text": "MILLBROOK, April 3 — The Millbrook City Council voted 6 to 3 on Tuesday to approve a proposal to turn the abandoned Carver Street rail yard into a public park with an outdoor performance stage, walking trails, and a weekend farmers market.\n\nThe project, estimated at $14 million, will be funded largely through a state grant for urban renewal, with the remainder coming from the city’s capital budget. Construction is expected to begin in September and to take about two years.\n\nCouncil member Ruth Adeyemi, who introduced the proposal, said the park would draw visitors to nearby businesses that have struggled since the rail line closed. “This land has sat empty for more than a decade,” she said. “Now it can finally serve the people who live around it.”\n\nNot everyone is convinced. Several residents spoke at the meeting against removing the 200 parking spaces on the site’s eastern edge, which many commuters use on weekdays. The council has asked the planning department to identify replacement parking before work begins.\n\nA public information session on the project will be held at the Millbrook Public Library on April 17.",
+          "table": null
+        },
+        {
+          "kind": "lettre",
+          "title": null,
+          "text": "To the Editor:\n\nI read with interest your April 3 article on the Carver Street project. As the owner of a hardware store two blocks from the rail yard, I welcome any plan that brings more people into our neighborhood. However, your article left out an important detail. The figure you gave refers only to the marked spaces. On most weekdays, another 80 or so cars park along the unpaved strip beside them. Losing all of these spaces at once would hurt the very businesses the park is supposed to help, since many of my customers come by car to pick up heavy items.\n\nI would urge the council not simply to identify a site for replacement parking but to have it built and open before construction starts. I plan to raise this point at the information session and hope other business owners will join me.\n\nHarold Nwosu\nMillbrook",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Le conseil approuve le projet de l’ancienne gare de triage\n\nMILLBROOK, 3 avril — Le conseil municipal de Millbrook a approuvé mardi, par 6 voix contre 3, un projet visant à transformer la gare de triage abandonnée de Carver Street en parc public, avec une scène en plein air, des sentiers de promenade et un marché de producteurs le week-end.\n\nLe projet, estimé à 14 millions de dollars, sera financé en grande partie par une subvention de l’État pour la rénovation urbaine, le reste provenant du budget d’investissement de la ville. Les travaux devraient commencer en septembre et durer environ deux ans.\n\nLa conseillère municipale Ruth Adeyemi, qui a présenté le projet, a déclaré que le parc attirerait des visiteurs vers les commerces voisins, en difficulté depuis la fermeture de la ligne ferroviaire. « Ce terrain est resté vide pendant plus de dix ans, a-t-elle déclaré. Il va enfin pouvoir servir aux habitants du quartier. »\n\nTout le monde n’est pas convaincu. Plusieurs habitants ont pris la parole lors de la séance contre la suppression des 200 places de stationnement situées en bordure est du site, utilisées en semaine par de nombreux navetteurs. Le conseil a demandé au service d’urbanisme de trouver un stationnement de remplacement avant le début des travaux.\n\nUne séance d’information publique sur le projet aura lieu à la bibliothèque municipale de Millbrook le 17 avril.",
+        "Au rédacteur en chef,\n\nJ’ai lu avec intérêt votre article du 3 avril sur le projet de Carver Street. Propriétaire d’une quincaillerie à deux rues de la gare de triage, je me réjouis de tout projet qui amène davantage de monde dans notre quartier. Votre article a cependant omis un détail important. Le chiffre que vous donnez ne concerne que les places marquées au sol. La plupart des jours de semaine, environ 80 voitures de plus se garent le long de la bande non goudronnée qui les borde. Supprimer toutes ces places d’un coup nuirait aux commerces mêmes que le parc est censé aider, car beaucoup de mes clients viennent en voiture chercher des articles lourds.\n\nJ’invite le conseil non seulement à trouver un emplacement pour le stationnement de remplacement, mais à le faire construire et ouvrir avant le début des travaux. Je compte soulever ce point lors de la séance d’information et j’espère que d’autres commerçants se joindront à moi.\n\nHarold Nwosu\nMillbrook"
+      ],
+      "questions": [
+        {
+          "q": "What is the article mainly about?",
+          "opts": [
+            "A vote to transform an unused property",
+            "The closure of a rail line",
+            "A dispute over a state grant",
+            "The opening of a farmers market"
+          ],
+          "ans": "A",
+          "type": "idee",
+          "expl": "L’article rapporte le vote du conseil (6 voix contre 3) qui fait de l’ancienne gare de triage abandonnée un parc. La fermeture de la ligne et le marché ne sont que des détails, et la subvention ne fait l’objet d’aucun désaccord.",
+          "q_fr": "De quoi parle surtout l’article ?"
+        },
+        {
+          "q": "What is NOT mentioned as a feature of the planned park?",
+          "opts": [
+            "A stage for performances",
+            "A playground for children",
+            "Paths for walking",
+            "A market on weekends"
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "Article, paragraphe 1 : une scène en plein air, des sentiers et un marché le week-end. Aucune aire de jeux n’est citée.",
+          "q_fr": "Quel élément n’est PAS cité parmi les équipements du futur parc ?"
+        },
+        {
+          "q": "In the article, the word “draw” in paragraph 3 is closest in meaning to",
+          "opts": [
+            "sketch",
+            "withdraw",
+            "choose",
+            "attract"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*Draw visitors to nearby businesses* : attirer des visiteurs vers les commerces voisins. *Sketch* (dessiner), *withdraw* (retirer de l’argent) et *choose* (tirer au sort) correspondent à d’autres sens de *draw*.",
+          "q_fr": "Dans l’article, le mot « draw » au paragraphe 3 a le sens le plus proche de"
+        },
+        {
+          "q": "About how many parking spaces does Mr. Nwosu believe the project would eliminate?",
+          "opts": [
+            "About 80",
+            "About 280",
+            "About 120",
+            "About 200"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "L’article parle de 200 places de stationnement ; d’après la lettre, ce chiffre ne compte que les places marquées, et environ 80 voitures de plus se garent sur la bande non goudronnée. M. Nwosu craint de perdre toutes ces places, soit environ 280. 200 ne compte que les places marquées (article), 80 que les voitures de la bande (lettre).",
+          "q_fr": "Combien de places de stationnement, environ, M. Nwosu pense-t-il que le projet supprimerait ?"
+        },
+        {
+          "q": "When does Mr. Nwosu most likely plan to express his concern in person?",
+          "opts": [
+            "Before the council vote",
+            "On April 3",
+            "On April 17",
+            "In September"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "La lettre dit qu’il soulèvera la question à la séance d’information ; d’après l’article, elle a lieu le 17 avril à la bibliothèque. Le 3 avril est la date de l’article, septembre celle du début des travaux.",
+          "q_fr": "Quand M. Nwosu compte-t-il sans doute exprimer son inquiétude de vive voix ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-006",
+      "docs": [
+        {
+          "kind": "page web",
+          "title": "Lindenwood Event Rentals: Packages and Prices",
+          "text": "Planning a company picnic, a wedding, or a community fair? Every package includes delivery, setup, and pickup within 25 miles of our Fairview warehouse. Beyond that distance, we add a travel fee of $2 for each additional mile, charged once per event.\n\nReservations made at least 30 days before the event receive a 10 percent discount. Cancellations made less than seven days before the event are charged half the rental price.\n\nAny package can be upgraded with lighting, a dance floor, or patio heaters. Call us to ask about our weekday rates!",
+          "table": {
+            "title": "Packages",
+            "rows": [
+              [
+                "Package",
+                "Includes",
+                "Price"
+              ],
+              [
+                "Garden",
+                "One 20-by-20-foot tent, 40 chairs, 5 tables",
+                "$650"
+              ],
+              [
+                "Celebration",
+                "One 30-by-40-foot tent, 100 chairs, 12 tables",
+                "$1,400"
+              ],
+              [
+                "Grand",
+                "Two 30-by-40-foot tents, 200 chairs, 25 tables, stage",
+                "$2,600"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "critique",
+          "title": "Customer review",
+          "text": "Posted by Jun-ho Park on June 12\nRating: 5 out of 5\n\nWe rented the Celebration package for our firm’s 25th anniversary party, and everything went smoothly. The crew arrived two hours early, set up quickly, and even helped us rearrange the tables when we realized the buffet line was blocking an exit. Because we booked in early April for an event in mid-May, we also saved a little on the price. The tent easily held all 90 of our guests. My one suggestion: the evening got quite chilly once the sun went down, so if your event runs late, consider adding the heaters.",
+          "table": null
+        },
+        {
+          "kind": "critique",
+          "title": "Customer review",
+          "text": "Posted by Carla Benedetti on June 20\nRating: 3 out of 5\n\nThe equipment itself was fine, but I was surprised by the bill. Our family reunion was held at a farm 40 miles from Lindenwood’s Fairview warehouse, and I didn’t notice the extra charge for the distance until the invoice arrived. To be fair, it is clearly stated on the Web site. The bigger problem was space. I chose the smallest package, expecting about 35 guests, but nearly 50 people showed up, and some had to stand during the meal. Next time, I’ll book a larger setup. The staff were polite and on time, though.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Lindenwood Event Rentals : formules et tarifs\n\nVous organisez un pique-nique d’entreprise, un mariage ou une fête de quartier ? Chaque formule comprend la livraison, l’installation et la reprise du matériel dans un rayon de 25 miles (40 km) autour de notre entrepôt de Fairview. Au-delà, nous ajoutons des frais de déplacement de 2 $ par mile supplémentaire, facturés une seule fois par événement.\n\nLes réservations faites au moins 30 jours avant l’événement bénéficient de 10 % de réduction. Les annulations faites moins de sept jours avant l’événement sont facturées la moitié du prix de location.\n\nToute formule peut être complétée par un éclairage, une piste de danse ou des chauffages d’extérieur. Appelez-nous pour connaître nos tarifs en semaine !\n\nFormules (contenu, prix) :\nGarden : une tente de 20 pieds sur 20 (environ 6 m sur 6), 40 chaises, 5 tables, 650 $\nCelebration : une tente de 30 pieds sur 40 (environ 9 m sur 12), 100 chaises, 12 tables, 1 400 $\nGrand : deux tentes de 30 pieds sur 40, 200 chaises, 25 tables, une scène, 2 600 $",
+        "Avis client\n\nPublié par Jun-ho Park le 12 juin\nNote : 5 sur 5\n\nNous avons loué la formule Celebration pour la fête des 25 ans de notre cabinet, et tout s’est bien passé. L’équipe est arrivée deux heures en avance, a tout installé rapidement et nous a même aidés à déplacer les tables quand nous nous sommes aperçus que la file du buffet bloquait une sortie. Comme nous avions réservé début avril pour un événement à la mi-mai, nous avons aussi un peu économisé sur le prix. La tente a accueilli sans peine nos 90 invités. Ma seule suggestion : la soirée est devenue assez fraîche après le coucher du soleil ; si votre événement se prolonge, pensez à ajouter les chauffages.",
+        "Avis client\n\nPublié par Carla Benedetti le 20 juin\nNote : 3 sur 5\n\nLe matériel lui-même était correct, mais la facture m’a surprise. Notre réunion de famille avait lieu dans une ferme à 40 miles (64 km) de l’entrepôt de Lindenwood à Fairview, et je n’ai remarqué le supplément lié à la distance qu’à l’arrivée de la facture. Pour être juste, c’est clairement indiqué sur le site web. Le vrai problème, c’était la place. J’ai choisi la plus petite formule en comptant sur environ 35 invités, mais près de 50 personnes sont venues, et certaines ont dû rester debout pendant le repas. La prochaine fois, je réserverai une installation plus grande. Le personnel était cependant poli et ponctuel."
+      ],
+      "questions": [
+        {
+          "q": "What is indicated about Lindenwood Event Rentals?",
+          "opts": [
+            "Its prices include delivery within a certain area.",
+            "It offers discounts to nonprofit groups.",
+            "It requires full payment when a reservation is made.",
+            "It also rents out catering equipment."
+          ],
+          "ans": "A",
+          "type": "vrai-faux",
+          "expl": "Page web, paragraphe 1 : chaque formule comprend la livraison, l’installation et la reprise dans un rayon de 25 miles. Rien n’est dit sur les associations, le paiement ou du matériel de traiteur.",
+          "q_fr": "Qu’apprend-on sur Lindenwood Event Rentals ?"
+        },
+        {
+          "q": "What is suggested about Mr. Park’s reservation?",
+          "opts": [
+            "It included a dance floor.",
+            "It was made less than a week before the event.",
+            "It was for more guests than the tent could hold.",
+            "It was reduced by 10 percent."
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "M. Park a réservé début avril pour une fête à la mi-mai, donc plus de 30 jours avant (premier avis) ; d’après la page web, ces réservations ont droit à 10 % de réduction. La tente a accueilli ses 90 invités sans difficulté.",
+          "q_fr": "Que laisse entendre le texte sur la réservation de M. Park ?"
+        },
+        {
+          "q": "What does Mr. Park recommend?",
+          "opts": [
+            "Booking a larger tent than seems necessary",
+            "Arriving early to help the crew set up",
+            "Renting heaters for events that end late",
+            "Placing the buffet away from the exits"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "Fin du premier avis : la soirée est devenue fraîche, il conseille d’ajouter les chauffages si l’événement se prolonge. C’est l’équipe, et non les clients, qui est arrivée en avance ; réserver plus grand est le projet de Mme Benedetti (second avis).",
+          "q_fr": "Que recommande M. Park ?"
+        },
+        {
+          "q": "How much was Ms. Benedetti most likely charged for travel?",
+          "opts": [
+            "$15",
+            "$30",
+            "$50",
+            "$80"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "La ferme est à 40 miles de l’entrepôt de Fairview (second avis) ; la page web inclut 25 miles et ajoute 2 $ par mile supplémentaire, une fois par événement : 15 × 2 = 30 $. 80 $ correspondrait aux 40 miles entiers.",
+          "q_fr": "Combien Mme Benedetti a-t-elle sans doute payé pour le déplacement ?"
+        },
+        {
+          "q": "How many chairs were included in the package Ms. Benedetti rented?",
+          "opts": [
+            "20",
+            "35",
+            "40",
+            "50"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Mme Benedetti a pris la plus petite formule (second avis) : d’après le tableau, c’est la formule Garden, avec 40 chaises, d’où les invités debout quand près de 50 personnes sont venues. 35 est le nombre d’invités qu’elle attendait.",
+          "q_fr": "Combien de chaises comprenait la formule louée par Mme Benedetti ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-007",
+      "docs": [
+        {
+          "kind": "note de service",
+          "title": null,
+          "text": "To: All Kessler Analytics staff\nFrom: Odette Fairbanks, Facilities Manager\nDate: Monday, February 3\nSubject: Floor renovations\n\nAs announced last month, the third and fourth floors will be renovated in stages over the coming weeks. While work is under way in a section, the employees assigned to it will move to the temporary workspace in Conference Rooms A and B on the second floor. Please pack your personal items in the boxes provided by 5:00 P.M. on the business day before your move; the moving crew will take care of computers and files.\n\nNoise will be heaviest in the mornings, so please schedule meetings after 1:00 P.M. whenever possible. Questions may be directed to me at extension 412.",
+          "table": {
+            "title": "Renovation schedule",
+            "rows": [
+              [
+                "Area",
+                "Departments",
+                "Dates"
+              ],
+              [
+                "Third floor, east wing",
+                "Accounting, Legal",
+                "February 10–21"
+              ],
+              [
+                "Third floor, west wing",
+                "Marketing",
+                "February 24–March 7"
+              ],
+              [
+                "Fourth floor",
+                "Software Development, Human Resources",
+                "March 10–28"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "discussion en ligne",
+          "title": null,
+          "text": "Raj Malhotra (10:02 A.M.): Has everyone seen the memo from Facilities? I’m worried about the client presentation on the morning of March 4.\nElena Sokolova (10:04 A.M.): Same here. We’ll be crammed into a conference room downstairs that week, with drilling right above our heads.\nRaj Malhotra (10:05 A.M.): Could we push it to the afternoon?\nElena Sokolova (10:06 A.M.): I already asked. The client’s team flies out at noon.\nBenjamin Achterberg (10:08 A.M.): What about holding it at their hotel? The Ridgeview has meeting rooms you can book by the hour.\nRaj Malhotra (10:09 A.M.): That might actually work. Elena, could you check whether one is free?\nElena Sokolova (10:10 A.M.): On it. I’ll also make sure the client doesn’t mind.\nBenjamin Achterberg (10:11 A.M.): And I’ll make sure our team’s boxes are packed by the deadline.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "À : tout le personnel de Kessler Analytics\nDe : Odette Fairbanks, responsable des services généraux\nDate : lundi 3 février\nObjet : rénovation des étages\n\nComme annoncé le mois dernier, les troisième et quatrième étages seront rénovés par tranches au cours des prochaines semaines. Pendant les travaux d’une zone, les employés qui y travaillent s’installeront dans l’espace de travail provisoire des salles de réunion A et B, au deuxième étage. Veuillez ranger vos affaires personnelles dans les cartons fournis avant 17 h le jour ouvré qui précède votre déménagement ; l’équipe de déménagement se chargera des ordinateurs et des dossiers.\n\nLe bruit sera surtout fort le matin : dans la mesure du possible, prévoyez vos réunions après 13 h. Pour toute question, joignez-moi au poste 412.\n\nCalendrier des travaux (zone, services, dates) :\nTroisième étage, aile est : comptabilité, service juridique, du 10 au 21 février\nTroisième étage, aile ouest : marketing, du 24 février au 7 mars\nQuatrième étage : développement logiciel, ressources humaines, du 10 au 28 mars",
+        "Raj Malhotra (10 h 02) : Vous avez tous vu la note des services généraux ? Je m’inquiète pour la présentation au client prévue le matin du 4 mars.\nElena Sokolova (10 h 04) : Moi aussi. Cette semaine-là, on sera entassés dans une salle de réunion en bas, avec les perceuses juste au-dessus de nos têtes.\nRaj Malhotra (10 h 05) : On pourrait la repousser à l’après-midi ?\nElena Sokolova (10 h 06) : J’ai déjà demandé. L’équipe du client reprend l’avion à midi.\nBenjamin Achterberg (10 h 08) : Et si on la faisait à leur hôtel ? Le Ridgeview a des salles de réunion qu’on peut réserver à l’heure.\nRaj Malhotra (10 h 09) : Ça pourrait marcher. Elena, tu peux vérifier s’il y en a une de libre ?\nElena Sokolova (10 h 10) : Je m’en occupe. Je vais aussi m’assurer que ça ne dérange pas le client.\nBenjamin Achterberg (10 h 11) : Et moi, je veille à ce que les cartons de l’équipe soient prêts à temps."
+      ],
+      "questions": [
+        {
+          "q": "What is the purpose of the memo?",
+          "opts": [
+            "To announce that the company is relocating",
+            "To describe arrangements during building work",
+            "To recruit volunteers for a moving crew",
+            "To introduce a new facilities manager"
+          ],
+          "ans": "B",
+          "type": "idee",
+          "expl": "La note présente le calendrier des travaux par étage, l’installation provisoire au deuxième étage et les consignes (cartons, réunions l’après-midi). *Move* désigne un déplacement temporaire, pas un déménagement de l’entreprise.",
+          "q_fr": "Quel est le but de la note de service ?"
+        },
+        {
+          "q": "In which department do the people in the chat most likely work?",
+          "opts": [
+            "Accounting",
+            "Legal",
+            "Marketing",
+            "Human Resources"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Ils seront dans une salle de réunion du bas la semaine du 4 mars (discussion, 10 h 04) ; d’après le tableau de la note, seul le service marketing est installé ailleurs du 24 février au 7 mars.",
+          "q_fr": "Dans quel service travaillent sans doute les participants à la discussion ?"
+        },
+        {
+          "q": "At 10:06 A.M., what does Ms. Sokolova imply when she writes, “The client’s team flies out at noon”?",
+          "opts": [
+            "The presentation cannot be moved to the afternoon.",
+            "The client will be arriving later than first planned.",
+            "The client would rather meet at the airport.",
+            "The team should book its own flights."
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Elle répond à la proposition de M. Malhotra de repousser la présentation à l’après-midi : les clients partent à midi, ce n’est donc pas possible. Rien n’indique un retard ni une rencontre à l’aéroport.",
+          "q_fr": "À 10 h 06, que laisse entendre Mme Sokolova quand elle écrit « The client’s team flies out at noon » ?"
+        },
+        {
+          "q": "By what time must Mr. Achterberg’s team finish packing?",
+          "opts": [
+            "5:00 P.M. on February 7",
+            "5:00 P.M. on February 21",
+            "1:00 P.M. on February 24",
+            "5:00 P.M. on March 7"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "La note demande que les cartons soient prêts à 17 h le jour ouvré qui précède le déménagement ; le service marketing quitte son étage le 24 février (tableau), un lundi puisque la note est datée du lundi 3 février : les cartons doivent donc être prêts le vendredi 21 février à 17 h.",
+          "q_fr": "Avant quelle heure l’équipe de M. Achterberg doit-elle avoir fini ses cartons ?"
+        },
+        {
+          "q": "What will Ms. Sokolova most likely do next?",
+          "opts": [
+            "Ask Facilities to postpone the renovation",
+            "Pack her personal belongings",
+            "Reschedule the presentation for March 10",
+            "Find out whether a meeting room is available"
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "À 10 h 09, M. Malhotra lui demande de vérifier si une salle de l’hôtel Ridgeview est libre, et elle répond *On it* (je m’en occupe). C’est M. Achterberg qui s’occupe des cartons.",
+          "q_fr": "Que va sans doute faire Mme Sokolova ensuite ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-008",
+      "docs": [
+        {
+          "kind": "annonce",
+          "title": "Position Available: Senior Laboratory Technician",
+          "text": "Aldergrove Environmental Testing is looking for a senior laboratory technician to join the water-quality division at our Halifax facility. Responsibilities include analyzing soil and water samples, maintaining laboratory instruments, and training junior staff in safety procedures.\n\nCandidates must hold a degree in chemistry or a related science and have at least four years of laboratory experience. Certification in hazardous-materials handling is required; however, a candidate who does not yet hold it may be hired on the condition that it is obtained within six months of the start date. Experience with mass spectrometry is strongly preferred.\n\nThe position involves occasional evening work during the spring and fall sampling seasons. Applications will be reviewed beginning June 2.",
+          "table": null
+        },
+        {
+          "kind": "formulaire",
+          "title": "Candidate Profile",
+          "text": "Applicant tracking system, Aldergrove Environmental Testing\nCandidate: Amara Osei\nPosition: Senior Laboratory Technician\nApplication received: May 29\nReferred by: Ines Duarte, Human Resources",
+          "table": {
+            "title": "Education and experience",
+            "rows": [
+              [
+                "Years",
+                "Institution or employer",
+                "Degree, role, or certificate"
+              ],
+              [
+                "2014–2018",
+                "Bayfield University",
+                "Bachelor’s degree in environmental chemistry"
+              ],
+              [
+                "2018–2021",
+                "Coastal Health Laboratories",
+                "Laboratory assistant"
+              ],
+              [
+                "2021–present",
+                "Marlow Food Safety Institute",
+                "Laboratory technician, mass spectrometry unit"
+              ],
+              [
+                "2023",
+                "Provincial Safety Council",
+                "First-aid certificate"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Ines Duarte\nFrom: Callum Rourke\nDate: June 5\nSubject: Amara Osei\n\nHi Ines,\n\nThanks for recommending Amara Osei. I’ve gone through her profile, and I agree that she’s a strong fit, especially since her current unit works with exactly the kind of equipment we were hoping a candidate would know. She also has well over the required years in a lab.\n\nThe one gap I see is the certification. As you know, no one can handle the solvents in Lab 3 without it, so if we hire her, she would have to complete the course within the period stated in the job posting. The Provincial Safety Council runs the next session in September, which would work.\n\nI’d like to interview her next week. Could you find out whether she’s free on Tuesday or Wednesday afternoon? Also, please mention that the evening work happens mainly in April, May, September, and October. I’d rather she hear that now than after we make an offer.\n\nThanks,\nCallum",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Poste à pourvoir : technicien de laboratoire principal\n\nAldergrove Environmental Testing recherche un technicien de laboratoire principal pour rejoindre la division qualité de l’eau de son site de Halifax. Le poste comprend l’analyse d’échantillons de sol et d’eau, l’entretien des instruments de laboratoire et la formation des jeunes techniciens aux règles de sécurité.\n\nLes candidats doivent être titulaires d’un diplôme de chimie ou d’une science voisine et avoir au moins quatre ans d’expérience en laboratoire. Une certification pour la manipulation des matières dangereuses est exigée ; un candidat qui ne l’a pas encore peut toutefois être embauché à condition de l’obtenir dans les six mois suivant sa prise de poste. Une expérience de la spectrométrie de masse est vivement souhaitée.\n\nLe poste comporte du travail ponctuel le soir pendant les campagnes de prélèvement du printemps et de l’automne. L’examen des candidatures commencera le 2 juin.",
+        "Profil de candidat\n\nSystème de suivi des candidatures, Aldergrove Environmental Testing\nCandidate : Amara Osei\nPoste : technicien de laboratoire principal\nCandidature reçue le : 29 mai\nRecommandée par : Ines Duarte, ressources humaines\n\nFormation et expérience (années, établissement ou employeur, diplôme, poste ou certificat) :\n2014-2018 : université Bayfield, licence de chimie de l’environnement\n2018-2021 : Coastal Health Laboratories, assistante de laboratoire\nDepuis 2021 : Marlow Food Safety Institute, technicienne de laboratoire, unité de spectrométrie de masse\n2023 : Provincial Safety Council, certificat de secourisme",
+        "À : Ines Duarte\nDe : Callum Rourke\nDate : 5 juin\nObjet : Amara Osei\n\nBonjour Ines,\n\nMerci d’avoir recommandé Amara Osei. J’ai examiné son profil et je suis d’accord : elle correspond très bien, d’autant que son service actuel travaille précisément avec le type d’équipement que nous espérions voir maîtrisé par un candidat. Elle a aussi bien plus que les années de laboratoire exigées.\n\nLe seul manque que je vois, c’est la certification. Comme tu le sais, personne ne peut manipuler les solvants du labo 3 sans elle : si nous l’embauchons, elle devra donc suivre la formation dans le délai indiqué dans l’offre d’emploi. Le Provincial Safety Council organise la prochaine session en septembre, ce qui conviendrait.\n\nJ’aimerais la recevoir en entretien la semaine prochaine. Pourrais-tu savoir si elle est libre mardi ou mercredi après-midi ? Précise-lui aussi que le travail du soir a lieu surtout en avril, mai, septembre et octobre. Je préfère qu’elle l’apprenne maintenant plutôt qu’après une offre.\n\nMerci,\nCallum"
+      ],
+      "questions": [
+        {
+          "q": "What is NOT listed as a responsibility of the position?",
+          "opts": [
+            "Testing environmental samples",
+            "Keeping instruments in working order",
+            "Ordering laboratory supplies",
+            "Teaching safety rules to newer employees"
+          ],
+          "ans": "C",
+          "type": "vrai-faux",
+          "expl": "L’annonce (paragraphe 1) cite l’analyse d’échantillons, l’entretien des instruments et la formation des jeunes techniciens à la sécurité ; les commandes de fournitures ne sont pas mentionnées.",
+          "q_fr": "Quelle tâche n’est PAS citée parmi les responsabilités du poste ?"
+        },
+        {
+          "q": "What equipment is Mr. Rourke most likely referring to in his e-mail?",
+          "opts": [
+            "Mass spectrometry instruments",
+            "Water filtration systems",
+            "Soil-sampling drills",
+            "Solvent storage cabinets"
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Le courriel parle de l’équipement qu’utilise le service actuel de Mme Osei ; d’après son profil, elle travaille dans une unité de spectrométrie de masse, expérience que l’annonce juge *strongly preferred*. Les solvants du labo 3 concernent la certification.",
+          "q_fr": "À quel équipement M. Rourke fait-il sans doute allusion dans son courriel ?"
+        },
+        {
+          "q": "Which requirement has Ms. Osei not yet met?",
+          "opts": [
+            "A university degree in a scientific field",
+            "Four years of laboratory experience",
+            "A certificate in first aid",
+            "A hazardous-materials certification"
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "L’annonce exige une certification pour les matières dangereuses ; le profil de Mme Osei ne mentionne qu’un certificat de secourisme, et M. Rourke confirme ce manque (*the one gap*). Elle a un diplôme de chimie et plus de quatre ans d’expérience.",
+          "q_fr": "Quelle exigence Mme Osei ne remplit-elle pas encore ?"
+        },
+        {
+          "q": "If she is hired, how long will Ms. Osei have to obtain the missing certification?",
+          "opts": [
+            "One month",
+            "Three months",
+            "Six months",
+            "One year"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "M. Rourke renvoie au délai fixé dans l’offre d’emploi (*the period stated in the job posting*) ; l’annonce accorde six mois à partir de la prise de poste.",
+          "q_fr": "Si elle est embauchée, de combien de temps Mme Osei disposera-t-elle pour obtenir la certification qui lui manque ?"
+        },
+        {
+          "q": "What does Mr. Rourke ask Ms. Duarte to tell Ms. Osei?",
+          "opts": [
+            "When the job will require late hours",
+            "That her interview will take place in Lab 3",
+            "That the next course begins in the spring",
+            "Why her application arrived late"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Dernier paragraphe du courriel : il veut qu’on la prévienne que le travail du soir a lieu surtout en avril, mai, septembre et octobre. Le prochain cours commence en septembre, et sa candidature est arrivée le 29 mai, avant l’examen des dossiers.",
+          "q_fr": "Que demande M. Rourke à Mme Duarte de dire à Mme Osei ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-009",
+      "docs": [
+        {
+          "kind": "publicité",
+          "title": "Meet by the Bay",
+          "text": "Host your next retreat, workshop, or board meeting at the Saltmarsh Bay Hotel, just 15 minutes from the regional airport.\n\nEvery meeting room comes with high-speed Internet, a projector, and complimentary coffee service. Full-day rentals run from 8:00 A.M. to 6:00 P.M. Groups that reserve eight or more guest rooms for an overnight stay receive their meeting space at half price.\n\nCatering can be arranged through our on-site restaurant, the Tidewater Grill, which offers menus for a range of dietary needs. To book, contact our events team at events@saltmarshbay.com.",
+          "table": {
+            "title": "Meeting rooms",
+            "rows": [
+              [
+                "Room",
+                "Seats in rows of chairs",
+                "Seats at tables",
+                "Full-day rate"
+              ],
+              [
+                "Heron Room",
+                "40",
+                "24",
+                "$600"
+              ],
+              [
+                "Osprey Room",
+                "80",
+                "50",
+                "$950"
+              ],
+              [
+                "Pelican Ballroom",
+                "200",
+                "120",
+                "$2,100"
+              ],
+              [
+                "Boardroom",
+                "14",
+                "14",
+                "$400"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Events Team, Saltmarsh Bay Hotel\nFrom: Yusuf Demir\nDate: January 14\nSubject: Training retreat in March\n\nHello,\n\nI’m organizing a two-day training retreat for our regional sales team on March 12 and 13. There will be 36 participants, and since the sessions involve a lot of writing and laptop work, everyone will need to be seated at tables rather than in rows of chairs. Most participants will be coming from out of state, so we expect to reserve ten guest rooms for the night of March 12.\n\nCould you also send me sample lunch menus from your restaurant? Several team members follow a gluten-free diet.\n\nFinally, our vice president may join us on the second day. She would need a small, private room that afternoon for a confidential meeting with four regional managers. Please let me know whether that can be arranged.\n\nBest regards,\nYusuf Demir\nTraining Coordinator, Kestrel Home Appliances",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Réunissez-vous au bord de la baie\n\nOrganisez votre prochain séminaire, atelier ou conseil d’administration à l’hôtel Saltmarsh Bay, à 15 minutes seulement de l’aéroport régional.\n\nChaque salle de réunion dispose d’un accès Internet haut débit, d’un projecteur et d’un service de café offert. Les locations à la journée vont de 8 h à 18 h. Les groupes qui réservent au moins huit chambres pour une nuit bénéficient de la salle de réunion à moitié prix.\n\nLa restauration peut être organisée par notre restaurant sur place, le Tidewater Grill, qui propose des menus adaptés à divers régimes alimentaires. Pour réserver, contactez notre équipe événementielle à events@saltmarshbay.com.\n\nSalles de réunion (places en rangées de chaises, places à des tables, tarif à la journée) :\nSalle Heron : 40, 24, 600 $\nSalle Osprey : 80, 50, 950 $\nPelican Ballroom : 200, 120, 2 100 $\nSalle du conseil : 14, 14, 400 $",
+        "À : équipe événementielle, hôtel Saltmarsh Bay\nDe : Yusuf Demir\nDate : 14 janvier\nObjet : séminaire de formation en mars\n\nBonjour,\n\nJ’organise un séminaire de formation de deux jours pour notre équipe commerciale régionale les 12 et 13 mars. Il y aura 36 participants, et comme les séances demandent beaucoup d’écriture et de travail sur ordinateur portable, tout le monde devra être assis à des tables plutôt qu’en rangées de chaises. La plupart des participants viendront d’autres États : nous prévoyons donc de réserver dix chambres pour la nuit du 12 mars.\n\nPourriez-vous aussi m’envoyer des exemples de menus de déjeuner de votre restaurant ? Plusieurs membres de l’équipe suivent un régime sans gluten.\n\nEnfin, notre vice-présidente se joindra peut-être à nous le deuxième jour. Elle aurait besoin d’une petite salle privée cet après-midi-là pour une réunion confidentielle avec quatre directeurs régionaux. Pourriez-vous me dire si c’est possible ?\n\nCordialement,\nYusuf Demir\nCoordinateur de formation, Kestrel Home Appliances"
+      ],
+      "questions": [
+        {
+          "q": "Why did Mr. Demir write the e-mail?",
+          "opts": [
+            "To inquire about hosting a company event",
+            "To complain about a previous stay",
+            "To confirm a catering order",
+            "To apply for a position in sales"
+          ],
+          "ans": "A",
+          "type": "idee",
+          "expl": "Il organise un séminaire de formation de deux jours et interroge l’hôtel sur les salles, les chambres, les repas et une petite salle privée. Il demande des menus, il ne confirme aucune commande.",
+          "q_fr": "Pourquoi M. Demir a-t-il écrit ce courriel ?"
+        },
+        {
+          "q": "In the advertisement, the word “run” in paragraph 2 is closest in meaning to",
+          "opts": [
+            "manage",
+            "last",
+            "compete",
+            "hurry"
+          ],
+          "ans": "B",
+          "type": "vocab",
+          "expl": "*Full-day rentals run from 8:00 A.M. to 6:00 P.M.* : les locations durent de 8 h à 18 h. *Manage* (*run a business*, diriger), *compete* (*run for office*, se présenter) et *hurry* (courir, se dépêcher) correspondent à d’autres sens de *run*.",
+          "q_fr": "Dans la publicité, le mot « run » au paragraphe 2 a le sens le plus proche de"
+        },
+        {
+          "q": "Which is the smallest room that can accommodate Mr. Demir’s group for its main sessions?",
+          "opts": [
+            "The Boardroom",
+            "The Heron Room",
+            "The Osprey Room",
+            "The Pelican Ballroom"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Les 36 participants doivent être assis à des tables (courriel) ; d’après le tableau, la salle Heron n’offre que 24 places à table (ses 40 places sont en rangées de chaises), la salle Osprey en a 50. Le Pelican Ballroom convient aussi, mais il est bien plus grand.",
+          "q_fr": "Quelle est la plus petite salle qui puisse accueillir le groupe de M. Demir pour ses séances principales ?"
+        },
+        {
+          "q": "What is suggested about Mr. Demir’s booking?",
+          "opts": [
+            "It qualifies for a discount on meeting space.",
+            "It must be paid in full before March 12.",
+            "It includes lunch for every participant at no cost.",
+            "It requires more rooms than the hotel can offer."
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Il prévoit de réserver dix chambres pour la nuit du 12 mars (courriel) ; la publicité accorde la salle à moitié prix aux groupes qui réservent au moins huit chambres. Seul le café est offert, pas le déjeuner.",
+          "q_fr": "Que laisse entendre le texte sur la réservation de M. Demir ?"
+        },
+        {
+          "q": "What does Mr. Demir request information about?",
+          "opts": [
+            "Shuttle service from the regional airport",
+            "The cost of renting an extra projector",
+            "Discounts offered to returning guests",
+            "Menus for guests with special diets"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "Courriel, paragraphe 2 : il demande des exemples de menus parce que plusieurs participants mangent sans gluten. Le projecteur est déjà compris dans chaque salle, d’après la publicité.",
+          "q_fr": "Sur quoi M. Demir demande-t-il des renseignements ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-010",
+      "docs": [
+        {
+          "kind": "annonce",
+          "title": "Commercial Space for Lease: Harwood Commons",
+          "text": "Harwood Commons, a recently renovated two-story building on Linden Avenue, has four units available for lease beginning July 1. The building is a five-minute walk from the Linden Avenue light-rail station and offers secure bicycle storage for tenants. Water and trash collection are included in the rent; tenants pay for their own electricity. All leases are for a minimum of two years.\n\nGround-floor units have large street-facing windows, ideal for retail displays. Second-floor units are well suited to offices and studios.",
+          "table": {
+            "title": "Available units",
+            "rows": [
+              [
+                "Unit",
+                "Floor",
+                "Size (square feet)",
+                "Monthly rent"
+              ],
+              [
+                "101",
+                "Ground",
+                "1,200",
+                "$3,100"
+              ],
+              [
+                "102",
+                "Ground",
+                "850",
+                "$2,300"
+              ],
+              [
+                "201",
+                "Second",
+                "1,500",
+                "$2,900"
+              ],
+              [
+                "202",
+                "Second",
+                "700",
+                "$1,500"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Priscilla Vance, Harwood Property Management\nFrom: Kofi Asante\nDate: May 6\nSubject: Harwood Commons\n\nDear Ms. Vance,\n\nI am opening a small bookstore and café and am interested in Harwood Commons. I need a space where passersby can see our displays from the sidewalk, and given my budget, I cannot spend more than $2,500 a month on rent. I would like to move in by early July so that we can open before the back-to-school season.\n\nOne concern: since this is a new venture, I am hoping to sign a one-year lease at first. Is there any flexibility on that point?\n\nI am available to view the space any weekday after 3:00 P.M.\n\nRegards,\nKofi Asante",
+          "table": null
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Kofi Asante\nFrom: Priscilla Vance\nDate: May 7\nSubject: RE: Harwood Commons\n\nDear Mr. Asante,\n\nThank you for your interest in Harwood Commons. Based on your requirements, I believe one of our units would suit you well, and I would be happy to show it to you on Thursday at 4:00 P.M.\n\nRegarding the lease, the owner does not normally make exceptions to the minimum term. However, she has accepted shorter commitments in the past from tenants who paid three months’ rent in advance as a deposit. I can ask her on your behalf if that arrangement interests you.\n\nThe unit I have in mind also has a small kitchenette at the back, which may be useful for your café. Please bring any questions about electrical capacity to the viewing, as our maintenance supervisor will be there as well.\n\nBest regards,\nPriscilla Vance",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Locaux commerciaux à louer : Harwood Commons\n\nHarwood Commons, immeuble de deux niveaux récemment rénové sur Linden Avenue, propose quatre locaux à louer à partir du 1er juillet. L’immeuble est à cinq minutes à pied de la station de tramway Linden Avenue et dispose d’un local à vélos sécurisé pour les locataires. L’eau et l’enlèvement des ordures sont compris dans le loyer ; l’électricité est à la charge des locataires. Tous les baux sont d’une durée minimale de deux ans.\n\nLes locaux du rez-de-chaussée ont de grandes vitrines donnant sur la rue, idéales pour exposer des marchandises. Ceux de l’étage conviennent bien à des bureaux et à des ateliers.\n\nLocaux disponibles (niveau, surface, loyer mensuel) :\n101 : rez-de-chaussée, 1 200 pieds carrés (environ 110 m²), 3 100 $\n102 : rez-de-chaussée, 850 pieds carrés (environ 80 m²), 2 300 $\n201 : premier étage, 1 500 pieds carrés (environ 140 m²), 2 900 $\n202 : premier étage, 700 pieds carrés (environ 65 m²), 1 500 $",
+        "À : Priscilla Vance, Harwood Property Management\nDe : Kofi Asante\nDate : 6 mai\nObjet : Harwood Commons\n\nMadame,\n\nJ’ouvre une petite librairie-café et Harwood Commons m’intéresse. Il me faut un local dont les vitrines soient visibles depuis le trottoir et, vu mon budget, je ne peux pas dépenser plus de 2 500 $ par mois de loyer. J’aimerais m’installer début juillet au plus tard, pour pouvoir ouvrir avant la rentrée scolaire.\n\nUne question : comme il s’agit d’une nouvelle entreprise, j’espère signer d’abord un bail d’un an. Y a-t-il une marge de manœuvre sur ce point ?\n\nJe suis disponible pour une visite n’importe quel jour de semaine après 15 h.\n\nCordialement,\nKofi Asante",
+        "À : Kofi Asante\nDe : Priscilla Vance\nDate : 7 mai\nObjet : RE : Harwood Commons\n\nMonsieur,\n\nMerci de l’intérêt que vous portez à Harwood Commons. D’après vos critères, je pense que l’un de nos locaux vous conviendrait bien, et je serais heureuse de vous le faire visiter jeudi à 16 h.\n\nQuant au bail, la propriétaire ne fait normalement pas d’exception à la durée minimale. Elle a toutefois accepté par le passé des engagements plus courts de locataires qui versaient trois mois de loyer d’avance en dépôt de garantie. Je peux le lui demander de votre part si cet arrangement vous intéresse.\n\nLe local auquel je pense dispose aussi d’une petite kitchenette à l’arrière, qui pourrait être utile pour votre café. Apportez vos questions sur la puissance électrique à la visite : notre responsable de la maintenance sera également présent.\n\nCordialement,\nPriscilla Vance"
+      ],
+      "questions": [
+        {
+          "q": "What is indicated about Harwood Commons?",
+          "opts": [
+            "It has a parking lot for tenants.",
+            "Its rent includes electricity.",
+            "It is close to public transportation.",
+            "It was built last year."
+          ],
+          "ans": "C",
+          "type": "vrai-faux",
+          "expl": "L’annonce situe l’immeuble à cinq minutes à pied d’une station de tramway (*light-rail station*). Elle cite un local à vélos, pas un parking ; l’électricité est à la charge des locataires ; l’immeuble a été rénové, pas construit.",
+          "q_fr": "Qu’apprend-on sur Harwood Commons ?"
+        },
+        {
+          "q": "Why is Unit 101 unsuitable for Mr. Asante?",
+          "opts": [
+            "Its rent is above his limit.",
+            "It lacks windows facing the street.",
+            "It is on an upper floor.",
+            "It will not be available until after July."
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Le local 101 est au rez-de-chaussée, avec vitrines, mais coûte 3 100 $ par mois (annonce), alors que M. Asante ne peut pas dépasser 2 500 $ (premier courriel).",
+          "q_fr": "Pourquoi le local 101 ne convient-il pas à M. Asante ?"
+        },
+        {
+          "q": "What is the monthly rent for the unit Ms. Vance will most likely show Mr. Asante?",
+          "opts": [
+            "$1,500",
+            "$2,300",
+            "$2,900",
+            "$3,100"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Il lui faut un local visible de la rue, donc au rez-de-chaussée, à 2 500 $ au plus (premier courriel) : d’après le tableau, seul le local 102 convient, à 2 300 $, et Mme Vance dit avoir un local adapté en tête. Le 202 est moins cher, mais à l’étage.",
+          "q_fr": "Quel est le loyer mensuel du local que Mme Vance va sans doute faire visiter à M. Asante ?"
+        },
+        {
+          "q": "What does Ms. Vance suggest about the building’s owner?",
+          "opts": [
+            "She is planning to sell the property soon.",
+            "She lowers the rent for new businesses.",
+            "She will attend the viewing on Thursday.",
+            "She has allowed shorter leases before."
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "Second courriel, paragraphe 2 : la propriétaire a déjà accepté des engagements plus courts contre trois mois de loyer d’avance. C’est le responsable de la maintenance, et non elle, qui sera présent à la visite.",
+          "q_fr": "Que laisse entendre Mme Vance au sujet de la propriétaire de l’immeuble ?"
+        },
+        {
+          "q": "In the second e-mail, the word “term” in paragraph 2 is closest in meaning to",
+          "opts": [
+            "condition",
+            "expression",
+            "duration",
+            "semester"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*The minimum term* : la durée minimale du bail, deux ans d’après l’annonce. *Expression* (un terme), *semester* (un semestre, une période de l’année scolaire) et *condition* (*terms and conditions*) correspondent à d’autres sens du mot.",
+          "q_fr": "Dans le second courriel, le mot « term » au paragraphe 2 a le sens le plus proche de"
+        }
+      ]
+    },
+    {
+      "id": "7b-011",
+      "docs": [
+        {
+          "kind": "critique",
+          "title": "Dining Out: The Copper Lantern",
+          "text": "The Copper Lantern, which opened in March in the former post office on Bridge Street, has quickly become one of the hardest tables to get in Easton. After two visits, I understand why.\n\nChef Mateo Villanueva’s menu changes every few weeks to follow what local farms are harvesting. On my first visit, a starter of roasted beets with goat cheese and toasted walnuts was outstanding, and the braised lamb was tender enough to cut with a fork. Desserts were less memorable: a lemon tart arrived with a soggy crust.\n\nService, unfortunately, did not match the kitchen. On my second visit, a Friday evening, we waited 25 minutes past our reservation time for a table, and our server seemed unsure which dishes contained nuts, even after checking with the kitchen twice. For a restaurant charging $38 for a main course, diners deserve better.\n\nStill, The Copper Lantern shows enormous promise. If management trains its staff as carefully as the chef selects his ingredients, it could become the best restaurant in the region.\n\nRating: three stars out of five\nReviewed by Meredith Oyelaran",
+          "table": null
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: All front-of-house staff\nFrom: Linnea Halvorsen, General Manager\nDate: June 16\nSubject: Saturday’s review and next steps\n\nHi everyone,\n\nMany of you have seen the review in Saturday’s Easton Courier. Mateo and I agree with much of it, and I want to focus on what we can fix quickly.\n\nFirst, the long wait the reviewer described happened on the night our booking system counted several tables twice. The software company has since corrected the problem, but from now on, hosts should also check the evening’s seating plan by hand at 4:00 P.M.\n\nSecond, every server must be able to answer questions about ingredients without leaving the table. Starting next week, Mateo will hold a 20-minute briefing before each dinner shift to go over the day’s dishes, with special attention to common allergens.\n\nFinally, Mateo asked me to let you know that the pastry recipe has already been reworked.\n\nThank you all for your hard work during a busy first season.\n\nLinnea",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Sortir dîner : The Copper Lantern\n\nThe Copper Lantern, ouvert en mars dans l’ancien bureau de poste de Bridge Street, est vite devenu l’une des tables les plus difficiles à obtenir à Easton. Après deux visites, je comprends pourquoi.\n\nLa carte du chef Mateo Villanueva change toutes les quelques semaines pour suivre les récoltes des fermes de la région. Lors de ma première visite, une entrée de betteraves rôties au fromage de chèvre et aux noix grillées était remarquable, et l’agneau braisé assez tendre pour se couper à la fourchette. Les desserts ont moins marqué : une tarte au citron est arrivée avec une pâte détrempée.\n\nLe service, malheureusement, n’était pas à la hauteur de la cuisine. Lors de ma seconde visite, un vendredi soir, nous avons attendu notre table 25 minutes après l’heure de notre réservation, et notre serveur semblait ne pas savoir quels plats contenaient des fruits à coque, même après s’être renseigné deux fois en cuisine. Pour un restaurant qui facture 38 $ le plat principal, les clients méritent mieux.\n\nThe Copper Lantern est néanmoins très prometteur. Si la direction forme son personnel avec autant de soin que le chef choisit ses produits, il pourrait devenir le meilleur restaurant de la région.\n\nNote : trois étoiles sur cinq\nCritique de Meredith Oyelaran",
+        "À : tout le personnel de salle\nDe : Linnea Halvorsen, directrice\nDate : 16 juin\nObjet : la critique de samedi et la suite\n\nBonjour à tous,\n\nBeaucoup d’entre vous ont lu la critique parue samedi dans l’Easton Courier. Mateo et moi sommes d’accord avec une bonne partie, et je veux me concentrer sur ce que nous pouvons corriger rapidement.\n\nD’abord, la longue attente décrite par la critique s’est produite le soir où notre système de réservation a compté plusieurs tables en double. L’éditeur du logiciel a depuis corrigé le problème, mais désormais, les hôtes d’accueil devront aussi vérifier à la main le plan de salle du soir à 16 h.\n\nEnsuite, chaque serveur doit pouvoir répondre aux questions sur les ingrédients sans quitter la table. À partir de la semaine prochaine, Mateo tiendra une réunion de 20 minutes avant chaque service du soir pour passer en revue les plats du jour, en insistant sur les allergènes courants.\n\nEnfin, Mateo m’a demandé de vous dire que la recette de la pâte a déjà été retravaillée.\n\nMerci à tous pour votre travail pendant cette première saison chargée.\n\nLinnea"
+      ],
+      "questions": [
+        {
+          "q": "What is the reviewer’s overall opinion of The Copper Lantern?",
+          "opts": [
+            "It is overpriced for its location.",
+            "It should change its menu less often.",
+            "It is already the best restaurant in the region.",
+            "Its food is excellent, but its service is not."
+          ],
+          "ans": "D",
+          "type": "idee",
+          "expl": "La critique loue la cuisine (betteraves, agneau) mais regrette le service, tout en jugeant le restaurant prometteur. Il *pourrait* devenir le meilleur de la région (*could become*) : il ne l’est pas encore.",
+          "q_fr": "Quelle est l’opinion générale de la critique sur The Copper Lantern ?"
+        },
+        {
+          "q": "In the review, the word “promise” in paragraph 4 is closest in meaning to",
+          "opts": [
+            "commitment",
+            "agreement",
+            "guarantee",
+            "potential"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*Shows enormous promise* : le restaurant est très prometteur, il a un grand potentiel. *Commitment*, *agreement* et *guarantee* correspondent à *promise* au sens d’engagement, de promesse faite à quelqu’un.",
+          "q_fr": "Dans la critique, le mot « promise » au paragraphe 4 a le sens le plus proche de"
+        },
+        {
+          "q": "On what day of the week did the restaurant’s booking system make an error?",
+          "opts": [
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Le courriel situe l’erreur du système de réservation le soir de la longue attente décrite par la critique ; d’après la critique, c’était lors de la seconde visite, un vendredi soir. Samedi est le jour de parution de la critique.",
+          "q_fr": "Quel jour de la semaine le système de réservation du restaurant a-t-il fait une erreur ?"
+        },
+        {
+          "q": "Which dish mentioned in the review has the chef changed?",
+          "opts": [
+            "The roasted beet starter",
+            "The braised lamb",
+            "The lemon tart",
+            "The walnut salad"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Le courriel indique que la recette de pâte a été retravaillée (*the pastry recipe*) ; la critique reprochait à la tarte au citron sa pâte détrempée (*soggy crust*). Les betteraves et l’agneau ont été jugés excellents.",
+          "q_fr": "Quel plat cité dans la critique le chef a-t-il modifié ?"
+        },
+        {
+          "q": "According to Ms. Halvorsen, what will happen before each dinner shift?",
+          "opts": [
+            "Servers will receive information about the day’s dishes.",
+            "Hosts will call guests to confirm their reservations.",
+            "The chef will taste every dessert.",
+            "Staff will update the booking software."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Courriel, paragraphe 3 : le chef tiendra une réunion de 20 minutes sur les plats du jour et les allergènes. Les hôtes vérifient le plan de salle à 16 h ; ils n’appellent pas les clients.",
+          "q_fr": "D’après Mme Halvorsen, que se passera-t-il avant chaque service du soir ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-012",
+      "docs": [
+        {
+          "kind": "programme",
+          "title": "Travel Itinerary",
+          "text": "Prepared for: Shirin Kazemi, Valemont Pharmaceuticals\nTrip purpose: Western Region Sales Conference, Denver\n\nPlease keep all receipts. Meals are reimbursed up to $60 per day. Taxis and ride-share services are reimbursed only when no airport shuttle is available. Contact the Corporate Travel Desk for any changes to flights or hotel bookings.",
+          "table": {
+            "title": "Schedule",
+            "rows": [
+              [
+                "Date",
+                "Details"
+              ],
+              [
+                "Wednesday, May 13",
+                "Northstar Airways Flight 218, Raleigh to Denver, departs 7:40 A.M., arrives 9:55 A.M."
+              ],
+              [
+                "Wednesday, May 13",
+                "Conference opening session, Denver Civic Center, 1:00 P.M."
+              ],
+              [
+                "May 13–16",
+                "Alpine Crest Hotel, three nights, free airport shuttle every 30 minutes"
+              ],
+              [
+                "Thursday, May 14",
+                "Conference sessions, 8:30 A.M. to 5:00 P.M."
+              ],
+              [
+                "Friday, May 15",
+                "Client visit, Bellwood Medical Group, 10:00 A.M."
+              ],
+              [
+                "Saturday, May 16",
+                "Northstar Airways Flight 431, Denver to Raleigh, departs 1:15 P.M."
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "From: Northstar Airways\nTo: Shirin Kazemi\nDate: May 11\nSubject: Schedule change to your trip\n\nDear Ms. Kazemi,\n\nWe regret to inform you that Flight 218 from Raleigh to Denver on May 13 has been canceled because of a maintenance issue. We have rebooked you on Flight 226, which departs Raleigh at 11:50 A.M. and arrives in Denver at 2:05 P.M. the same day.\n\nIf this new schedule does not suit you, you may switch at no cost to any other Northstar flight to Denver departing within 24 hours of your original departure time, or you may request a full refund.\n\nAs a gesture of goodwill, we have also added a $25 meal voucher to your booking. It can be used at any restaurant in the Raleigh airport terminal on May 13.\n\nWe apologize for the inconvenience.",
+          "table": null
+        },
+        {
+          "kind": "échange de textos",
+          "title": null,
+          "text": "Shirin Kazemi (8:05 P.M.): Owen, my Wednesday flight to Denver was canceled. They’ve put me on one that lands just after two.\nOwen Pritchard (8:07 P.M.): Ouch. Isn’t your talk at 2:30?\nShirin Kazemi (8:08 P.M.): It is. The conference center is at least 40 minutes from the airport, so I’d never make it in time.\nOwen Pritchard (8:10 P.M.): Is there anything on Tuesday evening?\nShirin Kazemi (8:11 P.M.): There’s a 6:45 flight, and the airline says I can switch for free. I’ll take it.\nOwen Pritchard (8:12 P.M.): Smart. Just remember to ask the travel desk to add a night at the hotel.\nShirin Kazemi (8:13 P.M.): Already on my list. Too bad about the meal voucher, though.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Itinéraire de voyage\n\nÉtabli pour : Shirin Kazemi, Valemont Pharmaceuticals\nObjet du voyage : congrès commercial de la région Ouest, Denver\n\nVeuillez conserver tous vos reçus. Les repas sont remboursés jusqu’à 60 $ par jour. Les taxis et VTC ne sont remboursés que s’il n’y a pas de navette pour l’aéroport. Adressez-vous au service des voyages de l’entreprise pour toute modification de vol ou de réservation d’hôtel.\n\nProgramme :\nMercredi 13 mai : vol Northstar Airways 218, Raleigh-Denver, départ 7 h 40, arrivée 9 h 55\nMercredi 13 mai : séance d’ouverture du congrès, Denver Civic Center, 13 h\nDu 13 au 16 mai : hôtel Alpine Crest, trois nuits, navette gratuite pour l’aéroport toutes les 30 minutes\nJeudi 14 mai : séances du congrès, de 8 h 30 à 17 h\nVendredi 15 mai : visite client, Bellwood Medical Group, 10 h\nSamedi 16 mai : vol Northstar Airways 431, Denver-Raleigh, départ 13 h 15",
+        "De : Northstar Airways\nÀ : Shirin Kazemi\nDate : 11 mai\nObjet : modification de votre voyage\n\nMadame,\n\nNous avons le regret de vous informer que le vol 218 Raleigh-Denver du 13 mai est annulé en raison d’un problème de maintenance. Nous vous avons replacée sur le vol 226, qui part de Raleigh à 11 h 50 et arrive à Denver à 14 h 05 le même jour.\n\nSi ce nouvel horaire ne vous convient pas, vous pouvez passer sans frais sur tout autre vol Northstar pour Denver partant à moins de 24 heures de votre heure de départ initiale, ou demander un remboursement intégral.\n\nEn geste commercial, nous avons aussi ajouté à votre réservation un bon repas de 25 $. Il est valable dans tous les restaurants du terminal de l’aéroport de Raleigh le 13 mai.\n\nNous vous prions de nous excuser pour ce désagrément.",
+        "Shirin Kazemi (20 h 05) : Owen, mon vol de mercredi pour Denver est annulé. Ils m’ont mise sur un vol qui atterrit juste après 14 h.\nOwen Pritchard (20 h 07) : Aïe. Ton intervention n’est pas à 14 h 30 ?\nShirin Kazemi (20 h 08) : Si. Le centre de congrès est à au moins 40 minutes de l’aéroport, je n’arriverais jamais à temps.\nOwen Pritchard (20 h 10) : Il n’y a rien mardi soir ?\nShirin Kazemi (20 h 11) : Il y a un vol à 18 h 45, et la compagnie dit que je peux changer gratuitement. Je le prends.\nOwen Pritchard (20 h 12) : Bien vu. Pense juste à demander au service des voyages d’ajouter une nuit d’hôtel.\nShirin Kazemi (20 h 13) : C’est déjà noté. Dommage pour le bon repas, par contre."
+      ],
+      "questions": [
+        {
+          "q": "What is indicated in the itinerary about travel expenses?",
+          "opts": [
+            "Meals are reimbursed without any limit.",
+            "Taxi costs are covered only in some cases.",
+            "Hotel bills must be paid before the trip.",
+            "Receipts are required only for airline tickets."
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "Itinéraire : taxis et VTC ne sont remboursés que s’il n’existe pas de navette pour l’aéroport. Les repas sont plafonnés à 60 $ par jour, et il faut garder tous les reçus.",
+          "q_fr": "Qu’indique l’itinéraire au sujet des frais de déplacement ?"
+        },
+        {
+          "q": "What is suggested about Flight 226?",
+          "opts": [
+            "It would land after the conference has begun.",
+            "It departs from a different airport.",
+            "It costs more than the original flight.",
+            "It includes a free night at the hotel."
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Le vol 226 arrive à Denver à 14 h 05 (courriel de la compagnie) ; d’après l’itinéraire, la séance d’ouverture du congrès commence à 13 h ce jour-là. Il part lui aussi de Raleigh, sans frais supplémentaires.",
+          "q_fr": "Que laisse entendre le texte sur le vol 226 ?"
+        },
+        {
+          "q": "At 8:12 P.M., why does Mr. Pritchard write, “Smart”?",
+          "opts": [
+            "He is impressed by the airline’s offer of a free change.",
+            "He admires Ms. Kazemi’s presentation.",
+            "He agrees with her new travel plan.",
+            "He thinks the hotel is well chosen."
+          ],
+          "ans": "C",
+          "type": "intention",
+          "expl": "*Smart* répond à *I’ll take it* : M. Pritchard juge sage la décision de Mme Kazemi de partir mardi soir. Il n’a pas vu sa présentation et ne commente ni la compagnie ni l’hôtel.",
+          "q_fr": "À 20 h 12, pourquoi M. Pritchard écrit-il « Smart » ?"
+        },
+        {
+          "q": "On what date will Ms. Kazemi most likely check in at the Alpine Crest Hotel?",
+          "opts": [
+            "May 11",
+            "May 12",
+            "May 13",
+            "May 14"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Elle prend un vol le mardi soir et doit demander une nuit d’hôtel de plus (textos, 20 h 11 et 20 h 12) ; d’après l’itinéraire, le mercredi est le 13 mai, donc le mardi est le 12.",
+          "q_fr": "À quelle date Mme Kazemi arrivera-t-elle sans doute à l’hôtel Alpine Crest ?"
+        },
+        {
+          "q": "Why will Ms. Kazemi most likely be unable to use the meal voucher?",
+          "opts": [
+            "It can be used only at restaurants in Denver.",
+            "It is worth less than her daily meal allowance.",
+            "Her company already pays for her meals.",
+            "She will have left Raleigh before May 13."
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "Le bon n’est valable que le 13 mai, au terminal de Raleigh (courriel de la compagnie) ; or elle part dès le mardi 12 au soir (textos). Le plafond de 60 $ par jour de l’itinéraire n’a rien à voir avec ce bon.",
+          "q_fr": "Pourquoi Mme Kazemi ne pourra-t-elle sans doute pas utiliser le bon repas ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-013",
+      "docs": [
+        {
+          "kind": "publicité",
+          "title": "Fernhill Coworking: Workspace That Grows with You",
+          "text": "Whether you need a desk for a few days a month or a private office for your growing team, Fernhill Coworking has a plan that fits. All members enjoy high-speed Wi-Fi, unlimited coffee and tea, and access to our rooftop terrace.\n\nMembers who commit to six months or more pay no setup fee (normally $100). Plans can be upgraded at any time, and the change takes effect immediately; downgrades take effect at the start of the following month. Unused meeting-room hours do not roll over to the next month.",
+          "table": {
+            "title": "Membership plans",
+            "rows": [
+              [
+                "Plan",
+                "Access",
+                "Meeting-room hours per month",
+                "Monthly fee"
+              ],
+              [
+                "Flex",
+                "Any 8 days per month, open seating",
+                "2",
+                "$120"
+              ],
+              [
+                "Resident",
+                "Unlimited, open seating",
+                "5",
+                "$260"
+              ],
+              [
+                "Dedicated",
+                "Unlimited, your own desk and a lockable cabinet",
+                "10",
+                "$380"
+              ],
+              [
+                "Studio",
+                "Private office for up to 4 people",
+                "20",
+                "$1,150"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Membership Office, Fernhill Coworking\nFrom: Noor Haddad\nDate: October 28\nSubject: Changing my plan\n\nHello,\n\nI’ve been a member since June, coming in a couple of days a week to work on translation projects. My business has grown, though, and I now need to be here every day. I also keep reference books and a second monitor at the space, and I’m tired of carrying them back and forth, so I need somewhere secure to leave my things overnight. On the other hand, I work alone, so a whole office would be more than I need.\n\nI’d like to switch plans as soon as possible. Could you also tell me whether unused meeting-room hours carry over from one month to the next? I rarely use my current allowance, but I expect to meet clients more often in the future.\n\nFinally, a colleague of mine, Bastien Morel, is interested in joining. He plans to sign up for a full year. Is there any special rate for members who refer a friend?\n\nThanks,\nNoor Haddad",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Fernhill Coworking : un espace de travail qui grandit avec vous\n\nQue vous ayez besoin d’un bureau quelques jours par mois ou d’un bureau privé pour votre équipe qui s’agrandit, Fernhill Coworking a une formule qui vous convient. Tous les membres profitent du Wi-Fi haut débit, de café et de thé à volonté et de l’accès à notre toit-terrasse.\n\nLes membres qui s’engagent pour six mois ou plus ne paient pas de frais d’inscription (100 $ en temps normal). On peut passer à une formule supérieure à tout moment, et le changement prend effet immédiatement ; le passage à une formule inférieure prend effet au début du mois suivant. Les heures de salle de réunion non utilisées ne sont pas reportées sur le mois suivant.\n\nFormules d’adhésion (accès, heures de salle de réunion par mois, tarif mensuel) :\nFlex : 8 jours au choix par mois, places libres, 2 heures, 120 $\nResident : accès illimité, places libres, 5 heures, 260 $\nDedicated : accès illimité, bureau attitré et armoire fermant à clé, 10 heures, 380 $\nStudio : bureau privé pour 4 personnes au plus, 20 heures, 1 150 $",
+        "À : service des adhésions, Fernhill Coworking\nDe : Noor Haddad\nDate : 28 octobre\nObjet : changement de formule\n\nBonjour,\n\nJe suis membre depuis juin et je viens environ deux jours par semaine pour mes travaux de traduction. Mon activité s’est toutefois développée, et j’ai maintenant besoin d’être ici tous les jours. Je garde aussi sur place des ouvrages de référence et un deuxième écran, et j’en ai assez de les transporter dans un sens et dans l’autre : il me faut donc un endroit sûr où laisser mes affaires la nuit. En revanche, je travaille seule, et un bureau entier serait plus que nécessaire.\n\nJ’aimerais changer de formule dès que possible. Pourriez-vous aussi me dire si les heures de salle de réunion non utilisées sont reportées d’un mois sur l’autre ? J’utilise rarement mon quota actuel, mais je pense recevoir des clients plus souvent à l’avenir.\n\nEnfin, un collègue, Bastien Morel, souhaite s’inscrire. Il prévoit de s’engager pour un an entier. Existe-t-il un tarif spécial pour les membres qui parrainent quelqu’un ?\n\nMerci,\nNoor Haddad"
+      ],
+      "questions": [
+        {
+          "q": "What is indicated about Fernhill Coworking?",
+          "opts": [
+            "It offers free parking to all members.",
+            "It provides free printing to members.",
+            "It gives discounts to students.",
+            "Its members can use an outdoor area."
+          ],
+          "ans": "D",
+          "type": "vrai-faux",
+          "expl": "Publicité, paragraphe 1 : tous les membres ont accès au toit-terrasse (*rooftop terrace*). Le reste n’est mentionné nulle part.",
+          "q_fr": "Qu’apprend-on sur Fernhill Coworking ?"
+        },
+        {
+          "q": "Which plan will Ms. Haddad most likely choose?",
+          "opts": [
+            "Flex",
+            "Resident",
+            "Dedicated",
+            "Studio"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Elle doit venir tous les jours et laisser ses affaires en sécurité la nuit, mais travaille seule (courriel, paragraphe 1) : d’après le tableau, seule la formule Dedicated offre un accès illimité avec un bureau attitré et une armoire fermant à clé. La formule Studio est un bureau entier pour quatre.",
+          "q_fr": "Quelle formule Mme Haddad va-t-elle sans doute choisir ?"
+        },
+        {
+          "q": "When will Ms. Haddad’s new plan most likely take effect?",
+          "opts": [
+            "At the start of November",
+            "As soon as the change is made",
+            "After six months",
+            "At the end of the year"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "Elle passe à une formule supérieure (courriel) ; d’après la publicité, ce changement prend effet immédiatement. Le début du mois suivant ne vaut que pour le passage à une formule inférieure.",
+          "q_fr": "Quand la nouvelle formule de Mme Haddad prendra-t-elle sans doute effet ?"
+        },
+        {
+          "q": "What will Ms. Haddad most likely be told about her meeting-room hours?",
+          "opts": [
+            "They cannot be saved for a later month.",
+            "They can be shared with Mr. Morel.",
+            "They are available only with the Studio plan.",
+            "They can be bought separately."
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Elle demande si les heures non utilisées sont reportées (*carry over*, courriel, paragraphe 2) ; la publicité y répond déjà : *Unused meeting-room hours do not roll over*. Toutes les formules comprennent des heures de salle.",
+          "q_fr": "Que va-t-on sans doute répondre à Mme Haddad au sujet de ses heures de salle de réunion ?"
+        },
+        {
+          "q": "In the e-mail, the word “allowance” in paragraph 2 is closest in meaning to",
+          "opts": [
+            "permission",
+            "allocation",
+            "stipend",
+            "tolerance"
+          ],
+          "ans": "B",
+          "type": "vocab",
+          "expl": "*My current allowance* : les heures de salle comprises dans sa formule, son quota, son allocation. *Permission* (autorisation), *stipend* (indemnité versée) et *tolerance* (*make allowances*) correspondent à d’autres sens du mot.",
+          "q_fr": "Dans le courriel, le mot « allowance » au paragraphe 2 a le sens le plus proche de"
+        }
+      ]
+    },
+    {
+      "id": "7b-014",
+      "docs": [
+        {
+          "kind": "page web",
+          "title": "Commuting Survey: Results",
+          "text": "Thank you to the 412 employees who responded to last month’s commuting survey. The table below shows how staff currently travel to our Westgate office.\n\nRespondents were also asked which changes they would most like to see, and they could choose up to two. The most requested were a monthly transit pass subsidy (chosen by 58 percent of respondents), secure bicycle parking (24 percent), and a service to help colleagues find carpool partners (19 percent). The full report is available on the Human Resources page.",
+          "table": {
+            "title": "Main way of getting to work",
+            "rows": [
+              [
+                "Mode of travel",
+                "Share of respondents"
+              ],
+              [
+                "Car, driving alone",
+                "46%"
+              ],
+              [
+                "Bus or light rail",
+                "31%"
+              ],
+              [
+                "Bicycle",
+                "9%"
+              ],
+              [
+                "Carpool",
+                "8%"
+              ],
+              [
+                "Walking",
+                "6%"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "note de service",
+          "title": null,
+          "text": "To: All Westgate staff\nFrom: Teresa Mulligan, Director of Human Resources\nDate: September 22\nSubject: New commuting benefits\n\nBased on your feedback in last month’s survey, we are pleased to introduce two new benefits beginning November 1.\n\nFirst, the company will cover half the cost of a monthly regional transit pass for any employee who requests one. Passes must be ordered through the HR portal by the 20th of each month for use the following month.\n\nSecond, a locked bicycle room with space for 40 bicycles and a repair station will be built in the parking garage. Construction should be complete by mid-November.\n\nThe third most popular request will be discussed with building management early next year, as it requires changes to how parking spaces are assigned. We will keep you informed.",
+          "table": null
+        },
+        {
+          "kind": "discussion en ligne",
+          "title": null,
+          "text": "Priyanka Rao (11:20 A.M.): I finally ordered my transit pass through the HR portal, but it says it won’t start until December.\nMarcus Feld (11:22 A.M.): Yes, the cutoff for November was this past Monday. I made the same mistake.\nPriyanka Rao (11:23 A.M.): Oh well. One more month of paying full fare.\nSun-hee Cho (11:25 A.M.): At least you’re getting one. I live too far out for the bus, and I was really hoping for the third option.\nMarcus Feld (11:26 A.M.): You and me both. My neighbor works on the fifth floor here, and we could easily share a ride.\nSun-hee Cho (11:28 A.M.): Teresa’s memo says they’ll look into it early next year.\nMarcus Feld (11:29 A.M.): I’ll believe it when I see it.\nPriyanka Rao (11:30 A.M.): Come on, Marcus. They delivered on the other two, didn’t they?",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Enquête sur les trajets domicile-travail : résultats\n\nMerci aux 412 employés qui ont répondu à l’enquête du mois dernier sur les trajets domicile-travail. Le tableau ci-dessous montre comment le personnel se rend actuellement à nos bureaux de Westgate.\n\nOn a aussi demandé aux répondants quels changements ils souhaitaient le plus, avec deux choix au maximum. Les plus demandés sont une aide à l’abonnement mensuel de transport en commun (choisie par 58 % des répondants), un stationnement sécurisé pour les vélos (24 %) et un service pour aider les collègues à trouver des partenaires de covoiturage (19 %). Le rapport complet est disponible sur la page des ressources humaines.\n\nPrincipal moyen de venir au travail (part des répondants) :\nVoiture, seul : 46 %\nBus ou tramway : 31 %\nVélo : 9 %\nCovoiturage : 8 %\nÀ pied : 6 %",
+        "À : tout le personnel de Westgate\nDe : Teresa Mulligan, directrice des ressources humaines\nDate : 22 septembre\nObjet : nouveaux avantages pour les trajets\n\nÀ la suite de vos réponses à l’enquête du mois dernier, nous avons le plaisir de mettre en place deux nouveaux avantages à partir du 1er novembre.\n\nD’abord, l’entreprise prendra en charge la moitié du prix d’un abonnement mensuel aux transports régionaux pour tout employé qui en fait la demande. Les abonnements doivent être commandés sur le portail RH au plus tard le 20 de chaque mois pour le mois suivant.\n\nEnsuite, un local à vélos fermé à clé, avec 40 places et un poste de réparation, sera aménagé dans le parking. Les travaux devraient être terminés à la mi-novembre.\n\nLa troisième demande la plus fréquente sera discutée avec la gestion de l’immeuble au début de l’année prochaine, car elle suppose de modifier l’attribution des places de stationnement. Nous vous tiendrons informés.",
+        "Priyanka Rao (11 h 20) : J’ai enfin commandé mon abonnement sur le portail RH, mais il indique qu’il ne commencera qu’en décembre.\nMarcus Feld (11 h 22) : Oui, la date limite pour novembre, c’était lundi dernier. J’ai fait la même erreur.\nPriyanka Rao (11 h 23) : Tant pis. Encore un mois à payer plein tarif.\nSun-hee Cho (11 h 25) : Au moins, toi, tu en as un. J’habite trop loin pour le bus, et j’espérais vraiment la troisième option.\nMarcus Feld (11 h 26) : Moi aussi. Mon voisin travaille au cinquième étage ici, on pourrait facilement faire le trajet ensemble.\nSun-hee Cho (11 h 28) : La note de Teresa dit qu’ils vont étudier la question au début de l’année prochaine.\nMarcus Feld (11 h 29) : Je le croirai quand je le verrai.\nPriyanka Rao (11 h 30) : Allez, Marcus. Ils ont tenu parole pour les deux autres, non ?"
+      ],
+      "questions": [
+        {
+          "q": "What is the purpose of the memo?",
+          "opts": [
+            "To introduce benefits based on a survey",
+            "To ask employees to complete a commuting survey",
+            "To explain new parking fees",
+            "To report delays in a construction project"
+          ],
+          "ans": "A",
+          "type": "idee",
+          "expl": "La note annonce deux nouveaux avantages décidés d’après l’enquête du mois précédent (*Based on your feedback*). L’enquête est déjà faite ; aucun tarif de stationnement ni retard n’est annoncé.",
+          "q_fr": "Quel est le but de la note de service ?"
+        },
+        {
+          "q": "Which benefit was Ms. Cho hoping for?",
+          "opts": [
+            "A subsidy for transit passes",
+            "Secure storage for bicycles",
+            "Help arranging shared rides",
+            "Reserved parking spaces for managers"
+          ],
+          "ans": "C",
+          "type": "croise",
+          "expl": "Elle parle de la *third option* (discussion, 11 h 25), que la note dit encore à l’étude ; d’après la page de résultats, la troisième demande est le service de mise en relation pour le covoiturage. M. Feld le confirme : il pourrait faire le trajet avec son voisin.",
+          "q_fr": "Quel avantage Mme Cho espérait-elle ?"
+        },
+        {
+          "q": "What percentage of survey respondents chose the benefit Ms. Rao has just ordered?",
+          "opts": [
+            "24 percent",
+            "31 percent",
+            "46 percent",
+            "58 percent"
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "Mme Rao vient de commander son abonnement de transport (discussion, 11 h 20) ; d’après la page de résultats, l’aide à l’abonnement mensuel a été choisie par 58 % des répondants. 31 % est la part de ceux qui viennent déjà en bus ou en tramway.",
+          "q_fr": "Quel pourcentage des répondants a choisi l’avantage que Mme Rao vient de commander ?"
+        },
+        {
+          "q": "At 11:29 A.M., what does Mr. Feld mean when he writes, “I’ll believe it when I see it”?",
+          "opts": [
+            "He has not read the memo yet.",
+            "He wants to see the full survey report.",
+            "He doubts the company will act on the request.",
+            "He plans to visit the new bicycle room."
+          ],
+          "ans": "C",
+          "type": "intention",
+          "expl": "Il répond à l’annonce que la direction étudiera le covoiturage l’an prochain : il doute que cela se fasse. Mme Rao lui rappelle d’ailleurs que l’entreprise a tenu parole pour les deux autres demandes.",
+          "q_fr": "À 11 h 29, que veut dire M. Feld quand il écrit « I’ll believe it when I see it » ?"
+        },
+        {
+          "q": "What is NOT mentioned about the bicycle room?",
+          "opts": [
+            "It will be in the parking garage.",
+            "It will be open to visitors.",
+            "It will hold 40 bicycles.",
+            "It will include a place to make repairs."
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "La note situe le local dans le parking, avec 40 places et un poste de réparation ; rien n’est dit sur un accès pour les visiteurs.",
+          "q_fr": "Quelle information n’est PAS donnée sur le local à vélos ?"
+        }
+      ]
+    },
+    {
+      "id": "7b-015",
+      "docs": [
+        {
+          "kind": "avis",
+          "title": "City of Ridgefield: Water Main Replacement",
+          "text": "Beginning Monday, July 7, the Public Works Department will replace aging water pipes beneath several downtown streets. Crews will work between 7:00 A.M. and 4:00 P.M. on weekdays. The street sections listed below will be closed to vehicles during the periods shown, but sidewalks will remain open, and all businesses will stay accessible to pedestrians.\n\nResidents and businesses may experience brief interruptions to their water service. Notices will be posted on affected buildings at least 48 hours in advance.\n\nBusiness owners who need a temporary loading permit during a closure must apply to the Public Works office at least five business days before work on their block begins.",
+          "table": {
+            "title": "Closure schedule",
+            "rows": [
+              [
+                "Street section",
+                "Closure dates"
+              ],
+              [
+                "Main Street, from 1st Avenue to 3rd Avenue",
+                "July 7–18"
+              ],
+              [
+                "Main Street, from 3rd Avenue to 5th Avenue",
+                "July 21–August 1"
+              ],
+              [
+                "Oak Street, from Main Street to River Road",
+                "August 4–15"
+              ]
+            ]
+          }
+        },
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Public Works Office, City of Ridgefield\nFrom: Gabriela Esposito\nDate: July 9\nSubject: Loading permit request\n\nHello,\n\nI own the Little Fern Café at 412 Main Street, between 4th and 5th Avenues. We receive deliveries of fresh produce and baked goods every weekday morning between 6:30 and 8:00, and the trucks need to park directly in front of the café to unload.\n\nI understand from your notice that a temporary loading permit is available during the closure. Could you send me the application form? I would also like to know whether delivery trucks could be allowed onto the street before the crews start each day.\n\nOne more question: the notice mentions brief water interruptions. As a café, we can’t operate without water, so I’d appreciate as much warning as possible. Is there any way to receive these notices by e-mail rather than relying on posted signs?\n\nThank you,\nGabriela Esposito",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Ville de Ridgefield : remplacement des conduites d’eau\n\nÀ partir du lundi 7 juillet, le service des travaux publics remplacera les canalisations d’eau vétustes sous plusieurs rues du centre-ville. Les équipes travailleront de 7 h à 16 h en semaine. Les tronçons de rue indiqués ci-dessous seront fermés aux véhicules pendant les périodes précisées, mais les trottoirs resteront ouverts et tous les commerces resteront accessibles aux piétons.\n\nLes habitants et les entreprises pourront connaître de brèves coupures d’eau. Des avis seront affichés sur les immeubles concernés au moins 48 heures à l’avance.\n\nLes commerçants qui ont besoin d’une autorisation temporaire de stationnement pour livraison pendant une fermeture doivent en faire la demande au bureau des travaux publics au moins cinq jours ouvrés avant le début des travaux dans leur pâté de maisons.\n\nCalendrier des fermetures :\nMain Street, de la 1re à la 3e Avenue : du 7 au 18 juillet\nMain Street, de la 3e à la 5e Avenue : du 21 juillet au 1er août\nOak Street, de Main Street à River Road : du 4 au 15 août",
+        "À : bureau des travaux publics, ville de Ridgefield\nDe : Gabriela Esposito\nDate : 9 juillet\nObjet : demande d’autorisation de stationnement pour livraison\n\nBonjour,\n\nJe suis propriétaire du Little Fern Café, au 412 Main Street, entre la 4e et la 5e Avenue. Nous recevons chaque matin de semaine, entre 6 h 30 et 8 h, des livraisons de fruits et légumes frais et de pâtisseries, et les camions doivent se garer juste devant le café pour décharger.\n\nJe comprends d’après votre avis qu’une autorisation temporaire de stationnement pour livraison est possible pendant la fermeture. Pourriez-vous m’envoyer le formulaire de demande ? J’aimerais aussi savoir si les camions de livraison pourraient être autorisés à entrer dans la rue avant que les équipes ne commencent chaque jour.\n\nUne dernière question : l’avis mentionne de brèves coupures d’eau. Un café ne peut pas fonctionner sans eau : j’aimerais donc être prévenue le plus tôt possible. Est-il possible de recevoir ces avis par courriel plutôt que de compter sur les affiches ?\n\nMerci,\nGabriela Esposito"
+      ],
+      "questions": [
+        {
+          "q": "What is the purpose of the notice?",
+          "opts": [
+            "To announce a new downtown parking policy",
+            "To ask residents to reduce their water use",
+            "To explain an increase in water rates",
+            "To announce upcoming work on water pipes"
+          ],
+          "ans": "D",
+          "type": "idee",
+          "expl": "L’avis annonce le remplacement des vieilles canalisations d’eau sous plusieurs rues du centre et les fermetures qui en découlent. Les coupures d’eau sont brèves et ne demandent aucun effort aux habitants.",
+          "q_fr": "Quel est le but de l’avis ?"
+        },
+        {
+          "q": "When will the street in front of Ms. Esposito’s café be closed to vehicles?",
+          "opts": [
+            "From July 7 to July 18",
+            "From August 4 to August 15",
+            "From July 7 to August 1",
+            "From July 21 to August 1"
+          ],
+          "ans": "D",
+          "type": "croise",
+          "expl": "Le café est au 412 Main Street, entre la 4e et la 5e Avenue (courriel) ; d’après le tableau de l’avis, ce tronçon (de la 3e à la 5e Avenue) est fermé du 21 juillet au 1er août.",
+          "q_fr": "Quand la rue devant le café de Mme Esposito sera-t-elle fermée aux véhicules ?"
+        },
+        {
+          "q": "What is the latest date on which Ms. Esposito can apply for a loading permit?",
+          "opts": [
+            "July 9",
+            "July 14",
+            "July 18",
+            "July 21"
+          ],
+          "ans": "B",
+          "type": "croise",
+          "expl": "La demande doit être faite au moins cinq jours ouvrés avant le début des travaux de son tronçon, le lundi 21 juillet (avis : les travaux commencent le lundi 7 juillet) : en comptant à rebours du vendredi 18 au lundi 14, cela donne le 14 juillet au plus tard. Le 9 juillet est la date du courriel.",
+          "q_fr": "Quelle est la dernière date à laquelle Mme Esposito peut demander une autorisation de stationnement pour livraison ?"
+        },
+        {
+          "q": "What does Ms. Esposito ask about the water interruptions?",
+          "opts": [
+            "Whether she can be notified electronically",
+            "Whether they will take place at night",
+            "Whether her water bill will be reduced",
+            "Whether her café will have to close"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Courriel, paragraphe 3 : elle demande si les avis peuvent lui être envoyés par courriel au lieu d’être affichés. Elle dit qu’un café ne peut pas fonctionner sans eau, mais ne demande pas s’il devra fermer.",
+          "q_fr": "Que demande Mme Esposito au sujet des coupures d’eau ?"
+        },
+        {
+          "q": "What is suggested about the deliveries to Ms. Esposito’s café?",
+          "opts": [
+            "Some continue after the crews’ workday begins.",
+            "They take place on weekends.",
+            "They are made by bicycle.",
+            "They will have to move to the afternoon."
+          ],
+          "ans": "A",
+          "type": "croise",
+          "expl": "Les livraisons ont lieu de 6 h 30 à 8 h (courriel), alors que les équipes commencent à 7 h (avis) : une partie tombe donc pendant les travaux, d’où sa demande d’accès avant le début du chantier.",
+          "q_fr": "Que laisse entendre le texte sur les livraisons du café de Mme Esposito ?"
+        }
+      ]
+    }
+  ]
+}

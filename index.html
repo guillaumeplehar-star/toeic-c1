@@ -432,7 +432,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "30 octobre 2026 à 12 h 01";
+const BUILD = "2 novembre 2026 à 21 h 54";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -1438,7 +1438,8 @@ function docTextHTML(text, blank) {
 function blankHTML(kind, set, n) {
   const run = state.runs[kind], q = set.qs[n - 1];
   if (!q) return `[${n}]`;
-  const a = answered(kind) ? run.ans[run.i][n - 1] : null, c = a ? a.c : (run.sel || [])[n - 1];
+  const a = run && answered(kind) ? run.ans[run.i][n - 1] : null;
+  const c = a ? a.c : run && run.sel && Number.isInteger(run.sel[n - 1]) ? run.sel[n - 1] : -1;
   if (a) return a.ok ? `<span class="blank ok">${esc(q.opts[q.ans])}</span>`
     : `<span class="blank ko">${c >= 0 ? `<s>${esc(q.opts[c])}</s> ` : ""}${esc(q.opts[q.ans])}</span>`;
   return `<span class="blank${c >= 0 ? " on" : ""}" data-b="${n - 1}"><span class="n">${n}</span>${c >= 0 ? esc(q.opts[c]) : ""}</span>`;

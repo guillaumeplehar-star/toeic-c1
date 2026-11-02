@@ -64,7 +64,7 @@
           "q": "Why can’t the meeting be postponed?",
           "opts": [
             "The board meets only once a quarter.",
-            "Ms. Alvarez is leaving the company next week.",
+            "Ms. Alvarez will be leaving the company next week.",
             "Next week’s schedule is already full.",
             "Some figures must be approved before a deadline."
           ],
@@ -76,10 +76,10 @@
         {
           "q": "What does the man offer to do?",
           "opts": [
-            "Pick Ms. Alvarez up at the airport",
+            "Pick Ms. Alvarez up at the airport hotel",
             "Have a room reserved at a nearby company office",
-            "Test the camera system upstairs",
-            "Book Ms. Alvarez a new flight"
+            "Test the new camera system in the conference room",
+            "Book Ms. Alvarez a seat on the next flight"
           ],
           "ans": "B",
           "type": "action",
@@ -129,7 +129,7 @@
         "Bonjour Arjun, et bienvenue. Je suis Grace, des ressources humaines, et voici Luis, qui sera votre responsable dans l’équipe de conception.",
         "Ravi de vous rencontrer tous les deux. Désolé, je suis un peu en avance. La réceptionniste m’a dit que je pouvais attendre ici.",
         "Pas du tout. Ça nous laisse justement le temps de régler la question de votre badge d’accès. La sécurité ne l’a pas encore imprimé.",
-        "C’est vrai. D’ici là, vous aurez un laissez-passer de visiteur, donc quelqu’un devra vous ouvrir la porte latérale.",
+        "C’est vrai. D’ici là, vous aurez un laissez-passer de visiteur, donc quelqu’un devra vous faire entrer par la porte latérale.",
         "Pas de problème. Y a-t-il des papiers que je dois remplir ce matin ?",
         "Seulement les formulaires fiscaux et bancaires. Vous pourrez les remplir en ligne une fois votre ordinateur portable configuré.",
         "Ça me fait penser : je vous emmène tout de suite au support informatique pour qu’ils le configurent. Ensuite, nous rejoindrons la réunion d’équipe à dix heures."
@@ -152,9 +152,9 @@
         {
           "q": "What problem does Luis mention?",
           "opts": [
-            "A visitor arrived too early.",
-            "A side door is out of order.",
-            "Some forms have been lost.",
+            "A new employee arrived too early.",
+            "The side door is locked in the morning.",
+            "Some forms have been filled out incorrectly.",
             "An identification card is not ready."
           ],
           "ans": "D",
@@ -165,10 +165,10 @@
         {
           "q": "What will Arjun most likely do next?",
           "opts": [
-            "Fill out some tax forms",
-            "Attend a team meeting",
+            "Fill out his tax and bank forms",
+            "Attend a design team meeting",
             "Visit the technical support desk",
-            "Wait at the reception desk"
+            "Wait in the reception area for a pass"
           ],
           "ans": "C",
           "type": "action",
@@ -272,8 +272,8 @@
           "q": "What problem does the man mention?",
           "opts": [
             "His computer does not hold a charge for long.",
-            "His screen has been damaged.",
-            "His laptop is too heavy to carry.",
+            "His screen was damaged on a client visit.",
+            "His current laptop is too heavy to carry around.",
             "His client visits have been canceled."
           ],
           "ans": "A",
@@ -298,7 +298,7 @@
           "q": "What does the woman agree to do?",
           "opts": [
             "Provide a temporary replacement",
-            "Order a new battery",
+            "Order a new battery for his laptop",
             "Speed up a delivery",
             "Visit a client with the man"
           ],
@@ -356,7 +356,7 @@
         "Je vois. Je crains qu’aucune remise ne figure dans notre dossier.",
         "Je l’ai par écrit. Elle me l’a confirmé par courriel le mois dernier.",
         "Dans ce cas, pourriez-vous me transférer ce courriel ? Dès que je l’ai, j’établis une facture corrigée.",
-        "Bien sûr. Et nous attendons avant de régler la première ?",
+        "Bien sûr. Et devons-nous attendre avant de régler la première ?",
         "Oui, s’il vous plaît. La nouvelle devrait vous parvenir d’ici demain matin."
       ],
       "graphic": null,
@@ -371,7 +371,7 @@
           ],
           "ans": "D",
           "type": "sujet",
-          "expl": "Il appelle au sujet d’une facture : on lui a compté le plein tarif au lieu de la remise promise. *Billed* reformule *charged* ; les fauteuils sont déjà livrés et facturés.",
+          "expl": "Il appelle au sujet d’une facture : on lui a compté le plein tarif au lieu de la remise promise. *Billed* reformule *charged*. Il ne commande pas d’autres fauteuils, et aucune livraison n’est en cause.",
           "q_fr": "Pourquoi l’homme appelle-t-il ?"
         },
         {
@@ -384,7 +384,7 @@
           ],
           "ans": "D",
           "type": "intention",
-          "expl": "La femme ne trouve aucune trace de la remise ; l’homme répond qu’il en a une preuve écrite, un courriel de la commerciale. Les autres choix prennent *writing* au pied de la lettre.",
+          "expl": "La femme ne trouve aucune trace de la remise ; l’homme répond qu’il peut la prouver par écrit, avec le courriel de la commerciale. Il ne propose pas d’écrire, et la lisibilité de la facture n’est pas en cause.",
           "q_fr": "Pourquoi l’homme dit-il « Je l’ai par écrit » ?"
         },
         {
@@ -445,12 +445,12 @@
       "lines_fr": [
         "Bonjour Stefan, c’est Naomi, de Vireo Cosmetics. J’appelle pour nos boîtes cadeaux. Elles devaient arriver lundi.",
         "Bonjour Naomi. J’allais justement vous appeler. Une de nos machines de découpe est tombée en panne la semaine dernière, alors nous sommes en retard sur toutes les commandes.",
-        "C’est ennuyeux. Nos coffrets de fêtes sont mis en vente le premier du mois, et nous ne pouvons pas les expédier sans les boîtes.",
+        "C’est un problème. Nos coffrets de fêtes sont mis en vente le premier du mois, et nous ne pouvons pas les expédier sans les boîtes.",
         "Je comprends. Ce que je peux faire, c’est vous envoyer la moitié de la commande vendredi et le reste la semaine suivante.",
         "La moitié devrait nous suffire pour les premiers jours, à condition que le reste arrive d’ici le dix.",
         "Ça ne posera pas de problème. La pièce de rechange pour la machine arrive demain.",
         "Bon. Mais comme c’est le deuxième retard cette année, j’aimerais qu’on parle des frais de livraison.",
-        "C’est normal. Nous les prendrons à notre charge pour les deux livraisons."
+        "C’est légitime. Nous les prendrons à notre charge pour les deux livraisons."
       ],
       "graphic": null,
       "questions": [
@@ -546,14 +546,14 @@
         {
           "q": "What are the speakers mainly discussing?",
           "opts": [
-            "Preparations for a trade show",
-            "Complaints about a website’s design",
-            "A problem with a contact form",
-            "A client’s request for an additional function"
+            "Preparations for an upcoming trade show",
+            "Complaints about a website’s visual design",
+            "A technical problem with a contact form",
+            "A client’s request for an extra function"
           ],
           "ans": "D",
           "type": "sujet",
-          "expl": "Le client veut ajouter la prise de rendez-vous en ligne, ce qui n’était pas prévu : *an additional function*. Le salon n’est que l’occasion du lancement, et le client aime la maquette.",
+          "expl": "Le client veut ajouter la prise de rendez-vous en ligne, ce qui n’était pas prévu : *an extra function*. Le salon n’est que l’occasion du lancement, et le client aime la maquette.",
           "q_fr": "De quoi les interlocuteurs parlent-ils surtout ?"
         },
         {
@@ -675,7 +675,7 @@
           ],
           "ans": "A",
           "type": "detail",
-          "expl": "*I’ve been buried in the year-end reports* : il était débordé par d’autres travaux. Les auditeurs, c’est lundi prochain, et seule la session de mercredi est complète.",
+          "expl": "*I’ve been buried in the year-end reports* : il était débordé par d’autres travaux. Il ne sera avec les auditeurs que lundi, et seule la session de mercredi est complète.",
           "q_fr": "Pourquoi l’homme ne s’est-il pas encore inscrit ?"
         },
         {
@@ -750,7 +750,7 @@
         "Tu as une minute, Patricia ? Je voulais te poser une question sur la politique de télétravail.",
         "Bien sûr, Ahmed, entre. Qu’est-ce que tu veux savoir ?",
         "Eh bien, depuis le déménagement des bureaux, mon trajet est passé de vingt minutes à plus d’une heure dans chaque sens. J’espérais pouvoir travailler de chez moi deux jours par semaine.",
-        "Je ne vois pas pourquoi pas. La plus grande partie de ton travail se fait sur écran, de toute façon. Le seul point, c’est que nous avons des réunions d’équipe tous les lundis et jeudis.",
+        "Je n’y vois pas d’inconvénient. La plus grande partie de ton travail se fait sur écran, de toute façon. La seule chose, c’est que nous avons des réunions d’équipe tous les lundis et jeudis.",
         "Aucun problème. Je pourrais rester chez moi le mardi et le vendredi.",
         "Ça devrait aller. Il faudra quand même remplir un formulaire de demande, et les ressources humaines doivent l’approuver.",
         "Ça prend combien de temps, en général ?",
@@ -761,8 +761,8 @@
         {
           "q": "Why does the man want to work from home?",
           "opts": [
-            "His new office is too noisy.",
-            "He wants to attend fewer meetings.",
+            "His new office is too noisy to work in.",
+            "He would like to attend fewer team meetings.",
             "His journey to work has become much longer.",
             "He is moving to another city."
           ],
@@ -787,10 +787,10 @@
         {
           "q": "What does the woman imply when she says, “she’s very quick”?",
           "opts": [
-            "Daniela sometimes makes careless mistakes.",
+            "Daniela tends to make mistakes when she rushes.",
             "The man should hand in his form right away.",
-            "Meetings with Daniela are usually short.",
-            "The man will not have to wait long for an answer."
+            "Meetings with Daniela are usually very short.",
+            "The man will get an answer soon."
           ],
           "ans": "D",
           "type": "intention",
@@ -867,10 +867,10 @@
         {
           "q": "What made the woman suspicious?",
           "opts": [
-            "Her bank had warned her about it.",
+            "Her bank had already warned her about it.",
             "Some features of the message looked wrong.",
-            "Several colleagues had received it.",
-            "The attachment would not open."
+            "Several of her colleagues had received it.",
+            "The attachment was too large to open."
           ],
           "ans": "B",
           "type": "detail",
@@ -880,9 +880,9 @@
         {
           "q": "What does the man ask the woman to do first?",
           "opts": [
-            "Delete the e-mail",
-            "Change her password",
-            "Call her bank",
+            "Delete the e-mail right away",
+            "Change her account password",
+            "Call her bank to report the e-mail",
             "Send the message to another team"
           ],
           "ans": "D",
@@ -1007,15 +1007,15 @@
         {
           "q": "What does the man say he needs to do?",
           "opts": [
-            "Talk to the person who handles his company’s finances",
+            "Get financial advice before deciding",
             "Compare prices with other providers",
             "Transfer his files to a new system",
-            "Sign a contract this afternoon"
+            "Sign a one-year contract this afternoon"
           ],
           "ans": "A",
           "type": "action",
           "expl": "*I’ll need to check with our accountant* : il doit consulter le comptable avant de s’engager pour un an. L’après-midi, il rappellera la femme, sans rien signer ; le transfert des fichiers est automatique.",
-          "q_fr": "Que dit l’homme devoir faire ?"
+          "q_fr": "Qu’est-ce que l’homme dit devoir faire ?"
         }
       ]
     },
@@ -1068,7 +1068,7 @@
         "Oui, madame Delgado, j’ai votre commande sous les yeux. Un dîner pour quatre-vingts personnes, avec une option végétarienne.",
         "C’est ça. Eh bien, plus de gens que prévu ont accepté l’invitation. Nous en sommes à environ cent dix.",
         "Cent dix. Ça fait nettement plus de nourriture, et il nous faudrait des serveurs en plus.",
-        "Je sais que c’est un peu tard. Est-ce que ça va poser problème ?",
+        "Je sais que je vous préviens tard. Est-ce que ça va poser problème ?",
         "Notre cuisine peut s’en charger. La question, c’est la salle. Le dîner a toujours lieu dans votre cafétéria ?",
         "Oui. Pourquoi ?",
         "Eh bien, quand nous sommes venus la voir, elle semblait pleine avec quatre-vingts personnes. Vous devriez peut-être chercher un lieu plus grand.",
@@ -1086,7 +1086,7 @@
           ],
           "ans": "B",
           "type": "sujet",
-          "expl": "Elle annonce que plus d’invités que prévu ont accepté : de quatre-vingts à cent dix. L’option végétarienne figurait déjà dans la commande, et l’invitation est celle de ses propres invités.",
+          "expl": "Elle annonce que plus d’invités que prévu ont accepté : de quatre-vingts à cent dix. L’option végétarienne figurait déjà dans la commande, et l’homme n’est invité à aucune cérémonie.",
           "q_fr": "Pourquoi la femme appelle-t-elle ?"
         },
         {
@@ -1174,21 +1174,21 @@
           "q": "What are the speakers mainly discussing?",
           "opts": [
             "The relocation of their offices",
-            "A furniture sale",
-            "A tax filing deadline",
+            "A sale of used office furniture",
+            "An upcoming tax filing deadline",
             "The purchase of new servers"
           ],
           "ans": "A",
           "type": "sujet",
-          "expl": "La femme demande où en est *the move to the new building* : le déménagement des bureaux. L’échéance fiscale n’est qu’une conséquence évoquée par Hiroko.",
+          "expl": "La responsable demande où en est *the move to the new building* : le déménagement des bureaux. L’échéance fiscale n’est qu’une conséquence évoquée par Hiroko.",
           "q_fr": "De quoi les interlocuteurs parlent-ils surtout ?"
         },
         {
           "q": "What problem does the man mention?",
           "opts": [
             "The cables have not been installed yet.",
-            "An internet connection will not be available right away.",
-            "The furniture delivery has been delayed.",
+            "Internet service will start late.",
+            "The furniture delivery has been postponed.",
             "The building manager cannot be reached."
           ],
           "ans": "B",
@@ -1199,10 +1199,10 @@
         {
           "q": "What is the man asked to do?",
           "opts": [
-            "Shut down the old servers",
-            "Inform a moving company about a change in plans",
-            "Call the internet provider",
-            "Help Hiroko’s team pack"
+            "Shut down the servers in the old building",
+            "Notify the moving company of a change",
+            "Call the internet provider again",
+            "Help Hiroko’s team pack its equipment"
           ],
           "ans": "B",
           "type": "action",
@@ -1244,7 +1244,7 @@
         ],
         [
           "M",
-          "Good point. I’ll call them tomorrow morning."
+          "Good point. I’ll call his references tomorrow morning."
         ]
       ],
       "lines_fr": [
@@ -1254,7 +1254,7 @@
         "C’est juste. M. Kowalski a l’expérience de l’encadrement, mais ses prétentions salariales dépassent largement notre fourchette.",
         "Eh bien, le budget a été fixé avant que le poste ne soit élargi. Je pourrais demander aux finances s’il y a une marge de manœuvre.",
         "Ça vaut la peine de demander. Mais ne devrions-nous pas d’abord vérifier ses références ? Il a quitté ses deux derniers postes au bout de moins d’un an.",
-        "Bonne remarque. Je les appelle demain matin."
+        "Bonne remarque. J’appelle ses références demain matin."
       ],
       "graphic": null,
       "questions": [
@@ -1268,7 +1268,7 @@
           ],
           "ans": "D",
           "type": "sujet",
-          "expl": "Ils comparent les candidats au poste de coordinateur logistique : *applicant* reprend *candidate*. Le logiciel et le budget ne sont que des arguments de la discussion, et c’est le poste qui a été élargi (*expanded*).",
+          "expl": "Ils comparent les candidats au poste de coordinateur logistique : *applicant* reformule *candidate*. Le logiciel et le budget ne sont que des arguments de la discussion, et c’est le poste qui a été élargi (*expanded*).",
           "q_fr": "De quoi les interlocuteurs parlent-ils surtout ?"
         },
         {
@@ -1287,14 +1287,14 @@
         {
           "q": "What will the man most likely do tomorrow morning?",
           "opts": [
-            "Speak with people who know a candidate’s work",
+            "Contact people familiar with a candidate",
             "Interview Ms. Banerjee a second time",
-            "Offer Mr. Kowalski the position",
-            "Revise a job description"
+            "Offer Mr. Kowalski the coordinator position",
+            "Revise the job description for the role"
           ],
           "ans": "A",
           "type": "action",
-          "expl": "La femme propose de vérifier d’abord les références de M. Kowalski ; l’homme répond *I’ll call them tomorrow morning* : *them* désigne ces références, des personnes qui connaissent son travail.",
+          "expl": "La femme propose de vérifier d’abord les références de M. Kowalski ; l’homme répond *I’ll call his references tomorrow morning* : il va contacter des personnes qui connaissent son travail. Il n’est question ni d’un second entretien ni d’une offre.",
           "q_fr": "Que va sans doute faire l’homme demain matin ?"
         }
       ]
@@ -1342,8 +1342,8 @@
       "lines_fr": [
         "Joon-ho, je sors d’un appel avec Ferris Hotels. Ils ont reçu nos nouveaux tarifs, et la hausse de huit pour cent ne leur plaît pas.",
         "Je le craignais. Ils sont clients chez nous depuis plus de dix ans. Ils ont dit qu’ils partiraient ?",
-        "Pas en ces termes. Mais ils ont bien précisé qu’un autre fournisseur de linge les avait contactés.",
-        "Nous ne pouvons pas vraiment baisser nos prix. Le coût de notre coton a augmenté davantage.",
+        "Pas en ces termes. Mais ils ont tout de même signalé qu’un autre fournisseur de linge les avait contactés.",
+        "Nous ne pouvons pas vraiment baisser nos prix. Nos coûts en coton ont augmenté encore plus que ça.",
         "Et si nous leur proposions plutôt un contrat plus long ? Disons trois ans au tarif actuel, avec une hausse plus faible ensuite.",
         "Ça pourrait marcher. Ils tiennent à la stabilité. Laisse-moi d’abord faire les calculs, pour voir ce que nous pouvons nous permettre.",
         "D’accord, mais ils veulent une réponse d’ici vendredi.",
@@ -1357,17 +1357,17 @@
             "Hotel accommodation",
             "Bed sheets and towels",
             "Cotton clothing",
-            "Pricing software"
+            "Hotel booking services"
           ],
           "ans": "B",
           "type": "inference",
-          "expl": "La femme parle d’*another linen supplier* : leur entreprise fournit du linge (draps, serviettes) aux hôtels. Ferris Hotels est le client, et le coton est leur matière première.",
+          "expl": "La femme parle d’*another linen supplier* : leur entreprise fournit du linge aux hôtels (*linen* : le linge de maison, draps et serviettes, pas seulement le lin). Ferris Hotels est le client, et le coton est leur matière première, pas des vêtements.",
           "q_fr": "Que fournit sans doute l’entreprise des interlocuteurs ?"
         },
         {
           "q": "What does the woman mean when she says, “Not in so many words”?",
           "opts": [
-            "The client hinted at leaving without saying so directly.",
+            "The client implied it might leave.",
             "The client used very few words.",
             "The client has already signed with a competitor.",
             "She could not understand the client clearly."
@@ -1380,7 +1380,7 @@
         {
           "q": "What does the man say he will do first?",
           "opts": [
-            "Contact another linen supplier",
+            "Get in touch with another linen supplier",
             "Send the client a new contract",
             "Visit the client on Friday",
             "Work out what a proposal would cost"
@@ -1388,7 +1388,7 @@
           "ans": "D",
           "type": "action",
           "expl": "*Let me run the numbers first* : il veut d’abord chiffrer le contrat de trois ans proposé par la femme. Vendredi est la date limite fixée par le client, pas une visite.",
-          "q_fr": "Que dit l’homme qu’il va faire d’abord ?"
+          "q_fr": "Qu’est-ce que l’homme dit qu’il va faire d’abord ?"
         }
       ]
     },
@@ -1450,7 +1450,7 @@
           ],
           "ans": "C",
           "type": "sujet",
-          "expl": "La direction veut réduire de vingt pour cent les frais de déplacement, et la femme demande des idées : il s’agit de faire des économies. Le salon et les voitures de location ne sont que des exemples.",
+          "expl": "La direction veut réduire de vingt pour cent les frais de déplacement, et la responsable demande des idées : il s’agit de faire des économies. Le salon et les voitures de location ne sont que des exemples.",
           "q_fr": "Quel est le but de la réunion ?"
         },
         {
@@ -1476,7 +1476,7 @@
           ],
           "ans": "C",
           "type": "action",
-          "expl": "*Rafael, could you draft a short policy covering all three?* : il doit rédiger des règles qui reprennent les trois idées. C’est la femme qui les présentera lundi.",
+          "expl": "*Rafael, could you draft a short policy covering all three?* : il doit rédiger des règles qui reprennent les trois idées. C’est la responsable qui les présentera lundi.",
           "q_fr": "Que demande-t-on à l’homme de faire ?"
         }
       ]
@@ -1518,7 +1518,7 @@
         ],
         [
           "W",
-          "Even better, I’ll ask the technicians if the group can watch part of the inspection. It might interest them."
+          "Or even better, I’ll ask the technicians if the group can watch part of the inspection. They might find that interesting."
         ]
       ],
       "lines_fr": [
@@ -1529,7 +1529,7 @@
         "Tu plaisantes ! On ne peut pas déplacer la maintenance ?",
         "J’ai bien peur que non. Les techniciens viennent de l’étranger en avion, et leur voyage a été réservé il y a des mois.",
         "Bon, on pourrait au moins montrer aux visiteurs une vidéo de la ligne en marche ?",
-        "Mieux encore : je vais demander aux techniciens si le groupe peut assister à une partie de l’inspection. Ça pourrait les intéresser."
+        "Ou, mieux encore, je vais demander aux techniciens si le groupe peut assister à une partie de l’inspection. Ça pourrait les intéresser."
       ],
       "graphic": null,
       "questions": [
@@ -1537,9 +1537,9 @@
           "q": "Who will be taking a tour of the factory?",
           "opts": [
             "Representatives of a business partner",
-            "Newly hired production staff",
-            "A group of safety inspectors",
-            "Technicians from overseas"
+            "Some newly hired production workers",
+            "Inspectors checking safety equipment",
+            "Maintenance technicians from overseas"
           ],
           "ans": "A",
           "type": "sujet",
@@ -1562,15 +1562,15 @@
         {
           "q": "What does the woman say she will do?",
           "opts": [
-            "Show the visitors a video",
-            "Reschedule the maintenance",
-            "Find out if the visitors can observe some work",
-            "Order more safety glasses"
+            "Show the visitors a video of the line",
+            "Reschedule the maintenance for another week",
+            "Ask whether the guests can observe some work",
+            "Order more safety glasses and badges"
           ],
           "ans": "C",
           "type": "action",
           "expl": "Elle propose mieux que la vidéo de l’homme : demander aux techniciens si le groupe peut assister à une partie de l’inspection. La maintenance ne peut pas être déplacée.",
-          "q_fr": "Que dit la femme qu’elle va faire ?"
+          "q_fr": "Qu’est-ce que la femme dit qu’elle va faire ?"
         }
       ]
     },
@@ -1679,7 +1679,7 @@
         {
           "q": "What does the woman ask the man to do?",
           "opts": [
-            "Deliver the whole order at once",
+            "Deliver the entire order in one shipment",
             "Send a shipment to a different location",
             "Lower the price of the paper",
             "Call her when the paper arrives"
@@ -1771,11 +1771,11 @@
             "Warning employees immediately",
             "Calling the bank to ask for more time",
             "Paying employees a day early",
-            "Waiting before informing the staff"
+            "Putting off a decision until the afternoon"
           ],
           "ans": "D",
           "type": "action",
-          "expl": "Elle ne veut pas inquiéter les salariés inutilement et propose d’attendre quatorze heures pour décider (*wait until two and decide then*). Prévenir tout le monde tout de suite, c’était l’idée de l’homme.",
+          "expl": "Elle ne veut pas inquiéter les salariés inutilement et propose d’attendre quatorze heures pour décider (*wait until two and decide then*) : la décision est remise à l’après-midi. Prévenir tout le monde tout de suite, c’était l’idée de l’homme.",
           "q_fr": "Que propose la femme ?"
         }
       ]
@@ -1801,7 +1801,7 @@
         ],
         [
           "M",
-          "Hmm. What if we kept it small, then? Just his own team, in the break room, with a cake."
+          "What if we kept it small, then? Just his own team, in the break room, with a cake."
         ],
         [
           "W",
@@ -1820,7 +1820,7 @@
         "Kofi, tu as appris que Gerald, de la comptabilité, part à la retraite à la fin du mois ? Ça fait trente-deux ans qu’il est ici.",
         "Oui. Il faudrait faire quelque chose de spécial pour lui. Peut-être un déjeuner au restaurant italien d’en face ?",
         "C’est ce que je me disais, mais il a dit à tout le monde qu’il ne voulait pas de cérémonie.",
-        "Hum. Et si on faisait quelque chose de simple, alors ? Juste son équipe, en salle de pause, avec un gâteau.",
+        "Et si on restait en petit comité, alors ? Juste son équipe, en salle de pause, avec un gâteau.",
         "C’est mieux. Et au lieu d’un cadeau acheté en magasin, nous pourrions réunir dans un livre des messages de gens avec qui il a travaillé au fil des ans.",
         "J’adore l’idée. Mais beaucoup sont partis de l’entreprise. Les retrouver ne sera pas facile.",
         "Les ressources humaines devraient encore avoir les coordonnées de la plupart d’entre eux. Je leur demande demain."
@@ -1856,10 +1856,10 @@
         {
           "q": "What will the woman do tomorrow?",
           "opts": [
-            "Buy a gift for Gerald",
-            "Ask another department for information",
-            "Order a cake",
-            "Reserve the break room"
+            "Buy Gerald a gift from a store",
+            "Consult another department",
+            "Order a cake for the party",
+            "Reserve the break room for the team"
           ],
           "ans": "B",
           "type": "action",
@@ -1938,7 +1938,7 @@
           "opts": [
             "He would prefer a different design.",
             "The survey was badly organized.",
-            "The problem affects the people the product is meant for.",
+            "The issue affects the target market.",
             "The lid will cost too much to replace."
           ],
           "ans": "C",
@@ -1952,7 +1952,7 @@
             "Ask the factory to speed up production",
             "Redesign the bottle’s lid",
             "Survey older customers again",
-            "Check whether a later release date can be listed"
+            "Ask if a later date is acceptable"
           ],
           "ans": "D",
           "type": "action",

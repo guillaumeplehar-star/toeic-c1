@@ -1,0 +1,1281 @@
+{
+  "sets": [
+    {
+      "id": "7a-001",
+      "docs": [
+        {
+          "kind": "article",
+          "title": "Delmont Freight to Consolidate Ashby Warehouses",
+          "text": "ASHBY (May 12) — Delmont Freight, a regional logistics firm, announced on Monday that it will merge its three warehouses in the Ashby area into a single facility on the site of the former Corliss textile mill. [1] The company expects the move, which will be carried out in two phases, to cut its operating costs by nearly a fifth.\n\nThe first phase, scheduled to begin in August, involves renovating the mill’s main building and installing an automated sorting system. [2] The second phase, the transfer of inventory from the existing warehouses, will take place over the winter, when shipping volumes are traditionally at their lowest.\n\nChief executive Marisol Okafor stressed that no positions would be eliminated as a result of the consolidation. “Every employee at our current sites will be offered a role at the new facility,” she said. [3] Those who choose not to make the move will receive help finding work with other employers in the region.\n\nLocal officials welcomed the announcement. The Corliss mill has stood empty for more than a decade, and several earlier plans to redevelop it fell through for lack of funding. [4] Delmont has also agreed to widen the access road leading to the site, a project the town had been unable to finance on its own.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Delmont Freight va regrouper ses entrepôts d’Ashby\n\nASHBY (12 mai) — Delmont Freight, entreprise de logistique régionale, a annoncé lundi qu’elle allait regrouper ses trois entrepôts de la région d’Ashby en un seul site, à l’emplacement de l’ancienne filature Corliss. L’entreprise prévoit que cette opération, menée en deux phases, réduira ses coûts d’exploitation de près d’un cinquième.\n\nLa première phase, qui doit commencer en août, comprend la rénovation du bâtiment principal de la filature et l’installation d’un système de tri automatisé. La seconde phase, le transfert des stocks depuis les entrepôts actuels, aura lieu pendant l’hiver, période où les volumes d’expédition sont traditionnellement au plus bas.\n\nLa directrice générale, Marisol Okafor, a souligné qu’aucun poste ne serait supprimé du fait de ce regroupement. « Chaque salarié de nos sites actuels se verra proposer un poste dans les nouveaux locaux », a-t-elle déclaré. Ceux qui accepteront pourront aussi bénéficier d’une navette gratuite depuis le centre-ville. Ceux qui choisiront de ne pas suivre le déménagement recevront de l’aide pour trouver un emploi auprès d’autres employeurs de la région.\n\nLes élus locaux ont salué l’annonce. La filature Corliss est inoccupée depuis plus de dix ans, et plusieurs projets antérieurs de réaménagement ont échoué faute de financement. Delmont a également accepté d’élargir la route d’accès au site, un projet que la ville n’avait pas pu financer seule."
+      ],
+      "questions": [
+        {
+          "q": "What is the article mainly about?",
+          "opts": [
+            "The sale of a former textile mill to the town",
+            "A shortage of storage space in the Ashby area",
+            "The recruitment of staff for a new sorting center",
+            "A firm’s plan to combine its warehouses"
+          ],
+          "ans": "D",
+          "type": "idee",
+          "expl": "Dès la première phrase : Delmont va réunir (*merge*) ses trois entrepôts en un seul site. La filature n’est pas vendue à la ville, et (C) reprend *sorting system* alors que l’article ne parle d’aucune embauche.",
+          "q_fr": "De quoi l’article parle-t-il surtout ?"
+        },
+        {
+          "q": "Why will the inventory be transferred during the winter?",
+          "opts": [
+            "The renovation work is scheduled to start then.",
+            "Fewer goods are usually shipped then.",
+            "The access road will be closed in the summer.",
+            "The sorting system must be tested first."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*When shipping volumes are traditionally at their lowest* : c’est la période où l’on expédie le moins. La rénovation commence en août, pas en hiver, et l’article ne parle ni d’essais du système de tri ni d’une fermeture de la route.",
+          "q_fr": "Pourquoi les stocks seront-ils transférés pendant l’hiver ?"
+        },
+        {
+          "q": "What is suggested about the Corliss mill?",
+          "opts": [
+            "Previous efforts to reuse it were unsuccessful.",
+            "It was once owned by Delmont Freight.",
+            "It will be converted into offices for the town.",
+            "Its access road was recently widened."
+          ],
+          "ans": "A",
+          "type": "inference",
+          "expl": "*Several earlier plans to redevelop it fell through for lack of funding* : les projets précédents ont échoué. La route n’est pas encore élargie : Delmont a seulement accepté de le faire (*has agreed to widen*).",
+          "q_fr": "Que laisse entendre l’article au sujet de la filature Corliss ?"
+        },
+        {
+          "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? “Those who accept will also be eligible for a free shuttle service from the town center.”",
+          "opts": [
+            "[1]",
+            "[2]",
+            "[3]",
+            "[4]"
+          ],
+          "ans": "C",
+          "type": "insertion",
+          "expl": "*Those who accept* renvoie à l’offre faite à chaque salarié (*will be offered a role*), juste avant [3] ; la phrase suivante, *Those who choose not to make the move*, présente le cas inverse. En [1], aucune offre n’a encore été faite.",
+          "q_fr": "À laquelle des positions [1], [2], [3] et [4] la phrase suivante s’insère-t-elle le mieux ? « Ceux qui accepteront pourront aussi bénéficier d’une navette gratuite depuis le centre-ville. »"
+        }
+      ]
+    },
+    {
+      "id": "7a-002",
+      "docs": [
+        {
+          "kind": "échange de textos",
+          "title": null,
+          "text": "Kofi Mensah (2:14 P.M.): Are you still at the print shop? The client just moved the presentation up to 3:00.\nLena Varga (2:15 P.M.): I am, but they’re only halfway through the brochures. They say it’ll be another hour at least.\nKofi Mensah (2:16 P.M.): That won’t work. Can you bring whatever’s finished and pick up the rest tomorrow?\nLena Varga (2:17 P.M.): Sure. Fifty copies should be plenty for the people in the room.\nKofi Mensah (2:18 P.M.): Good point. We can mail the others to the regional managers afterward.\nLena Varga (2:19 P.M.): OK. Leaving in five minutes.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Kofi Mensah (14 h 14) : Tu es toujours chez l’imprimeur ? Le client vient d’avancer la présentation à 15 h.\nLena Varga (14 h 15) : Oui, mais ils n’ont fait que la moitié des brochures. Ils disent qu’il faudra encore une heure au moins.\nKofi Mensah (14 h 16) : Ça ne va pas. Tu peux apporter ce qui est prêt et récupérer le reste demain ?\nLena Varga (14 h 17) : Bien sûr. Cinquante exemplaires devraient largement suffire pour les personnes présentes.\nKofi Mensah (14 h 18) : Bien vu. On pourra envoyer les autres par courrier aux responsables régionaux ensuite.\nLena Varga (14 h 19) : D’accord. Je pars dans cinq minutes."
+      ],
+      "questions": [
+        {
+          "q": "What change does Mr. Mensah report?",
+          "opts": [
+            "A presentation has been postponed to tomorrow.",
+            "A client has canceled part of an order.",
+            "A meeting will begin earlier than planned.",
+            "A print shop has changed its opening hours."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*The client just moved the presentation up to 3:00* : *move up* signifie avancer. (A) dit l’inverse (*postpone* : repousser) et reprend *tomorrow*, qui concerne seulement le reste des brochures.",
+          "q_fr": "Quel changement M. Mensah signale-t-il ?"
+        },
+        {
+          "q": "At 2:16 P.M., what does Mr. Mensah most likely mean when he writes, “That won’t work”?",
+          "opts": [
+            "The full order would not be ready in time.",
+            "A printing machine has broken down.",
+            "The client has rejected the brochure design.",
+            "Ms. Varga cannot find the print shop."
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Il réagit au délai annoncé (*another hour at least*) : à 14 h 16, avec une présentation à 15 h, attendre toute la commande ferait arriver les brochures trop tard. D’où sa demande d’apporter ce qui est prêt.",
+          "q_fr": "À 14 h 16, que veut probablement dire M. Mensah quand il écrit « Ça ne va pas » ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-003",
+      "docs": [
+        {
+          "kind": "formulaire",
+          "title": "Expense Reimbursement Request",
+          "text": "Brightwater Analytics\n\nEmployee: Tomasz Wieczorek\nDepartment: Client Services\nPurpose of trip: Site visit to Halbrook Medical Supply, Columbus\nTravel dates: March 3–5\n\nEmployee comments: The hotel invoice includes a late checkout fee. My meeting with the client on March 5 was expected to run past noon, so my manager, Ms. Achterberg, approved a late checkout by e-mail on March 4 (copy attached). I was unable to find the taxi receipt for March 3, so I have entered the amount shown on my credit card statement instead.\n\nDate submitted: March 9",
+          "table": {
+            "title": "Expenses claimed",
+            "rows": [
+              [
+                "Date",
+                "Description",
+                "Amount",
+                "Receipt attached"
+              ],
+              [
+                "March 3",
+                "Taxi, airport to hotel",
+                "$46.00",
+                "No"
+              ],
+              [
+                "March 3–5",
+                "Hotel, two nights",
+                "$318.00",
+                "Yes"
+              ],
+              [
+                "March 4",
+                "Client dinner, two people",
+                "$97.50",
+                "Yes"
+              ],
+              [
+                "March 5",
+                "Late checkout fee",
+                "$40.00",
+                "Yes"
+              ],
+              [
+                "",
+                "Total",
+                "$501.50",
+                ""
+              ]
+            ]
+          }
+        }
+      ],
+      "docs_fr": [
+        "Demande de remboursement de frais\n\nBrightwater Analytics\n\nSalarié : Tomasz Wieczorek\nService : relations clients\nObjet du déplacement : visite chez Halbrook Medical Supply, à Columbus\nDates du déplacement : du 3 au 5 mars\n\nCommentaires du salarié : la facture de l’hôtel comprend des frais de départ tardif. Ma réunion avec le client du 5 mars devait se prolonger après midi ; ma responsable, Mme Achterberg, a donc approuvé un départ tardif par courriel le 4 mars (copie jointe). Je n’ai pas retrouvé le reçu du taxi du 3 mars : j’ai donc indiqué à la place le montant figurant sur mon relevé de carte de crédit.\n\nDate de dépôt : 9 mars\n\nDépenses déclarées (date, description, montant, justificatif joint) :\n3 mars, taxi de l’aéroport à l’hôtel, 46,00 $, non\n3-5 mars, hôtel, deux nuits, 318,00 $, oui\n4 mars, dîner avec le client, deux personnes, 97,50 $, oui\n5 mars, frais de départ tardif, 40,00 $, oui\nTotal : 501,50 $"
+      ],
+      "questions": [
+        {
+          "q": "Why does the form include a late checkout fee?",
+          "opts": [
+            "A meeting was likely to last past midday.",
+            "Mr. Wieczorek’s room was upgraded.",
+            "Mr. Wieczorek’s flight on March 5 was delayed.",
+            "The hotel charged for an extra guest."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*My meeting with the client on March 5 was expected to run past noon* : la réunion devait durer au-delà de midi. Le formulaire ne parle ni de surclassement ni de vol retardé ; les deux personnes concernent le dîner, pas l’hôtel.",
+          "q_fr": "Pourquoi le formulaire comprend-il des frais de départ tardif ?"
+        },
+        {
+          "q": "What is indicated about the taxi expense?",
+          "opts": [
+            "It was approved by e-mail on March 4.",
+            "It was paid for by Halbrook Medical Supply.",
+            "It is the largest expense on the form.",
+            "Its amount comes from a card statement."
+          ],
+          "ans": "D",
+          "type": "vrai-faux",
+          "expl": "Le reçu est perdu : l’employé a reporté le montant de son relevé de carte (*the amount shown on my credit card statement*). L’accord par courriel du 4 mars concerne le départ tardif, et le taxi (46 $) est loin d’être la plus grosse dépense.",
+          "q_fr": "Qu’apprend-on sur la dépense de taxi ?"
+        },
+        {
+          "q": "What has Mr. Wieczorek attached to his request?",
+          "opts": [
+            "A receipt from the taxi company",
+            "A message from his supervisor",
+            "A letter from the client",
+            "A revised travel itinerary"
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*Approved a late checkout by e-mail on March 4 (copy attached)* : il joint le courriel de sa responsable. (A) est le piège : le reçu du taxi est justement introuvable (*No* dans le tableau).",
+          "q_fr": "Qu’a joint M. Wieczorek à sa demande ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-004",
+      "docs": [
+        {
+          "kind": "e-mail",
+          "title": null,
+          "text": "To: Rosalind Achebe\nFrom: Harrowfield Home, Customer Care\nDate: October 14\nSubject: Your order no. 48213\n\nDear Ms. Achebe,\n\nThank you for ordering an oak dining table and six matching chairs from Harrowfield Home. Unfortunately, our supplier has just informed us that the chairs will not be back in stock until mid-December, roughly six weeks later than the delivery date we originally gave you.\n\nWe realize this may affect your plans for the holidays, so we would like to offer you a choice. We can ship the table now and send the chairs separately as soon as they arrive, at no additional delivery cost. Alternatively, you may switch to our walnut chairs, which are currently in stock; although they normally sell for $35 more per chair, we would waive the difference.\n\nIf neither option suits you, you are of course entitled to cancel the chairs for a full refund of their price. Please reply to this e-mail by October 21 to let us know how you would like to proceed. If we have not heard from you by then, we will hold your entire order and deliver all items together once the chairs are available.\n\nWe apologize for the inconvenience.\n\nSincerely,\n\nImogen Fairweather\nCustomer Care Team",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "À : Rosalind Achebe\nDe : Harrowfield Home, service clients\nDate : 14 octobre\nObjet : votre commande n° 48213\n\nMadame Achebe,\n\nMerci d’avoir commandé chez Harrowfield Home une table de salle à manger en chêne et six chaises assorties. Malheureusement, notre fournisseur vient de nous informer que les chaises ne seront pas de nouveau en stock avant la mi-décembre, soit environ six semaines plus tard que la date de livraison que nous vous avions indiquée.\n\nNous savons que cela peut perturber vos projets pour les fêtes ; nous souhaitons donc vous laisser le choix. Nous pouvons expédier la table dès maintenant et envoyer les chaises séparément dès leur arrivée, sans frais de livraison supplémentaires. Vous pouvez aussi opter pour nos chaises en noyer, actuellement en stock : elles coûtent normalement 35 $ de plus par chaise, mais nous renoncerions à vous facturer la différence.\n\nSi aucune de ces options ne vous convient, vous avez bien sûr le droit d’annuler les chaises et d’en obtenir le remboursement intégral. Merci de répondre à ce courriel d’ici le 21 octobre pour nous indiquer comment vous souhaitez procéder. Sans nouvelles de votre part à cette date, nous conserverons l’ensemble de votre commande et livrerons tous les articles ensemble dès que les chaises seront disponibles.\n\nVeuillez nous excuser pour ce désagrément.\n\nCordialement,\n\nImogen Fairweather\nService clients"
+      ],
+      "questions": [
+        {
+          "q": "Why did Ms. Fairweather write to Ms. Achebe?",
+          "opts": [
+            "To confirm that a table has been shipped",
+            "To report a delay and suggest solutions",
+            "To promote a new line of walnut furniture",
+            "To request payment for additional chairs"
+          ],
+          "ans": "B",
+          "type": "idee",
+          "expl": "Le courriel annonce le retard des chaises (*will not be back in stock until mid-December*) puis propose un choix (*we would like to offer you a choice*). La table n’est pas encore partie : son envoi immédiat n’est qu’une des options.",
+          "q_fr": "Pourquoi Mme Fairweather a-t-elle écrit à Mme Achebe ?"
+        },
+        {
+          "q": "What is Ms. Achebe offered if she chooses the walnut chairs?",
+          "opts": [
+            "A $35 gift card for each chair",
+            "Free delivery of the dining table",
+            "Delivery of all items in mid-December",
+            "The same price as the oak chairs"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Although they normally sell for $35 more per chair, we would waive the difference* : elle paierait le même prix que pour les chaises en chêne. (A) reprend le montant de 35 $ avec un autre sens ; la livraison groupée de la mi-décembre est ce qui arrive si elle ne répond pas.",
+          "q_fr": "Que propose-t-on à Mme Achebe si elle choisit les chaises en noyer ?"
+        },
+        {
+          "q": "What will happen if Ms. Achebe does not reply by October 21?",
+          "opts": [
+            "She will receive everything in one delivery.",
+            "Her order will be canceled and fully refunded.",
+            "The table will be shipped to her right away.",
+            "Walnut chairs will be sent in place of oak ones."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*We will hold your entire order and deliver all items together once the chairs are available* : sans réponse, tout part ensemble, plus tard. L’annulation, l’envoi immédiat de la table et les chaises en noyer supposent qu’elle les choisisse.",
+          "q_fr": "Que se passera-t-il si Mme Achebe ne répond pas d’ici le 21 octobre ?"
+        },
+        {
+          "q": "In the e-mail, the word “suits” in paragraph 3 is closest in meaning to",
+          "opts": [
+            "matches",
+            "flatters",
+            "satisfies",
+            "adapts"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*If neither option suits you* : si aucune option ne vous convient, ne vous satisfait. *Match* (être assorti à) se dit de deux choses qui vont ensemble, *flatter* correspond à *that color suits you* (cette couleur vous va) et *adapt* à *suit something to something* (adapter une chose à une autre).",
+          "q_fr": "Dans le courriel, le mot *suits*, au paragraphe 3, a le sens le plus proche de"
+        }
+      ]
+    },
+    {
+      "id": "7a-005",
+      "docs": [
+        {
+          "kind": "lettre",
+          "title": null,
+          "text": "Kestrel Property Management\n220 Larchmont Avenue, Suite 4\nWestbridge, OR 97140\n\nJune 2\n\nMr. Haruto Ishikawa\nOwner, Corner Lantern Café\n18 Market Street\nWestbridge, OR 97140\n\nDear Mr. Ishikawa,\n\nAs you may know, the owners of 18 Market Street have approved a full restoration of the building’s brick facade. [1] Work is scheduled to begin on July 7 and should last approximately five weeks.\n\nDuring this period, scaffolding will cover the front of the building, and the sidewalk outside your café will be narrowed to a single walkway. We understand that this may reduce the number of passersby who notice your business. To help offset this, the contractor will hang a large banner on the scaffolding stating that all shops remain open, and we would be glad to include your café’s name and logo on it. [2]\n\nIn addition, the owners have agreed to reduce your rent by 15 percent for July and August. [3] This reduction will be reflected automatically on your monthly statements; no action is required on your part.\n\nShould you have any concerns about deliveries or access during the work, please contact our site coordinator, Beatriz Molina, at 555-0147. [4] We appreciate your patience and look forward to unveiling a building that will benefit every tenant on the block.\n\nSincerely,\n\nGordon Featherstone\nProperty Manager",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Kestrel Property Management\n220 Larchmont Avenue, bureau 4\nWestbridge, OR 97140\n\n2 juin\n\nM. Haruto Ishikawa\nPropriétaire, Corner Lantern Café\n18 Market Street\nWestbridge, OR 97140\n\nMonsieur,\n\nComme vous le savez peut-être, les propriétaires du 18 Market Street ont approuvé une restauration complète de la façade en briques de l’immeuble. Les travaux doivent commencer le 7 juillet et durer environ cinq semaines.\n\nPendant cette période, un échafaudage couvrira l’avant de l’immeuble, et le trottoir devant votre café sera réduit à un seul passage. Nous comprenons que cela risque de réduire le nombre de passants qui remarquent votre commerce. Pour aider à compenser cet inconvénient, l’entreprise de travaux suspendra à l’échafaudage une grande banderole indiquant que toutes les boutiques restent ouvertes, et nous serions heureux d’y faire figurer le nom et le logo de votre café. Si vous souhaitez profiter de cette offre, merci de nous envoyer une copie numérique de votre logo d’ici le 20 juin.\n\nPar ailleurs, les propriétaires ont accepté de réduire votre loyer de 15 % pour juillet et août. Cette réduction apparaîtra automatiquement sur vos relevés mensuels ; vous n’avez aucune démarche à faire.\n\nPour toute question concernant les livraisons ou l’accès pendant les travaux, veuillez contacter notre coordinatrice de chantier, Beatriz Molina, au 555-0147. Nous vous remercions de votre patience et nous réjouissons de dévoiler un immeuble qui profitera à tous les locataires du pâté de maisons.\n\nVeuillez agréer, Monsieur, nos salutations distinguées.\n\nGordon Featherstone\nGestionnaire immobilier"
+      ],
+      "questions": [
+        {
+          "q": "Why did Mr. Featherstone write to Mr. Ishikawa?",
+          "opts": [
+            "To announce an increase in rent",
+            "To ask him to move his business temporarily",
+            "To inform him of upcoming work on a building",
+            "To request payment for an advertising banner"
+          ],
+          "ans": "C",
+          "type": "idee",
+          "expl": "La lettre annonce la restauration de la façade (*a full restoration of the building’s brick facade*) et ses effets sur le café. Le loyer baisse au lieu d’augmenter, et rien ne dit que la banderole soit payante.",
+          "q_fr": "Pourquoi M. Featherstone a-t-il écrit à M. Ishikawa ?"
+        },
+        {
+          "q": "What is NOT mentioned as a way the café will be helped?",
+          "opts": [
+            "Longer opening hours on weekends",
+            "A sign telling passersby that businesses are open",
+            "A temporary reduction in rent",
+            "A contact person for access problems"
+          ],
+          "ans": "A",
+          "type": "vrai-faux",
+          "expl": "La banderole (*all shops remain open*), la baisse de loyer de juillet et août et la coordinatrice de chantier sont mentionnées ; rien sur des horaires d’ouverture prolongés.",
+          "q_fr": "Qu’est-ce qui n’est PAS cité comme moyen d’aider le café ?"
+        },
+        {
+          "q": "In the letter, the word “offset” in paragraph 2 is closest in meaning to",
+          "opts": [
+            "print",
+            "shift",
+            "stagger",
+            "counter"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*To help offset this* : pour aider à compenser, à contrebalancer (*counter*) la baisse du nombre de passants. *Offset* désigne aussi l’impression offset (*print*) et un décalage (*shift* : décaler ; *stagger* : disposer en quinconce), sens qui ne vont pas ici.",
+          "q_fr": "Dans la lettre, le mot *offset*, au paragraphe 2, a le sens le plus proche de"
+        },
+        {
+          "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? “If you would like to take advantage of this offer, please send us a digital copy of your logo by June 20.”",
+          "opts": [
+            "[1]",
+            "[2]",
+            "[3]",
+            "[4]"
+          ],
+          "ans": "B",
+          "type": "insertion",
+          "expl": "*This offer* et *your logo* renvoient à la proposition de faire figurer le nom et le logo du café sur la banderole, juste avant [2]. En [3], l’offre serait la baisse de loyer, pour laquelle la lettre précise ensuite *no action is required*.",
+          "q_fr": "À laquelle des positions [1], [2], [3] et [4] la phrase suivante s’insère-t-elle le mieux ? « Si vous souhaitez profiter de cette offre, merci de nous envoyer une copie numérique de votre logo d’ici le 20 juin. »"
+        }
+      ]
+    },
+    {
+      "id": "7a-006",
+      "docs": [
+        {
+          "kind": "publicité",
+          "title": "The Foundry Workspace",
+          "text": "Tired of working from your kitchen table? The Foundry Workspace, opening September 1 in the restored Halvorsen Building, offers everything a growing business needs under one roof.\n\nChoose the plan that fits the way you work. Flex members can use any open desk in our main hall from 7 A.M. to 9 P.M. on weekdays. Dedicated Desk members have their own lockable workstation, available around the clock. Teams of three or more can rent a private office, furnished to their specifications.\n\nAll memberships include high-speed internet, unlimited coffee, and our mail-handling service. Meeting rooms can be booked by the hour; Dedicated Desk and Private Office members receive ten free hours each month.\n\nSign up before August 15 and pay half price for your first month. Tours are offered daily: just stop by, or book a time on our website.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "The Foundry Workspace\n\nVous en avez assez de travailler sur la table de votre cuisine ? The Foundry Workspace, qui ouvre le 1er septembre dans l’immeuble Halvorsen restauré, réunit sous un même toit tout ce dont une entreprise en croissance a besoin.\n\nChoisissez la formule adaptée à votre façon de travailler. Les membres Flex peuvent utiliser n’importe quel bureau libre de notre grande salle, de 7 h à 21 h en semaine. Les membres Bureau attitré disposent de leur propre poste de travail fermant à clé, accessible jour et nuit. Les équipes de trois personnes ou plus peuvent louer un bureau privé, meublé selon leurs souhaits.\n\nToutes les formules comprennent l’internet haut débit, le café à volonté et notre service de gestion du courrier. Les salles de réunion se réservent à l’heure ; les membres Bureau attitré et Bureau privé bénéficient de dix heures gratuites par mois.\n\nInscrivez-vous avant le 15 août et payez votre premier mois à moitié prix. Des visites ont lieu tous les jours : passez nous voir, ou réservez un créneau sur notre site internet."
+      ],
+      "questions": [
+        {
+          "q": "For whom is the advertisement most likely intended?",
+          "opts": [
+            "Restaurant owners who need kitchen space",
+            "Students preparing for examinations",
+            "Investors looking for commercial property",
+            "Independent workers and small businesses"
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "Bureaux libres, postes attitrés, bureaux pour équipes, salles de réunion, *everything a growing business needs* : la publicité vise les indépendants et les petites entreprises. (A) reprend *kitchen table*, qui évoque seulement le travail à domicile.",
+          "q_fr": "À qui la publicité s’adresse-t-elle probablement ?"
+        },
+        {
+          "q": "What is indicated about Flex members?",
+          "opts": [
+            "They can enter the building at any hour.",
+            "They do not have a desk reserved for them.",
+            "They receive ten free hours of meeting room use.",
+            "They must belong to a team of three or more."
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "*Flex members can use any open desk* : ils prennent un bureau libre, sans poste attitré. L’accès jour et nuit (*around the clock*), les dix heures gratuites et les équipes de trois concernent les autres formules.",
+          "q_fr": "Qu’apprend-on sur les membres Flex ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-007",
+      "docs": [
+        {
+          "kind": "discussion en ligne",
+          "title": null,
+          "text": "Priya Natarajan (9:02 A.M.): Morning, everyone. The organizers of the Midwest Packaging Expo just told me our booth has been moved from Hall A to Hall C.\nOwen Castellano (9:04 A.M.): Hall C? That’s the one behind the food court, isn’t it? Hardly anyone walked through there last year.\nPriya Natarajan (9:05 A.M.): Apparently the fire marshal required them to widen the aisles in Hall A, so a few exhibitors had to be relocated.\nDana Kowalczyk (9:07 A.M.): Did they offer anything in return? We paid extra for a premium location.\nPriya Natarajan (9:08 A.M.): Either a partial refund or a corner booth in Hall C at no extra charge. Corner booths are open on two sides.\nOwen Castellano (9:09 A.M.): I’d take the corner. Visibility matters more than a few hundred dollars.\nDana Kowalczyk (9:11 A.M.): Agreed. We could also ask whether we can put up a sign near the food court pointing visitors our way.\nPriya Natarajan (9:12 A.M.): Worth a try. I’ll raise it when I confirm the corner booth with them this afternoon.\nOwen Castellano (9:13 A.M.): Great. I’ll update the floor plan we’re sending to clients.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Priya Natarajan (9 h 02) : Bonjour à tous. Les organisateurs du Midwest Packaging Expo viennent de m’annoncer que notre stand est déplacé du hall A au hall C.\nOwen Castellano (9 h 04) : Le hall C ? C’est celui qui est derrière l’espace restauration, non ? Presque personne n’y est passé l’an dernier.\nPriya Natarajan (9 h 05) : Apparemment, le responsable de la sécurité incendie leur a imposé d’élargir les allées du hall A, donc quelques exposants ont dû être déplacés.\nDana Kowalczyk (9 h 07) : Ils ont proposé quelque chose en échange ? Nous avons payé plus cher pour un emplacement privilégié.\nPriya Natarajan (9 h 08) : Soit un remboursement partiel, soit un stand d’angle dans le hall C sans supplément. Les stands d’angle sont ouverts sur deux côtés.\nOwen Castellano (9 h 09) : Je prendrais l’angle. La visibilité compte plus que quelques centaines de dollars.\nDana Kowalczyk (9 h 11) : D’accord. On pourrait aussi demander si on peut installer un panneau près de l’espace restauration pour orienter les visiteurs vers nous.\nPriya Natarajan (9 h 12) : Ça vaut le coup d’essayer. J’en parlerai quand je leur confirmerai le stand d’angle cet après-midi.\nOwen Castellano (9 h 13) : Parfait. Je mets à jour le plan du salon que nous envoyons aux clients."
+      ],
+      "questions": [
+        {
+          "q": "Why was the company’s booth moved?",
+          "opts": [
+            "The company had not paid for a premium location.",
+            "Too few visitors walked through Hall A.",
+            "Hall A is closed for renovations.",
+            "A safety official ordered changes in Hall A."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*The fire marshal required them to widen the aisles in Hall A* : le responsable de la sécurité incendie a exigé des allées plus larges. (A) contredit Dana (*We paid extra for a premium location*) ; (B) détourne la remarque d’Owen, qui porte sur le hall C.",
+          "q_fr": "Pourquoi le stand de l’entreprise a-t-il été déplacé ?"
+        },
+        {
+          "q": "At 9:04 A.M., what does Mr. Castellano most likely imply when he writes, “Hardly anyone walked through there last year”?",
+          "opts": [
+            "He is worried the booth will get few visitors.",
+            "He did not attend last year’s expo.",
+            "He thinks the food court was too crowded last year.",
+            "He would prefer a booth in Hall C."
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Il réagit au transfert vers le hall C : presque personne n’y passait l’an dernier, il craint donc un stand peu fréquenté. Sa remarque montre au contraire qu’il connaît l’édition précédente (B).",
+          "q_fr": "À 9 h 04, que sous-entend probablement M. Castellano quand il écrit « Presque personne n’y est passé l’an dernier » ?"
+        },
+        {
+          "q": "What will Ms. Natarajan most likely do this afternoon?",
+          "opts": [
+            "Revise a floor plan for clients",
+            "Request a partial refund",
+            "Ask the organizers about a sign",
+            "Visit Hall C to measure the booth"
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "Elle répond à l’idée de Dana (*a sign near the food court*) : *I’ll raise it when I confirm the corner booth with them this afternoon*. Le plan, c’est Owen qui le met à jour, et l’équipe préfère le stand d’angle au remboursement.",
+          "q_fr": "Que va probablement faire Mme Natarajan cet après-midi ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-008",
+      "docs": [
+        {
+          "kind": "facture",
+          "title": null,
+          "text": "Ridgeline Office Interiors\nInvoice no. 2207\nDate issued: April 28\nBill to: Saskia Lindgren, Facilities Manager, Orvane Biotech\n\nThank you for your order. Payment is due within 30 days of the invoice date. As agreed with your purchasing department, the delivery charge has been waived because your order exceeded $5,000. Please note that the two standing desks listed below are on back order and will be delivered separately; you will not be billed for them until they ship.\n\nQuestions about this invoice? Call our billing office at 555-0182, Monday through Friday.",
+          "table": {
+            "title": "Order summary",
+            "rows": [
+              [
+                "Item",
+                "Quantity",
+                "Unit price",
+                "Amount"
+              ],
+              [
+                "Ergonomic office chair",
+                "20",
+                "$189.00",
+                "$3,780.00"
+              ],
+              [
+                "Standing desk, adjustable height",
+                "2",
+                "$640.00",
+                "$0.00 (back order)"
+              ],
+              [
+                "Filing cabinet, four drawers",
+                "6",
+                "$215.00",
+                "$1,290.00"
+              ],
+              [
+                "Installation",
+                "1",
+                "$350.00",
+                "$350.00"
+              ],
+              [
+                "Delivery",
+                "1",
+                "$120.00",
+                "$0.00"
+              ],
+              [
+                "Total due",
+                "",
+                "",
+                "$5,420.00"
+              ]
+            ]
+          }
+        }
+      ],
+      "docs_fr": [
+        "Ridgeline Office Interiors\nFacture n° 2207\nDate d’émission : 28 avril\nFacturé à : Saskia Lindgren, responsable des services généraux, Orvane Biotech\n\nMerci pour votre commande. Le paiement est dû dans les 30 jours suivant la date de facture. Comme convenu avec votre service des achats, les frais de livraison ne vous sont pas facturés, votre commande dépassant 5 000 $. Veuillez noter que les deux bureaux debout indiqués ci-dessous sont en rupture de stock et seront livrés séparément ; ils ne vous seront facturés qu’à leur expédition.\n\nDes questions sur cette facture ? Appelez notre service de facturation au 555-0182, du lundi au vendredi.\n\nRécapitulatif de la commande (article, quantité, prix unitaire, montant) :\nFauteuil de bureau ergonomique, 20, 189,00 $, 3 780,00 $\nBureau debout réglable en hauteur, 2, 640,00 $, 0,00 $ (en attente de stock)\nClasseur à quatre tiroirs, 6, 215,00 $, 1 290,00 $\nInstallation, 1, 350,00 $, 350,00 $\nLivraison, 1, 120,00 $, 0,00 $\nTotal dû : 5 420,00 $"
+      ],
+      "questions": [
+        {
+          "q": "Why is Ms. Lindgren not being charged for delivery?",
+          "opts": [
+            "Some items have not been shipped yet.",
+            "She agreed to pick up the items herself.",
+            "Her order was worth more than a set amount.",
+            "Delivery is included in the installation fee."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*The delivery charge has been waived because your order exceeded $5,000* : la commande dépasse un seuil. (A) reprend les bureaux en attente, qui expliquent un autre montant à zéro.",
+          "q_fr": "Pourquoi la livraison n’est-elle pas facturée à Mme Lindgren ?"
+        },
+        {
+          "q": "What is indicated about the standing desks?",
+          "opts": [
+            "They have been removed from the order.",
+            "They are included in the total due.",
+            "They require a separate installation fee.",
+            "They will arrive at a later date."
+          ],
+          "ans": "D",
+          "type": "vrai-faux",
+          "expl": "*On back order and will be delivered separately* : ils arriveront plus tard. Ils restent commandés mais ne sont pas encore facturés (*$0.00*) : (A) et (B) sont faux.",
+          "q_fr": "Qu’apprend-on sur les bureaux debout ?"
+        },
+        {
+          "q": "By what date should the invoice most likely be paid?",
+          "opts": [
+            "April 28",
+            "May 28",
+            "June 28",
+            "The day the desks are delivered"
+          ],
+          "ans": "B",
+          "type": "inference",
+          "expl": "Paiement *within 30 days of the invoice date*, facture émise le 28 avril : au plus tard le 28 mai. Les bureaux debout seront facturés à part, à leur expédition, ce qui écarte (D).",
+          "q_fr": "À quelle date la facture doit-elle probablement être réglée ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-009",
+      "docs": [
+        {
+          "kind": "avis",
+          "title": "Notice to Passengers",
+          "text": "From Saturday, November 8, through Sunday, November 16, Platform 3 at Dunmore Station will be closed while its canopy is replaced. During this period, all northbound trains that normally depart from Platform 3 will leave from Platform 5, which can be reached by the pedestrian bridge or by the elevator beside the ticket office.\n\nPlease allow at least ten extra minutes to reach your train. Passengers who require assistance should speak to a staff member at the information desk, located opposite the main entrance. We apologize for any inconvenience.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Avis aux voyageurs\n\nDu samedi 8 novembre au dimanche 16 novembre, le quai 3 de la gare de Dunmore sera fermé pendant le remplacement de son auvent. Pendant cette période, tous les trains en direction du nord qui partent habituellement du quai 3 partiront du quai 5, accessible par la passerelle piétonne ou par l’ascenseur situé à côté du guichet.\n\nMerci de prévoir au moins dix minutes de plus pour rejoindre votre train. Les voyageurs qui ont besoin d’aide sont invités à s’adresser à un agent au bureau d’information, situé en face de l’entrée principale. Veuillez nous excuser pour la gêne occasionnée."
+      ],
+      "questions": [
+        {
+          "q": "What is the purpose of the notice?",
+          "opts": [
+            "To explain a temporary platform change",
+            "To announce that an elevator is out of service",
+            "To introduce a new northbound service",
+            "To explain why ticket prices are rising"
+          ],
+          "ans": "A",
+          "type": "idee",
+          "expl": "Le quai 3 ferme du 8 au 16 novembre et ses trains partent du quai 5. L’ascenseur est cité comme moyen d’accès, il n’est pas en panne ; les trains vers le nord existent déjà (*normally depart*).",
+          "q_fr": "Quel est le but de l’avis ?"
+        },
+        {
+          "q": "What are passengers advised to do?",
+          "opts": [
+            "Buy their tickets at the information desk",
+            "Use the main entrance only",
+            "Give themselves more time to get to their train",
+            "Take the pedestrian bridge rather than the elevator"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*Please allow at least ten extra minutes to reach your train* : prévoir plus de temps. La passerelle et l’ascenseur sont tous deux possibles, et le bureau d’information sert à demander de l’aide, pas à acheter des billets.",
+          "q_fr": "Que conseille-t-on aux voyageurs ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-010",
+      "docs": [
+        {
+          "kind": "article",
+          "title": "Lantern Bay Press Bets on Audiobooks",
+          "text": "For most of its forty-year history, Lantern Bay Press has published regional history books and the occasional novel, selling them mainly through independent bookstores along the coast. [1] Over the past two years, however, the small publisher has quietly turned itself into one of the region’s busiest producers of audiobooks.\n\nThe shift began almost by accident, when a local radio host offered to record one of the press’s best-selling titles, a history of the area’s lighthouses, as a favor to the author. [2] The recording sold more copies in its first six months than the print edition had sold in five years.\n\nEncouraged by these results, managing editor Ruth Abernathy converted a storage room into a soundproof studio and began hiring local actors to narrate other titles. The press now releases about two audiobooks a month. [3] Abernathy says the format has drawn listeners who rarely visit bookstores, including commuters and people with visual impairments.\n\nThe transition has not been without difficulties. Producing an audiobook can cost several thousand dollars, and the press initially struggled to recover those costs. [4] Abernathy has since signed agreements with three online platforms, allowing the company to reach listeners across the country rather than just along the coast.\n\nPrint, she insists, is not going away. “Our readers still want books they can hold,” she said. “Audio simply lets us reach the ones we were missing.”",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Lantern Bay Press mise sur le livre audio\n\nPendant la plus grande partie de ses quarante ans d’existence, Lantern Bay Press a publié des livres d’histoire régionale et, de temps à autre, un roman, vendus surtout dans les librairies indépendantes de la côte. Depuis deux ans, pourtant, la petite maison d’édition s’est discrètement transformée en l’un des producteurs de livres audio les plus actifs de la région.\n\nLe virage s’est fait presque par hasard, lorsqu’un animateur de radio local a proposé d’enregistrer, pour rendre service à l’auteur, l’un des titres les plus vendus de la maison, une histoire des phares de la région. L’enregistrement s’est vendu davantage en six mois que l’édition papier en cinq ans.\n\nEncouragée par ces résultats, la directrice éditoriale, Ruth Abernathy, a transformé un débarras en studio insonorisé et a commencé à engager des comédiens de la région pour lire d’autres titres. La maison sort aujourd’hui environ deux livres audio par mois. Selon Ruth Abernathy, le format attire des auditeurs qui vont rarement en librairie, notamment des personnes qui font chaque jour le trajet jusqu’à leur travail et des personnes malvoyantes.\n\nLa transition n’a pas été sans difficultés. Produire un livre audio peut coûter plusieurs milliers de dollars, et la maison a d’abord eu du mal à rentrer dans ses frais. Vendre les enregistrements uniquement dans les librairies de la côte ne suffisait pas à couvrir ces coûts. Ruth Abernathy a depuis signé des accords avec trois plateformes en ligne, ce qui permet à la maison de toucher des auditeurs dans tout le pays, et plus seulement sur la côte.\n\nLe papier, insiste-t-elle, ne va pas disparaître. « Nos lecteurs veulent toujours des livres qu’ils peuvent tenir en main, dit-elle. Le format audio nous permet simplement d’atteindre ceux qui nous échappaient. »"
+      ],
+      "questions": [
+        {
+          "q": "What is the article mainly about?",
+          "opts": [
+            "The history of lighthouses along the coast",
+            "A publisher’s success with a new format",
+            "The decline of independent bookstores",
+            "A radio host’s career as a writer"
+          ],
+          "ans": "B",
+          "type": "idee",
+          "expl": "L’article raconte comment Lantern Bay Press est devenue un grand producteur de livres audio. Les phares ne sont que le sujet du premier enregistrement, et l’animateur radio n’en est pas l’auteur.",
+          "q_fr": "De quoi l’article parle-t-il surtout ?"
+        },
+        {
+          "q": "What is suggested about the recording of the lighthouse book?",
+          "opts": [
+            "It was narrated by a professional actor.",
+            "It was made in the press’s new studio.",
+            "It sold better than the printed edition.",
+            "It was the first book the press ever published."
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "En six mois, l’enregistrement s’est plus vendu que l’édition papier en cinq ans : il s’est donc mieux vendu. Il a été lu par un animateur radio, et le studio n’a été aménagé qu’ensuite (*Encouraged by these results*).",
+          "q_fr": "Que laisse entendre l’article au sujet de l’enregistrement du livre sur les phares ?"
+        },
+        {
+          "q": "What is NOT mentioned as a group of people the audiobooks have reached?",
+          "opts": [
+            "Students of regional history",
+            "People who travel to work",
+            "People who have difficulty seeing",
+            "Listeners outside the coastal region"
+          ],
+          "ans": "A",
+          "type": "vrai-faux",
+          "expl": "*Commuters* (B), *people with visual impairments* (C) et *listeners across the country rather than just along the coast* (D) sont cités ; rien sur des étudiants, même si la maison publie des livres d’histoire régionale.",
+          "q_fr": "Quel public n’est PAS cité parmi ceux que les livres audio ont touchés ?"
+        },
+        {
+          "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? “Selling the recordings only through the coastal bookstores was not enough to cover them.”",
+          "opts": [
+            "[1]",
+            "[2]",
+            "[3]",
+            "[4]"
+          ],
+          "ans": "D",
+          "type": "insertion",
+          "expl": "*Them* renvoie à *those costs*, juste avant [4], et la phrase explique pourquoi la maison a ensuite signé avec des plateformes en ligne. En [1], les librairies de la côte sont citées, mais aucun enregistrement ni aucun coût n’a encore été mentionné.",
+          "q_fr": "À laquelle des positions [1], [2], [3] et [4] la phrase suivante s’insère-t-elle le mieux ? « Vendre les enregistrements uniquement dans les librairies de la côte ne suffisait pas à couvrir ces coûts. »"
+        }
+      ]
+    },
+    {
+      "id": "7a-011",
+      "docs": [
+        {
+          "kind": "note de service",
+          "title": null,
+          "text": "To: All warehouse and office staff\nFrom: Anjali Desai, Operations Director\nDate: February 3\nRe: New visitor sign-in procedure\n\nFollowing last month’s safety audit, we are revising the way visitors are admitted to the Fairmont distribution center. Effective February 17, every visitor, including contractors and delivery drivers who need to enter the building, must sign in at the front lobby and wear a visitor badge at all times.\n\nEmployees expecting a visitor are asked to register that person in the online visitor log at least one business day in advance. Visitors who arrive without having been registered will be asked to wait in the lobby until their host comes to escort them inside. Drivers who remain at the loading dock and do not enter the building are exempt from this requirement.\n\nBadges must be returned to the lobby desk upon departure. Hosts are responsible for making sure their guests do so.\n\nThank you for helping us keep the site secure. Questions may be directed to Marcus Bellamy in Facilities.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "À : tout le personnel de l’entrepôt et des bureaux\nDe : Anjali Desai, directrice des opérations\nDate : 3 février\nObjet : nouvelle procédure d’enregistrement des visiteurs\n\nÀ la suite de l’audit de sécurité du mois dernier, nous modifions les conditions d’accès des visiteurs au centre de distribution de Fairmont. À compter du 17 février, tout visiteur, y compris les prestataires et les livreurs qui doivent entrer dans le bâtiment, devra s’enregistrer à l’accueil et porter un badge visiteur en permanence.\n\nLes salariés qui attendent un visiteur sont priés de l’inscrire dans le registre des visiteurs en ligne au moins un jour ouvré à l’avance. Les visiteurs qui se présentent sans avoir été inscrits devront patienter à l’accueil jusqu’à ce que leur hôte vienne les chercher pour les accompagner à l’intérieur. Les chauffeurs qui restent au quai de chargement sans entrer dans le bâtiment sont dispensés de cette obligation.\n\nLes badges doivent être rendus au comptoir d’accueil au départ. Il revient aux hôtes de veiller à ce que leurs invités le fassent.\n\nMerci de nous aider à assurer la sécurité du site. Pour toute question, adressez-vous à Marcus Bellamy, aux services généraux."
+      ],
+      "questions": [
+        {
+          "q": "What led to the new procedure?",
+          "opts": [
+            "A complaint from a delivery driver",
+            "The opening of a new loading dock",
+            "An increase in the number of contractors",
+            "A review of safety at the site"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Following last month’s safety audit* : un audit de sécurité, c’est-à-dire un examen de la sécurité du site. Les livreurs, les prestataires et le quai de chargement sont cités, mais pas comme causes du changement.",
+          "q_fr": "Qu’est-ce qui a entraîné la nouvelle procédure ?"
+        },
+        {
+          "q": "What is indicated about visitors who have not been registered in advance?",
+          "opts": [
+            "They will be refused entry to the building.",
+            "They must come back on the next business day.",
+            "They cannot go inside without their host.",
+            "They may enter through the loading dock."
+          ],
+          "ans": "C",
+          "type": "vrai-faux",
+          "expl": "*Will be asked to wait in the lobby until their host comes to escort them inside* : ils attendent que leur hôte vienne les chercher. Ils ne sont pas refusés, le jour ouvré d’avance concerne l’inscription faite par l’hôte (B), et le quai de chargement ne vaut que pour les chauffeurs qui n’entrent pas (D).",
+          "q_fr": "Qu’apprend-on sur les visiteurs qui n’ont pas été inscrits à l’avance ?"
+        },
+        {
+          "q": "In the memo, the word “directed” in paragraph 4 is closest in meaning to",
+          "opts": [
+            "addressed",
+            "managed",
+            "ordered",
+            "guided"
+          ],
+          "ans": "A",
+          "type": "vocab",
+          "expl": "*Questions may be directed to Marcus Bellamy* : les questions peuvent être adressées à M. Bellamy. *Direct* veut aussi dire diriger (*manage*), ordonner (*order*) ou guider (*guide*), sens qui ne vont pas avec *questions … to*.",
+          "q_fr": "Dans la note, le mot *directed*, au paragraphe 4, a le sens le plus proche de"
+        }
+      ]
+    },
+    {
+      "id": "7a-012",
+      "docs": [
+        {
+          "kind": "échange de textos",
+          "title": null,
+          "text": "Aiyana Redcloud (11:20 A.M.): Hi, Gabriel. The caterer for Thursday’s retirement lunch just called. They can’t get salmon this week, so they’re suggesting chicken or a vegetable lasagna instead.\nGabriel Fontaine (11:23 A.M.): Hmm. Didn’t Mr. Lindqvist say at last year’s holiday party that lasagna was his favorite?\nAiyana Redcloud (11:24 A.M.): He did! I’d completely forgotten.\nGabriel Fontaine (11:25 A.M.): Then I think that settles it. Just make sure there’s a gluten-free option for Ms. Tanaka.\nAiyana Redcloud (11:26 A.M.): Will do. I’ll call them back right away.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Aiyana Redcloud (11 h 20) : Salut Gabriel. Le traiteur du déjeuner de départ à la retraite de jeudi vient d’appeler. Il ne peut pas avoir de saumon cette semaine, alors il propose du poulet ou des lasagnes aux légumes à la place.\nGabriel Fontaine (11 h 23) : Hum. M. Lindqvist n’avait pas dit, à la fête de fin d’année l’an dernier, que les lasagnes étaient son plat préféré ?\nAiyana Redcloud (11 h 24) : Si ! J’avais complètement oublié.\nGabriel Fontaine (11 h 25) : Alors je crois que la question est réglée. Assure-toi juste qu’il y ait une option sans gluten pour Mme Tanaka.\nAiyana Redcloud (11 h 26) : Entendu. Je les rappelle tout de suite."
+      ],
+      "questions": [
+        {
+          "q": "At 11:25 A.M., what does Mr. Fontaine most likely mean when he writes, “I think that settles it”?",
+          "opts": [
+            "The caterer’s bill has been paid.",
+            "They should choose the vegetable dish.",
+            "The lunch should be moved to another day.",
+            "Ms. Tanaka has approved the menu."
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "Puisque M. Lindqvist adore les lasagnes, la question du plat est réglée : on prend les lasagnes aux légumes plutôt que le poulet. (A) joue sur un autre sens de *settle* (régler une facture).",
+          "q_fr": "À 11 h 25, que veut probablement dire M. Fontaine quand il écrit « je crois que la question est réglée » ?"
+        },
+        {
+          "q": "What is suggested about Mr. Lindqvist?",
+          "opts": [
+            "He is organizing Thursday’s retirement lunch.",
+            "He cannot eat gluten.",
+            "He works for the catering company.",
+            "He attended a party held last year."
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "Il a dit *at last year’s holiday party* que les lasagnes étaient son plat préféré : il était donc à cette fête. L’option sans gluten est pour Mme Tanaka, et c’est Aiyana qui s’occupe du traiteur.",
+          "q_fr": "Que laisse entendre l’échange au sujet de M. Lindqvist ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-013",
+      "docs": [
+        {
+          "kind": "critique",
+          "title": "Saltmarsh Kitchen: Bold Seafood, Uneven Service",
+          "text": "Few openings this year have generated as much anticipation as Saltmarsh Kitchen, the new venture from chef Declan Moriarty, whose previous restaurant earned a devoted following before closing in 2022. Housed in a converted boathouse on the Elmsford waterfront, the dining room is bright and airy, with tall windows that frame the harbor.\n\nThe menu changes weekly and relies heavily on seafood from local fishing boats. On my first visit, a starter of grilled sardines with charred lemon was flawless, and a main course of roasted cod arrived perfectly cooked on a bed of white beans. The desserts, sadly, were less memorable: a pear tart had clearly been baked hours earlier and had lost its crispness.\n\nService, too, was uneven. Our server was knowledgeable and warm, but the kitchen struggled to keep pace once the room filled up, and we waited nearly forty minutes between courses. When I returned on a quieter weeknight, however, the meal flowed smoothly from start to finish.\n\nPrices are steep but not unreasonable given the quality of the ingredients: expect to pay around $70 per person for three courses, not including wine. Reservations are essential on weekends and can be made only by phone, a policy that some diners may find inconvenient.\n\nDespite a few early stumbles, Saltmarsh Kitchen shows every sign of living up to its chef’s reputation. Given a few more months, it may well become one of the best tables in the city.\n\nReviewed by Esperanza Villanueva",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Saltmarsh Kitchen : une cuisine de la mer audacieuse, un service inégal\n\nPeu d’ouvertures cette année ont suscité autant d’attente que celle de Saltmarsh Kitchen, la nouvelle aventure du chef Declan Moriarty, dont le précédent restaurant s’était attiré une clientèle fidèle avant de fermer en 2022. Installée dans un ancien hangar à bateaux reconverti, sur le front de mer d’Elmsford, la salle est claire et aérée, avec de hautes fenêtres qui encadrent le port.\n\nLa carte change chaque semaine et fait la part belle aux produits des bateaux de pêche locaux. Lors de ma première visite, une entrée de sardines grillées au citron brûlé était irréprochable, et un plat de cabillaud rôti est arrivé parfaitement cuit sur un lit de haricots blancs. Les desserts, hélas, étaient moins mémorables : une tarte aux poires avait manifestement été cuite des heures plus tôt et avait perdu son croustillant.\n\nLe service, lui aussi, était inégal. Notre serveur était compétent et chaleureux, mais la cuisine a eu du mal à suivre une fois la salle remplie, et nous avons attendu près de quarante minutes entre les plats. Quand j’y suis retournée un soir de semaine plus calme, en revanche, le repas s’est déroulé sans accroc du début à la fin.\n\nLes prix sont élevés mais pas déraisonnables au vu de la qualité des produits : comptez environ 70 $ par personne pour trois plats, vin non compris. La réservation est indispensable le week-end et ne se fait que par téléphone, ce que certains clients pourraient trouver peu pratique.\n\nMalgré quelques faux pas des débuts, Saltmarsh Kitchen a tout pour être à la hauteur de la réputation de son chef. D’ici quelques mois, ce pourrait bien être l’une des meilleures tables de la ville.\n\nCritique d’Esperanza Villanueva"
+      ],
+      "questions": [
+        {
+          "q": "What is suggested about Declan Moriarty?",
+          "opts": [
+            "He used to work on a fishing boat.",
+            "He was admired for a restaurant he ran before.",
+            "He owns several restaurants on the waterfront.",
+            "He designed the dining room himself."
+          ],
+          "ans": "B",
+          "type": "inference",
+          "expl": "*Whose previous restaurant earned a devoted following* et *living up to its chef’s reputation* : son ancien restaurant était très apprécié. Les bateaux de pêche fournissent le poisson ; rien ne dit qu’il y ait travaillé.",
+          "q_fr": "Que laisse entendre la critique au sujet de Declan Moriarty ?"
+        },
+        {
+          "q": "What is NOT mentioned as a weakness of the restaurant?",
+          "opts": [
+            "Small portions for the price",
+            "A dessert that was not freshly made",
+            "Long delays on a busy evening",
+            "A limited way of reserving a table"
+          ],
+          "ans": "A",
+          "type": "vrai-faux",
+          "expl": "La tarte cuite des heures plus tôt (B), les quarante minutes d’attente quand la salle est pleine (C) et les réservations par téléphone seulement (D) sont critiquées ; la taille des portions n’est jamais évoquée, et les prix sont jugés raisonnables.",
+          "q_fr": "Qu’est-ce qui n’est PAS cité comme point faible du restaurant ?"
+        },
+        {
+          "q": "In the review, the word “steep” in paragraph 4 is closest in meaning to",
+          "opts": [
+            "abrupt",
+            "rapid",
+            "sheer",
+            "high"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*Prices are steep* : les prix sont élevés. *Abrupt* et *sheer* rendent le sens propre (une pente raide, une paroi à pic), *rapid* l’emploi de *a steep rise* (une hausse rapide).",
+          "q_fr": "Dans la critique, le mot *steep*, au paragraphe 4, a le sens le plus proche de"
+        },
+        {
+          "q": "What happened during the reviewer’s second visit?",
+          "opts": [
+            "The menu was the same as before.",
+            "The server recommended the pear tart.",
+            "The meal was served without delays.",
+            "The restaurant was fully booked."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*When I returned on a quieter weeknight … the meal flowed smoothly from start to finish* : pas d’attente cette fois. La carte change chaque semaine, et la salle était plus calme, pas complète.",
+          "q_fr": "Que s’est-il passé lors de la deuxième visite de l’auteure ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-014",
+      "docs": [
+        {
+          "kind": "page web",
+          "title": "Calloway Bike Share: Frequently Asked Questions",
+          "text": "How do I rent a bike?\nDownload the Calloway Ride app, create an account, and scan the code on a bike’s handlebars to unlock it. You can also rent a bike at any station kiosk with a credit or debit card.\n\nHow much does it cost?\nSingle rides cost $2 for the first 30 minutes and $1 for each additional 15 minutes. Annual members pay $90 a year and ride free for up to 45 minutes per trip.\n\nWhat if a station is full when I want to return my bike?\nCheck the app for the nearest station with open docks. If every nearby station is full, the app will give you an extra 15 minutes at no charge to reach one.\n\nCan I use the bikes in the winter?\nYes. Bikes are available all year, although some stations near Riverside Park close from December through February. Closed stations appear in gray on the app’s map.\n\nAre helmets provided?\nHelmets are not provided with the bikes, but members can pick up a free helmet at our office on Garnet Street.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Calloway Bike Share : questions fréquentes\n\nComment louer un vélo ?\nTéléchargez l’appli Calloway Ride, créez un compte et scannez le code sur le guidon d’un vélo pour le déverrouiller. Vous pouvez aussi louer un vélo à la borne de n’importe quelle station, avec une carte de crédit ou de débit.\n\nCombien ça coûte ?\nUn trajet simple coûte 2 $ pour les 30 premières minutes, puis 1 $ par tranche supplémentaire de 15 minutes. Les abonnés annuels paient 90 $ par an et roulent gratuitement jusqu’à 45 minutes par trajet.\n\nQue faire si la station est pleine quand je veux rendre mon vélo ?\nCherchez dans l’appli la station la plus proche qui a des points d’attache libres. Si toutes les stations voisines sont pleines, l’appli vous accorde 15 minutes de plus, gratuitement, pour en rejoindre une.\n\nPuis-je utiliser les vélos en hiver ?\nOui. Les vélos sont disponibles toute l’année, mais certaines stations près de Riverside Park ferment de décembre à février. Les stations fermées apparaissent en gris sur la carte de l’appli.\n\nDes casques sont-ils fournis ?\nLes casques ne sont pas fournis avec les vélos, mais les abonnés peuvent retirer un casque gratuit à notre bureau de Garnet Street."
+      ],
+      "questions": [
+        {
+          "q": "How much does a one-hour ride cost a rider who is not a member?",
+          "opts": [
+            "$2",
+            "$3",
+            "$4",
+            "$6"
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "2 $ pour les 30 premières minutes, puis 1 $ par tranche de 15 minutes : la demi-heure suivante compte deux tranches, soit 2 + 1 + 1 = 4 $. (D) compte quatre tranches pour toute l’heure, en oubliant les 30 minutes déjà payées.",
+          "q_fr": "Combien coûte un trajet d’une heure à un cycliste non abonné ?"
+        },
+        {
+          "q": "What is indicated about the stations near Riverside Park?",
+          "opts": [
+            "They have more docks than other stations.",
+            "They are not open all year.",
+            "They are where helmets can be collected.",
+            "They accept only cash payments."
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "*Some stations near Riverside Park close from December through February* : elles ferment l’hiver. Les casques se retirent au bureau de Garnet Street, et les bornes acceptent les cartes.",
+          "q_fr": "Qu’apprend-on sur les stations proches de Riverside Park ?"
+        },
+        {
+          "q": "According to the web page, what happens if all nearby stations are full?",
+          "opts": [
+            "The rider can leave the bike next to a station.",
+            "The rider receives a refund for the trip.",
+            "The rider must call the office on Garnet Street.",
+            "The rider is allowed more time for free."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*The app will give you an extra 15 minutes at no charge to reach one* : du temps en plus, gratuit, pour rejoindre une station libre. Rien n’autorise à laisser le vélo hors d’un point d’attache, ni ne parle de remboursement.",
+          "q_fr": "D’après la page, que se passe-t-il si toutes les stations voisines sont pleines ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-015",
+      "docs": [
+        {
+          "kind": "programme",
+          "title": "Northern Plains Agricultural Technology Forum",
+          "text": "Saturday, March 21, Wexford Convention Center\n\nRegistration opens at 8:00 A.M. in the main lobby. Lunch is included for all registered participants and will be served in the Atrium. Please note that the afternoon session on soil sensors has been canceled because the speaker is unable to travel; those who signed up for it are welcome to attend any other session held at the same time. Sessions in Room B have limited seating and are filled on a first-come, first-served basis.",
+          "table": {
+            "title": "Program",
+            "rows": [
+              [
+                "Time",
+                "Session",
+                "Speaker",
+                "Room"
+              ],
+              [
+                "9:00 A.M.",
+                "Opening address: Farming in a Changing Climate",
+                "Dr. Ingrid Solberg",
+                "Main Hall"
+              ],
+              [
+                "10:30 A.M.",
+                "Drones for Crop Monitoring",
+                "Kwame Asante",
+                "Room B"
+              ],
+              [
+                "10:30 A.M.",
+                "Financing Equipment Upgrades",
+                "Lucia Ferraro",
+                "Room A"
+              ],
+              [
+                "12:00 P.M.",
+                "Lunch",
+                "",
+                "Atrium"
+              ],
+              [
+                "1:30 P.M.",
+                "Soil Sensors: A Practical Guide (canceled)",
+                "Bettina Krause",
+                "Room B"
+              ],
+              [
+                "1:30 P.M.",
+                "Water-Saving Irrigation Systems",
+                "Rahul Mehta",
+                "Room A"
+              ],
+              [
+                "3:00 P.M.",
+                "Panel: The Future of Family Farms",
+                "Several speakers",
+                "Main Hall"
+              ]
+            ]
+          }
+        }
+      ],
+      "docs_fr": [
+        "Forum des technologies agricoles des Northern Plains\n\nSamedi 21 mars, Wexford Convention Center\n\nL’accueil ouvre à 8 h dans le hall principal. Le déjeuner est compris pour tous les participants inscrits et sera servi dans l’atrium. Veuillez noter que la session de l’après-midi sur les capteurs de sol est annulée, l’intervenante ne pouvant pas se déplacer ; les personnes qui s’y étaient inscrites peuvent assister à toute autre session qui a lieu à la même heure. Les sessions de la salle B ont un nombre de places limité, attribuées aux premiers arrivés.\n\nProgramme (heure, session, intervenant, salle) :\n9 h, discours d’ouverture : l’agriculture face au changement climatique, Dr Ingrid Solberg, grande salle\n10 h 30, les drones pour surveiller les cultures, Kwame Asante, salle B\n10 h 30, financer la modernisation du matériel, Lucia Ferraro, salle A\n12 h, déjeuner, atrium\n13 h 30, capteurs de sol : guide pratique (annulé), Bettina Krause, salle B\n13 h 30, systèmes d’irrigation économes en eau, Rahul Mehta, salle A\n15 h, table ronde : l’avenir des exploitations familiales, plusieurs intervenants, grande salle"
+      ],
+      "questions": [
+        {
+          "q": "Which session can people who registered for Ms. Krause’s session attend instead?",
+          "opts": [
+            "Water-Saving Irrigation Systems",
+            "Drones for Crop Monitoring",
+            "Financing Equipment Upgrades",
+            "The Future of Family Farms"
+          ],
+          "ans": "A",
+          "type": "inference",
+          "expl": "La session de Mme Krause (13 h 30) est annulée ; ses inscrits peuvent suivre une autre session *held at the same time* : d’après le tableau, l’irrigation de M. Mehta, à 13 h 30 en salle A.",
+          "q_fr": "À quelle session les inscrits de la session de Mme Krause peuvent-ils assister à la place ?"
+        },
+        {
+          "q": "What is indicated about Room B?",
+          "opts": [
+            "It is located next to the Atrium.",
+            "It will host the closing panel.",
+            "It requires a separate registration fee.",
+            "Some people may not get a seat there."
+          ],
+          "ans": "D",
+          "type": "vrai-faux",
+          "expl": "*Sessions in Room B have limited seating and are filled on a first-come, first-served basis* : premiers arrivés, premiers servis, il peut manquer des places. La table ronde a lieu dans la grande salle.",
+          "q_fr": "Qu’apprend-on sur la salle B ?"
+        },
+        {
+          "q": "What is provided to all registered participants?",
+          "opts": [
+            "A printed guide to soil sensors",
+            "Free transportation to the center",
+            "A meal in the middle of the day",
+            "A copy of the opening address"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*Lunch is included for all registered participants* : le déjeuner est compris. (A) reprend le titre de la session annulée (*A Practical Guide*), qui n’est pas un document distribué.",
+          "q_fr": "Qu’est-ce qui est fourni à tous les participants inscrits ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-016",
+      "docs": [
+        {
+          "kind": "lettre",
+          "title": null,
+          "text": "Halden & Rowe Architects\n45 Quarry Lane\nBrookhaven, VT 05401\n\nAugust 19\n\nMs. Farida Haddad\n92 Linden Court\nMontpelier, VT 05602\n\nDear Ms. Haddad,\n\nOn behalf of Halden & Rowe Architects, I am pleased to offer you the position of junior project designer, as discussed during your interview with our partners last week. [1] Your portfolio, particularly your work on affordable housing, impressed everyone on the selection committee.\n\nThe position carries an annual salary of $62,000, along with health insurance and a professional development allowance of $1,500 per year. [2] As mentioned during your interview, new designers spend their first three months working alongside a senior architect before taking responsibility for projects of their own.\n\nWe would like you to start on Monday, September 15. [3] If that date is not convenient, please let me know, as we have some flexibility. This offer is contingent upon verification of your degree, so we ask that you bring an official copy of your academic transcript on your first day.\n\nTo accept this offer, please sign the enclosed copy of this letter and return it by September 2. [4] We look forward to welcoming you to the team.\n\nSincerely,\n\nTheodora Wainwright\nOffice Manager",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Halden & Rowe Architects\n45 Quarry Lane\nBrookhaven, VT 05401\n\n19 août\n\nMme Farida Haddad\n92 Linden Court\nMontpelier, VT 05602\n\nMadame,\n\nAu nom de Halden & Rowe Architects, j’ai le plaisir de vous proposer le poste de conceptrice de projets junior, comme évoqué lors de votre entretien avec nos associés la semaine dernière. Ils ont été unanimes à vous recommander pour ce poste. Votre portfolio, en particulier vos travaux sur le logement abordable, a impressionné tous les membres du comité de sélection.\n\nLe poste est assorti d’un salaire annuel de 62 000 $, d’une assurance maladie et d’une allocation de formation professionnelle de 1 500 $ par an. Comme indiqué lors de votre entretien, les nouveaux concepteurs passent leurs trois premiers mois aux côtés d’un architecte confirmé avant de prendre en charge leurs propres projets.\n\nNous souhaiterions que vous commenciez le lundi 15 septembre. Si cette date ne vous convient pas, faites-le-moi savoir : nous disposons d’une certaine souplesse. Cette offre est subordonnée à la vérification de votre diplôme ; nous vous demandons donc d’apporter un relevé de notes officiel le jour de votre arrivée.\n\nPour accepter cette offre, veuillez signer l’exemplaire ci-joint de cette lettre et nous le renvoyer d’ici le 2 septembre. Nous nous réjouissons de vous accueillir dans l’équipe.\n\nVeuillez agréer, Madame, nos salutations distinguées.\n\nTheodora Wainwright\nResponsable administrative"
+      ],
+      "questions": [
+        {
+          "q": "What will Ms. Haddad do during her first three months?",
+          "opts": [
+            "Lead affordable housing projects",
+            "Prepare for a professional licensing exam",
+            "Interview candidates for the selection committee",
+            "Work closely with an experienced architect"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*New designers spend their first three months working alongside a senior architect* : elle travaillera auprès d’un architecte confirmé avant d’avoir ses propres projets. Le logement abordable est un thème de son portfolio, pas une mission à venir.",
+          "q_fr": "Que fera Mme Haddad pendant ses trois premiers mois ?"
+        },
+        {
+          "q": "What is indicated about the proposed start date?",
+          "opts": [
+            "It was suggested by Ms. Haddad.",
+            "It can be changed if necessary.",
+            "It depends on the result of an exam.",
+            "It is the deadline for returning the letter."
+          ],
+          "ans": "B",
+          "type": "vrai-faux",
+          "expl": "*If that date is not convenient, please let me know, as we have some flexibility* : la date peut être déplacée. L’offre dépend de la vérification du diplôme, pas d’un examen, et la lettre est à renvoyer le 2 septembre, pas le 15.",
+          "q_fr": "Qu’apprend-on sur la date de début proposée ?"
+        },
+        {
+          "q": "In the letter, the word “contingent” in paragraph 3 is closest in meaning to",
+          "opts": [
+            "accidental",
+            "possible",
+            "conditional",
+            "unpredictable"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*Contingent upon* : subordonné à, sous réserve de ; l’offre est conditionnelle. *Accidental* (fortuit), *possible* et *unpredictable* (imprévisible) rendent d’autres sens de l’adjectif, qui ne se construisent pas avec *upon*.",
+          "q_fr": "Dans la lettre, le mot *contingent*, au paragraphe 3, a le sens le plus proche de"
+        },
+        {
+          "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? “They were unanimous in recommending you for the role.”",
+          "opts": [
+            "[1]",
+            "[2]",
+            "[3]",
+            "[4]"
+          ],
+          "ans": "A",
+          "type": "insertion",
+          "expl": "*They* renvoie à *our partners*, à la fin de la phrase qui précède [1], et la phrase suivante prolonge l’éloge (*impressed everyone on the selection committee*). Aux autres positions, *they* désignerait des avantages ou des dates, ce qui n’a pas de sens.",
+          "q_fr": "À laquelle des positions [1], [2], [3] et [4] la phrase suivante s’insère-t-elle le mieux ? « Ils ont été unanimes à vous recommander pour ce poste. »"
+        }
+      ]
+    },
+    {
+      "id": "7a-017",
+      "docs": [
+        {
+          "kind": "discussion en ligne",
+          "title": null,
+          "text": "Hiroshi Tanabe (3:31 P.M.): Quick update on the customer survey: we’ve had 412 responses so far, but we were hoping for at least 600 by Friday.\nAdaeze Nwosu (3:33 P.M.): Has the reminder e-mail gone out yet?\nHiroshi Tanabe (3:34 P.M.): It went out on Monday. Most of the responses came in within an hour of it.\nMateo Ruiz (3:36 P.M.): What if we extended the deadline by a week and offered a small incentive, like a discount code for everyone who completes it?\nAdaeze Nwosu (3:38 P.M.): I like the incentive, but the extension is out of my hands. Ms. Brandt needs the results for her presentation to the board.\nHiroshi Tanabe (3:39 P.M.): Her presentation isn’t until the 22nd, though. If we close the survey on Tuesday instead of Friday, I can still have the figures ready two days later.\nAdaeze Nwosu (3:41 P.M.): OK, I’ll ask her this afternoon. Mateo, could you check with the sales team on how big a discount we could offer?\nMateo Ruiz (3:42 P.M.): On it.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Hiroshi Tanabe (15 h 31) : Petit point sur l’enquête clients : nous avons reçu 412 réponses pour l’instant, mais nous espérions en avoir au moins 600 d’ici vendredi.\nAdaeze Nwosu (15 h 33) : Le courriel de relance est-il parti ?\nHiroshi Tanabe (15 h 34) : Il est parti lundi. La plupart des réponses sont arrivées dans l’heure qui a suivi.\nMateo Ruiz (15 h 36) : Et si on prolongeait l’enquête d’une semaine en offrant une petite contrepartie, comme un code de réduction pour tous ceux qui la remplissent ?\nAdaeze Nwosu (15 h 38) : J’aime l’idée de la contrepartie, mais la prolongation ne dépend pas de moi. Mme Brandt a besoin des résultats pour sa présentation au conseil d’administration.\nHiroshi Tanabe (15 h 39) : Sa présentation n’a lieu que le 22, pourtant. Si on clôt l’enquête mardi au lieu de vendredi, je peux quand même avoir les chiffres prêts deux jours plus tard.\nAdaeze Nwosu (15 h 41) : D’accord, je lui pose la question cet après-midi. Mateo, tu peux voir avec l’équipe commerciale quelle réduction on pourrait proposer ?\nMateo Ruiz (15 h 42) : Je m’en occupe."
+      ],
+      "questions": [
+        {
+          "q": "What are the writers mainly discussing?",
+          "opts": [
+            "A reminder e-mail sent to the wrong customers",
+            "A survey that has not received enough replies",
+            "A board presentation that has been canceled",
+            "A discount code that is not working"
+          ],
+          "ans": "B",
+          "type": "idee",
+          "expl": "412 réponses au lieu des 600 espérées : tout l’échange cherche comment en obtenir plus. Le code de réduction n’existe pas encore, c’est une idée de Mateo, et la présentation au conseil est maintenue.",
+          "q_fr": "De quoi les participants parlent-ils surtout ?"
+        },
+        {
+          "q": "At 3:38 P.M., what does Ms. Nwosu mean when she writes, “the extension is out of my hands”?",
+          "opts": [
+            "She has already approved a longer deadline.",
+            "She has given the survey to a colleague.",
+            "She thinks a week is too long.",
+            "She is not the person who can decide on it."
+          ],
+          "ans": "D",
+          "type": "intention",
+          "expl": "La décision revient à Mme Brandt, qui attend les résultats : Mme Nwosu ne peut pas trancher, et elle propose d’ailleurs de lui poser la question. (B) prend *out of my hands* au sens propre.",
+          "q_fr": "À 15 h 38, que veut dire Mme Nwosu quand elle écrit « la prolongation ne dépend pas de moi » ?"
+        },
+        {
+          "q": "What is suggested about the reminder e-mail?",
+          "opts": [
+            "It prompted many people to reply.",
+            "It offered a discount to customers.",
+            "It was written by Ms. Brandt.",
+            "It will be sent again on Friday."
+          ],
+          "ans": "A",
+          "type": "inference",
+          "expl": "*Most of the responses came in within an hour of it* : la plupart des réponses sont arrivées juste après, la relance a donc bien fonctionné. Le code de réduction n’est qu’une proposition faite ensuite.",
+          "q_fr": "Que laisse entendre la discussion au sujet du courriel de relance ?"
+        },
+        {
+          "q": "What does Ms. Nwosu ask Mr. Ruiz to do?",
+          "opts": [
+            "Close the survey on Tuesday",
+            "Prepare figures for Ms. Brandt",
+            "Consult colleagues about a discount",
+            "Send a second reminder to all customers"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*Could you check with the sales team on how big a discount we could offer?* : se renseigner sur la réduction possible. Les chiffres et la date de clôture, c’est Hiroshi qui les évoque.",
+          "q_fr": "Que demande Mme Nwosu à M. Ruiz ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-018",
+      "docs": [
+        {
+          "kind": "annonce",
+          "title": "Position Available: Bilingual Client Coordinator",
+          "text": "Verity Shipping Solutions, a freight forwarding company serving importers across North America, is seeking a client coordinator to join the customs services team at its Port Calder office. The successful candidate will act as the main point of contact for French-speaking clients, track shipments through customs, and resolve problems with documentation before they cause delays.\n\nRequirements:\n- Fluency in English and French, both written and spoken\n- At least two years of experience in logistics, customs brokerage, or a related field\n- Strong attention to detail and the ability to manage several accounts at once\n\nExperience with our tracking software is an asset but not a requirement, as full training will be provided. The position is based in Port Calder, with the option of working from home two days a week after a six-month probationary period.\n\nTo apply, submit a résumé and a short cover letter describing your relevant experience through the Careers page of our website by June 30. Only candidates selected for an interview will be contacted.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Offre d’emploi : coordinateur clients bilingue (H/F)\n\nVerity Shipping Solutions, commissionnaire de transport au service d’importateurs dans toute l’Amérique du Nord, recherche un coordinateur clients pour rejoindre l’équipe des services douaniers de son agence de Port Calder. La personne retenue sera l’interlocuteur principal des clients francophones, suivra les expéditions lors du passage en douane et réglera les problèmes de documents avant qu’ils ne causent des retards.\n\nProfil recherché :\n- Maîtrise de l’anglais et du français, à l’écrit comme à l’oral\n- Au moins deux ans d’expérience dans la logistique, le courtage en douane ou un domaine voisin\n- Grande rigueur et capacité à gérer plusieurs comptes à la fois\n\nLa connaissance de notre logiciel de suivi est un atout mais n’est pas exigée, car une formation complète sera assurée. Le poste est basé à Port Calder, avec la possibilité de travailler de chez soi deux jours par semaine après une période d’essai de six mois.\n\nPour postuler, envoyez un CV et une courte lettre de motivation décrivant votre expérience utile via la page Carrières de notre site internet d’ici le 30 juin. Seuls les candidats retenus pour un entretien seront contactés."
+      ],
+      "questions": [
+        {
+          "q": "What is one of the responsibilities of the position?",
+          "opts": [
+            "Preventing delays caused by paperwork",
+            "Training new staff to use tracking software",
+            "Translating contracts and invoices into French",
+            "Negotiating shipping rates with importers"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*Resolve problems with documentation before they cause delays* : régler les problèmes de documents avant qu’ils ne retardent les envois. C’est le nouvel employé qui sera formé au logiciel (B), et parler français aux clients ne veut pas dire traduire des documents (C).",
+          "q_fr": "Quelle est l’une des missions du poste ?"
+        },
+        {
+          "q": "What is indicated about the position?",
+          "opts": [
+            "It requires prior experience with the company’s software.",
+            "It is offered on a temporary basis.",
+            "It may eventually include some remote work.",
+            "It involves traveling between several offices."
+          ],
+          "ans": "C",
+          "type": "vrai-faux",
+          "expl": "*With the option of working from home two days a week after a six-month probationary period* : du télétravail possible plus tard. Le logiciel est un plus, pas une exigence (*not a requirement*), et une période d’essai ne fait pas du poste un emploi temporaire.",
+          "q_fr": "Qu’apprend-on sur le poste ?"
+        },
+        {
+          "q": "In the job announcement, the word “asset” in paragraph 3 is closest in meaning to",
+          "opts": [
+            "property",
+            "advantage",
+            "possession",
+            "holding"
+          ],
+          "ans": "B",
+          "type": "vocab",
+          "expl": "*An asset but not a requirement* : un atout, un avantage, sans être exigé. *Property*, *possession* et *holding* rendent le sens financier de *asset* (un bien, un actif), qui ne convient pas à une expérience.",
+          "q_fr": "Dans l’annonce, le mot *asset*, au paragraphe 3, a le sens le plus proche de"
+        }
+      ]
+    },
+    {
+      "id": "7a-019",
+      "docs": [
+        {
+          "kind": "échange de textos",
+          "title": null,
+          "text": "Nadia Petrova (7:48 A.M.): Morning! The highway exit for the plant is closed for repairs, so I’m taking the long way around.\nSamuel Adeyemi (7:50 A.M.): Thanks for the heads-up. Do you think you’ll make the 8:30 inspection?\nNadia Petrova (7:51 A.M.): Not a chance. My GPS says 9:05 at the earliest.\nSamuel Adeyemi (7:53 A.M.): OK. The inspector is usually early, so I’ll start the walk-through with her, and you can join us in the packaging area.\nNadia Petrova (7:54 A.M.): Perfect. The batch records she’ll want to see are on my desk, in the blue folder.\nSamuel Adeyemi (7:55 A.M.): Got it. I’ll grab them before she arrives.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Nadia Petrova (7 h 48) : Bonjour ! La sortie d’autoroute pour l’usine est fermée pour travaux, alors je fais le grand tour.\nSamuel Adeyemi (7 h 50) : Merci de prévenir. Tu penses être là pour l’inspection de 8 h 30 ?\nNadia Petrova (7 h 51) : Aucune chance. Mon GPS indique 9 h 05 au plus tôt.\nSamuel Adeyemi (7 h 53) : D’accord. L’inspectrice est généralement en avance, donc je commence la visite avec elle, et tu nous rejoindras à la zone d’emballage.\nNadia Petrova (7 h 54) : Parfait. Les dossiers de lots qu’elle voudra voir sont sur mon bureau, dans la chemise bleue.\nSamuel Adeyemi (7 h 55) : Compris. Je les récupère avant qu’elle arrive."
+      ],
+      "questions": [
+        {
+          "q": "At 7:51 A.M., what does Ms. Petrova most likely mean when she writes, “Not a chance”?",
+          "opts": [
+            "She will be late for the inspection.",
+            "She thinks the inspection will be canceled.",
+            "She refuses to take a longer route.",
+            "She disagrees with Mr. Adeyemi’s suggestion."
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Elle répond à *Do you think you’ll make the 8:30 inspection?* : son GPS annonce 9 h 05 au plus tôt, elle n’arrivera pas à temps. M. Adeyemi n’a encore rien proposé à 7 h 51, ce qui écarte (D).",
+          "q_fr": "À 7 h 51, que veut probablement dire Mme Petrova quand elle écrit « Aucune chance » ?"
+        },
+        {
+          "q": "What does Mr. Adeyemi say he will do?",
+          "opts": [
+            "Wait for Ms. Petrova in the packaging area",
+            "Begin the tour before Ms. Petrova arrives",
+            "Ask the inspector to return at 9:05 instead",
+            "Pick up Ms. Petrova at the highway exit"
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*I’ll start the walk-through with her, and you can join us* : il commence la visite avec l’inspectrice sans attendre sa collègue. C’est elle qui les rejoindra à l’emballage (A), et 9 h 05 est son heure d’arrivée, pas un nouveau rendez-vous.",
+          "q_fr": "Que dit M. Adeyemi qu’il va faire ?"
+        }
+      ]
+    },
+    {
+      "id": "7a-020",
+      "docs": [
+        {
+          "kind": "article",
+          "title": "Rural Broadband Project Nears Completion",
+          "text": "ELLERY COUNTY (September 9) — More than 3,000 households in the northern part of Ellery County will have access to high-speed internet by the end of the year, county officials announced on Monday. The project, which began eighteen months ago, is now roughly 80 percent complete. [1]\n\nUntil now, many residents of the area have relied on slow satellite connections or have had no home internet at all. [2] Local business owners say the lack of reliable service has made it difficult to process online orders or hold video calls with clients. “We’ve lost customers simply because we couldn’t answer e-mails quickly enough,” said Tobias Brennan, who runs a furniture workshop near the town of Harlow.\n\nThe project has been funded through a state grant, supplemented by a smaller contribution from the county’s own budget. [3] Crews have installed over 200 miles of fiber-optic cable, much of it on existing utility poles to avoid the cost of digging new trenches.\n\nOfficials acknowledged that the final phase may prove the most challenging. The remaining households are scattered across hilly terrain, where installation takes considerably longer. [4] Residents who wish to be connected are encouraged to sign up on the county’s website, as priority will be given to addresses that have already registered.",
+          "table": null
+        }
+      ],
+      "docs_fr": [
+        "Le projet de haut débit rural touche à sa fin\n\nCOMTÉ D’ELLERY (9 septembre) — Plus de 3 000 foyers du nord du comté d’Ellery auront accès à l’internet haut débit d’ici la fin de l’année, ont annoncé lundi les responsables du comté. Le projet, lancé il y a dix-huit mois, est aujourd’hui achevé à 80 % environ.\n\nJusqu’à présent, de nombreux habitants du secteur dépendaient de connexions par satellite lentes, ou n’avaient pas d’internet du tout chez eux. Certaines familles ont dû aller en voiture jusqu’à la bibliothèque municipale de Harlow simplement pour télécharger des documents. Les chefs d’entreprise locaux affirment que l’absence de service fiable leur compliquait le traitement des commandes en ligne et les visioconférences avec leurs clients. « Nous avons perdu des clients simplement parce que nous ne pouvions pas répondre assez vite aux courriels », explique Tobias Brennan, qui dirige un atelier de meubles près de la ville de Harlow.\n\nLe projet a été financé par une subvention de l’État, complétée par une contribution plus modeste prise sur le budget du comté. Les équipes ont installé plus de 200 miles (environ 320 kilomètres) de câble à fibre optique, en grande partie sur des poteaux existants, afin d’éviter le coût du creusement de nouvelles tranchées.\n\nLes responsables reconnaissent que la dernière phase pourrait être la plus difficile. Les foyers restants sont dispersés sur un terrain vallonné, où l’installation prend beaucoup plus de temps. Les habitants qui souhaitent être raccordés sont invités à s’inscrire sur le site internet du comté, car les adresses déjà inscrites seront prioritaires."
+      ],
+      "questions": [
+        {
+          "q": "How has the project mainly been paid for?",
+          "opts": [
+            "By a private telecommunications company",
+            "Through a new tax on local businesses",
+            "With money from the state",
+            "With fees paid by residents who registered"
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "*Funded through a state grant, supplemented by a smaller contribution from the county’s own budget* : la part du comté est plus petite, l’essentiel vient donc de la subvention de l’État. L’inscription des habitants donne une priorité, pas un paiement.",
+          "q_fr": "Comment le projet a-t-il été financé pour l’essentiel ?"
+        },
+        {
+          "q": "What is indicated about the cable installation?",
+          "opts": [
+            "It has already reached the hilly areas.",
+            "It required digging new trenches along roads.",
+            "It was delayed by bad weather.",
+            "It largely used poles that were already up."
+          ],
+          "ans": "D",
+          "type": "vrai-faux",
+          "expl": "*Much of it on existing utility poles to avoid the cost of digging new trenches* : on a utilisé les poteaux existants, justement pour ne pas creuser (B). Les zones vallonnées restent à raccorder (*the remaining households*).",
+          "q_fr": "Qu’apprend-on sur la pose des câbles ?"
+        },
+        {
+          "q": "In the article, the word “scattered” in paragraph 4 is closest in meaning to",
+          "opts": [
+            "spread out",
+            "occasional",
+            "broken up",
+            "tossed"
+          ],
+          "ans": "A",
+          "type": "vocab",
+          "expl": "*The remaining households are scattered across hilly terrain* : les foyers sont dispersés sur un terrain vallonné. *Occasional* correspond à *scattered showers* (averses éparses), *broken up* et *tossed* à d’autres emplois du verbe *scatter* (disperser une foule, éparpiller).",
+          "q_fr": "Dans l’article, le mot *scattered*, au paragraphe 4, a le sens le plus proche de"
+        },
+        {
+          "q": "In which of the positions marked [1], [2], [3], and [4] does the following sentence best belong? “Some families have had to drive to the public library in Harlow just to download documents.”",
+          "opts": [
+            "[1]",
+            "[2]",
+            "[3]",
+            "[4]"
+          ],
+          "ans": "B",
+          "type": "insertion",
+          "expl": "La phrase illustre ce qui précède [2] : sans internet à la maison (*no home internet at all*), il faut aller à la bibliothèque. Elle prépare aussi la phrase suivante sur les entreprises. Aux autres positions, il est question d’avancement, de financement ou de terrain.",
+          "q_fr": "À laquelle des positions [1], [2], [3] et [4] la phrase suivante s’insère-t-elle le mieux ? « Certaines familles ont dû aller en voiture jusqu’à la bibliothèque municipale de Harlow simplement pour télécharger des documents. »"
+        }
+      ]
+    }
+  ]
+}

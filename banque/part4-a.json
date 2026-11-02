@@ -1,0 +1,1715 @@
+{
+  "sets": [
+    {
+      "id": "4a-001",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi, this is Renata Kowalczyk from Carrow Print Studio, calling for Mr. Osei about the brochures your firm ordered for next week’s trade fair."
+        ],
+        [
+          "W",
+          "I’m afraid the glossy paper you chose has just been discontinued by our supplier, and what we have left in stock would cover only about half of the order."
+        ],
+        [
+          "W",
+          "What we can offer instead is a matte paper of the same weight. Frankly, most of our clients think it looks more elegant, and it would actually bring your total down by about $60."
+        ],
+        [
+          "W",
+          "If you’d prefer to stay with glossy, we could print the rest on a similar paper from another mill, but I can’t promise that the two batches would match perfectly."
+        ],
+        [
+          "W",
+          "Either way, I’ll need your decision by Wednesday at noon to have everything ready before the fair opens on Monday."
+        ],
+        [
+          "W",
+          "I put samples of both papers in the mail this morning, so you should have them tomorrow. Thanks, and talk to you soon."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, ici Renata Kowalczyk, de Carrow Print Studio. Je souhaitais joindre M. Osei au sujet des brochures que votre société a commandées pour le salon de la semaine prochaine.",
+        "Je suis désolée, mais notre fournisseur vient d’arrêter le papier glacé que vous aviez choisi, et ce qui nous reste en stock ne couvrirait qu’environ la moitié de la commande.",
+        "Nous pouvons vous proposer à la place un papier mat de même grammage. Franchement, la plupart de nos clients le trouvent plus élégant, et il ferait même baisser votre total d’environ 60 dollars.",
+        "Si vous préférez garder le papier glacé, nous pourrions imprimer le reste sur un papier semblable d’une autre papeterie, mais je ne peux pas vous garantir que les deux lots seront parfaitement identiques.",
+        "Dans les deux cas, il me faut votre réponse mercredi midi au plus tard pour que tout soit prêt avant l’ouverture du salon lundi.",
+        "J’ai posté ce matin des échantillons des deux papiers, vous devriez donc les recevoir demain. Merci, et à bientôt."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why is the speaker calling?",
+          "opts": [
+            "To report that a product is no longer available",
+            "To confirm the dates of a trade fair",
+            "To request payment for the brochures before they are printed",
+            "To announce a change in a delivery address"
+          ],
+          "ans": "A",
+          "type": "sujet",
+          "expl": "Elle appelle parce que le papier choisi *has just been discontinued by our supplier* : il n’est plus disponible. Le salon (*trade fair*) et la commande de brochures sont cités, mais ce n’est pas l’objet de l’appel.",
+          "q_fr": "Pourquoi l’oratrice appelle-t-elle ?"
+        },
+        {
+          "q": "What does the speaker say about the matte paper?",
+          "opts": [
+            "It comes from another mill.",
+            "It is heavier than the glossy paper.",
+            "It has been discontinued by the supplier.",
+            "It would lower the cost of the order."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*It would actually bring your total down by about $60* : le papier mat ferait baisser la facture. Il est *of the same weight* (même grammage) ; l’autre papeterie (*another mill*) concerne la solution en papier glacé.",
+          "q_fr": "Que dit l’oratrice du papier mat ?"
+        },
+        {
+          "q": "What does the speaker ask the listener to do?",
+          "opts": [
+            "Make a choice before a deadline",
+            "Pick up samples at the print shop",
+            "Pay for half of the order in advance",
+            "Confirm the opening date of the fair"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "*Either way, I’ll need your decision by Wednesday at noon* : il doit choisir entre les deux solutions avant mercredi midi. Les échantillons arrivent par la poste, et *half of the order* concerne le stock restant.",
+          "q_fr": "Que demande l’oratrice à l’auditeur ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-002",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Attention, please. This is an announcement for passengers on Westmere Airlines Flight 682 to Lisbon."
+        ],
+        [
+          "M",
+          "During a routine inspection, our engineers found a problem with one of the aircraft’s cargo doors, so departure has been delayed by about ninety minutes, until 4:15 P.M."
+        ],
+        [
+          "M",
+          "The flight will now board from Gate C30 instead of Gate B12. Gate C30 is at the far end of the terminal, about a ten-minute walk, so please allow enough time."
+        ],
+        [
+          "M",
+          "We apologize for the inconvenience. Passengers may collect a $15 meal voucher from our service desk beside Gate C30. Simply show your boarding pass."
+        ],
+        [
+          "M",
+          "If you have a connecting flight in Lisbon that you are now likely to miss, there is no need to line up at the desk. Our agents are already rebooking those passengers, and new itineraries will be sent by text message within the hour."
+        ]
+      ],
+      "lines_fr": [
+        "Votre attention, s’il vous plaît. Ceci est une annonce pour les passagers du vol Westmere Airlines 682 à destination de Lisbonne.",
+        "Lors d’une inspection de routine, nos techniciens ont découvert un problème sur l’une des portes de soute de l’appareil : le départ est donc retardé d’environ quatre-vingt-dix minutes, jusqu’à 16 h 15.",
+        "L’embarquement se fera désormais porte C30 et non plus porte B12. La porte C30 se trouve tout au bout du terminal, à une dizaine de minutes à pied : prévoyez suffisamment de temps.",
+        "Nous vous prions de nous excuser pour ce désagrément. Les passagers peuvent retirer un bon repas de 15 dollars à notre comptoir de service, à côté de la porte C30, sur simple présentation de leur carte d’embarquement.",
+        "Si vous avez à Lisbonne une correspondance que vous risquez maintenant de manquer, inutile de faire la queue au comptoir. Nos agents sont déjà en train de vous trouver un autre vol, et les nouveaux itinéraires seront envoyés par SMS d’ici une heure."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why has the flight been delayed?",
+          "opts": [
+            "Some crew members have not arrived.",
+            "A mechanical problem was discovered.",
+            "The weather in Lisbon is poor.",
+            "The cargo has not been loaded yet."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*Our engineers found a problem with one of the aircraft’s cargo doors* : un problème technique sur l’avion. *Cargo* revient dans un distracteur, mais il s’agit de la porte de soute, pas du chargement.",
+          "q_fr": "Pourquoi le vol est-il retardé ?"
+        },
+        {
+          "q": "What does the speaker offer passengers?",
+          "opts": [
+            "A seat in a higher class",
+            "A ride to the new gate",
+            "Access to a private lounge",
+            "Credit to spend on a meal"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "*A $15 meal voucher* : un bon de 15 dollars pour se restaurer. La nouvelle porte est à dix minutes à pied (*a ten-minute walk*) : aucun transport n’est proposé.",
+          "q_fr": "Qu’est-ce que l’orateur offre aux passagers ?"
+        },
+        {
+          "q": "What are passengers with connecting flights told to do?",
+          "opts": [
+            "Line up at the service desk to get a new itinerary",
+            "Board before the other passengers",
+            "Wait for new travel details on their phones",
+            "Return to Gate B12"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*There is no need to line up at the desk* … *new itineraries will be sent by text message* : ils n’ont qu’à attendre leur nouvel itinéraire par SMS. Faire la queue au comptoir est justement ce qui est inutile.",
+          "q_fr": "Que demande-t-on aux passagers qui ont une correspondance ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-003",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "And now for local business news. Valmora Foods, the frozen-meal producer based here in Ridgefield, announced yesterday that it will open a second production site by the end of next year."
+        ],
+        [
+          "W",
+          "Rather than build from scratch, the company has bought the old Harmon textile mill on River Road, which has stood empty since 2015, and will convert it into a modern kitchen and packing facility."
+        ],
+        [
+          "W",
+          "According to chief executive Diane Fowler, the decision was driven by demand from overseas, where sales have doubled in two years."
+        ],
+        [
+          "W",
+          "The new plant is expected to create around two hundred jobs. That’s no small number for a town of twelve thousand."
+        ],
+        [
+          "W",
+          "Some residents have raised concerns about heavy trucks on River Road, which runs past two schools. In response, Valmora says all deliveries will use the industrial park entrance on the north side instead."
+        ]
+      ],
+      "lines_fr": [
+        "Passons à l’actualité économique locale. Valmora Foods, le fabricant de plats surgelés installé ici, à Ridgefield, a annoncé hier l’ouverture d’un deuxième site de production d’ici la fin de l’année prochaine.",
+        "Plutôt que de construire du neuf, l’entreprise a racheté l’ancienne usine textile Harmon, sur River Road, vide depuis 2015, qu’elle va transformer en cuisine et en atelier de conditionnement modernes.",
+        "Selon sa PDG, Diane Fowler, cette décision répond à la demande de l’étranger, où les ventes ont doublé en deux ans.",
+        "La nouvelle usine devrait créer environ deux cents emplois. Ce n’est pas rien pour une ville de douze mille habitants.",
+        "Des habitants s’inquiètent du passage de poids lourds sur River Road, qui longe deux écoles. En réponse, Valmora affirme que toutes les livraisons passeront plutôt par l’entrée de la zone industrielle, côté nord."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What does Valmora Foods plan to do?",
+          "opts": [
+            "Buy out a textile manufacturer based on River Road",
+            "Turn an unused building into a production site",
+            "Move its headquarters overseas",
+            "Close its original plant"
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "L’entreprise a acheté *the old Harmon textile mill*, vide depuis 2015, pour la transformer en site de production. Elle a acheté un bâtiment, pas une entreprise textile ; *overseas* concerne ses ventes à l’étranger.",
+          "q_fr": "Que prévoit de faire Valmora Foods ?"
+        },
+        {
+          "q": "Why does the speaker say, “That’s no small number for a town of twelve thousand”?",
+          "opts": [
+            "To stress how significant the project is for the area",
+            "To correct a figure she gave earlier",
+            "To suggest that the plant will have trouble hiring",
+            "To compare Ridgefield with larger cities"
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Deux cents emplois pour douze mille habitants, c’est beaucoup : elle souligne l’importance du projet pour la ville. Rien ne laisse penser que l’usine aura du mal à recruter.",
+          "q_fr": "Pourquoi l’oratrice dit-elle « Ce n’est pas rien pour une ville de douze mille habitants » ?"
+        },
+        {
+          "q": "How does the company plan to address residents’ concerns?",
+          "opts": [
+            "By limiting deliveries to weekends",
+            "By building a road away from the schools",
+            "By routing deliveries through a different entrance",
+            "By giving River Road residents priority for the new jobs"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*All deliveries will use the industrial park entrance on the north side instead* : les camions passeront par une autre entrée. Les écoles expliquent l’inquiétude ; aucune route nouvelle n’est prévue, et rien n’est dit d’une priorité d’embauche pour les riverains.",
+          "q_fr": "Comment l’entreprise compte-t-elle répondre aux inquiétudes des habitants ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-004",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Good morning. This is an announcement for passengers traveling to Kingsford."
+        ],
+        [
+          "M",
+          "Due to a signal failure just outside Ashby, the 10:20 service to Kingsford has been canceled. We apologize for the disruption."
+        ],
+        [
+          "M",
+          "Passengers holding tickets for that train may instead take the 10:50 service to Marlow Junction, which will make an extra stop at Kingsford this morning."
+        ],
+        [
+          "M",
+          "Please be aware that this train will have only four cars instead of the usual eight, so we ask all passengers to wait near the middle of the platform, where the train will stop."
+        ],
+        [
+          "M",
+          "Also, the café on the main concourse is closed this morning for cleaning. Hot drinks and snacks are available from the kiosk next to Platform 2. Thank you for your patience."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour. Voici une annonce à l’intention des voyageurs à destination de Kingsford.",
+        "En raison d’une panne de signalisation aux abords d’Ashby, le train de 10 h 20 pour Kingsford est supprimé. Nous vous prions de nous excuser pour la gêne occasionnée.",
+        "Les voyageurs munis d’un billet pour ce train peuvent prendre à la place le train de 10 h 50 pour Marlow Junction, qui marquera exceptionnellement l’arrêt à Kingsford ce matin.",
+        "Attention : ce train ne comptera que quatre voitures au lieu des huit habituelles ; nous demandons donc à tous les voyageurs d’attendre vers le milieu du quai, où le train s’arrêtera.",
+        "Par ailleurs, le café du hall principal est fermé ce matin pour nettoyage. Boissons chaudes et en-cas sont disponibles au kiosque situé à côté de la voie 2. Merci de votre patience."
+      ],
+      "graphic": {
+        "title": "Morning departures",
+        "rows": [
+          [
+            "Destination",
+            "Time",
+            "Platform"
+          ],
+          [
+            "Harlow Bay",
+            "10:05",
+            "3"
+          ],
+          [
+            "Kingsford",
+            "10:20",
+            "5"
+          ],
+          [
+            "Easton Hills",
+            "10:35",
+            "2"
+          ],
+          [
+            "Marlow Junction",
+            "10:50",
+            "7"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "Why has a train been canceled?",
+          "opts": [
+            "Because not enough staff are available this morning",
+            "Because a train needs cleaning",
+            "Because of heavy snow near Ashby",
+            "Because of an equipment fault on the line"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*A signal failure* : une panne de signalisation, donc un problème technique sur la ligne. Le nettoyage concerne le café, et Ashby n’est que l’endroit de la panne.",
+          "q_fr": "Pourquoi un train a-t-il été supprimé ?"
+        },
+        {
+          "q": "Look at the graphic. Which platform should passengers for Kingsford now go to?",
+          "opts": [
+            "Platform 2",
+            "Platform 3",
+            "Platform 5",
+            "Platform 7"
+          ],
+          "ans": "D",
+          "type": "graphique",
+          "expl": "Ils doivent prendre *the 10:50 service to Marlow Junction* ; d’après le tableau, ce train part de la voie 7. La voie 5 était celle du train supprimé, la voie 2 celle du kiosque.",
+          "q_fr": "Regardez le tableau. Sur quelle voie les voyageurs pour Kingsford doivent-ils désormais se rendre ?"
+        },
+        {
+          "q": "What are passengers asked to do?",
+          "opts": [
+            "Buy a new ticket for the 10:50 service to Marlow Junction",
+            "Board at the front of the train",
+            "Wait in a particular section of the platform",
+            "Pick up refreshments at the kiosk"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*We ask all passengers to wait near the middle of the platform* : le train, plus court, s’arrêtera au milieu du quai. Le billet d’origine reste valable, et le kiosque est seulement signalé.",
+          "q_fr": "Que demande-t-on aux voyageurs ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-005",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Good afternoon, and welcome to Fernhill Gardens. My name is Chloe, and I’ll be your guide for the next hour."
+        ],
+        [
+          "W",
+          "The gardens began in the 1880s as the private collection of a shipping merchant, who brought back seeds and cuttings from his voyages. His family donated the estate to the city in 1952."
+        ],
+        [
+          "W",
+          "Our first stop would normally be the Palm House, but its glass roof is being replaced this month, so we’ll admire it from the outside and head straight to the desert collection."
+        ],
+        [
+          "W",
+          "Please remember that the plants in the main beds must not be touched. Some are quite rare, and a few are mildly toxic."
+        ],
+        [
+          "W",
+          "The one exception is the sensory garden, near the end of our route. There, you’re welcome to touch, smell, and even taste some of the herbs, which are all clearly labeled."
+        ],
+        [
+          "W",
+          "All right, if everyone’s ready, let’s follow the path to the left."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour et bienvenue aux jardins de Fernhill. Je m’appelle Chloe et je serai votre guide pendant l’heure qui vient.",
+        "Les jardins sont nés dans les années 1880 : c’était la collection privée d’un négociant maritime, qui rapportait graines et boutures de ses voyages. Sa famille a fait don du domaine à la ville en 1952.",
+        "Normalement, nous commencerions par la serre aux palmiers, mais on remplace son toit de verre ce mois-ci : nous l’admirerons donc de l’extérieur avant d’aller directement à la collection de plantes du désert.",
+        "N’oubliez pas qu’il ne faut pas toucher aux plantes des massifs principaux. Certaines sont très rares, et quelques-unes légèrement toxiques.",
+        "Seule exception : le jardin des sens, vers la fin du parcours. Là, vous pouvez toucher, sentir et même goûter certaines herbes aromatiques, toutes clairement étiquetées.",
+        "Bien, si tout le monde est prêt, suivons l’allée sur la gauche."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What does the speaker say about the history of the gardens?",
+          "opts": [
+            "They were once privately owned.",
+            "They were designed by a ship’s captain.",
+            "They started out as a seed company.",
+            "They were purchased by the city in the 1880s."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*The private collection of a shipping merchant* … *His family donated the estate to the city* : les jardins appartenaient à un particulier. La ville les a reçus en don en 1952, elle ne les a pas achetés dans les années 1880.",
+          "q_fr": "Que dit l’oratrice de l’histoire des jardins ?"
+        },
+        {
+          "q": "Why will the group not go inside the Palm House?",
+          "opts": [
+            "It is closed for a private event.",
+            "Its plants are too fragile for visitors.",
+            "Part of the structure is being renovated.",
+            "It is at the far end of the route."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*Its glass roof is being replaced this month* : on refait le toit, une partie du bâtiment. L’interdiction de toucher vise les plantes des massifs principaux (rares, parfois toxiques), pas la serre, et c’est le jardin des sens qui est en fin de parcours.",
+          "q_fr": "Pourquoi le groupe n’entrera-t-il pas dans la serre aux palmiers ?"
+        },
+        {
+          "q": "What are visitors allowed to do in the sensory garden?",
+          "opts": [
+            "Take cuttings home",
+            "Eat a picnic lunch",
+            "Pick flowers from the main beds",
+            "Sample some of the plants"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*You’re welcome to touch, smell, and even taste some of the herbs* : on peut goûter certaines plantes (*sample*). Les boutures (*cuttings*) viennent de l’histoire du négociant, pas des règles de la visite, et les plantes des massifs principaux ne doivent même pas être touchées.",
+          "q_fr": "Qu’ont le droit de faire les visiteurs dans le jardin des sens ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-006",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Before we wrap up, a quick word about the lobby renovation."
+        ],
+        [
+          "M",
+          "Starting Monday, the front desk will move to the business center on the mezzanine for about three weeks. Guests won’t find it on their own, so when someone arrives with luggage, please walk them up there rather than just pointing."
+        ],
+        [
+          "M",
+          "Now, I realize the mezzanine isn’t exactly spacious. But it was the only area close to both the main entrance and the elevators."
+        ],
+        [
+          "M",
+          "The contractors will only work from 9 A.M. to 5 P.M., so evening check-ins shouldn’t be disturbed by noise."
+        ],
+        [
+          "M",
+          "Finally, Dana in housekeeping has designed a small card with a map of the temporary layout. Please hand one to every guest who checks in during the renovation, and let me know if we run out."
+        ]
+      ],
+      "lines_fr": [
+        "Avant de terminer, un mot rapide sur la rénovation du hall.",
+        "À partir de lundi, la réception s’installera pour trois semaines environ dans le centre d’affaires, à la mezzanine. Les clients ne la trouveront pas seuls : quand quelqu’un arrive avec ses bagages, accompagnez-le là-haut au lieu de simplement lui montrer la direction.",
+        "Bon, je sais bien que la mezzanine n’est pas vraiment spacieuse. Mais c’était le seul espace proche à la fois de l’entrée principale et des ascenseurs.",
+        "Les entreprises de travaux n’interviendront que de 9 h à 17 h : les arrivées du soir ne devraient donc pas être gênées par le bruit.",
+        "Enfin, Dana, du service des étages, a conçu une petite carte avec un plan de l’aménagement provisoire. Remettez-en une à chaque client qui arrive pendant les travaux, et prévenez-moi s’il n’y en a plus."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Where do the listeners most likely work?",
+          "opts": [
+            "At a hotel",
+            "At a construction company",
+            "At a conference center",
+            "At a moving company"
+          ],
+          "ans": "A",
+          "type": "sujet",
+          "expl": "*Front desk*, *guests*, *check-ins*, *housekeeping* : on est dans un hôtel. Les entreprises de travaux (*contractors*) sont des intervenants extérieurs, et le *business center* n’est qu’une salle de l’hôtel.",
+          "q_fr": "Où travaillent sans doute les auditeurs ?"
+        },
+        {
+          "q": "Why does the speaker say, “I realize the mezzanine isn’t exactly spacious”?",
+          "opts": [
+            "To suggest moving the desk to another floor",
+            "To admit that a temporary solution has a drawback",
+            "To ask staff to keep luggage out of the area",
+            "To complain about the contractors’ work"
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "Il reconnaît que l’espace est petit, puis justifie ce choix (*But it was the only area close to…*) : il admet un inconvénient de la solution provisoire. Il ne propose aucun autre endroit.",
+          "q_fr": "Pourquoi l’orateur dit-il « je sais bien que la mezzanine n’est pas vraiment spacieuse » ?"
+        },
+        {
+          "q": "What are the listeners asked to give guests?",
+          "opts": [
+            "A discount on their stay",
+            "A schedule of the construction work",
+            "A key to the business center",
+            "A plan of the reorganized space"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "*A small card with a map of the temporary layout. Please hand one to every guest* : un plan de l’aménagement provisoire. Les horaires des travaux sont annoncés au personnel, pas distribués.",
+          "q_fr": "Que demande-t-on aux auditeurs de remettre aux clients ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-007",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Tired of taking client calls in a noisy café, or working at your kitchen table with the laundry staring at you?"
+        ],
+        [
+          "W",
+          "At Harbor Loft Workspaces, you can rent a desk by the day, the week, or the month, and book a private meeting room by the hour whenever a client drops by."
+        ],
+        [
+          "W",
+          "High-speed internet, printing, and all the coffee you can drink are included in every plan."
+        ],
+        [
+          "W",
+          "Our third location opens on Fulton Avenue next month, and to celebrate, the first fifty people who sign up for a monthly plan will get their second month free."
+        ],
+        [
+          "W",
+          "And unlike many workspaces, we’ll never lock you into a long-term contract. You can cancel at any time with thirty days’ notice."
+        ],
+        [
+          "W",
+          "Visit our website today to book a free trial day at any of our locations."
+        ]
+      ],
+      "lines_fr": [
+        "Vous en avez assez de prendre les appels de vos clients dans un café bruyant, ou de travailler sur la table de la cuisine avec le linge qui vous attend ?",
+        "Chez Harbor Loft Workspaces, vous louez un bureau à la journée, à la semaine ou au mois, et vous réservez une salle de réunion privée à l’heure chaque fois qu’un client passe vous voir.",
+        "Internet à haut débit, impressions et café à volonté sont compris dans toutes les formules.",
+        "Notre troisième espace ouvre le mois prochain sur Fulton Avenue et, pour fêter ça, les cinquante premières personnes qui souscrivent une formule mensuelle auront leur deuxième mois offert.",
+        "Et contrairement à beaucoup d’espaces de travail, nous ne vous enfermons jamais dans un contrat de longue durée : vous pouvez résilier à tout moment avec un préavis de trente jours.",
+        "Rendez-vous dès aujourd’hui sur notre site pour réserver une journée d’essai gratuite dans l’un de nos espaces."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who is the advertisement most likely intended for?",
+          "opts": [
+            "Owners of cafés",
+            "Real estate agents",
+            "Companies looking for a new headquarters building",
+            "People without a suitable place to work"
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "Elle vise ceux qui travaillent *in a noisy café* ou *at your kitchen table* : des gens qui n’ont pas de vrai lieu de travail. Le café est l’endroit qu’on fuit, pas le public visé.",
+          "q_fr": "À qui s’adresse sans doute cette publicité ?"
+        },
+        {
+          "q": "What will the first fifty people to sign up for a monthly plan receive?",
+          "opts": [
+            "A month at no charge",
+            "A free trial day",
+            "Unlimited printing",
+            "A private meeting room"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*The first fifty people… will get their second month free* : un mois gratuit. La journée d’essai est offerte à tous, et l’impression est comprise dans toutes les formules.",
+          "q_fr": "Que recevront les cinquante premières personnes qui souscrivent une formule mensuelle ?"
+        },
+        {
+          "q": "According to the speaker, what makes the business different from many competitors?",
+          "opts": [
+            "It does not require a long commitment.",
+            "It has offices near the harbor.",
+            "It is open twenty-four hours a day.",
+            "It offers free coffee to visitors."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*Unlike many workspaces, we’ll never lock you into a long-term contract* : pas d’engagement de longue durée. *Harbor* n’est que le nom de l’entreprise, et le café est compris dans les formules, pas présenté comme une différence.",
+          "q_fr": "D’après l’oratrice, qu’est-ce qui distingue cette entreprise de beaucoup de ses concurrents ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-008",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Good afternoon, everyone, and welcome back. I hope you all enjoyed lunch."
+        ],
+        [
+          "M",
+          "Our next speaker, Dr. Amara Nwachukwu, spent twelve years designing water systems for hospitals before founding her own consultancy, which helps small towns reduce the energy used by their water treatment plants."
+        ],
+        [
+          "M",
+          "Her talk this afternoon looks at three towns that cut their electricity bills by a third without buying any new equipment."
+        ],
+        [
+          "M",
+          "The subject may sound technical, but I promise you won’t need an engineering degree to follow it."
+        ],
+        [
+          "M",
+          "Since we’re running about ten minutes behind schedule, Dr. Nwachukwu has kindly agreed to keep her talk to forty minutes and to answer questions at her stand in the exhibition hall during the afternoon break."
+        ],
+        [
+          "M",
+          "So please join me in giving her a warm welcome."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour à tous, et bon retour parmi nous. J’espère que vous avez bien déjeuné.",
+        "Notre prochaine intervenante, la docteure Amara Nwachukwu, a conçu pendant douze ans des réseaux d’eau pour des hôpitaux avant de fonder son propre cabinet de conseil, qui aide les petites villes à réduire l’énergie consommée par leurs stations de traitement des eaux.",
+        "Son exposé de cet après-midi porte sur trois villes qui ont réduit d’un tiers leur facture d’électricité sans acheter le moindre équipement nouveau.",
+        "Le sujet peut sembler technique, mais je vous promets qu’il n’est pas nécessaire d’être ingénieur pour suivre.",
+        "Comme nous avons une dizaine de minutes de retard, la docteure Nwachukwu a gentiment accepté de limiter son exposé à quarante minutes et de répondre aux questions à son stand, dans le hall d’exposition, pendant la pause de l’après-midi.",
+        "Je vous demande donc de lui réserver un accueil chaleureux."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What does Dr. Nwachukwu’s company do?",
+          "opts": [
+            "It builds hospitals in small towns.",
+            "It sells equipment to water treatment plants.",
+            "It helps municipalities use less energy.",
+            "It trains engineers in water management."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "Son cabinet *helps small towns reduce the energy used by their water treatment plants* : il aide des communes à consommer moins. Les hôpitaux concernent son ancien métier, et les villes ont économisé *without buying any new equipment*.",
+          "q_fr": "Que fait l’entreprise de la docteure Nwachukwu ?"
+        },
+        {
+          "q": "Why does the speaker say, “I promise you won’t need an engineering degree to follow it”?",
+          "opts": [
+            "To reassure the audience that the talk will be accessible",
+            "To point out that Dr. Nwachukwu has no technical background",
+            "To recommend an engineering course",
+            "To apologize for a delay in the program"
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Il vient de dire que le sujet *may sound technical* : il rassure le public, l’exposé sera compréhensible par tous. L’intervenante a au contraire un solide parcours technique, et le retard n’est évoqué qu’ensuite, sans lien avec cette phrase.",
+          "q_fr": "Pourquoi l’orateur dit-il « je vous promets qu’il n’est pas nécessaire d’être ingénieur pour suivre » ?"
+        },
+        {
+          "q": "What has Dr. Nwachukwu agreed to do?",
+          "opts": [
+            "Take questions in a different location",
+            "Give her talk after the afternoon break",
+            "Visit the treatment plants with attendees",
+            "Hand out copies of her slides"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "Elle répondra aux questions *at her stand in the exhibition hall during the afternoon break* : ailleurs que dans la salle. Les dix minutes de retard expliquent ce choix ; son exposé commence tout de suite, la pause ne sert qu’aux questions.",
+          "q_fr": "Qu’est-ce que la docteure Nwachukwu a accepté de faire ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-009",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Good morning. I’m Lena Morales, and here’s your weather for the Clearwater Valley."
+        ],
+        [
+          "W",
+          "If you’ve enjoyed this week’s sunshine, make the most of it today, because it’s the last we’ll see for a while."
+        ],
+        [
+          "W",
+          "A band of cool, damp air is moving in from the coast, bringing light rain at first and then some fairly severe storms, with strong gusts and possibly hail."
+        ],
+        [
+          "W",
+          "Because of that forecast, the organizers of the Riverside Food Festival have decided to move all of their cooking demonstrations into the convention center on the day the thunderstorms are expected. The rest of the festival will go ahead outdoors as planned."
+        ],
+        [
+          "W",
+          "Things should settle down after that, though it’ll stay cool and breezy. Stay with us: traffic and travel are coming up right after the break."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour. Lena Morales, avec la météo de la vallée de Clearwater.",
+        "Si vous avez apprécié le soleil de cette semaine, profitez-en bien aujourd’hui, car c’est le dernier avant un bon moment.",
+        "Une masse d’air frais et humide arrive de la côte : d’abord de petites pluies, puis des orages assez violents, avec de fortes rafales et peut-être de la grêle.",
+        "En raison de ces prévisions, les organisateurs du festival gastronomique de Riverside ont décidé de transférer toutes les démonstrations culinaires au palais des congrès le jour où les orages sont attendus. Le reste du festival se déroulera en plein air comme prévu.",
+        "Le temps devrait se calmer ensuite, même s’il restera frais et venté. Restez avec nous : le point circulation et transports, c’est juste après la pause."
+      ],
+      "graphic": {
+        "title": "Clearwater Valley: four-day forecast",
+        "rows": [
+          [
+            "Day",
+            "Forecast",
+            "High"
+          ],
+          [
+            "Thursday",
+            "Sunny",
+            "75°F"
+          ],
+          [
+            "Friday",
+            "Light rain",
+            "66°F"
+          ],
+          [
+            "Saturday",
+            "Thunderstorms",
+            "61°F"
+          ],
+          [
+            "Sunday",
+            "Cloudy and windy",
+            "59°F"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "What does the speaker say about today’s weather?",
+          "opts": [
+            "It will bring some light rain later in the afternoon.",
+            "It will be cooler than yesterday.",
+            "It will turn stormy by the evening.",
+            "It will be the last sunny day for some time."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Make the most of it today, because it’s the last we’ll see for a while* : aujourd’hui est le dernier jour de soleil avant longtemps. La pluie et les orages arrivent ensuite.",
+          "q_fr": "Que dit l’oratrice du temps d’aujourd’hui ?"
+        },
+        {
+          "q": "Look at the graphic. On which day will the cooking demonstrations be held indoors?",
+          "opts": [
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "ans": "C",
+          "type": "graphique",
+          "expl": "Les démonstrations iront à l’intérieur *on the day the thunderstorms are expected* ; d’après le tableau, les orages (*Thunderstorms*) sont prévus samedi. Vendredi, il n’y aura qu’une petite pluie.",
+          "q_fr": "Regardez le tableau. Quel jour les démonstrations culinaires auront-elles lieu à l’intérieur ?"
+        },
+        {
+          "q": "What will listeners hear after the break?",
+          "opts": [
+            "An interview with festival organizers",
+            "A report on road conditions",
+            "A list of cooking demonstrations",
+            "An update on business news"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "*Traffic and travel are coming up right after the break* : le point sur la circulation. Les organisateurs du festival sont seulement cités.",
+          "q_fr": "Qu’entendront les auditeurs après la pause ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-010",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "OK, everyone, for this next exercise, you’ll be working in pairs. One of you will play a purchasing manager for a chain of fitness centers, and the other a sales representative for an exercise equipment maker."
+        ],
+        [
+          "M",
+          "Your role card is in the envelope on your table: blue for buyers, green for sellers."
+        ],
+        [
+          "M",
+          "Please don’t show your card to your partner. The whole point is that each of you knows something the other doesn’t, just like in a real negotiation."
+        ],
+        [
+          "M",
+          "You’ll have fifteen minutes. When you hear the bell, stop wherever you are, even in the middle of a sentence, and write down the price and delivery terms you’ve agreed on, if any."
+        ],
+        [
+          "M",
+          "Then we’ll put everyone’s results up on the board and compare them. You may be surprised by how much they vary from one pair to the next."
+        ]
+      ],
+      "lines_fr": [
+        "Bien, pour l’exercice suivant, vous allez travailler en binômes. L’un de vous jouera le responsable des achats d’une chaîne de salles de sport, l’autre le commercial d’un fabricant d’appareils de fitness.",
+        "Votre fiche de rôle est dans l’enveloppe posée sur votre table : bleue pour les acheteurs, verte pour les vendeurs.",
+        "Ne montrez pas votre fiche à votre partenaire. Tout l’intérêt, c’est que chacun sache quelque chose que l’autre ignore, comme dans une vraie négociation.",
+        "Vous aurez quinze minutes. Quand vous entendrez la cloche, arrêtez-vous où que vous en soyez, même au milieu d’une phrase, et notez le prix et les conditions de livraison sur lesquels vous vous êtes mis d’accord, s’il y en a.",
+        "Ensuite, nous inscrirons les résultats de tout le monde au tableau pour les comparer. Vous serez peut-être surpris de voir à quel point ils varient d’un binôme à l’autre."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who most likely are the listeners?",
+          "opts": [
+            "Employees of a fitness center chain",
+            "Sales representatives at a trade show",
+            "Participants in a training session",
+            "Managers at an equipment factory"
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "Ils font un exercice (*this next exercise*) avec des rôles à jouer : ce sont des stagiaires en formation. Les salles de sport et le fabricant n’existent que dans le jeu de rôle.",
+          "q_fr": "Qui sont sans doute les auditeurs ?"
+        },
+        {
+          "q": "What are the listeners told not to do?",
+          "opts": [
+            "Swap roles halfway through",
+            "Write down the agreed terms",
+            "Leave their table before the bell",
+            "Let their partner see their role details"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "*Please don’t show your card to your partner* : la fiche de rôle contient leurs consignes. Noter le prix et les conditions est au contraire demandé à la fin.",
+          "q_fr": "Qu’est-ce qu’on demande aux auditeurs de ne pas faire ?"
+        },
+        {
+          "q": "What will happen after the exercise?",
+          "opts": [
+            "The participants will change partners.",
+            "New role cards will be handed out.",
+            "The outcomes of all the pairs will be compared.",
+            "A bell will ring to signal the start of a short break."
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*We’ll put everyone’s results up on the board and compare them* : on comparera les résultats de tous les binômes. La cloche marque la fin de l’exercice, pas une pause.",
+          "q_fr": "Que se passera-t-il après l’exercice ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-011",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Good evening, shoppers, and thank you for choosing Larkfield Market. We have a few announcements."
+        ],
+        [
+          "W",
+          "Just a reminder that the store will close at 9 P.M. tonight, an hour earlier than usual, so that our staff can carry out our annual inventory count."
+        ],
+        [
+          "W",
+          "If you’ve ordered a cake for tomorrow’s holiday, please remember to pick it up at the bakery counter before 8:30, since the bakery will be closed all day tomorrow."
+        ],
+        [
+          "W",
+          "Also, our self-checkout machines are temporarily out of service, so please use the staffed registers. We’ve opened three extra ones this evening."
+        ],
+        [
+          "W",
+          "And if you haven’t tried our new ready-made salads yet, you’ll find them near the entrance, and they’ll be half price from 7 P.M. until closing."
+        ],
+        [
+          "W",
+          "Thank you, and enjoy the rest of your evening."
+        ]
+      ],
+      "lines_fr": [
+        "Bonsoir à tous et merci d’avoir choisi Larkfield Market. Nous avons quelques annonces à vous faire.",
+        "Nous vous rappelons que le magasin fermera ce soir à 21 h, une heure plus tôt que d’habitude, pour permettre à notre personnel d’effectuer l’inventaire annuel.",
+        "Si vous avez commandé un gâteau pour le jour férié de demain, pensez à le retirer au comptoir de la boulangerie avant 20 h 30, car la boulangerie sera fermée toute la journée demain.",
+        "Par ailleurs, nos caisses automatiques sont momentanément hors service : merci d’utiliser les caisses avec caissier. Nous en avons ouvert trois de plus ce soir.",
+        "Et si vous n’avez pas encore goûté nos nouvelles salades prêtes à manger, vous les trouverez près de l’entrée ; elles seront à moitié prix de 19 h jusqu’à la fermeture.",
+        "Merci, et bonne fin de soirée."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why will the store close early tonight?",
+          "opts": [
+            "Employees will be counting the stock.",
+            "A holiday begins tomorrow.",
+            "Some machines need to be repaired.",
+            "The bakery is being renovated."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*So that our staff can carry out our annual inventory count* : le personnel fera l’inventaire. Le jour férié explique la fermeture de la boulangerie demain, pas celle du magasin ce soir.",
+          "q_fr": "Pourquoi le magasin fermera-t-il plus tôt ce soir ?"
+        },
+        {
+          "q": "Why does the speaker say, “We’ve opened three extra ones this evening”?",
+          "opts": [
+            "To announce that new employees have been hired",
+            "To reassure customers that they will not wait long",
+            "To explain why the store is closing early",
+            "To encourage customers to use the self-checkout machines"
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "Les caisses automatiques sont en panne ; ouvrir trois caisses de plus évitera de longues files : elle rassure les clients. Les caisses automatiques sont justement hors service.",
+          "q_fr": "Pourquoi l’oratrice dit-elle « Nous en avons ouvert trois de plus ce soir » ?"
+        },
+        {
+          "q": "What does the speaker say about the salads?",
+          "opts": [
+            "They are made at the bakery counter.",
+            "They are displayed beside the registers.",
+            "They will be discounted later in the evening.",
+            "They have sold out for today."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*They’ll be half price from 7 P.M. until closing* : elles seront moins chères plus tard dans la soirée. Elles se trouvent *near the entrance*, pas près des caisses.",
+          "q_fr": "Que dit l’oratrice des salades ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-012",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "It’s 7:40, and this is Rafael Ortiz with your morning traffic update."
+        ],
+        [
+          "M",
+          "If you’re heading downtown on Route 9, expect delays of up to forty minutes. A truck lost part of its load near the Maple Street exit, and two of the three lanes are closed while crews clear hundreds of crates of oranges off the road."
+        ],
+        [
+          "M",
+          "Your best bet is to take the riverside road instead, which is moving well at the moment."
+        ],
+        [
+          "M",
+          "There’s better news about the Harlan Bridge, which reopens this morning after four months of repairs, three weeks ahead of schedule. For now, though, it’s open to cars only. Trucks will have to wait until next month."
+        ],
+        [
+          "M",
+          "And a reminder for the weekend: because of Saturday’s half marathon, the streets along the waterfront will be closed from 6 A.M. to noon. Plan accordingly."
+        ]
+      ],
+      "lines_fr": [
+        "Il est 7 h 40 ; Rafael Ortiz, avec le point circulation du matin.",
+        "Si vous allez vers le centre-ville par la route 9, attendez-vous à des retards pouvant atteindre quarante minutes. Un camion a perdu une partie de son chargement près de la sortie de Maple Street, et deux des trois voies sont fermées le temps que les équipes dégagent des centaines de cageots d’oranges.",
+        "Le mieux est de prendre plutôt la route qui longe la rivière, où ça roule bien pour le moment.",
+        "Meilleure nouvelle pour le pont Harlan, qui rouvre ce matin après quatre mois de travaux, avec trois semaines d’avance. Pour l’instant, il n’est toutefois ouvert qu’aux voitures : les camions devront attendre le mois prochain.",
+        "Et un rappel pour le week-end : en raison du semi-marathon de samedi, les rues du front de mer seront fermées de 6 h à midi. Organisez-vous en conséquence."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What has caused the delays on Route 9?",
+          "opts": [
+            "A bridge is under repair.",
+            "A traffic light has stopped working.",
+            "A race is being held downtown.",
+            "Goods fell from a vehicle."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*A truck lost part of its load* : des marchandises sont tombées d’un camion. Le pont vient au contraire de rouvrir, et la course n’a lieu que samedi.",
+          "q_fr": "Qu’est-ce qui a causé les retards sur la route 9 ?"
+        },
+        {
+          "q": "What does the speaker say about the Harlan Bridge?",
+          "opts": [
+            "It is closed to private cars.",
+            "It will reopen next month.",
+            "It now has a lane reserved for trucks.",
+            "Its repairs were finished early."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Reopens this morning after four months of repairs, three weeks ahead of schedule* : les travaux ont fini en avance. *Next month* concerne seulement les camions, et le pont est ouvert aux voitures.",
+          "q_fr": "Que dit l’orateur du pont Harlan ?"
+        },
+        {
+          "q": "What does the speaker suggest listeners do on Saturday morning?",
+          "opts": [
+            "Leave forty minutes earlier than usual",
+            "Avoid driving near the waterfront",
+            "Watch the race from the bridge",
+            "Use Route 9 rather than the bridge"
+          ],
+          "ans": "B",
+          "type": "inference",
+          "expl": "Les rues du front de mer seront fermées de 6 h à midi, et il ajoute *Plan accordingly* : il sous-entend d’éviter ce secteur. Les quarante minutes de retard concernent l’accident de ce matin sur la route 9.",
+          "q_fr": "Que suggère l’orateur aux auditeurs pour samedi matin ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-013",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Good morning, everyone. This is Hana Sato from facilities with a few updates about meeting rooms."
+        ],
+        [
+          "W",
+          "As you know, the meeting rooms in the east wing close on Monday while a new air-conditioning system is installed, so for the next two weeks, all meetings will take place in the west wing."
+        ],
+        [
+          "W",
+          "Please note that rooms can no longer be reserved through reception. All bookings must now be made in the online calendar, and each one is limited to two hours, so that every team gets a fair share."
+        ],
+        [
+          "W",
+          "If you’re meeting with clients by video, be sure to choose a room with a camera."
+        ],
+        [
+          "W",
+          "As for our weekly sales meeting, which usually brings together about fifteen people in the room, plus our colleagues overseas by video, it will move to the only room that meets both requirements."
+        ],
+        [
+          "W",
+          "Thanks for your patience while the work is going on."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour à tous. Ici Hana Sato, des services généraux, avec quelques informations sur les salles de réunion.",
+        "Comme vous le savez, les salles de réunion de l’aile est ferment lundi, le temps d’installer une nouvelle climatisation : pendant deux semaines, toutes les réunions auront donc lieu dans l’aile ouest.",
+        "Attention : on ne peut plus réserver les salles par l’accueil. Toutes les réservations se font désormais dans l’agenda en ligne, et chacune est limitée à deux heures, pour que chaque équipe ait sa part.",
+        "Si vous avez une réunion en vidéo avec des clients, choisissez bien une salle équipée d’une caméra.",
+        "Quant à notre réunion commerciale hebdomadaire, qui rassemble en général une quinzaine de personnes dans la salle, plus nos collègues de l’étranger en vidéo, elle se tiendra dans la seule salle qui remplit ces deux conditions.",
+        "Merci de votre patience pendant les travaux."
+      ],
+      "graphic": {
+        "title": "West wing meeting rooms",
+        "rows": [
+          [
+            "Room",
+            "Seats",
+            "Equipment"
+          ],
+          [
+            "Birch",
+            "6",
+            "Screen"
+          ],
+          [
+            "Cedar",
+            "16",
+            "Screen, video camera"
+          ],
+          [
+            "Maple",
+            "20",
+            "Projector"
+          ],
+          [
+            "Willow",
+            "10",
+            "Video camera"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "Why will some meeting rooms be unavailable?",
+          "opts": [
+            "The furniture is being replaced.",
+            "A cooling system is being put in.",
+            "They are reserved for overseas visitors.",
+            "The east wing is being repainted."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*While a new air-conditioning system is installed* : on installe une climatisation. Les collègues de l’étranger participent en vidéo ; personne ne vient les occuper.",
+          "q_fr": "Pourquoi certaines salles de réunion seront-elles indisponibles ?"
+        },
+        {
+          "q": "What has changed about room reservations?",
+          "opts": [
+            "They need a manager’s approval.",
+            "They are handled by reception.",
+            "They can last up to four hours.",
+            "They must be made electronically."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*All bookings must now be made in the online calendar* : en ligne. Passer par l’accueil n’est justement plus possible, et une réservation dure deux heures au plus.",
+          "q_fr": "Qu’est-ce qui a changé pour la réservation des salles ?"
+        },
+        {
+          "q": "Look at the graphic. Where will the weekly sales meeting be held?",
+          "opts": [
+            "Birch",
+            "Cedar",
+            "Maple",
+            "Willow"
+          ],
+          "ans": "B",
+          "type": "graphique",
+          "expl": "Il faut une quinzaine de places et une caméra (*the only room that meets both requirements*) : seule Cedar (16 places, caméra) convient. Maple est assez grande mais sans caméra, Willow a une caméra mais seulement 10 places.",
+          "q_fr": "Regardez le tableau. Où se tiendra la réunion commerciale hebdomadaire ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-014",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Hi, Ms. Lindqvist, this is Paolo Esposito from Greystone Car Rental at Bellport Airport, calling about your reservation for this Friday."
+        ],
+        [
+          "M",
+          "I see that your flight is due to land at 11:40 P.M., and our counter closes at eleven. That won’t be a problem, though. We’ll leave the keys in a locked box next to the counter, and I’ll text you the code on Friday afternoon."
+        ],
+        [
+          "M",
+          "Also, the compact car you booked is still in the repair shop, so we’re giving you a midsize sedan at the same rate."
+        ],
+        [
+          "M",
+          "One more thing. You mentioned you’ll be driving up into the mountains, where snow is forecast this weekend. You might want to add our winter package, which includes snow tires and chains. It’s only $12 a day."
+        ],
+        [
+          "M",
+          "If you have any questions, you can reach me here until 6 P.M. today."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour madame Lindqvist, ici Paolo Esposito, de Greystone Car Rental, à l’aéroport de Bellport. Je vous appelle au sujet de votre réservation pour ce vendredi.",
+        "Je vois que votre vol doit atterrir à 23 h 40, et notre comptoir ferme à 23 h. Ce n’est pas un problème pour autant : nous laisserons les clés dans un boîtier verrouillé à côté du comptoir, et je vous enverrai le code par SMS vendredi après-midi.",
+        "Par ailleurs, la citadine que vous aviez réservée est toujours au garage : nous vous donnons donc une berline de taille moyenne au même tarif.",
+        "Encore une chose : vous m’avez dit que vous alliez monter en montagne, où de la neige est annoncée ce week-end. Vous pourriez ajouter notre forfait hiver, qui comprend pneus neige et chaînes. Ce n’est que 12 dollars par jour.",
+        "Si vous avez des questions, vous pouvez me joindre ici jusqu’à 18 h aujourd’hui."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What does the speaker say about the listener’s flight?",
+          "opts": [
+            "It lands after the rental counter closes.",
+            "It has been moved to Friday afternoon.",
+            "It may be delayed by snow.",
+            "It arrives at a different terminal."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Le vol atterrit à 23 h 40 et *our counter closes at eleven* : le comptoir sera déjà fermé. Vendredi après-midi, c’est l’heure de l’envoi du code, et la neige concerne la montagne.",
+          "q_fr": "Que dit l’orateur du vol de l’auditrice ?"
+        },
+        {
+          "q": "What will the speaker send the listener?",
+          "opts": [
+            "A map of the mountain roads",
+            "A code for retrieving the keys",
+            "An invoice for a repair",
+            "Photos of the replacement car"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "*We’ll leave the keys in a locked box… and I’ll text you the code* : le code du boîtier qui contient les clés. La réparation concerne la voiture réservée, pas une facture.",
+          "q_fr": "Qu’est-ce que l’orateur enverra à l’auditrice ?"
+        },
+        {
+          "q": "Why does the speaker say, “It’s only $12 a day”?",
+          "opts": [
+            "To explain the extra cost of the larger car the listener will get",
+            "To encourage the listener to purchase an optional extra",
+            "To point out an error on a bill",
+            "To compare his prices with a competitor’s"
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "Il vient de suggérer le forfait hiver (*You might want to add our winter package*) et souligne son prix modeste pour la convaincre. La berline plus grande est fournie *at the same rate*, sans supplément.",
+          "q_fr": "Pourquoi l’orateur dit-il « Ce n’est que 12 dollars par jour » ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-015",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Let’s move on to the last item on the agenda: the mentoring program."
+        ],
+        [
+          "W",
+          "Starting next month, every new employee will be paired with an experienced colleague from a different department for their first six months."
+        ],
+        [
+          "W",
+          "We tried this last year with the design team, and the people who joined then told us they felt at home in the company much sooner than they’d expected."
+        ],
+        [
+          "W",
+          "Mentors and their mentees will meet once every two weeks, and mentors can count that time as regular working hours."
+        ],
+        [
+          "W",
+          "We’re looking for twelve volunteers. If you’re interested, just add your name to the sign-up sheet on the shared drive by Friday."
+        ],
+        [
+          "W",
+          "And don’t worry if you’ve only been here a year or two. What matters most is that you know how things work around here and that you’re willing to listen."
+        ]
+      ],
+      "lines_fr": [
+        "Passons au dernier point de l’ordre du jour : le programme de mentorat.",
+        "À partir du mois prochain, chaque nouvel employé sera associé, pendant ses six premiers mois, à un collègue expérimenté d’un autre service.",
+        "Nous l’avons essayé l’an dernier avec l’équipe de design, et les personnes arrivées à ce moment-là nous ont dit s’être senties chez elles dans l’entreprise bien plus vite qu’elles ne le pensaient.",
+        "Mentors et mentorés se verront une fois tous les quinze jours, et les mentors pourront compter ce temps comme des heures de travail normales.",
+        "Nous cherchons douze volontaires. Si cela vous intéresse, inscrivez simplement votre nom sur la feuille d’inscription du dossier partagé d’ici vendredi.",
+        "Et ne vous inquiétez pas si vous n’êtes là que depuis un an ou deux. Ce qui compte surtout, c’est de savoir comment les choses fonctionnent ici et d’être prêt à écouter."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What is the speaker mainly discussing?",
+          "opts": [
+            "A reorganization of the design team",
+            "A change to working hours",
+            "A plan to help new staff settle in",
+            "The results of an employee survey"
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "Elle présente *the mentoring program* : chaque nouvel employé aura un collègue expérimenté pour l’aider à s’intégrer. L’équipe de design n’a servi qu’à l’essai.",
+          "q_fr": "De quoi l’oratrice parle-t-elle surtout ?"
+        },
+        {
+          "q": "What does the speaker imply about last year’s trial?",
+          "opts": [
+            "It included every department.",
+            "It produced encouraging results.",
+            "It lasted twelve months.",
+            "It required mentors to work extra hours."
+          ],
+          "ans": "B",
+          "type": "inference",
+          "expl": "Les nouveaux venus *felt at home in the company much sooner than they’d expected* : l’essai a donc bien marché, d’où son extension à toute l’entreprise. Il ne concernait que l’équipe de design, et le temps de mentorat compte comme du temps de travail.",
+          "q_fr": "Que laisse entendre l’oratrice à propos de l’essai de l’an dernier ?"
+        },
+        {
+          "q": "What are interested listeners asked to do?",
+          "opts": [
+            "Contact the design team",
+            "Meet with new employees every week",
+            "Upload a report to the shared drive",
+            "Register by the end of the week"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "*Add your name to the sign-up sheet on the shared drive by Friday* : s’inscrire d’ici vendredi. Le dossier partagé sert à l’inscription, pas à un rapport, et les rencontres ont lieu tous les quinze jours.",
+          "q_fr": "Que demande-t-on aux auditeurs intéressés ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-016",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Is your team skipping lunch to meet deadlines? Or ordering the same greasy takeout three times a week?"
+        ],
+        [
+          "M",
+          "Fennel Lane Kitchen delivers fresh, balanced lunches straight to your office, packed and labeled for each member of your team."
+        ],
+        [
+          "M",
+          "Every meal is cooked the same morning with vegetables from farms less than fifty miles away, so nothing ever sits in a freezer."
+        ],
+        [
+          "M",
+          "Choose the plan that fits your schedule, from one delivery a week to every working day. And this month only, any company that signs up for three deliveries a week will get twenty percent off for its first three months."
+        ],
+        [
+          "M",
+          "Our customers tell us their teams take proper breaks and come back to their desks with more energy."
+        ],
+        [
+          "M",
+          "Call us today or visit our website to see this week’s menu."
+        ]
+      ],
+      "lines_fr": [
+        "Votre équipe saute le déjeuner pour tenir les délais ? Ou commande trois fois par semaine les mêmes plats à emporter bien gras ?",
+        "Fennel Lane Kitchen livre des déjeuners frais et équilibrés directement à votre bureau, emballés et étiquetés au nom de chaque membre de l’équipe.",
+        "Chaque repas est cuisiné le matin même avec des légumes de fermes situées à moins de 50 miles (80 km environ) : rien ne passe jamais par le congélateur.",
+        "Choisissez la formule adaptée à votre emploi du temps, d’une livraison par semaine à tous les jours ouvrés. Et ce mois-ci seulement, toute entreprise qui souscrit à trois livraisons par semaine bénéficie de 20 % de réduction pendant ses trois premiers mois.",
+        "Nos clients nous disent que leurs équipes font de vraies pauses et reviennent à leur poste avec plus d’énergie.",
+        "Appelez-nous dès aujourd’hui ou consultez notre site pour découvrir le menu de la semaine."
+      ],
+      "graphic": {
+        "title": "Fennel Lane Kitchen: office lunch plans",
+        "rows": [
+          [
+            "Plan",
+            "Deliveries",
+            "Monthly price"
+          ],
+          [
+            "Starter",
+            "1 day a week",
+            "$90"
+          ],
+          [
+            "Team",
+            "3 days a week",
+            "$240"
+          ],
+          [
+            "Office",
+            "5 days a week",
+            "$380"
+          ],
+          [
+            "Office Plus",
+            "5 days a week + snacks",
+            "$450"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "What is being advertised?",
+          "opts": [
+            "A fast-food chain",
+            "A farm that sells vegetables online",
+            "A meal delivery service for workplaces",
+            "A catering service for weddings"
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "*Delivers fresh, balanced lunches straight to your office* : un service de repas livrés aux entreprises. Les plats gras à emporter (*greasy takeout*) sont ce qu’on veut remplacer, et les fermes ne sont que les fournisseurs.",
+          "q_fr": "Quel est l’objet de cette publicité ?"
+        },
+        {
+          "q": "What does the speaker emphasize about the meals?",
+          "opts": [
+            "They can be stored in a freezer.",
+            "They are cooked by local farmers.",
+            "They cost less than ordering takeout three times a week.",
+            "They are prepared on the day they are delivered."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Every meal is cooked the same morning* : ils sont préparés le jour même. *Nothing ever sits in a freezer* dit le contraire du premier distracteur, les fermiers fournissent seulement les légumes, et *three times a week* parle des plats à emporter, sans comparaison de prix.",
+          "q_fr": "Sur quoi l’orateur insiste-t-il à propos des repas ?"
+        },
+        {
+          "q": "Look at the graphic. What is the regular monthly price of the plan being promoted?",
+          "opts": [
+            "$90",
+            "$240",
+            "$380",
+            "$450"
+          ],
+          "ans": "B",
+          "type": "graphique",
+          "expl": "L’offre concerne *three deliveries a week* ; d’après le tableau, c’est la formule Team, à 240 dollars par mois avant la réduction de 20 %. Les autres prix correspondent à une ou cinq livraisons par semaine.",
+          "q_fr": "Regardez le tableau. Quel est le prix mensuel normal de la formule mise en avant ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-017",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Welcome to the Alder Street Theater. I’m Priya, and I’ll be taking you around the building this morning."
+        ],
+        [
+          "W",
+          "The theater opened in 1912, and it came very close to being torn down in the 1970s. It was saved only because a group of local residents raised enough money to buy it from the developers."
+        ],
+        [
+          "W",
+          "Today, it hosts around two hundred performances a year, from plays to jazz concerts."
+        ],
+        [
+          "W",
+          "Several of you asked at the ticket desk whether you can take pictures. In the auditorium and the lobby, absolutely. Backstage is another story."
+        ],
+        [
+          "W",
+          "The crew will be preparing for tonight’s show while we’re there, so please stay behind the yellow line and keep your voices down."
+        ],
+        [
+          "W",
+          "We’ll finish in the costume workshop, where you’ll see how the outfits for this season’s productions are designed and sewn by hand."
+        ]
+      ],
+      "lines_fr": [
+        "Bienvenue au théâtre d’Alder Street. Je m’appelle Priya et je vais vous faire visiter le bâtiment ce matin.",
+        "Le théâtre a ouvert en 1912 et a bien failli être démoli dans les années 1970. Il n’a été sauvé que parce qu’un groupe d’habitants du quartier a réuni assez d’argent pour le racheter aux promoteurs.",
+        "Aujourd’hui, il accueille environ deux cents spectacles par an, du théâtre aux concerts de jazz.",
+        "Plusieurs d’entre vous ont demandé à la billetterie si l’on peut prendre des photos. Dans la salle et dans le hall, bien sûr. Dans les coulisses, c’est une autre histoire.",
+        "L’équipe technique préparera le spectacle de ce soir pendant notre passage : restez derrière la ligne jaune et parlez à voix basse.",
+        "Nous terminerons par l’atelier des costumes, où vous verrez comment les tenues des spectacles de la saison sont dessinées et cousues à la main."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What does the speaker say about the theater’s history?",
+          "opts": [
+            "It was designed by a famous actor.",
+            "It was closed to the public throughout the 1970s.",
+            "It was bought by developers in 1912.",
+            "Local people prevented it from being demolished."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*It was saved only because a group of local residents raised enough money to buy it* : des habitants ont empêché sa démolition (*torn down*). Les promoteurs (*developers*) l’ont vendu dans les années 1970, ils ne l’ont pas acheté en 1912.",
+          "q_fr": "Que dit l’oratrice de l’histoire du théâtre ?"
+        },
+        {
+          "q": "Why does the speaker say, “Backstage is another story”?",
+          "opts": [
+            "To signal that photography is restricted in one area",
+            "To introduce an anecdote about a past performance",
+            "To explain that the backstage area has its own history",
+            "To suggest that the backstage visit costs extra"
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Elle répond à la question des photos : permises dans la salle et le hall, mais *another story* (tout autre chose) dans les coulisses, où l’équipe travaille. Le mot *story* n’annonce ici ni anecdote ni histoire du lieu.",
+          "q_fr": "Pourquoi l’oratrice dit-elle « Dans les coulisses, c’est une autre histoire » ?"
+        },
+        {
+          "q": "Where will the tour end?",
+          "opts": [
+            "In a room where clothing is made",
+            "At the ticket desk",
+            "On the stage during a rehearsal",
+            "In the theater’s gift shop"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*We’ll finish in the costume workshop, where… outfits… are designed and sewn by hand* : dans l’atelier où l’on fabrique les costumes. La billetterie n’est citée que pour les questions posées avant la visite.",
+          "q_fr": "Où la visite se terminera-t-elle ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-018",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "In business news this morning, the Port of Westhaven will begin operating around the clock starting in March, the port authority announced yesterday."
+        ],
+        [
+          "M",
+          "The decision follows months of complaints from importers, who say container ships have been anchored offshore for up to a week waiting for a berth."
+        ],
+        [
+          "M",
+          "To staff the additional shifts, the authority plans to hire three hundred workers and will hold a recruitment fair at Westhaven Community College on February twentieth."
+        ],
+        [
+          "M",
+          "However, the dockworkers’ union says it wants guarantees that employees on night shifts will be paid at a higher rate, and talks with the authority are scheduled for next week."
+        ],
+        [
+          "M",
+          "Analysts expect the longer hours to bring down the price of imported goods, though they caution that shoppers shouldn’t expect to notice a difference before the end of the year."
+        ]
+      ],
+      "lines_fr": [
+        "Dans l’actualité économique ce matin : le port de Westhaven fonctionnera vingt-quatre heures sur vingt-quatre à partir de mars, a annoncé hier l’autorité portuaire.",
+        "Cette décision fait suite à des mois de plaintes des importateurs, selon qui des porte-conteneurs restent jusqu’à une semaine au mouillage, au large, en attendant un poste à quai.",
+        "Pour assurer les équipes supplémentaires, l’autorité prévoit d’embaucher trois cents personnes et organisera un salon de recrutement à l’université communautaire de Westhaven le 20 février.",
+        "Le syndicat des dockers réclame toutefois l’assurance que les employés de nuit seront mieux payés, et des négociations avec l’autorité sont prévues la semaine prochaine.",
+        "Les analystes s’attendent à ce que l’allongement des horaires fasse baisser le prix des produits importés, tout en prévenant que les consommateurs ne devraient pas voir de différence avant la fin de l’année."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What did the port authority announce?",
+          "opts": [
+            "Higher fees for importers",
+            "A new terminal for container ships",
+            "An extension of the port’s operating hours",
+            "A partnership with Westhaven Community College"
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "*Will begin operating around the clock* : le port fonctionnera jour et nuit, ses horaires s’allongent. L’université n’accueille que le salon de recrutement.",
+          "q_fr": "Qu’a annoncé l’autorité portuaire ?"
+        },
+        {
+          "q": "What does the union want?",
+          "opts": [
+            "A shorter working week",
+            "Better pay for night work",
+            "Fewer new hires",
+            "A role in the recruitment fair"
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*Guarantees that employees on night shifts will be paid at a higher rate* : un meilleur salaire pour le travail de nuit. Le salon de recrutement est organisé par l’autorité portuaire.",
+          "q_fr": "Que veut le syndicat ?"
+        },
+        {
+          "q": "What do analysts suggest about consumer prices?",
+          "opts": [
+            "They will rise because of higher wages.",
+            "They will fall as soon as March.",
+            "Any decrease will take several months.",
+            "They depend on the outcome of the talks."
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "Les prix devraient baisser, mais *shoppers shouldn’t expect to notice a difference before the end of the year* : la baisse prendra des mois. Mars est la date du changement d’horaires, pas celle de la baisse.",
+          "q_fr": "Que laissent entendre les analystes sur les prix à la consommation ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-019",
+      "speakers": {
+        "W": "f"
+      },
+      "lines": [
+        [
+          "W",
+          "Good evening, everyone, and thank you for joining us for the Hollins County Business Awards."
+        ],
+        [
+          "W",
+          "It’s my pleasure to present this year’s Community Partner Award to Tomasz Brandt, owner of the Oak Lane Bakery."
+        ],
+        [
+          "W",
+          "For more than ten years, Tomasz has given every loaf of bread left unsold at closing time to the county’s shelters."
+        ],
+        [
+          "W",
+          "And last winter, when an ice storm cut the power across the county for three days, he kept his ovens running on a generator and fed the volunteers at the emergency center free of charge."
+        ],
+        [
+          "W",
+          "When we called to tell him he’d won, he asked whether we were sure we had dialed the right number."
+        ],
+        [
+          "W",
+          "Tomasz will say a few words, and then dinner will be served."
+        ]
+      ],
+      "lines_fr": [
+        "Bonsoir à tous, et merci d’être venus à la remise des prix des entreprises du comté de Hollins.",
+        "J’ai le plaisir de remettre cette année le prix du partenaire de la communauté à Tomasz Brandt, propriétaire de la boulangerie Oak Lane.",
+        "Depuis plus de dix ans, Tomasz donne aux foyers d’accueil du comté tout le pain resté invendu à la fermeture.",
+        "Et l’hiver dernier, quand une tempête de verglas a privé le comté d’électricité pendant trois jours, il a fait tourner ses fours grâce à un groupe électrogène et nourri gratuitement les bénévoles du centre d’urgence.",
+        "Quand nous l’avons appelé pour lui annoncer qu’il avait gagné, il nous a demandé si nous étions sûrs d’avoir composé le bon numéro.",
+        "Tomasz va dire quelques mots, puis le dîner sera servi."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What is the main purpose of the speech?",
+          "opts": [
+            "To announce the opening of a bakery",
+            "To thank volunteers at an emergency center",
+            "To honor a local business owner",
+            "To raise money for county shelters"
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "Elle remet *the Community Partner Award* au propriétaire d’une boulangerie : elle rend hommage à un commerçant du comté. Les foyers d’accueil et les bénévoles n’illustrent que ses actions.",
+          "q_fr": "Quel est le but principal de ce discours ?"
+        },
+        {
+          "q": "What did Mr. Brandt do during last winter’s storm?",
+          "opts": [
+            "He lent a generator to the emergency center.",
+            "He provided free food to volunteers.",
+            "He closed his bakery for three days.",
+            "He helped repair power lines."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "*He… fed the volunteers at the emergency center free of charge* : il a nourri gratuitement les bénévoles. Le groupe électrogène lui servait à faire tourner ses propres fours, et les trois jours sont la durée de la panne.",
+          "q_fr": "Qu’a fait M. Brandt pendant la tempête de l’hiver dernier ?"
+        },
+        {
+          "q": "Why does the speaker say, “he asked whether we were sure we had dialed the right number”?",
+          "opts": [
+            "To show that the winner is modest",
+            "To explain a mistake in the invitations",
+            "To suggest that the bakery is hard to contact",
+            "To apologize for calling him late"
+          ],
+          "ans": "A",
+          "type": "intention",
+          "expl": "Il ne croyait pas mériter le prix : l’anecdote montre sa modestie. Il n’y a eu aucune erreur de numéro.",
+          "q_fr": "Pourquoi l’oratrice dit-elle « il nous a demandé si nous étions sûrs d’avoir composé le bon numéro » ?"
+        }
+      ]
+    },
+    {
+      "id": "4a-020",
+      "speakers": {
+        "M": "m"
+      },
+      "lines": [
+        [
+          "M",
+          "Welcome to the knife skills class here at Bramwell Cooking School. Before anyone picks up a knife, let’s go over a few ground rules."
+        ],
+        [
+          "M",
+          "First, the knives at your stations were sharpened this morning. A sharp knife is actually safer than a dull one, but only if you treat it with respect."
+        ],
+        [
+          "M",
+          "Always cut away from your body, and if a knife slips out of your hand, don’t try to catch it. Just step back and let it fall."
+        ],
+        [
+          "M",
+          "Aprons are hanging on the hooks by the door, and please tie back long hair."
+        ],
+        [
+          "M",
+          "We’ll start with onions, so if your eyes begin to water, don’t be embarrassed. I’ve been doing this for twenty years, and it still happens to me."
+        ],
+        [
+          "M",
+          "At the end of the class, everything you’ve chopped will go into a vegetable soup that we’ll all eat together, so nothing goes to waste."
+        ]
+      ],
+      "lines_fr": [
+        "Bienvenue au cours de techniques de couteau de l’école de cuisine Bramwell. Avant que quiconque prenne un couteau, voyons quelques règles de base.",
+        "D’abord, les couteaux de vos postes ont été aiguisés ce matin. Un couteau bien affûté est en fait moins dangereux qu’un couteau émoussé, mais seulement si on le manie avec respect.",
+        "Coupez toujours en éloignant la lame de votre corps, et si un couteau vous échappe, n’essayez pas de le rattraper : reculez et laissez-le tomber.",
+        "Les tabliers sont accrochés près de la porte, et attachez les cheveux longs, s’il vous plaît.",
+        "Nous commencerons par les oignons : si vos yeux se mettent à pleurer, pas de gêne. Je fais ça depuis vingt ans, et ça m’arrive encore.",
+        "À la fin du cours, tout ce que vous aurez émincé ira dans une soupe de légumes que nous mangerons tous ensemble : rien ne se perd."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who most likely are the listeners?",
+          "opts": [
+            "Participants in a cooking lesson",
+            "Restaurant inspectors",
+            "Kitchen equipment salespeople",
+            "Vegetable farmers"
+          ],
+          "ans": "A",
+          "type": "sujet",
+          "expl": "*Welcome to the knife skills class here at Bramwell Cooking School* : ce sont les élèves d’un cours de cuisine. Les couteaux et les légumes ne sont que le matériel du cours.",
+          "q_fr": "Qui sont sans doute les auditeurs ?"
+        },
+        {
+          "q": "What should listeners do if a knife slips out of their hand?",
+          "opts": [
+            "Catch it by the handle",
+            "Report it to the instructor",
+            "Move away from it",
+            "Have it sharpened again"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*Don’t try to catch it. Just step back and let it fall* : il faut reculer. Rattraper le couteau est précisément ce qu’il interdit.",
+          "q_fr": "Que doivent faire les auditeurs si un couteau leur échappe ?"
+        },
+        {
+          "q": "Why does the speaker say, “I’ve been doing this for twenty years, and it still happens to me”?",
+          "opts": [
+            "To emphasize his professional qualifications",
+            "To put participants at ease about a normal reaction",
+            "To explain why he prefers other vegetables",
+            "To warn participants that the class will last a long time"
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "Il vient de dire *don’t be embarrassed* si les oignons font pleurer : même un cuisinier expérimenté y est sujet, c’est normal. Il ne cherche pas à mettre en avant son expérience.",
+          "q_fr": "Pourquoi l’orateur dit-il « Je fais ça depuis vingt ans, et ça m’arrive encore » ?"
+        }
+      ]
+    }
+  ]
+}

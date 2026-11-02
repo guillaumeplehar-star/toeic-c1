@@ -63,6 +63,20 @@ def words(s):
     return len(re.findall(r"[A-Za-z’']+(?:-[A-Za-z]+)*|\d[\d,.:]*", s))
 
 
+def longest(opts, ans):
+    """La bonne réponse est-elle strictement la plus longue ? (indice que le candidat apprendrait à suivre)"""
+    return all(len(opts[ans]) > len(o) for i, o in enumerate(opts) if i != ans)
+
+
+def long_line(st):
+    n = st.get("nlong", 0)
+    if not n:
+        return ""
+    share = 100 * st["long"] / n
+    chance = 100 / st.get("nopts", 4)
+    return "  | plus longue %d %%%s" % (share, " (TROP : hasard %d %%)" % chance if share > chance + 12 else "")
+
+
 def check_file(entry, errors, warnings, seen_ids, seen_words):
     kind, name = entry["type"], entry["fichier"]
     path = os.path.join(BANQUE, name)
@@ -138,6 +152,10 @@ def check_file(entry, errors, warnings, seen_ids, seen_words):
             opts = [r[x] for x in letters.lower()]
             if len({o.lower() for o in opts}) != len(opts):
                 err(n, "deux propositions identiques")
+            if r["reponse"] in letters:
+                stats["nlong"] = stats.get("nlong", 0) + 1
+                stats["long"] = stats.get("long", 0) + longest(opts, letters.index(r["reponse"]))
+                stats["nopts"] = len(letters)
             if kind == "part5":
                 if r["phrase"].count("-------") != 1 or "--------" in r["phrase"]:
                     err(n, "la phrase doit contenir un seul trou -------")
@@ -326,6 +344,9 @@ def check_sets(entry, errors, warnings, seen_ids):
                     err("question %d : astérisques sans paire dans %s" % (i, f))
             stats["rep"][q.get("ans")] += 1
             stats["tag"][q.get("type")] += 1
+            if isinstance(opts, list) and len(opts) == 4 and q.get("ans") in ("A", "B", "C", "D") and q.get("type") != "insertion":
+                stats["nlong"] = stats.get("nlong", 0) + 1
+                stats["long"] = stats.get("long", 0) + longest(opts, "ABCD".index(q["ans"]))
         stats["n"] += 1
         stats["q"] += len(qs)
     return stats
@@ -357,6 +378,7 @@ def verify(show_stats=False):
                 line += "  | " + ", ".join("%s %d" % kv for kv in st["tag"].most_common())
                 if st["lvl"]:
                     line += "  | " + ", ".join("%s %d" % kv for kv in sorted(st["lvl"].items()))
+                line += long_line(st)
             print(line)
             continue
         st = check_file(entry, errors, warnings, seen_ids, seen_words)
@@ -369,6 +391,7 @@ def verify(show_stats=False):
             line += "  | " + ", ".join("%s %d" % kv for kv in st["tag"].most_common())
             if st["lvl"]:
                 line += "  | " + ", ".join("%s %d" % kv for kv in sorted(st["lvl"].items()))
+            line += long_line(st)
         print(line)
     print("Total : %d mots ; questions : Part 2 %d, Part 3 %d, Part 4 %d, Part 5 %d, Part 6 %d, Part 7 %d." % (
         total["mots"], total["part2"], total["part3"], total["part4"], total["part5"], total["part6"], total["part7"]))

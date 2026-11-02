@@ -21,6 +21,18 @@ pas de personnes célèbres ; des prénoms et noms variés (anglophones, mais au
 - Le texte anglais est lu par une voix de synthèse : pas d'abréviation lue de travers (`sb`, `sth`, `e.g.`), écris
   les nombres et les heures comme on les lit naturellement (`3:30 P.M.`, `$450` vont bien).
 
+## Aucun indice hors du sens
+
+Le candidat ne doit pouvoir deviner la bonne réponse que par le sens. Sur un fichier :
+- les lettres des bonnes réponses sont équilibrées et sans régularité (pas chaque lettre une fois par lot, pas de
+  suite prévisible) ;
+- la bonne réponse **n'est pas plus souvent la plus longue** qu'au hasard (25 % avec quatre propositions, 33 % avec
+  trois) : les réponses indirectes ou paraphrasées sont souvent plus longues, il faut donc des distracteurs aussi
+  développés, et parfois une bonne réponse brève. `py outils\banque.py stats` affiche cette part (« plus longue ») et
+  signale un écart trop grand ;
+- la bonne réponse n'est pas la seule à reprendre un mot rare de la question, ni la seule à être nuancée (*usually*,
+  *some*) quand les autres sont absolues.
+
 ## Vocabulaire : `banque/mots-<thème>.tsv`
 
 En-tête :
