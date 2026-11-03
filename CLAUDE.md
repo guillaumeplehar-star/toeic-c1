@@ -113,9 +113,12 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   Score : `scaled(SCALE_L|SCALE_R, taux)` (interpolation, arrondi à 5, de 5 à 495 ; estimation, ETS ne publie pas ses
   tables), `cefr(CEFR_L|CEFR_R, score)` (seuils ETS : C1 = 490 en écoute, 455 en lecture).
 - **Voix** : `speech` (`load(last)` : voix anglaises par accent (`ACCENTS`, dont `autres` en dernier : irlandais,
-  indien…, absent de `DEFAULTS.accents` ; `regionOf`, `accentName`), voix écartées notées dans `speech.hidden`
-  (`odd` : `ODD_VOICES` ou Eloquence ; `twin` : version moins bonne d’une voix gardée), montrées au bas de « Voix une
-  par une » avec le nombre de voix anglaises que donne le navigateur ; sans `ODD_VOICES` ni voix Eloquence d’Apple, avec
+  indien…, absent de `DEFAULTS.accents` ; `regionOf`, `accentName`) ; toutes gardées et montrées dans « Voix une par
+  une » sous leur nom exact, mais `x.odd` (`voiceOdd` : `ODD_VOICES`, noms anglais et français, identifiant Eloquence
+  ou `com.apple.speech.synthesis.voice.*` hors vraies voix) et `x.twin` (version moins bonne d’une voix présente) sont
+  coupées d’office et jamais prises par `pool()` en secours ; `voicesReport`/`copyVoices` (« Copier la liste des
+  voix » : nom, langue, identifiant, locale ou en ligne, ce qu’en fait l’appli ; feuille à copier à la main si le
+  presse-papiers refuse) ; `speech.load()` aussi à l’ouverture de Réglages et au retour sur l’appli ; avec
   leur sexe `voiceSex`, leur nom court `voiceBase` et leur qualité `voiceTier` (1 standard, 2 améliorée ou Google,
   3 premium ou « Natural » d’Edge, `TIERS`) ; une seule version d’une même voix, la meilleure (sur iPhone, la version
   compacte et l’améliorée portent le même nom), locale à qualité égale ; `x.def` : allumée d’office, sauf une voix

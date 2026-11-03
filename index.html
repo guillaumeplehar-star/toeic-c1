@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "3 novembre 2026 à 18 h 16";
+const BUILD = "3 novembre 2026 à 18 h 42";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -460,8 +460,16 @@ const ACCENTS = [
   { id: "ca", nom: "Canadien", re: /^en[-_]CA/i },
   { id: "autres", nom: "Autres accents", re: /^en([-_]|$)/i },   // Irish, Indian, South African, Scottish…: not in the TOEIC, off at first
 ];
-// novelty and robotic voices of Apple devices: useless for listening practice
-const ODD_VOICES = /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Pipe Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley)\b/i;
+// novelty and robotic voices of Apple devices: useless for listening practice (their names in English and in French)
+const ODD_VOICES = /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Pipe Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley|Princess|Mauvaises nouvelles|Bonnes nouvelles|Cloches|Bulles|Violoncelles|Orgue|Chuchotement|Trinoïdes|Bouffon|Grand-mère|Grand-père|Hystérique|Dérangé|Princesse)(?![a-zà-ÿ])/i;
+// what Apple's identifiers say: Eloquence (Eddy, Flo, Reed…), and the old novelty voices (com.apple.speech.synthesis.voice.Bahh…),
+// except the real voices among them (Alex, Samantha, Victoria… on a Mac)
+function voiceOdd(v) {
+  const uri = v.voiceURI || "";
+  if (/eloquence/i.test(uri) || ODD_VOICES.test(v.name || "")) return true;
+  const m = /com\.apple\.speech\.synthesis\.voice\.([a-z]+)/i.exec(uri);
+  return !!m && !FEMALE_VOICES.test(m[1]) && !MALE_VOICES.test(m[1]);
+}
 const P6_SECONDS = 40;                             // C1 pace for a Part 6 question (16 questions in about 10 min)
 const P7_SECONDS = 60;                             // and for Part 7 (54 questions in about 55 min)
 const P34_WINDOW = 8000;                           // Parts 3-4 exam: time per question once the audio is over (+4 s with a graphic)
@@ -759,47 +767,51 @@ function applyGrade(id, ok) {
 const SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.8a4.5 4.5 0 0 1 0 6.4M18 6.3a8 8 0 0 1 0 11.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
 const speech = {
   ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function",
-  // {v, key (choice in Réglages), name, accent, sex: "f", "m" or null, tier (1 standard, 2 enhanced, 3 premium or
-  // natural), net (network voice), def (on unless the device has enough better voices)}
+  // every English voice of the device: {v, key (choice in Réglages), name (short), accent, lang, sex: "f", "m" or
+  // null, tier (1 standard, 2 enhanced, 3 premium or natural), net (network voice), odd (robotic or novelty), twin (a
+  // lesser version of a voice that is there too), def (on at first: neither odd nor twin, and not a standard voice
+  // when the device has enough better ones)}
   voices: [], rich: false,
-  hidden: [],                                      // English voices set aside: {name, lang, why: "odd" or "twin"}
   token: 0, timer: 0, btn: null, keep: [], loaded: false,
   load(last) {                                     // last: no more waiting, an empty list means no voice
     if (!this.ok) return;
     let vs = [];
     try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
-    const best = new Map(), hidden = [];
+    const out = [], best = new Map();
+    const id = x => String(x.lang).toLowerCase().replace("_", "-") + ":" + x.name.toLowerCase();
     for (const v of vs) {
       const A = ACCENTS.find(A => A.re.test(v.lang || ""));
       if (!A) continue;
-      if (ODD_VOICES.test(v.name) || /eloquence/i.test(v.voiceURI || "")) { hidden.push({ name: v.name, lang: v.lang, why: "odd" }); continue; }
-      const x = { v, key: v.voiceURI || v.name, name: voiceBase(v.name), accent: A.id, lang: v.lang, sex: voiceSex(v.name), tier: voiceTier(v), net: v.localService === false };
-      // a voice once only (iPhone: the compact and the enhanced versions have the same name): the most natural
-      // version, a local one at equal quality
-      const id = String(v.lang).toLowerCase().replace("_", "-") + ":" + x.name.toLowerCase(), y = best.get(id);
-      if (!y || x.tier > y.tier || (x.tier === y.tier && y.net && !x.net)) { best.set(id, x); if (y) hidden.push({ name: y.v.name, lang: y.lang, why: "twin", tier: y.tier }); }
-      else hidden.push({ name: v.name, lang: v.lang, why: "twin", tier: x.tier });
+      const x = { v, key: v.voiceURI || v.name, name: voiceBase(v.name), accent: A.id, lang: v.lang, sex: voiceSex(v.name),
+        tier: voiceTier(v), net: v.localService === false, odd: voiceOdd(v) };
+      out.push(x);
+      // iPhone: the compact and the enhanced versions of a voice have the same name; the most natural one is the
+      // voice, a local one at equal quality
+      const y = best.get(id(x));
+      if (!x.odd && (!y || x.tier > y.tier || (x.tier === y.tier && y.net && !x.net))) best.set(id(x), x);
     }
-    this.hidden = hidden;
+    for (const x of out) x.twin = !x.odd && best.get(id(x)) !== x;
     const order = x => ACCENTS.findIndex(A => A.id === x.accent);
-    const out = [...best.values()].sort((a, b) => order(a) - order(b) || b.tier - a.tier || a.name.localeCompare(b.name));
+    const rank = x => x.odd ? 2 : x.twin ? 1 : 0;
+    out.sort((a, b) => order(a) - order(b) || rank(a) - rank(b) || b.tier - a.tier || a.name.localeCompare(b.name));
     // standard voices are off at first when there are enough better ones, a woman's and a man's among them
-    const good = out.filter(x => x.tier > 1);
+    const good = out.filter(x => !x.odd && !x.twin && x.tier > 1);
     const rich = good.length >= 3 && good.some(x => x.sex === "f") && good.some(x => x.sex === "m");
-    for (const x of out) x.def = x.tier > 1 || !rich;
+    for (const x of out) x.def = !x.odd && !x.twin && (x.tier > 1 || !rich);
     const changed = out.map(x => x.key).join("\n") !== this.voices.map(x => x.key).join("\n") || ((vs.length || last) && !this.loaded);
     this.voices = out; this.rich = rich;
     if (vs.length || last) this.loaded = true;
     if (changed) voicesChanged();
   },
-  has() { return this.ok && this.voices.length > 0; },
+  has() { return this.ok && this.voices.some(x => !x.odd); },
   usable() {                                       // a network voice is silent offline
     const online = navigator.onLine !== false;
     return this.voices.filter(x => online || !x.net);
   },
-  pool() {
-    const allowed = state.settings.accents, u = this.usable(), mine = x => allowed.includes(x.accent);
-    for (const p of [u.filter(x => voiceOn(x) && mine(x)), u.filter(voiceOn), u.filter(mine), u, this.voices]) if (p.length) return p;
+  pool() {                                         // the voices on, of the accents chosen; otherwise, never a robotic one
+    const allowed = state.settings.accents, mine = x => allowed.includes(x.accent);
+    const u = this.usable(), on = u.filter(voiceOn), fine = u.filter(x => !x.odd);
+    for (const p of [on.filter(mine), on, fine.filter(mine), fine, this.voices.filter(x => !x.odd)]) if (p.length) return p;
     return [];
   },
   count(accent) { return this.voices.filter(x => x.accent === accent && voiceOn(x)).length; },
@@ -913,6 +925,28 @@ function castVoices(speakers) {
   }
   return cast;
 }
+// Réglages › Copier la liste des voix: what the browser gives, to find out why a voice is missing
+function voicesReport() {
+  let vs = [];
+  try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
+  const en = vs.filter(v => /^en/i.test(v.lang || "") || /[-_.]en[-_]/i.test(v.voiceURI || ""));
+  const mine = new Map(speech.voices.map(x => [x.v, x]));
+  return [`Cap 945, version du ${BUILD}`, navigator.userAgent, `${vs.length} voix en tout, dont ${en.length} anglaises :`,
+    ...en.map(v => {
+      const x = mine.get(v);
+      return [v.name, v.lang, v.voiceURI, v.localService === false ? "en ligne" : "locale",
+        x ? (x.odd ? "robotique" : x.twin ? "autre version" : TIERS[x.tier]) + (voiceOn(x) ? ", allumée" : ", coupée") : "ignorée"].join(" | ");
+    })].join("\n");
+}
+async function copyVoices() {
+  speech.load();
+  const text = voicesReport();
+  try { await navigator.clipboard.writeText(text); toast("Liste copiée : colle-la dans ton message."); }
+  catch (e) {
+    openSheet("Liste des voix", `<p class="small">Sélectionne tout le texte, puis copie-le.</p>` +
+      `<textarea readonly rows="14" style="width:100%;font-size:16px;font-family:inherit">${esc(text)}</textarea>`);
+  }
+}
 function voicesChanged() {
   if (current === "reglages") renderSettings();
   if (current === "ecoute") { const k = state.settings.listenPart; if (!$(`#${k}-home`).hidden) renderHome(k); }
@@ -924,6 +958,7 @@ function partOf(tab) { return tab === "lecture" ? state.settings.readPart : tab 
 function showView(v) {
   if ((current === "lecture" || current === "ecoute") && v !== current) suspend(partOf(current));
   if (v !== "mots") speech.stop();
+  if (v === "reglages") speech.load();             // voices that came late (Safari does not always say so)
   current = v;
   if (state.settings.view !== v) { state.settings.view = v; save(); }
   for (const t of $$(".tab")) t.setAttribute("aria-current", t.dataset.view === v ? "page" : "false");
@@ -2062,23 +2097,21 @@ function renderSettings() {
         switchHTML("data-acc", A.id, S.accents.includes(A.id), A.nom, !c) + `</div>`;
     }
     h += `</div><div class="field"><span class="lbl">Vitesse</span>${segHTML("rate", [[0.8, "Lente"], [0.9, "Posée"], [1, "Normale"], [1.1, "Rapide"]])}</div>`;
-    const seen = speech.voices.length + speech.hidden.length;
-    if (seen) {
-      h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une (${speech.voices.length})</summary><p class="small">Écoute chaque voix et coupe celles ` +
-        `qui sonnent mal.${speech.rich ? " Les voix standard sont coupées d’office : l’appareil en a de plus naturelles." : ""}</p><div class="box">`;
+    h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une (${speech.voices.length})</summary>`;
+    if (speech.voices.length) {
+      h += `<p class="small">Toutes les voix anglaises que le navigateur donne à l’appli. Écoute-les et coupe celles qui sonnent mal. ` +
+        `Coupées d’office${NB}: les voix robotiques ou fantaisie, la version de base d’une voix dont une version plus naturelle est là` +
+        `${speech.rich ? ", et les voix standard, car l’appareil en a de plus naturelles" : ""}.</p><div class="box">`;
       speech.voices.forEach((x, i) => {
-        const info = [accentName(x), x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "",
-          TIERS[x.tier], x.net ? "en ligne seulement" : ""].filter(Boolean).join(", ");
-        h += `<div class="switchrow"><div class="txt">${esc(x.name)}<small>${esc(info)}</small></div>` +
-          `<button type="button" class="btn small" data-hear="${i}">Écouter</button>${switchHTML("data-voice", i, voiceOn(x), x.name)}</div>`;
+        const info = [accentName(x), x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "", TIERS[x.tier],
+          x.net ? "en ligne seulement" : "", x.odd ? "robotique ou fantaisie" : "", x.twin ? "une version plus naturelle est là" : ""].filter(Boolean).join(", ");
+        h += `<div class="switchrow"><div class="txt">${esc(x.v.name)}<small>${esc(info)}</small></div>` +
+          `<button type="button" class="btn small" data-hear="${i}">Écouter</button>${switchHTML("data-voice", i, voiceOn(x), x.v.name)}</div>`;
       });
       h += `</div>`;
-      const odd = [...new Set(speech.hidden.filter(x => x.why === "odd").map(x => voiceBase(x.name)))].sort();
-      const twins = speech.hidden.filter(x => x.why === "twin").map(x => `${voiceBase(x.name)} (${TIERS[x.tier]})`);
-      h += `<p class="small">Le navigateur voit ${plural(seen, "voix anglaise", "voix anglaises")} sur cet appareil.` +
-        (twins.length ? ` Remplacées par leur version plus naturelle${NB}: ${esc(twins.join(", "))}.` : "") +
-        (odd.length ? ` Écartées, fantaisie ou robotiques${NB}: ${esc(odd.join(", "))}.` : "") + `</p></details>`;
-    }
+    } else h += `<p class="small">${speech.loaded ? "Le navigateur ne donne aucune voix anglaise à l’appli." : "Recherche des voix…"}</p>`;
+    h += `<p class="small">Il manque une voix${NB}? Copie la liste que voit l’appli et envoie-la${NB}: elle dit ce que l’appareil donne vraiment.</p>` +
+      `<div class="row"><button type="button" class="btn small" id="voices-copy">Copier la liste des voix</button></div></details>`;
     h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais : ` +
       `prends les versions « améliorée » ou « premium », bien plus naturelles. L’appli les préfère d’elle-même. Une voix qui vient d’être ` +
       `téléchargée n’apparaît qu’une fois l’appli fermée tout à fait (balaye-la vers le haut dans le sélecteur d’applis) puis rouverte. ` +
@@ -2524,7 +2557,7 @@ function bind() {
     }
     const tr = t.closest("[data-try]");
     if (tr) {
-      const all = speech.usable().filter(x => x.accent === tr.dataset.try), on = all.filter(voiceOn), vs = on.length ? on : all;
+      const all = speech.usable().filter(x => x.accent === tr.dataset.try && !x.odd), on = all.filter(voiceOn), vs = on.length ? on : all;
       const v = vs[Math.floor(Math.random() * vs.length)];
       if (v) speech.say(VOICE_SAMPLE, v.v, tr);
       return;
@@ -2545,7 +2578,8 @@ function bind() {
       else if (a === "stop") syncStop();
       return;
     }
-    if (t.closest("#backup-save")) exportBackup();
+    if (t.closest("#voices-copy")) copyVoices();
+    else if (t.closest("#backup-save")) exportBackup();
     else if (t.closest("#backup-load")) $("#backup-file").click();
     else if (t.closest("#app-update")) updateApp();
     else if (t.closest("#app-install") && installEvt) {
@@ -2610,6 +2644,7 @@ function onVisibility() {                          // the app in the background:
   const kind = partOf(current);
   if (document.hidden) { if (kind) suspend(kind); speech.stop(); if (syncPending()) syncNow(); return; }
   syncSoon(1000);
+  speech.load();
   if (kind && state.runs[kind] && live[kind].on && !$(`#${kind}-run`).hidden) show(kind);
   if (swReg && Date.now() - swChecked > 30 * 60e3) { swChecked = Date.now(); swReg.update().catch(() => {}); }
   if (current === "mots" && !vstudy.turned) vShow();

@@ -466,6 +466,8 @@ CHOSEN_VOICES = [
     ("Nora", "en-US", "com.apple.eloquence.en-US.Nora"),
     ("Google UK English Male", "en-GB", "Google UK English Male", False),
     ("Moira (Enhanced)", "en-IE", "com.apple.voice.enhanced.en-IE.Moira"),
+    ("Vaisseau", "en-US", "com.apple.speech.synthesis.voice.Trinoids"),
+    ("Bulles", "en-US", "Bulles"),
 ]
 
 
@@ -476,18 +478,30 @@ def voice_choice(browser, url, errors):
     wait_ready(page)
     page.wait_for_function("() => speech.voices.length > 0")
     keys = page.evaluate("() => speech.voices.map(x => x.key)")
-    check("com.apple.voice.enhanced.en-US.Samantha" in keys and "com.apple.voice.compact.en-US.Samantha" not in keys,
-          "deux versions d'une voix : la version améliorée seulement", keys)
-    check("com.apple.eloquence.en-US.Nora" not in keys, "voix Eloquence écartées")
+    check(len(keys) == 10, "toutes les voix anglaises sont gardées", keys)
+    flags = page.evaluate("() => Object.fromEntries(speech.voices.map(x => [x.key, (x.odd ? 'odd' : x.twin ? 'twin' : 'ok') + (voiceOn(x) ? '+' : '-')]))")
+    check(flags["com.apple.voice.enhanced.en-US.Samantha"] == "ok+" and flags["com.apple.voice.compact.en-US.Samantha"] == "twin-",
+          "deux versions d'une voix : la plus naturelle allumée, l'autre coupée", flags)
+    check(flags["com.apple.eloquence.en-US.Nora"] == "odd-" and flags["com.apple.speech.synthesis.voice.Trinoids"] == "odd-" and flags["Bulles"] == "odd-",
+          "voix robotiques reconnues (Eloquence, identifiant, nom français) et coupées", flags)
     pool = lambda: page.evaluate("() => speech.pool().map(x => x.key)")
     check("com.apple.voice.compact.en-GB.Daniel" not in pool() and len(pool()) == 4, "assez de voix naturelles : la voix standard coupée d'office", pool())
     page.click('.tab[data-view="reglages"]')
     page.click("details.vlist summary")
-    check(page.locator("details.vlist .switch[data-voice]").count() == 6, "Réglages : une ligne par voix")
+    check(page.locator("details.vlist .switch[data-voice]").count() == 10, "Réglages : une ligne par voix, sans exception")
     text = nb(page.inner_text("#view-reglages"))
     check("1 coupée" in text and "très naturelle" in text and "en ligne seulement" in text, "Réglages : voix coupées, qualité, voix en ligne")
     check("Anglais (Irlande)" in text and "(Irlande), accents absents du TOEIC" in text, "autres accents : montrés, avec leur pays", text)
-    check("voit 8 voix anglaises" in text and "Samantha (standard)" in text and "Nora" in text, "voix écartées : nombre et raisons", text)
+    check("Voix une par une (10)" in text and "robotique ou fantaisie" in text and "une version plus naturelle est là" in text,
+          "voix coupées d'office : la raison est dite", text)
+    report = page.evaluate("() => voicesReport()")
+    check("10 anglaises" in report and "com.apple.eloquence.en-US.Nora | locale | robotique, coupée" in report
+          and "com.apple.voice.compact.en-US.Samantha | locale | autre version, coupée" in report, "liste des voix à copier", report)
+    page.click("#voices-copy")
+    page.wait_for_function("() => !document.querySelector('#toast').hidden || !document.querySelector('#sheet').hidden")
+    if not page.is_hidden("#sheet"):
+        check("Nora" in page.input_value("#sheet textarea"), "liste des voix : à copier à la main si le presse-papiers refuse")
+        page.click("#sheet .close")
     check("com.apple.voice.enhanced.en-IE.Moira" not in pool(), "autres accents : pas tirés d'office")
     page.click('.switch[data-acc="autres"]')
     check("com.apple.voice.enhanced.en-IE.Moira" in pool(), "autres accents : tirés une fois choisis")

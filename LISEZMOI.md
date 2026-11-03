@@ -78,11 +78,13 @@ avec deux voix différentes et des accents variés. Choisis la réponse logique.
 Les accents entendus se règlent dans **Réglages › Voix** (américain, britannique, australien, canadien), avec la
 vitesse. **Voix une par une** y liste les voix de l’appareil avec leur qualité (standard, améliorée, très naturelle) :
 touche **Écouter**, et coupe celles qui sonnent mal. Les voix d’autres accents anglais (irlandais, indien, sud-africain,
-écossais…) y sont aussi : le TOEIC ne les fait pas entendre, elles servent une fois **Autres accents** allumé. Au bas
-de la liste, l’appli dit combien de voix anglaises le navigateur lui donne et lesquelles elle écarte (version de base
-d’une voix dont la version améliorée est là, voix fantaisie ou robotiques). Il manque une voix téléchargée ? Ferme
-l’appli tout à fait (balaye-la vers le haut dans le sélecteur d’applis) puis rouvre-la : l’iPhone ne donne une nouvelle
-voix qu’au lancement. Les voix Siri ne sont pas proposées aux pages web par Apple. Sans voix anglaise sur l’appareil, le texte s’affiche à la
+écossais…) y sont aussi : le TOEIC ne les fait pas entendre, elles servent une fois **Autres accents** allumé. La liste
+montre toutes les voix anglaises que le navigateur donne, sous leur nom exact ; sont coupées d’office, avec la raison
+écrite dessous, les voix robotiques ou fantaisie et la version de base d’une voix dont une version plus naturelle est
+là. Il manque une voix téléchargée ? Ferme l’appli tout à fait (balaye-la vers le haut dans le sélecteur d’applis) puis
+rouvre-la : l’iPhone ne donne une nouvelle voix qu’au lancement. Les voix Siri ne sont pas proposées aux pages web par
+Apple. Si elle manque toujours, **Copier la liste des voix** (au bas de la liste) copie ce que l’appareil donne
+vraiment, à envoyer pour trouver la cause. Sans voix anglaise sur l’appareil, le texte s’affiche à la
 place, et le mode examen n’est pas proposé.
 
 ## 4 bis. Parts 3, 4, 6 et 7 : des lots de questions
