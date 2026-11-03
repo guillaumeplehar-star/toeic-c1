@@ -9,6 +9,7 @@ Prérequis (une fois) :  py -m pip install playwright   puis   py -m playwright 
 """
 import functools
 import http.server
+import json
 import os
 import shutil
 import socketserver
@@ -78,7 +79,13 @@ VOICES = [("Samantha", "en-US"), ("Daniel", "en-GB"), ("Karen", "en-AU"), ("Zarv
 
 
 def speech_script(voices=VOICES):
-    vs = ",".join('{name:"%s",lang:"%s",localService:true,default:false,voiceURI:"%s"}' % (n, l, n) for n, l in voices)
+    """voices : (nom, langue) ou (nom, langue, identifiant) ou (nom, langue, identifiant, voix locale)."""
+    def one(v):
+        n, l = v[0], v[1]
+        uri = v[2] if len(v) > 2 else None
+        local = v[3] if len(v) > 3 else True
+        return '{name:%s,lang:"%s",localService:%s,default:false,voiceURI:%s}' % (json.dumps(n), l, "true" if local else "false", json.dumps(uri or n))
+    vs = ",".join(one(v) for v in voices)
     return """(() => {
   const voices = [%s];
   const said = window.__said = [];
@@ -87,7 +94,7 @@ def speech_script(voices=VOICES):
     speaking: false, pending: false, paused: false,
     getVoices() { return voices; },
     speak(u) {
-      said.push({ text: u.text, voice: u.voice && u.voice.name, pitch: u.pitch, rate: u.rate });
+      said.push({ text: u.text, voice: u.voice && u.voice.name, uri: u.voice && u.voice.voiceURI, pitch: u.pitch, rate: u.rate });
       setTimeout(() => { if (u.onend) u.onend({}); }, window.__speechMs == null ? 20 : window.__speechMs);
     },
     cancel() {}, pause() {}, resume() {},

@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "3 novembre 2026 à 13 h 13";
+const BUILD = "3 novembre 2026 à 16 h 53";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -501,7 +501,8 @@ const CEFR_R = [["C1", 455], ["B2", 385], ["B1", 275], ["A2", 115], ["A1", 60]];
 const DEFAULTS = { theme: "auto", textSize: "m", firstSide: "en", autoAudio: true, newOrder: "mix", rate: 1,
   accents: ["us", "gb", "au", "ca"], p5Size: 20, p5Mode: "train", p5Tag: "", p2Size: 15, p2Mode: "train", p2Tag: "",
   p3Size: 5, p3Mode: "train", p3Tag: "", p4Size: 5, p4Mode: "train", p4Tag: "", p6Size: 4, p6Mode: "train", p6Tag: "",
-  p7Size: 4, p7Mode: "train", p7Tag: "", readPart: "p5", listenPart: "p2", adaptive: true, mockFormat: "full", exam: "", view: "mots" };
+  p7Size: 4, p7Mode: "train", p7Tag: "", readPart: "p5", listenPart: "p2", adaptive: true, mockFormat: "full", exam: "", view: "mots",
+  voiceChoice: {} };
 
 /* ---------- utilities ---------- */
 const $ = (s, r = document) => r.querySelector(s);
@@ -539,7 +540,7 @@ function dayText(n, today) {
 function blank() {
   const runs = {};
   for (const k in KINDS) runs[k] = null;
-  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice() }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs,
+  return { v: 1, settings: { ...DEFAULTS, accents: DEFAULTS.accents.slice(), voiceChoice: {} }, words: {}, q: {}, lists: {}, log: {}, seq: 0, runs,
     mock: null, mocks: [] };
 }
 function isObj(x) { return !!x && typeof x === "object" && !Array.isArray(x); }
@@ -561,6 +562,7 @@ function normalizeState(s) {
   for (const [k, ok] of allowed) if (!ok.includes(S[k])) S[k] = DEFAULTS[k];
   S.autoAudio = S.autoAudio !== false;
   S.accents = Array.isArray(S.accents) ? S.accents.filter(a => ACCENTS.some(A => A.id === a)) : DEFAULTS.accents.slice();
+  S.voiceChoice = Object.fromEntries(Object.entries(isObj(S.voiceChoice) ? S.voiceChoice : {}).filter(([, on]) => typeof on === "boolean").slice(0, 300));
   for (const k in KINDS) {                         // a filter: a skill (Parts 2 and 5) or a kind of set (Part 7)
     const t = S[k + "Tag"], ok = KINDS[k].sets ? (SET_FILTERS[k] || []).map(x => x[0]) : ["", ...Object.keys(KINDS[k].tags)];
     if (typeof t !== "string" || !ok.includes(t)) S[k + "Tag"] = "";
@@ -755,30 +757,46 @@ function applyGrade(id, ok) {
 const SPEAKER = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 8.8a4.5 4.5 0 0 1 0 6.4M18 6.3a8 8 0 0 1 0 11.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
 const speech = {
   ok: "speechSynthesis" in window && typeof SpeechSynthesisUtterance === "function",
-  voices: [],                                      // {v, accent, sex: "f", "m" or null}
+  // {v, key (choice in Réglages), name, accent, sex: "f", "m" or null, tier (1 standard, 2 enhanced, 3 premium or
+  // natural), net (network voice), def (on unless the device has enough better voices)}
+  voices: [], rich: false,
   token: 0, timer: 0, btn: null, keep: [], loaded: false,
   load(last) {                                     // last: no more waiting, an empty list means no voice
     if (!this.ok) return;
     let vs = [];
     try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
-    const out = [], names = new Set();
-    for (const A of ACCENTS) {
-      const mine = vs.filter(v => A.re.test(v.lang) && !ODD_VOICES.test(v.name));
-      const local = mine.filter(v => v.localService !== false);   // a network voice is silent offline
-      for (const v of (local.length ? local : mine)) if (!names.has(v.name)) { names.add(v.name); out.push({ v, accent: A.id, sex: voiceSex(v.name) }); }
+    const best = new Map();
+    for (const v of vs) {
+      const A = ACCENTS.find(A => A.re.test(v.lang));
+      if (!A || ODD_VOICES.test(v.name) || /eloquence/i.test(v.voiceURI || "")) continue;
+      const x = { v, key: v.voiceURI || v.name, name: voiceBase(v.name), accent: A.id, sex: voiceSex(v.name), tier: voiceTier(v), net: v.localService === false };
+      // a voice once only (iPhone: the compact and the enhanced versions have the same name): the most natural
+      // version, a local one at equal quality
+      const id = A.id + ":" + x.name.toLowerCase(), y = best.get(id);
+      if (!y || x.tier > y.tier || (x.tier === y.tier && y.net && !x.net)) best.set(id, x);
     }
-    const changed = out.length !== this.voices.length || ((vs.length || last) && !this.loaded);
-    this.voices = out;
+    const order = x => ACCENTS.findIndex(A => A.id === x.accent);
+    const out = [...best.values()].sort((a, b) => order(a) - order(b) || b.tier - a.tier || a.name.localeCompare(b.name));
+    // standard voices are off at first when there are enough better ones, a woman's and a man's among them
+    const good = out.filter(x => x.tier > 1);
+    const rich = good.length >= 3 && good.some(x => x.sex === "f") && good.some(x => x.sex === "m");
+    for (const x of out) x.def = x.tier > 1 || !rich;
+    const changed = out.map(x => x.key).join("\n") !== this.voices.map(x => x.key).join("\n") || ((vs.length || last) && !this.loaded);
+    this.voices = out; this.rich = rich;
     if (vs.length || last) this.loaded = true;
     if (changed) voicesChanged();
   },
   has() { return this.ok && this.voices.length > 0; },
-  pool() {
-    const allowed = state.settings.accents;
-    const p = this.voices.filter(x => allowed.includes(x.accent));
-    return p.length ? p : this.voices;
+  usable() {                                       // a network voice is silent offline
+    const online = navigator.onLine !== false;
+    return this.voices.filter(x => online || !x.net);
   },
-  count(accent) { return this.voices.filter(x => x.accent === accent).length; },
+  pool() {
+    const allowed = state.settings.accents, u = this.usable(), mine = x => allowed.includes(x.accent);
+    for (const p of [u.filter(x => voiceOn(x) && mine(x)), u.filter(voiceOn), u.filter(mine), u, this.voices]) if (p.length) return p;
+    return [];
+  },
+  count(accent) { return this.voices.filter(x => x.accent === accent && voiceOn(x)).length; },
   stop() {
     this.token++;
     clearTimeout(this.timer);
@@ -837,11 +855,31 @@ function voicePair() {
 const FEMALE_VOICES = /^(Samantha|Allison|Ava|Susan|Victoria|Vicki|Joelle|Noelle|Nicky|Zoe|Karen|Catherine|Matilda|Moira|Tessa|Veena|Fiona|Kate|Serena|Martha|Stephanie|Zira|Hazel|Heera|Linda|Jenny|Aria|Michelle|Sonia|Libby|Maisie|Natasha|Clara|Emily|Ana|Emma|Sara|Siri Female|US English)\b/i;
 const MALE_VOICES = /^(Alex|Aaron|Tom|Evan|Nathan|Daniel|Arthur|Oliver|Jamie|Gordon|Lee|Rishi|David|Mark|George|James|Ravi|Richard|Sean|Guy|Ryan|Liam|William|Christopher|Eric|Roger|Brian|Andrew|Thomas|Siri Male)\b/i;
 function voiceSex(name) {
-  const n = String(name || "").replace(/^(Microsoft|Google)\s+/i, "");
+  const n = String(name || "").replace(/^(Microsoft|Google)\s+/i, "").replace(/Multilingual/i, " ");
   if (/\bfemale\b/i.test(n) || FEMALE_VOICES.test(n)) return "f";
   if (/\bmale\b/i.test(n) || MALE_VOICES.test(n)) return "m";
   return null;
 }
+// a voice's name without its maker, quality or language: “Microsoft Aria Online (Natural) - English (United States)” → Aria
+function voiceBase(name) {
+  const n = String(name || "").replace(/^(Microsoft|Apple)\s+/i, "").replace(/\s+-\s+.*$/, "").replace(/\s*\(.*?\)/g, "")
+    .replace(/\s+Online\b/i, "").replace(/Multilingual/i, "").trim();
+  return n || String(name || "");
+}
+// how natural a voice sounds: Apple's voices say it in their identifier (compact, enhanced, premium), Microsoft Edge's
+// online voices are “Natural”, Google's network voices are better than the old desktop voices of Windows
+function voiceTier(v) {
+  const s = (v.voiceURI || "") + " " + (v.name || "");
+  if (/premium|natural|neural/i.test(s)) return 3;
+  if (/enhanced|améliorée|\bGoogle\b|synthesis\.voice\.Alex\b/i.test(s)) return 2;
+  return 1;
+}
+const TIERS = { 1: "standard", 2: "améliorée", 3: "très naturelle" };
+function voiceOn(x) {
+  const c = state.settings.voiceChoice[x.key];
+  return typeof c === "boolean" ? c : x.def;
+}
+const VOICE_SAMPLE = "Could you send me the revised schedule before Friday’s meeting?";
 function castVoices(speakers) {
   // one voice per speaker, of the speaker's sex when the device has one, different voices for different speakers;
   // otherwise a pitch tells them apart (higher for a woman, lower for a man)
@@ -1982,6 +2020,7 @@ function renderProgress() {
 function switchHTML(attr, val, on, label, disabled) {
   return `<button type="button" class="switch" role="switch" ${attr}="${esc(val)}" aria-checked="${String(!!on)}" aria-label="${esc(label)}"${disabled ? " disabled" : ""}></button>`;
 }
+let voicesOpen = false;                            // Réglages: the list of voices stays open when it is redrawn
 function renderSettings() {
   const S = state.settings;
   let h = `<h2>Vocabulaire</h2><div class="box">`;
@@ -2000,13 +2039,25 @@ function renderSettings() {
   else {
     h += `<p class="small">Le TOEIC fait entendre des accents américain, britannique, australien et canadien. Choisis ceux que tu veux entendre.</p><div class="box">`;
     for (const A of ACCENTS) {
-      const c = speech.count(A.id);
-      h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + " sur cet appareil" : "aucune voix sur cet appareil"}</small></div>` +
+      const c = speech.voices.filter(x => x.accent === A.id).length, off = c - speech.count(A.id);
+      h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + " sur cet appareil" + (off ? `, ${plural(off, "coupée", "coupées")}` : "") : "aucune voix sur cet appareil"}</small></div>` +
         (c ? `<button type="button" class="btn small" data-try="${A.id}">Essayer</button>` : "") +
         switchHTML("data-acc", A.id, S.accents.includes(A.id), A.nom, !c) + `</div>`;
     }
     h += `</div><div class="field"><span class="lbl">Vitesse</span>${segHTML("rate", [[0.8, "Lente"], [0.9, "Posée"], [1, "Normale"], [1.1, "Rapide"]])}</div>`;
-    h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais. Les voix « améliorées » sont bien plus naturelles.</p>`;
+    if (speech.voices.length) {
+      h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une</summary><p class="small">Écoute chaque voix et coupe celles ` +
+        `qui sonnent mal.${speech.rich ? " Les voix standard sont coupées d’office : l’appareil en a de plus naturelles." : ""}</p><div class="box">`;
+      speech.voices.forEach((x, i) => {
+        const info = [ACCENTS.find(A => A.id === x.accent).nom, x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "",
+          TIERS[x.tier], x.net ? "en ligne seulement" : ""].filter(Boolean).join(", ");
+        h += `<div class="switchrow"><div class="txt">${esc(x.name)}<small>${info}</small></div>` +
+          `<button type="button" class="btn small" data-hear="${i}">Écouter</button>${switchHTML("data-voice", i, voiceOn(x), x.name)}</div>`;
+      });
+      h += `</div></details>`;
+    }
+    h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais : ` +
+      `prends les versions « améliorée » ou « premium », bien plus naturelles. L’appli les préfère d’elle-même.</p>`;
   }
 
   h += `<h2>Séries</h2><div class="box"><div class="switchrow"><div class="txt">Insister sur mes points faibles<small>Les nouvelles questions viennent ` +
@@ -2195,6 +2246,18 @@ function bind() {
         if (on) A.push(sw.dataset.acc);
         state.settings.accents = A;
       } else if (sw.dataset.flag) state.settings[sw.dataset.flag] = on;
+      else if (sw.dataset.voice) {
+        const x = speech.voices[Number(sw.dataset.voice)];
+        if (x) {                                   // only a choice that differs from the default is kept
+          if (on === x.def) delete state.settings.voiceChoice[x.key];
+          else state.settings.voiceChoice[x.key] = on;
+        }
+        save();
+        renderSettings();                          // the count of each accent changes
+        const again = $(`#view-reglages .switch[data-voice="${sw.dataset.voice}"]`);
+        if (again) again.focus();
+        return;
+      }
       save();
       sw.setAttribute("aria-checked", String(on));
       renderCounts();
@@ -2202,15 +2265,22 @@ function bind() {
     }
     const tr = t.closest("[data-try]");
     if (tr) {
-      const vs = speech.voices.filter(x => x.accent === tr.dataset.try);
+      const all = speech.usable().filter(x => x.accent === tr.dataset.try), on = all.filter(voiceOn), vs = on.length ? on : all;
       const v = vs[Math.floor(Math.random() * vs.length)];
-      if (v) speech.say("Could you send me the revised schedule before Friday’s meeting?", v.v, tr);
+      if (v) speech.say(VOICE_SAMPLE, v.v, tr);
+      return;
+    }
+    const hear = t.closest("[data-hear]");
+    if (hear) {
+      const x = speech.voices[Number(hear.dataset.hear)];
+      if (x) speech.say(VOICE_SAMPLE, x.v, hear);
       return;
     }
     if (t.closest("#backup-save")) exportBackup();
     else if (t.closest("#backup-load")) $("#backup-file").click();
     else if (t.closest("#app-update")) updateApp();
   });
+  $("#view-reglages").addEventListener("toggle", e => { if (e.target.matches("details.vlist")) voicesOpen = e.target.open; }, true);
   $("#view-reglages").addEventListener("change", e => {
     if (e.target.id === "exam-date") { state.settings.exam = dayOfISO(e.target.value) ? e.target.value : ""; save(); }
     if (e.target.id === "backup-file" && e.target.files[0]) { importBackup(e.target.files[0]); e.target.value = ""; }

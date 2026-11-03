@@ -457,6 +457,62 @@ def progress_settings(page, errors):
     check(page.locator('.switch[data-acc="ca"][disabled]').count() == 1, "accent sans voix sur l'appareil : grisé")
 
 
+CHOSEN_VOICES = [
+    ("Samantha", "en-US", "com.apple.voice.compact.en-US.Samantha"),
+    ("Samantha", "en-US", "com.apple.voice.enhanced.en-US.Samantha"),
+    ("Ava (Premium)", "en-US", "com.apple.voice.premium.en-US.Ava"),
+    ("Evan (Enhanced)", "en-US", "com.apple.voice.enhanced.en-US.Evan"),
+    ("Daniel", "en-GB", "com.apple.voice.compact.en-GB.Daniel"),
+    ("Nora", "en-US", "com.apple.eloquence.en-US.Nora"),
+    ("Google UK English Male", "en-GB", "Google UK English Male", False),
+]
+
+
+def voice_choice(browser, url, errors):
+    print("\n— choix des voix")
+    ctx, page = new_page(browser, errors, voices=CHOSEN_VOICES)
+    page.goto(url)
+    wait_ready(page)
+    page.wait_for_function("() => speech.voices.length > 0")
+    keys = page.evaluate("() => speech.voices.map(x => x.key)")
+    check("com.apple.voice.enhanced.en-US.Samantha" in keys and "com.apple.voice.compact.en-US.Samantha" not in keys,
+          "deux versions d'une voix : la version améliorée seulement", keys)
+    check("com.apple.eloquence.en-US.Nora" not in keys, "voix Eloquence écartées")
+    pool = lambda: page.evaluate("() => speech.pool().map(x => x.key)")
+    check("com.apple.voice.compact.en-GB.Daniel" not in pool() and len(pool()) == 4, "assez de voix naturelles : la voix standard coupée d'office", pool())
+    page.click('.tab[data-view="reglages"]')
+    page.click("details.vlist summary")
+    check(page.locator("details.vlist .switch[data-voice]").count() == 5, "Réglages : une ligne par voix")
+    text = nb(page.inner_text("#view-reglages"))
+    check("1 coupée" in text and "très naturelle" in text and "en ligne seulement" in text, "Réglages : voix coupées, qualité, voix en ligne")
+    i = keys.index("com.apple.voice.compact.en-GB.Daniel")
+    page.click('.switch[data-voice="%d"]' % i)
+    check("com.apple.voice.compact.en-GB.Daniel" in pool() and state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True},
+          "une voix standard remise")
+    check(page.locator("details.vlist[open]").count() == 1, "la liste reste ouverte")
+    a = keys.index("com.apple.voice.premium.en-US.Ava")
+    page.click('.switch[data-voice="%d"]' % a)
+    check("com.apple.voice.premium.en-US.Ava" not in pool(), "une voix coupée n'est plus tirée")
+    n = page.evaluate("() => window.__said.length")
+    page.click('[data-hear="%d"]' % a)
+    page.wait_for_function("n => window.__said.length > n", arg=n)
+    check(page.evaluate("() => window.__said.at(-1).uri") == "com.apple.voice.premium.en-US.Ava", "Écouter : la voix choisie, même coupée")
+    page.click('.tab[data-view="mots"]')
+    page.click('.tab[data-view="reglages"]')
+    page.click('.switch[data-voice="%d"]' % a)
+    check(state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True}, "un choix revenu à la valeur d'office est oublié")
+    check("Google UK English Male" in pool(), "en ligne : la voix en ligne est tirée")
+    ctx.set_offline(True)
+    check("Google UK English Male" not in pool(), "hors ligne : la voix en ligne est écartée", (page.evaluate("navigator.onLine"), pool()))
+    ctx.set_offline(False)
+    page.reload()
+    wait_ready(page)
+    check(state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True}, "choix gardés au rechargement")
+    page.click("details.vlist summary")
+    shot(page, "reglages-voix", full=True)
+    ctx.close()
+
+
 def backup(page, errors):
     print("\n— sauvegarde")
     page.click('.tab[data-view="reglages"]')
@@ -505,6 +561,7 @@ def main():
 
         listening_exam(browser, url, errors)
         mock_listening(browser, url, errors)
+        voice_choice(browser, url, errors)
 
         print("\n— sans voix")
         ctx, page = new_page(browser, errors, voices=[])

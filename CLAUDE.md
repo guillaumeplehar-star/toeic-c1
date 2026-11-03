@@ -30,7 +30,7 @@ code à part), relecture séparée du vocabulaire. La Part 1 (photos) est laiss�
 | `outils/banque.py` | `verifier`, `stats`, `corriger` (apostrophes droites), `doublons` (questions trop proches entre séries : à lancer après tout ajout de questions). |
 | `outils/version_appli.py` | À lancer après toute modification de l’appli : `const BUILD` et `VERSION`/`EXTRA` de `sw.js`. |
 | `outils/icones.py` | Refait les icônes (Pillow). |
-| `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/` ; lots JSON écrits par `tests/donnees/fabrique_lots.py`). Voix simulée : `window.__said` (Samantha et Karen voix de femme, Daniel voix d’homme). L’examen de Part 3 tourne sur une horloge simulée (`page.clock`). |
+| `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/` ; lots JSON écrits par `tests/donnees/fabrique_lots.py`). Voix simulée : `window.__said` (Samantha et Karen voix de femme, Daniel voix d’homme ; `speech_script` accepte aussi un identifiant `voiceURI` et une voix en ligne, `CHOSEN_VOICES` du test `voice_choice`). L’examen de Part 3 tourne sur une horloge simulée (`page.clock`). |
 | `LISEZMOI.md` | Guide de l’utilisateur, à tenir à jour quand une fonction visible change. |
 
 ## Commandes (PowerShell : une commande par ligne)
@@ -109,9 +109,15 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   anciennes. `stopRun` : « Pause » pendant un examen (`suspend`, retour à l’onglet Examen), `mockResume`, `mockDrop`.
   Score : `scaled(SCALE_L|SCALE_R, taux)` (interpolation, arrondi à 5, de 5 à 495 ; estimation, ETS ne publie pas ses
   tables), `cefr(CEFR_L|CEFR_R, score)` (seuils ETS : C1 = 490 en écoute, 455 en lecture).
-- **Voix** : `speech` (`load(last)` : voix anglaises par accent, locales d’abord, sans `ODD_VOICES`, avec leur sexe
-  `voiceSex` ; `pool()` selon
-  `settings.accents` ; `seq(parts, done, btn)` enchaîne des phrases avec pauses, jeton contre les rappels périmés,
+- **Voix** : `speech` (`load(last)` : voix anglaises par accent, sans `ODD_VOICES` ni voix Eloquence d’Apple, avec
+  leur sexe `voiceSex`, leur nom court `voiceBase` et leur qualité `voiceTier` (1 standard, 2 améliorée ou Google,
+  3 premium ou « Natural » d’Edge, `TIERS`) ; une seule version d’une même voix, la meilleure (sur iPhone, la version
+  compacte et l’améliorée portent le même nom), locale à qualité égale ; `x.def` : allumée d’office, sauf une voix
+  standard quand l’appareil a trois voix meilleures dont une de femme et une d’homme, `speech.rich` ; `x.key` =
+  `voiceURI`, clé de `settings.voiceChoice` (les seuls choix qui diffèrent de `def`), `voiceOn(x)` ; `usable()` sans
+  les voix en ligne hors ligne ; `pool()` : voix allumées des accents choisis, sinon de repli en repli jusqu’à toutes ;
+  Réglages › « Voix une par une » `details.vlist`, `data-hear`, `.switch[data-voice]`, `voicesOpen` ;
+  `seq(parts, done, btn)` enchaîne des phrases avec pauses, jeton contre les rappels périmés,
   minuterie de secours car Safari ne signale pas toujours la fin ; `stop`). `wordVoice(id)` (une voix fixe par mot),
   `voicePair()` (deux voix différentes pour la Part 2, sinon hauteur plus basse), `p2Parts`, `p2Play` (sans voix :
   texte dans `#p2-read`), `replayItem`.

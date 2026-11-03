@@ -21,7 +21,8 @@ Chaque partie se fait en entraînement ou en examen chronométré. La Part 1 (ph
 
 Pour de meilleures voix : **Réglages de l’iPhone › Accessibilité › Contenu énoncé › Voix › Anglais**. Télécharge
 une voix « améliorée » ou « premium » par accent (américain, britannique, australien) : elles sont bien plus
-naturelles que les voix de base. L’appli les trouve d’elle-même au prochain lancement.
+naturelles que les voix de base. L’appli les trouve d’elle-même au prochain lancement et les préfère : quand elle a
+assez de voix naturelles, les voix de base sont coupées d’office.
 
 ## 2. Mots
 
@@ -75,7 +76,9 @@ avec deux voix différentes et des accents variés. Choisis la réponse logique.
 - **Examen** : une seule écoute, puis 5 secondes pour répondre. Sans réponse, la question compte fausse.
 
 Les accents entendus se règlent dans **Réglages › Voix** (américain, britannique, australien, canadien), avec la
-vitesse. Sans voix anglaise sur l’appareil, le texte s’affiche à la place, et le mode examen n’est pas proposé.
+vitesse. **Voix une par une** y liste les voix de l’appareil avec leur qualité (standard, améliorée, très naturelle) :
+touche **Écouter**, et coupe celles qui sonnent mal. Sans voix anglaise sur l’appareil, le texte s’affiche à la
+place, et le mode examen n’est pas proposé.
 
 ## 4 bis. Parts 3, 4, 6 et 7 : des lots de questions
 
