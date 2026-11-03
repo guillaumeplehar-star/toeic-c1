@@ -112,7 +112,10 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   anciennes. `stopRun` : « Pause » pendant un examen (`suspend`, retour à l’onglet Examen), `mockResume`, `mockDrop`.
   Score : `scaled(SCALE_L|SCALE_R, taux)` (interpolation, arrondi à 5, de 5 à 495 ; estimation, ETS ne publie pas ses
   tables), `cefr(CEFR_L|CEFR_R, score)` (seuils ETS : C1 = 490 en écoute, 455 en lecture).
-- **Voix** : `speech` (`load(last)` : voix anglaises par accent, sans `ODD_VOICES` ni voix Eloquence d’Apple, avec
+- **Voix** : `speech` (`load(last)` : voix anglaises par accent (`ACCENTS`, dont `autres` en dernier : irlandais,
+  indien…, absent de `DEFAULTS.accents` ; `regionOf`, `accentName`), voix écartées notées dans `speech.hidden`
+  (`odd` : `ODD_VOICES` ou Eloquence ; `twin` : version moins bonne d’une voix gardée), montrées au bas de « Voix une
+  par une » avec le nombre de voix anglaises que donne le navigateur ; sans `ODD_VOICES` ni voix Eloquence d’Apple, avec
   leur sexe `voiceSex`, leur nom court `voiceBase` et leur qualité `voiceTier` (1 standard, 2 améliorée ou Google,
   3 premium ou « Natural » d’Edge, `TIERS`) ; une seule version d’une même voix, la meilleure (sur iPhone, la version
   compacte et l’améliorée portent le même nom), locale à qualité égale ; `x.def` : allumée d’office, sauf une voix

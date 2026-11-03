@@ -465,6 +465,7 @@ CHOSEN_VOICES = [
     ("Daniel", "en-GB", "com.apple.voice.compact.en-GB.Daniel"),
     ("Nora", "en-US", "com.apple.eloquence.en-US.Nora"),
     ("Google UK English Male", "en-GB", "Google UK English Male", False),
+    ("Moira (Enhanced)", "en-IE", "com.apple.voice.enhanced.en-IE.Moira"),
 ]
 
 
@@ -482,9 +483,15 @@ def voice_choice(browser, url, errors):
     check("com.apple.voice.compact.en-GB.Daniel" not in pool() and len(pool()) == 4, "assez de voix naturelles : la voix standard coupée d'office", pool())
     page.click('.tab[data-view="reglages"]')
     page.click("details.vlist summary")
-    check(page.locator("details.vlist .switch[data-voice]").count() == 5, "Réglages : une ligne par voix")
+    check(page.locator("details.vlist .switch[data-voice]").count() == 6, "Réglages : une ligne par voix")
     text = nb(page.inner_text("#view-reglages"))
     check("1 coupée" in text and "très naturelle" in text and "en ligne seulement" in text, "Réglages : voix coupées, qualité, voix en ligne")
+    check("Anglais (Irlande)" in text and "(Irlande), accents absents du TOEIC" in text, "autres accents : montrés, avec leur pays", text)
+    check("voit 8 voix anglaises" in text and "Samantha (standard)" in text and "Nora" in text, "voix écartées : nombre et raisons", text)
+    check("com.apple.voice.enhanced.en-IE.Moira" not in pool(), "autres accents : pas tirés d'office")
+    page.click('.switch[data-acc="autres"]')
+    check("com.apple.voice.enhanced.en-IE.Moira" in pool(), "autres accents : tirés une fois choisis")
+    page.click('.switch[data-acc="autres"]')
     i = keys.index("com.apple.voice.compact.en-GB.Daniel")
     page.click('.switch[data-voice="%d"]' % i)
     check("com.apple.voice.compact.en-GB.Daniel" in pool() and state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True},

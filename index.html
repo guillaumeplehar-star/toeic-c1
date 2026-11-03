@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "3 novembre 2026 à 17 h 19";
+const BUILD = "3 novembre 2026 à 18 h 16";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -458,6 +458,7 @@ const ACCENTS = [
   { id: "gb", nom: "Britannique", re: /^en[-_]GB/i },
   { id: "au", nom: "Australien", re: /^en[-_](AU|NZ)/i },
   { id: "ca", nom: "Canadien", re: /^en[-_]CA/i },
+  { id: "autres", nom: "Autres accents", re: /^en([-_]|$)/i },   // Irish, Indian, South African, Scottish…: not in the TOEIC, off at first
 ];
 // novelty and robotic voices of Apple devices: useless for listening practice
 const ODD_VOICES = /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Pipe Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley)\b/i;
@@ -761,21 +762,25 @@ const speech = {
   // {v, key (choice in Réglages), name, accent, sex: "f", "m" or null, tier (1 standard, 2 enhanced, 3 premium or
   // natural), net (network voice), def (on unless the device has enough better voices)}
   voices: [], rich: false,
+  hidden: [],                                      // English voices set aside: {name, lang, why: "odd" or "twin"}
   token: 0, timer: 0, btn: null, keep: [], loaded: false,
   load(last) {                                     // last: no more waiting, an empty list means no voice
     if (!this.ok) return;
     let vs = [];
     try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
-    const best = new Map();
+    const best = new Map(), hidden = [];
     for (const v of vs) {
-      const A = ACCENTS.find(A => A.re.test(v.lang));
-      if (!A || ODD_VOICES.test(v.name) || /eloquence/i.test(v.voiceURI || "")) continue;
-      const x = { v, key: v.voiceURI || v.name, name: voiceBase(v.name), accent: A.id, sex: voiceSex(v.name), tier: voiceTier(v), net: v.localService === false };
+      const A = ACCENTS.find(A => A.re.test(v.lang || ""));
+      if (!A) continue;
+      if (ODD_VOICES.test(v.name) || /eloquence/i.test(v.voiceURI || "")) { hidden.push({ name: v.name, lang: v.lang, why: "odd" }); continue; }
+      const x = { v, key: v.voiceURI || v.name, name: voiceBase(v.name), accent: A.id, lang: v.lang, sex: voiceSex(v.name), tier: voiceTier(v), net: v.localService === false };
       // a voice once only (iPhone: the compact and the enhanced versions have the same name): the most natural
       // version, a local one at equal quality
-      const id = A.id + ":" + x.name.toLowerCase(), y = best.get(id);
-      if (!y || x.tier > y.tier || (x.tier === y.tier && y.net && !x.net)) best.set(id, x);
+      const id = String(v.lang).toLowerCase().replace("_", "-") + ":" + x.name.toLowerCase(), y = best.get(id);
+      if (!y || x.tier > y.tier || (x.tier === y.tier && y.net && !x.net)) { best.set(id, x); if (y) hidden.push({ name: y.v.name, lang: y.lang, why: "twin", tier: y.tier }); }
+      else hidden.push({ name: v.name, lang: v.lang, why: "twin", tier: x.tier });
     }
+    this.hidden = hidden;
     const order = x => ACCENTS.findIndex(A => A.id === x.accent);
     const out = [...best.values()].sort((a, b) => order(a) - order(b) || b.tier - a.tier || a.name.localeCompare(b.name));
     // standard voices are off at first when there are enough better ones, a woman's and a man's among them
@@ -876,6 +881,15 @@ function voiceTier(v) {
   return 1;
 }
 const TIERS = { 1: "standard", 2: "améliorée", 3: "très naturelle" };
+function regionOf(lang) {                          // en-IE → Irlande
+  if (/scotland|gbsct/i.test(lang)) return "Écosse";
+  const m = /^en[-_]([a-z]{2})\b/i.exec(lang || "");
+  try { if (m) return new Intl.DisplayNames(["fr"], { type: "region" }).of(m[1].toUpperCase()); } catch (e) {}
+  return lang || "?";
+}
+function accentName(x) {                           // Américain…, or for the other accents « Anglais (Irlande) »
+  return x.accent === "autres" ? `Anglais (${regionOf(x.lang)})` : ACCENTS.find(A => A.id === x.accent).nom;
+}
 function voiceOn(x) {
   const c = state.settings.voiceChoice[x.key];
   return typeof c === "boolean" ? c : x.def;
@@ -2041,24 +2055,35 @@ function renderSettings() {
     h += `<p class="small">Le TOEIC fait entendre des accents américain, britannique, australien et canadien. Choisis ceux que tu veux entendre.</p><div class="box">`;
     for (const A of ACCENTS) {
       const c = speech.voices.filter(x => x.accent === A.id).length, off = c - speech.count(A.id);
-      h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + " sur cet appareil" + (off ? `, ${plural(off, "coupée", "coupées")}` : "") : "aucune voix sur cet appareil"}</small></div>` +
+      const what = A.id === "autres" ? [...new Set(speech.voices.filter(x => x.accent === A.id).map(x => regionOf(x.lang)))].join(", ") : "";
+      h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + (what ? ` (${esc(what)}), accents absents du TOEIC` : " sur cet appareil") +
+        (off ? `, ${plural(off, "coupée", "coupées")}` : "") : "aucune voix sur cet appareil"}</small></div>` +
         (c ? `<button type="button" class="btn small" data-try="${A.id}">Essayer</button>` : "") +
         switchHTML("data-acc", A.id, S.accents.includes(A.id), A.nom, !c) + `</div>`;
     }
     h += `</div><div class="field"><span class="lbl">Vitesse</span>${segHTML("rate", [[0.8, "Lente"], [0.9, "Posée"], [1, "Normale"], [1.1, "Rapide"]])}</div>`;
-    if (speech.voices.length) {
-      h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une</summary><p class="small">Écoute chaque voix et coupe celles ` +
+    const seen = speech.voices.length + speech.hidden.length;
+    if (seen) {
+      h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une (${speech.voices.length})</summary><p class="small">Écoute chaque voix et coupe celles ` +
         `qui sonnent mal.${speech.rich ? " Les voix standard sont coupées d’office : l’appareil en a de plus naturelles." : ""}</p><div class="box">`;
       speech.voices.forEach((x, i) => {
-        const info = [ACCENTS.find(A => A.id === x.accent).nom, x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "",
+        const info = [accentName(x), x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "",
           TIERS[x.tier], x.net ? "en ligne seulement" : ""].filter(Boolean).join(", ");
-        h += `<div class="switchrow"><div class="txt">${esc(x.name)}<small>${info}</small></div>` +
+        h += `<div class="switchrow"><div class="txt">${esc(x.name)}<small>${esc(info)}</small></div>` +
           `<button type="button" class="btn small" data-hear="${i}">Écouter</button>${switchHTML("data-voice", i, voiceOn(x), x.name)}</div>`;
       });
-      h += `</div></details>`;
+      h += `</div>`;
+      const odd = [...new Set(speech.hidden.filter(x => x.why === "odd").map(x => voiceBase(x.name)))].sort();
+      const twins = speech.hidden.filter(x => x.why === "twin").map(x => `${voiceBase(x.name)} (${TIERS[x.tier]})`);
+      h += `<p class="small">Le navigateur voit ${plural(seen, "voix anglaise", "voix anglaises")} sur cet appareil.` +
+        (twins.length ? ` Remplacées par leur version plus naturelle${NB}: ${esc(twins.join(", "))}.` : "") +
+        (odd.length ? ` Écartées, fantaisie ou robotiques${NB}: ${esc(odd.join(", "))}.` : "") + `</p></details>`;
     }
     h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais : ` +
-      `prends les versions « améliorée » ou « premium », bien plus naturelles. L’appli les préfère d’elle-même.</p>`;
+      `prends les versions « améliorée » ou « premium », bien plus naturelles. L’appli les préfère d’elle-même. Une voix qui vient d’être ` +
+      `téléchargée n’apparaît qu’une fois l’appli fermée tout à fait (balaye-la vers le haut dans le sélecteur d’applis) puis rouverte. ` +
+      `Les voix Siri, elles, ne sont pas proposées aux pages web par Apple. Sur ordinateur, chaque navigateur a ses voix${NB}: Edge en propose ` +
+      `de très naturelles, en ligne.</p>`;
   }
 
   h += `<h2>Séries</h2><div class="box"><div class="switchrow"><div class="txt">Insister sur mes points faibles<small>Les nouvelles questions viennent ` +

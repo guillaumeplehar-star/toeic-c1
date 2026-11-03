@@ -1,7 +1,7 @@
 /* Cap 945 : service worker.
    Réseau d’abord (4 s au plus), copie locale sinon : l’appli marche hors ligne et prend d’elle-même
    la banque de questions mise à jour dans banque/ dès qu’il y a du réseau. */
-const VERSION = "35ede7330e";
+const VERSION = "2aa25624ea";
 const CACHE = "cap945-" + VERSION;
 const CORE = ["index.html", "manifest.webmanifest", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable-512.png"];
 const EXTRA = ["fonts/andika-400-ext.woff2", "fonts/andika-400-latin.woff2", "fonts/andika-700-ext.woff2", "fonts/andika-700-latin.woff2", "banque/banque.json", "banque/mots-bureau.tsv", "banque/mots-rh.tsv", "banque/mots-finance.tsv", "banque/mots-commerce.tsv", "banque/mots-production.tsv", "banque/mots-voyages.tsv", "banque/mots-locaux.tsv", "banque/mots-loisirs.tsv", "banque/mots-pieges.tsv", "banque/mots-liens.tsv", "banque/part5-a.tsv", "banque/part5-b.tsv", "banque/part5-c.tsv", "banque/part5-d.tsv", "banque/part5-e.tsv", "banque/part2-a.tsv", "banque/part2-b.tsv", "banque/part2-c.tsv", "banque/part3-a.json", "banque/part3-b.json", "banque/part4-a.json", "banque/part4-b.json", "banque/part6-a.json", "banque/part6-b.json", "banque/part7-a.json", "banque/part7-b.json"];
