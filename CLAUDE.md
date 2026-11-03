@@ -14,8 +14,8 @@ framework, pas de compilation : `index.html` contient tout le HTML, le CSS et le
 Version 1 : vocabulaire, Part 5, Part 2. Version 2 : Parts 3-4 (conversations et exposés, questions écrites lues
 avant l’audio) et Parts 6-7 (textes à trous ; lecture simple, double, triple). Version 3 : examens blancs (onglet
 Examen, score estimé sur 990 et niveau CECRL) et tirage selon les points faibles ; puis séries B des Parts 3, 4 et
-6. Idées en attente : synchronisation entre appareils (le serveur Cloudflare de 形音义 peut servir, avec un préfixe de
-code à part), relecture séparée du vocabulaire. La Part 1 (photos) est laissée de côté.
+6, puis installation sur ordinateur et synchronisation entre appareils (serveur de 形音义). Idée en attente :
+relecture séparée du vocabulaire. La Part 1 (photos) est laissée de côté.
 
 ## Fichiers
 
@@ -31,6 +31,8 @@ code à part), relecture séparée du vocabulaire. La Part 1 (photos) est laiss�
 | `outils/version_appli.py` | À lancer après toute modification de l’appli : `const BUILD` et `VERSION`/`EXTRA` de `sw.js`. |
 | `outils/icones.py` | Refait les icônes (Pillow). |
 | `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/` ; lots JSON écrits par `tests/donnees/fabrique_lots.py`). Voix simulée : `window.__said` (Samantha et Karen voix de femme, Daniel voix d’homme ; `speech_script` accepte aussi un identifiant `voiceURI` et une voix en ligne, `CHOSEN_VOICES` du test `voice_choice`). L’examen de Part 3 tourne sur une horloge simulée (`page.clock`). |
+| `tests/test_sync.py` | Deux appareils (iPhone et ordinateur) et le serveur de synchronisation local ; bouton Installer et critères d’installation de Chrome. |
+| `outils/sync/` | Copie du serveur de synchronisation de 形音义 (`worker.mjs`, `serveur_local.mjs`), pour les tests. Le serveur en ligne est celui de 形音义 : toute modification se fait d’abord dans le dépôt `xingyinyi`. |
 | `LISEZMOI.md` | Guide de l’utilisateur, à tenir à jour quand une fonction visible change. |
 
 ## Commandes (PowerShell : une commande par ligne)
@@ -38,6 +40,7 @@ code à part), relecture séparée du vocabulaire. La Part 1 (photos) est laiss�
 ```powershell
 py -m http.server 8000           # puis http://localhost:8000
 py tests\test_appli.py           # tout le parcours, téléphone et ordinateur, clair et sombre, hors ligne (≈ 1 min)
+py tests\test_sync.py            # deux appareils synchronisés par le serveur local (Node 22.13 ou plus)
 py outils\banque.py verifier     # contrôle de banque/
 py outils\banque.py stats        # répartition des réponses, compétences, niveaux, types
 py outils\version_appli.py       # après une modification de index.html, sw.js, des icônes ou des polices
@@ -124,7 +127,28 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
 - **Vues** : `showView`, `renderView`, `renderCounts`, `renderHome(kind)`, `renderProgress`, `renderSettings`,
   `setSetting` ; sauvegarde `exportBackup` (partage de fichier, sinon téléchargement), `importBackup` (confirmation
   dans une feuille) ; `openSheet`/`closeSheet`, `toast`, `updateApp`. Clavier : `onKey`. Écran d’ordinateur
-  (≥ 900 × 500) : menu à gauche, bloc CSS « computer screen » à la fin du `<style>`.
+  (≥ 900 × 500) : menu à gauche, bloc CSS « computer screen » à la fin du `<style>`. Installation (Chrome, Edge) :
+  `beforeinstallprompt` → `installEvt`, bouton `#app-install` dans Réglages › Appli ; manifeste avec `id`, sans
+  `orientation`.
+- **Synchronisation** (section « sync between devices ») : serveur `SYNC_URL` (celui de 形音义 :
+  https://xingyinyi-sync.guillaume-plehar.workers.dev, `MAX_CODES` codes au plus, toutes applis comprises ; un 403 le
+  dit), clé = SHA-256 de `"cap945:"` + `codeKey(code)` (lettres et chiffres). Stockage : `cap945.sync` (`{code, key,
+  at, err}`, jamais dans les sauvegardes), `cap945.sync-base` (`{key, v, doc}` : dernier document échangé, base de la
+  fusion), `cap945.sync-sent` (empreintes `hash(canon(doc))` des derniers envois : un envoi reçu dont la réponse s’est
+  perdue devient la base, rien n’est compté deux fois). `docOf(state)` : `words`, `q`, `lists`, `log`, `seq`,
+  `mocks`, réglages sauf `DEVICE_SETTINGS` (thème, taille, vitesse, `voiceChoice`, onglets) ; `runs` et `mock` restent
+  sur l’appareil ; `SYNC_FMT` (un document plus récent est refusé, `checkDoc`). `canon` : JSON aux clés triées (sinon
+  deux appareils se renverraient le même contenu sans fin). `mergeDocs(base, ici, serveur)` : changé d’un seul côté →
+  ce côté ; des deux → la carte ou la question à la révision la plus récente (`t`, puis `r`), `r`, `l`, `ok`
+  additionnés depuis la base, `f` de la base, historique additionné par jour, `seq` additionné, examens blancs réunis
+  (par `at`), réglages d’ici ; sans base (premier code sur un appareil) : maximum, union, réglages du serveur.
+  `syncNow` (`GET ?have=v` sans changement ici, sinon `PUT {v}` ; un 409 apporte le document du serveur : fusion,
+  `applyDoc`, nouvel envoi ; les changements faits pendant l’échange restent), `applyDoc` (via `normalizeState` ;
+  l’écran suit sans toucher à une carte retournée ni à une série en cours), `syncSoon(ms)` (jamais plus tard qu’une
+  synchronisation prévue) : `save()` 20 s, démarrage, retour au premier plan, réseau retrouvé, toutes les 5 min ;
+  mise en arrière-plan et `pagehide` : tout de suite si `syncPending()`. Réglages : `#sync-box` (`syncBoxHTML`,
+  `data-sync` = `join`, `create`, `cancel`, `now`, `stop` ; un code inconnu du serveur demande « Créer ce code »,
+  `syncAsk`), `keepTyped` garde un code en cours de frappe quand Réglages se redessine.
 
 ## Conventions
 
@@ -141,6 +165,8 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
 
 ## Vérifier un changement
 
-1. `py tests\test_appli.py` (ajoute un test pour toute nouvelle fonction) et `py outils\banque.py verifier`.
+1. `py tests\test_appli.py` (ajoute un test pour toute nouvelle fonction) et `py outils\banque.py verifier` ; si la
+   synchronisation ou l’état changent, `py tests\test_sync.py` (un nouveau champ de l’état : le mettre dans `docOf` et
+   `mergeDocs`, ou le laisser sur l’appareil).
 2. Regarde les captures dans `tests/sortie/captures` (téléphone 390 × 844 et ordinateur 1366 × 768, clair et sombre).
 3. `py outils\version_appli.py`, mise à jour de `LISEZMOI.md` si l’usage change, puis commit et push.

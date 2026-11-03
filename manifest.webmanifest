@@ -1,13 +1,13 @@
 {
+  "id": "./",
   "name": "Cap 945",
   "short_name": "Cap 945",
-  "description": "Préparation au TOEIC Listening & Reading, niveau C1 : vocabulaire à seaux, Part 5 et Part 2.",
+  "description": "Préparation au TOEIC Listening & Reading, niveau C1 : vocabulaire, Parts 2 à 7, examens blancs.",
   "lang": "fr",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "launch_handler": { "client_mode": "focus-existing" },
-  "orientation": "portrait",
   "background_color": "#e8edf4",
   "theme_color": "#e8edf4",
   "icons": [

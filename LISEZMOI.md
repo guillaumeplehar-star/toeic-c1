@@ -153,10 +153,39 @@ La progression reste sur l’appareil. **Réglages › Sauvegarde › Exporter**
 (sur l’iPhone, choisis « Enregistrer dans Fichiers ») ; **Importer** le relit et remplace la progression actuelle,
 après confirmation.
 
+### Sur plusieurs appareils
+
+**Réglages › Synchronisation** garde la même progression sur l’iPhone et sur l’ordinateur. Choisis un code commun,
+difficile à deviner (8 lettres ou chiffres au moins ; les espaces, tirets et majuscules ne comptent pas), tape-le et
+touche **Synchroniser**. Sur le premier appareil, l’appli demande de **Créer ce code** ; tape ensuite le même sur les
+autres. Ce que chaque appareil a déjà fait est réuni, rien n’est perdu.
+
+Ensuite, tout se fait seul : à l’ouverture, au retour sur l’appli, 20 secondes après une réponse, à la mise en
+arrière-plan et toutes les 5 minutes. Le bouton **Synchroniser** le fait tout de suite. Hors ligne, l’appli attend le
+retour du réseau.
+
+- Partagés : mots, questions (erreurs à revoir comprises), examens blancs, historique, la plupart des réglages.
+- Propres à chaque appareil : thème, taille du texte, voix et vitesse, et une série ou un examen blanc en cours (son
+  résultat, lui, est partagé une fois l’examen fini).
+- Un même mot ou une même question travaillés sur deux appareils avant qu’ils ne se parlent : la dernière réponse
+  compte, et les compteurs s’additionnent.
+
+La progression passe par le serveur de synchronisation de 形音义 ; le code n’y est jamais envoyé, seulement son
+empreinte. **Arrêter sur cet appareil** oublie le code ici, sans rien effacer.
+
 **Réglages › Appli › Vérifier** cherche une nouvelle version et relit la banque de questions. Une nouvelle
 version s’annonce aussi d’elle-même par un bandeau « Nouvelle version de l’appli prête ».
 
 ## 7. Sur l’ordinateur
+
+### Installer l’appli
+
+Dans **Chrome** ou **Edge**, ouvre https://guillaumeplehar-star.github.io/toeic-c1/, puis **Réglages › Appli ›
+Installer** (ou l’icône Installer au bout de la barre d’adresse). L’appli s’ouvre ensuite dans sa propre fenêtre, depuis
+le menu Démarrer, et marche hors ligne. Sur un grand écran, le menu passe à gauche. Pour retrouver la progression de
+l’iPhone : **Réglages › Synchronisation** avec le même code (section 6).
+
+### Le dossier
 
 Le dossier est le site lui-même : `index.html` contient toute l’appli, `banque/` le contenu.
 
@@ -200,6 +229,7 @@ Une fois : `py -m pip install playwright pillow` puis `py -m playwright install 
 
 ```powershell
 py tests\test_appli.py
+py tests\test_sync.py        # deux appareils et le serveur de synchronisation (demande Node 22.13 ou plus)
 ```
 
 Captures d’écran dans `tests/sortie/captures`.

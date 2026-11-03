@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "3 novembre 2026 à 16 h 53";
+const BUILD = "3 novembre 2026 à 17 h 19";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -589,10 +589,11 @@ function loadState() {
   return blank();
 }
 let saveWarned = false;
-function save() {
+function store() {
   try { localStorage.setItem(KEY, JSON.stringify(state)); }
   catch (e) { if (!saveWarned) { saveWarned = true; toast("Enregistrement impossible : la mémoire de l’appareil est pleine ?", 5000); } }
 }
+function save() { store(); if (sync) syncSoon(20000); }   // the other devices know about it within 20 s
 let state = loadState();
 
 /* ---------- the bank: banque/banque.json and its TSV files ---------- */
@@ -2067,16 +2068,20 @@ function renderSettings() {
   h += `<h2>Affichage</h2><div class="field"><span class="lbl">Thème</span>${segHTML("theme", [["auto", "Automatique"], ["light", "Clair"], ["dark", "Sombre"]])}</div>`;
   h += `<div class="field"><span class="lbl">Taille du texte</span>${segHTML("textSize", [["m", "Normale"], ["l", "Grande"], ["xl", "Très grande"]])}</div>`;
 
-  h += `<h2>Sauvegarde</h2><p class="small">Ta progression reste sur cet appareil. Garde-en une copie de temps en temps.</p>` +
+  h += `<h2>Synchronisation</h2><div id="sync-box">${syncBoxHTML()}</div>`;
+  h += `<h2>Sauvegarde</h2><p class="small">Garde de temps en temps une copie de ta progression dans un fichier.</p>` +
     `<div class="row"><button type="button" class="btn" id="backup-save">Exporter</button><button type="button" class="btn" id="backup-load">Importer</button></div>` +
     `<input type="file" id="backup-file" accept="application/json,.json" hidden>`;
 
   const parts = Object.keys(KINDS).sort().filter(k => pool(k).length).map(k => `${KINDS[k].nom.slice(5)}${NB}: ${pool(k).length}`);
   h += `<h2>Appli</h2><div class="box"><div class="switchrow"><div class="txt">Version du ${esc(BUILD)}<small>${plural(WORDS.length, "mot", "mots")} ; questions par partie, ${parts.join(", ")}` +
     `${missingFiles.length ? `. Fichiers non lus${NB}: ${esc(missingFiles.join(", "))}` : ""}</small></div><button type="button" class="btn small" id="app-update">Vérifier</button></div></div>`;
+  if (installEvt) h += `<div class="box"><div class="switchrow"><div class="txt">Installer sur cet appareil<small>Dans sa propre fenêtre, ` +
+    `avec son icône, et hors ligne.</small></div><button type="button" class="btn small primary" id="app-install">Installer</button></div></div>`;
   if (!matchMedia("(display-mode: standalone)").matches && !navigator.standalone)
-    h += `<p class="hint">Pour l’installer sur l’iPhone${NB}: dans Safari, Partager › Sur l’écran d’accueil. Elle marche ensuite hors ligne.</p>`;
-  $("#view-reglages").innerHTML = h;
+    h += `<p class="hint">Pour l’installer${NB}: sur iPhone, dans Safari, Partager › Sur l’écran d’accueil${NB}; sur ordinateur, dans Chrome ou Edge, ` +
+      `l’icône Installer au bout de la barre d’adresse (ou menu › Installer). Elle marche ensuite hors ligne.</p>`;
+  keepTyped(() => { $("#view-reglages").innerHTML = h; });
 }
 function setSetting(key, raw) {
   const S = state.settings;
@@ -2124,6 +2129,235 @@ function importBackup(file) {
   };
   r.readAsText(file);
 }
+
+/* ---------- sync between devices ---------- */
+// The progress travels through 形音义's server (outils/sync/worker.mjs, a Cloudflare Worker): one JSON document per
+// code, with a version number; the server only refuses a write made on an old version (409). The app keeps the last
+// document it received or sent (its base), merges what changed on each side since, and sends the result. The code
+// never leaves the device: the server sees the SHA-256 of "cap945:" and its letters and digits.
+const SYNC_URL = "https://xingyinyi-sync.guillaume-plehar.workers.dev";
+const SYNC_KEY = "cap945.sync", SYNC_BASE = "cap945.sync-base", SYNC_SENT = "cap945.sync-sent";
+const SYNC_FMT = 1;                                // format of the shared document
+// settings of each device (screen, voices, tab); the others are shared. A series or a mock test under way stays on its device.
+const DEVICE_SETTINGS = ["theme", "textSize", "rate", "voiceChoice", "view", "readPart", "listenPart"];
+class SyncError extends Error {}
+function readJSON(key) { try { return JSON.parse(localStorage.getItem(key) || "null"); } catch (e) { return null; } }
+function writeJSON(key, v) { try { if (v == null) localStorage.removeItem(key); else localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} }
+let sync = readJSON(SYNC_KEY);                     // {code, key, at (last success), err (last failure)}, or null
+if (!isObj(sync) || !/^[0-9a-f]{64}$/.test(sync.key || "")) sync = null;
+let syncTimer = 0, syncAt = 0, syncing = false, syncAgain = false;
+let syncNote = "", syncAsk = "";                   // Réglages: a message under the code; a new code waiting for « Créer »
+
+// JSON with sorted keys: the same content gives the same text, whatever the order of the keys
+function canon(x) {
+  if (Array.isArray(x)) return "[" + x.map(canon).join(",") + "]";
+  if (isObj(x)) return "{" + Object.keys(x).sort().filter(k => x[k] !== undefined).map(k => JSON.stringify(k) + ":" + canon(x[k])).join(",") + "}";
+  return JSON.stringify(x === undefined ? null : x);
+}
+const same = (a, b) => canon(a) === canon(b);
+function docOf(s) {
+  const settings = {};
+  for (const k of Object.keys(DEFAULTS)) if (!DEVICE_SETTINGS.includes(k)) settings[k] = s.settings[k];
+  return JSON.parse(JSON.stringify({ app: "cap945", fmt: SYNC_FMT, words: s.words, q: s.q, lists: s.lists, log: s.log, seq: s.seq, mocks: s.mocks, settings }));
+}
+function checkDoc(d) {
+  if (!isObj(d) || d.app !== "cap945") throw new SyncError("le serveur a renvoyé un document illisible");
+  if (d.fmt > SYNC_FMT) throw new SyncError("un appareil a une version plus récente de l’appli : mets celui-ci à jour (Réglages › Appli › Vérifier)");
+}
+// three-way merge: b the base (null when a device meets the code for the first time), l this device, r the server.
+// What changed on one side only takes that side; on both sides: the latest review or answer, counts added up since the base.
+function mergeDocs(b, l, r) {
+  const has = !!b;
+  const added = (f, B, L, R) => has ? (L[f] || 0) + (R[f] || 0) - ((B || {})[f] || 0) : Math.max(L[f] || 0, R[f] || 0);
+  const later = (L, R) => (L.t || 0) !== (R.t || 0) ? ((L.t || 0) > (R.t || 0) ? L : R) : (L.r || 0) >= (R.r || 0) ? L : R;
+  function mergeMap(B, L, R, both) {
+    const out = {};
+    for (const k of new Set([...Object.keys(L || {}), ...Object.keys(R || {}), ...Object.keys(B || {})])) {
+      const b1 = has && B ? B[k] : undefined, l1 = (L || {})[k], r1 = (R || {})[k];
+      const v = same(l1, r1) ? l1 : has && same(l1, b1) ? r1 : has && same(r1, b1) ? l1 : !l1 || !r1 ? l1 || r1 : both(b1, l1, r1);
+      if (v != null) out[k] = v;
+    }
+    return out;
+  }
+  const words = mergeMap(has && b.words, l.words, r.words, (B, L, R) => {
+    const c = { ...later(L, R), r: added("r", B, L, R), l: added("l", B, L, R) };
+    if (Number.isFinite(L.s) && Number.isFinite(R.s)) c.s = Math.min(L.s, R.s);
+    return c;
+  });
+  const q = mergeMap(has && b.q, l.q, r.q, (B, L, R) => {
+    const s = { ...later(L, R), r: added("r", B, L, R), ok: added("ok", B, L, R), l: added("l", B, L, R) };
+    s.f = B && B.r ? B.f : Math.min(L.f || 0, R.f || 0);   // first answered on both devices: the stricter result
+    return s;
+  });
+  const log = mergeMap(has && b.log, l.log, r.log, (B, L, R) => {
+    const d = {};
+    for (const k of new Set([...Object.keys(L), ...Object.keys(R)])) d[k] = added(k, B, L, R);
+    return d;
+  });
+  const lists = mergeMap(has && b.lists, l.lists, r.lists, (B, L, R) => has ? L : R);
+  const mocks = new Map();
+  for (const m of [...(l.mocks || []), ...(r.mocks || [])]) if (isObj(m) && !mocks.has(m.at)) mocks.set(m.at, m);
+  const settings = {}, BS = has ? b.settings || {} : {};
+  for (const k of new Set([...Object.keys(l.settings || {}), ...Object.keys(r.settings || {})])) {
+    const L = (l.settings || {})[k], R = (r.settings || {})[k];
+    settings[k] = R === undefined ? L : L === undefined ? R : same(L, R) ? L : has && same(L, BS[k]) ? R : has ? L : R;
+  }
+  const seq = Math.max(l.seq || 0, r.seq || 0, has ? (l.seq || 0) + (r.seq || 0) - (b.seq || 0) : 0);
+  return { app: "cap945", fmt: SYNC_FMT, words, q, lists, log, seq,
+    mocks: [...mocks.values()].sort((x, y) => y.at - x.at).slice(0, MOCKS_MAX), settings };
+}
+function applyDoc(d) {
+  const settings = { ...state.settings };
+  for (const [k, v] of Object.entries(d.settings || {})) if (k in DEFAULTS && !DEVICE_SETTINGS.includes(k)) settings[k] = v;
+  state = normalizeState({ ...state, words: d.words, q: d.q, lists: d.lists, log: d.log, seq: d.seq, mocks: d.mocks, settings });
+  store();
+  buildOrder();
+  if (!BANK) return;
+  // the screen follows, without touching a card turned over or a series under way
+  if (current === "mots") { if (!vstudy.turned) vShow(); }
+  else if (current === "lecture" || current === "ecoute") { const k = partOf(current); if (!(state.runs[k] && live[k].on) && !live[k].done) renderHome(k); }
+  else if (current === "progres") renderProgress();
+  else if (current === "examen") renderExam();
+  renderCounts();
+}
+
+function codeKey(s) {                              // what counts in a code: its letters and digits
+  return String(s || "").normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+async function sha256(text) {
+  const h = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(h)].map(x => x.toString(16).padStart(2, "0")).join("");
+}
+async function syncCall(key, method, body, have) {
+  let res, data = null;
+  try {
+    res = await fetch(`${SYNC_URL}/p/${key}${have != null ? "?have=" + have : ""}`, { method, cache: "no-store",
+      headers: body ? { "Content-Type": "application/json" } : {}, body: body ? JSON.stringify(body) : undefined });
+  } catch (e) { throw new SyncError("pas de réseau, ou serveur injoignable"); }
+  try { data = await res.json(); } catch (e) {}
+  if (res.status === 409 && isObj(data)) return { ...data, conflict: true };
+  if (res.status === 403) throw new SyncError("le serveur n’accepte plus de nouveau code");
+  if (!res.ok || !isObj(data)) throw new SyncError(isObj(data) && data.error ? data.error : `réponse ${res.status} du serveur`);
+  return data;
+}
+function syncSoon(ms) {
+  if (!sync) return;
+  const at = Date.now() + ms;
+  if (syncTimer && syncAt <= at) return;           // never later than a sync already planned
+  clearTimeout(syncTimer); syncAt = at;
+  syncTimer = setTimeout(() => { syncTimer = 0; syncNow(); }, ms);
+}
+function syncPending() {                           // something changed here since the last exchange
+  const base = readJSON(SYNC_BASE);
+  return !!sync && !(isObj(base) && base.key === sync.key && same(docOf(state), base.doc));
+}
+async function syncNow() {
+  if (!sync) return;
+  if (syncing) { syncAgain = true; return; }
+  clearTimeout(syncTimer); syncTimer = 0;
+  syncing = true; syncAgain = false;
+  renderSyncStatus();
+  const me = sync;
+  try {
+    for (let round = 0; round < 6; round++) {
+      let base = readJSON(SYNC_BASE);
+      if (!isObj(base) || base.key !== me.key) base = null;
+      const mine = docOf(state);
+      let res;
+      if (base && same(mine, base.doc)) {
+        res = await syncCall(me.key, "GET", null, base.v);
+        if (sync !== me) return;
+        if (res.data === undefined && res.v === base.v) break;           // nothing new on either side
+        if (res.data == null) { writeJSON(SYNC_BASE, null); continue; }  // the server lost the document: it is sent again
+      } else {
+        // the last documents sent: one that comes back is ours, whose answer was lost (nothing is counted twice)
+        const sent = (readJSON(SYNC_SENT) || []).slice(-4);
+        sent.push(hash(canon(mine)));
+        writeJSON(SYNC_SENT, sent);
+        res = await syncCall(me.key, "PUT", { v: base ? base.v : 0, data: mine });
+        if (sync !== me) return;
+        if (!res.conflict) {
+          writeJSON(SYNC_BASE, { key: me.key, v: res.v, doc: mine });
+          if (same(docOf(state), mine)) break;
+          continue;
+        }
+        if (res.data == null) { writeJSON(SYNC_BASE, null); continue; }
+      }
+      checkDoc(res.data);
+      if ((readJSON(SYNC_SENT) || []).includes(hash(canon(res.data)))) { writeJSON(SYNC_BASE, { key: me.key, v: res.v, doc: res.data }); continue; }
+      const merged = mergeDocs(base ? base.doc : null, mine, res.data), now = docOf(state);
+      applyDoc(same(now, mine) ? merged : mergeDocs(mine, now, merged));   // changes made during the exchange stay
+      writeJSON(SYNC_BASE, { key: me.key, v: res.v, doc: res.data });
+    }
+    me.at = Date.now(); me.err = "";
+  } catch (e) {
+    if (sync === me) me.err = e instanceof SyncError ? e.message : "erreur inattendue (" + (e && e.message || e) + ")";
+  } finally {
+    syncing = false;
+    if (sync === me) {
+      writeJSON(SYNC_KEY, me);
+      renderSyncStatus();
+      if (syncAgain) syncSoon(500);
+      else if (!document.hidden) syncSoon(5 * 60e3);   // what the other devices did, every five minutes
+    }
+  }
+}
+async function syncJoin(code, create) {
+  const k = codeKey(code);
+  syncNote = ""; syncAsk = "";
+  if (k.length < 8) { syncNote = "Le code doit avoir au moins 8 lettres ou chiffres."; renderSyncBox(); return; }
+  if (!window.crypto || !crypto.subtle) { syncNote = "Ce navigateur ne peut pas calculer l’empreinte du code (il faut une page en https)."; renderSyncBox(); return; }
+  const key = await sha256("cap945:" + k);
+  if (!create) {
+    syncNote = "Recherche du code…"; renderSyncBox();
+    let res;
+    try { res = await syncCall(key, "GET"); }
+    catch (e) { syncNote = `Échec${NB}: ${e.message}.`; renderSyncBox(); return; }
+    syncNote = "";
+    if (!res.data) { syncAsk = code.trim(); renderSyncBox(); return; }   // a typo would create a new, empty code
+  }
+  sync = { code: code.trim(), key, at: 0, err: "" };
+  writeJSON(SYNC_KEY, sync); writeJSON(SYNC_BASE, null); writeJSON(SYNC_SENT, null);
+  renderSyncBox();
+  await syncNow();
+  if (sync && !sync.err) toast(create ? "Code créé : tape-le sur tes autres appareils." : "Progression synchronisée.");
+}
+function syncStop() {
+  sync = null; syncAsk = ""; syncNote = "";
+  clearTimeout(syncTimer); syncTimer = 0;
+  writeJSON(SYNC_KEY, null); writeJSON(SYNC_BASE, null); writeJSON(SYNC_SENT, null);
+  renderSyncBox();
+  toast("Synchronisation arrêtée sur cet appareil. Ta progression y reste.");
+}
+function whenText(t) {
+  const d = new Date(t), hm = `${d.getHours()}${NB}h${NB}${String(d.getMinutes()).padStart(2, "0")}`;
+  return (d.toDateString() === new Date().toDateString() ? "aujourd’hui" : "le " + d.toLocaleDateString("fr-FR", { day: "numeric", month: "long" })) + " à " + hm;
+}
+function syncBoxHTML() {
+  if (!sync) {
+    if (syncAsk) return `<p class="small">Aucun appareil n’utilise encore le code «${NB}${esc(syncAsk)}${NB}». Le créer${NB}? Tape ensuite le même code sur tes autres appareils.</p>` +
+      `<div class="row"><button type="button" class="btn primary" data-sync="create">Créer ce code</button><button type="button" class="btn" data-sync="cancel">Annuler</button></div>`;
+    return `<p class="small">Pour retrouver ta progression sur l’iPhone et sur l’ordinateur${NB}: choisis un code difficile à deviner (8 lettres ou chiffres au moins) et tape le même sur chaque appareil.</p>` +
+      `<div class="field"><label class="lbl" for="sync-code">Code commun</label><input type="text" id="sync-code" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"></div>` +
+      `<div class="row"><button type="button" class="btn primary" data-sync="join">Synchroniser</button></div>` + (syncNote ? `<p class="hint" role="status">${esc(syncNote)}</p>` : "");
+  }
+  const st = syncing ? "Synchronisation en cours…" : sync.err ? `Échec de la dernière synchronisation${NB}: ${esc(sync.err)}.`
+    : sync.at ? `Synchronisé ${whenText(sync.at)}.` : "Pas encore synchronisé.";
+  return `<div class="box"><div class="switchrow"><div class="txt">Code «${NB}${esc(sync.code)}${NB}»<small id="sync-status" role="status">${st}</small></div>` +
+    `<button type="button" class="btn small" data-sync="now"${syncing ? " disabled" : ""}>Synchroniser</button></div></div>` +
+    `<p class="small">Partagés${NB}: mots, questions, examens blancs, historique et la plupart des réglages. Propres à chaque appareil${NB}: ` +
+    `thème, taille du texte, voix, vitesse, et une série ou un examen blanc en cours.</p>` +
+    `<div class="row"><button type="button" class="btn danger" data-sync="stop">Arrêter sur cet appareil</button></div>`;
+}
+function renderSyncBox() { const el = $("#sync-box"); if (el) keepTyped(() => { el.innerHTML = syncBoxHTML(); }); }
+function keepTyped(draw) {                         // a code being typed survives a redraw of Réglages
+  const f = $("#sync-code"), typed = f ? f.value : "", focus = !!f && document.activeElement === f;
+  draw();
+  const g = $("#sync-code");
+  if (g && typed) g.value = typed;
+  if (g && focus) g.focus();
+}
+function renderSyncStatus() { if (sync) renderSyncBox(); }
 
 /* ---------- sheet, toast, update ---------- */
 let sheetFrom = null;
@@ -2276,9 +2510,27 @@ function bind() {
       if (x) speech.say(VOICE_SAMPLE, x.v, hear);
       return;
     }
+    const sy = t.closest("[data-sync]");
+    if (sy) {
+      const a = sy.dataset.sync;
+      if (a === "join") syncJoin($("#sync-code").value, false);
+      else if (a === "create") syncJoin(syncAsk, true);
+      else if (a === "cancel") { syncAsk = ""; renderSyncBox(); }
+      else if (a === "now") syncNow();
+      else if (a === "stop") syncStop();
+      return;
+    }
     if (t.closest("#backup-save")) exportBackup();
     else if (t.closest("#backup-load")) $("#backup-file").click();
     else if (t.closest("#app-update")) updateApp();
+    else if (t.closest("#app-install") && installEvt) {
+      const ev = installEvt;
+      ev.prompt();
+      Promise.resolve(ev.userChoice).then(c => { if (c && c.outcome === "accepted") installEvt = null; if (current === "reglages") renderSettings(); }).catch(() => {});
+    }
+  });
+  $("#view-reglages").addEventListener("keydown", e => {
+    if (e.target.id === "sync-code" && e.key === "Enter") { e.preventDefault(); syncJoin(e.target.value, false); }
   });
   $("#view-reglages").addEventListener("toggle", e => { if (e.target.matches("details.vlist")) voicesOpen = e.target.open; }, true);
   $("#view-reglages").addEventListener("change", e => {
@@ -2298,6 +2550,8 @@ function bind() {
   document.addEventListener("visibilitychange", onVisibility);
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => applyLook(state.settings));
   window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { state = loadState(); buildOrder(); renderView(); } });
+  window.addEventListener("online", () => syncSoon(1000));
+  window.addEventListener("pagehide", () => { if (syncPending()) syncNow(); });
 }
 function focusedButton() {                         // a visible button with the focus keeps its own Space and Enter
   const el = document.activeElement;               // (a button hidden with its panel may keep the focus)
@@ -2329,7 +2583,8 @@ function onKey(e) {
 }
 function onVisibility() {                          // the app in the background: the clock stops, the question starts again on return
   const kind = partOf(current);
-  if (document.hidden) { if (kind) suspend(kind); speech.stop(); return; }
+  if (document.hidden) { if (kind) suspend(kind); speech.stop(); if (syncPending()) syncNow(); return; }
+  syncSoon(1000);
   if (kind && state.runs[kind] && live[kind].on && !$(`#${kind}-run`).hidden) show(kind);
   if (swReg && Date.now() - swChecked > 30 * 60e3) { swChecked = Date.now(); swReg.update().catch(() => {}); }
   if (current === "mots" && !vstudy.turned) vShow();
@@ -2356,6 +2611,7 @@ async function init() {
   for (const k in KINDS) if (state.runs[k]) live[k] = {};   // a series saved before: offered on its tab
   showView(state.settings.view);
   if (missingFiles.length) toast(`Fichiers non lus${NB}: ${missingFiles.join(", ")}.`, 4000);
+  syncNow();
   if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("sw.js").then(reg => {
       swReg = reg;
@@ -2364,6 +2620,9 @@ async function init() {
     }).catch(() => {});
   }
 }
+let installEvt = null;                             // Chrome, Edge: the app can be installed from Réglages
+window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); installEvt = e; if (current === "reglages") renderSettings(); });
+window.addEventListener("appinstalled", () => { installEvt = null; toast("Appli installée : elle s’ouvre maintenant dans sa propre fenêtre."); if (current === "reglages") renderSettings(); });
 init();
 </script>
 </body>
