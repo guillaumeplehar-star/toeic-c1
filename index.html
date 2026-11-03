@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "3 novembre 2026 à 18 h 42";
+const BUILD = "3 novembre 2026 à 18 h 48";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -2112,11 +2112,10 @@ function renderSettings() {
     } else h += `<p class="small">${speech.loaded ? "Le navigateur ne donne aucune voix anglaise à l’appli." : "Recherche des voix…"}</p>`;
     h += `<p class="small">Il manque une voix${NB}? Copie la liste que voit l’appli et envoie-la${NB}: elle dit ce que l’appareil donne vraiment.</p>` +
       `<div class="row"><button type="button" class="btn small" id="voices-copy">Copier la liste des voix</button></div></details>`;
-    h += `<p class="hint">Sur iPhone, d’autres voix se téléchargent dans Réglages › Accessibilité › Contenu énoncé › Voix › Anglais : ` +
-      `prends les versions « améliorée » ou « premium », bien plus naturelles. L’appli les préfère d’elle-même. Une voix qui vient d’être ` +
-      `téléchargée n’apparaît qu’une fois l’appli fermée tout à fait (balaye-la vers le haut dans le sélecteur d’applis) puis rouverte. ` +
-      `Les voix Siri, elles, ne sont pas proposées aux pages web par Apple. Sur ordinateur, chaque navigateur a ses voix${NB}: Edge en propose ` +
-      `de très naturelles, en ligne.</p>`;
+    h += `<p class="hint">Sur iPhone et iPad, Safari ne donne aux pages web que les voix de base livrées avec l’appareil (Samantha, ` +
+      `Daniel, Karen…)${NB}: les voix téléchargées dans Réglages › Accessibilité › Contenu énoncé, plus naturelles, et les voix Siri n’y sont pas ` +
+      `accessibles. C’est une limite d’Apple, la même pour toute appli web. Sur ordinateur, chaque navigateur a ses voix${NB}: Edge en propose ` +
+      `de très naturelles, en ligne, pour les quatre accents du TOEIC.</p>`;
   }
 
   h += `<h2>Séries</h2><div class="box"><div class="switchrow"><div class="txt">Insister sur mes points faibles<small>Les nouvelles questions viennent ` +

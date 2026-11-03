@@ -19,10 +19,11 @@ Chaque partie se fait en entraînement ou en examen chronométré. La Part 1 (ph
 2. Touche **Partager**, puis **Sur l’écran d’accueil**.
 3. Ouvre-la depuis l’écran d’accueil : elle garde sa copie et marche sans réseau.
 
-Pour de meilleures voix : **Réglages de l’iPhone › Accessibilité › Contenu énoncé › Voix › Anglais**. Télécharge
-une voix « améliorée » ou « premium » par accent (américain, britannique, australien) : elles sont bien plus
-naturelles que les voix de base. L’appli les trouve d’elle-même au prochain lancement et les préfère : quand elle a
-assez de voix naturelles, les voix de base sont coupées d’office.
+Les voix : sur iPhone, Safari ne donne aux pages web que les voix de base livrées avec l’appareil (Samantha
+américaine, Daniel britannique, Karen australienne, plus Moira, Rishi et Tessa pour d’autres accents). Les voix
+« améliorées » ou « premium » téléchargées dans **Réglages › Accessibilité › Contenu énoncé** et les voix Siri n’y
+sont pas accessibles : c’est une limite d’Apple, constatée sur iOS 18, la même pour toute appli web. Sur ordinateur,
+**Edge** propose des voix en ligne très naturelles pour les quatre accents du TOEIC.
 
 ## 2. Mots
 
@@ -81,10 +82,8 @@ touche **Écouter**, et coupe celles qui sonnent mal. Les voix d’autres accent
 écossais…) y sont aussi : le TOEIC ne les fait pas entendre, elles servent une fois **Autres accents** allumé. La liste
 montre toutes les voix anglaises que le navigateur donne, sous leur nom exact ; sont coupées d’office, avec la raison
 écrite dessous, les voix robotiques ou fantaisie et la version de base d’une voix dont une version plus naturelle est
-là. Il manque une voix téléchargée ? Ferme l’appli tout à fait (balaye-la vers le haut dans le sélecteur d’applis) puis
-rouvre-la : l’iPhone ne donne une nouvelle voix qu’au lancement. Les voix Siri ne sont pas proposées aux pages web par
-Apple. Si elle manque toujours, **Copier la liste des voix** (au bas de la liste) copie ce que l’appareil donne
-vraiment, à envoyer pour trouver la cause. Sans voix anglaise sur l’appareil, le texte s’affiche à la
+là. **Copier la liste des voix** (au bas de la liste) copie ce que l’appareil donne vraiment : nom, langue,
+identifiant de chaque voix, et ce qu’en fait l’appli. Sans voix anglaise sur l’appareil, le texte s’affiche à la
 place, et le mode examen n’est pas proposé.
 
 ## 4 bis. Parts 3, 4, 6 et 7 : des lots de questions

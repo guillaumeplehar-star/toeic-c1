@@ -118,7 +118,11 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   ou `com.apple.speech.synthesis.voice.*` hors vraies voix) et `x.twin` (version moins bonne d’une voix présente) sont
   coupées d’office et jamais prises par `pool()` en secours ; `voicesReport`/`copyVoices` (« Copier la liste des
   voix » : nom, langue, identifiant, locale ou en ligne, ce qu’en fait l’appli ; feuille à copier à la main si le
-  presse-papiers refuse) ; `speech.load()` aussi à l’ouverture de Réglages et au retour sur l’appli ; avec
+  presse-papiers refuse) ; `speech.load()` aussi à l’ouverture de Réglages et au retour sur l’appli. Constaté sur
+  l’iPhone de Guillaume (iOS 18.7, novembre 2026) : Safari ne donne que 68 voix, dont 6 voix anglaises réelles, toutes
+  `com.apple.voice.super-compact.*` (Samantha en-US, Daniel en-GB, Karen en-AU, Moira, Rishi, Tessa), plus les voix
+  fantaisie aux noms traduits (« Mauvaises nouvelles », « Cloches »…) ; aucune voix téléchargée, ni Siri, ni
+  Eloquence. Seul l’ordinateur (Edge) a des voix naturelles ; avec
   leur sexe `voiceSex`, leur nom court `voiceBase` et leur qualité `voiceTier` (1 standard, 2 améliorée ou Google,
   3 premium ou « Natural » d’Edge, `TIERS`) ; une seule version d’une même voix, la meilleure (sur iPhone, la version
   compacte et l’améliorée portent le même nom), locale à qualité égale ; `x.def` : allumée d’office, sauf une voix
