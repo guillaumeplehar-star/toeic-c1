@@ -19,8 +19,11 @@
     { "id": "2b", "type": "part2", "nom": "Part 2, série B", "fichier": "part2-b.tsv" },
     { "id": "2c", "type": "part2", "nom": "Part 2, série C", "fichier": "part2-c.tsv" },
     { "id": "3a", "type": "part3", "nom": "Part 3, série A", "fichier": "part3-a.json" },
+    { "id": "3b", "type": "part3", "nom": "Part 3, série B", "fichier": "part3-b.json" },
     { "id": "4a", "type": "part4", "nom": "Part 4, série A", "fichier": "part4-a.json" },
+    { "id": "4b", "type": "part4", "nom": "Part 4, série B", "fichier": "part4-b.json" },
     { "id": "6a", "type": "part6", "nom": "Part 6, série A", "fichier": "part6-a.json" },
+    { "id": "6b", "type": "part6", "nom": "Part 6, série B", "fichier": "part6-b.json" },
     { "id": "7a", "type": "part7", "nom": "Part 7, documents simples", "fichier": "part7-a.json" },
     { "id": "7b", "type": "part7", "nom": "Part 7, documents multiples", "fichier": "part7-b.json" }
   ]

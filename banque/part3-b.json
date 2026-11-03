@@ -1,0 +1,1995 @@
+{
+  "sets": [
+    {
+      "id": "3b-001",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Good morning. I’m in room 418, and I was hoping to check out a little later today. My flight home isn’t until nine this evening."
+        ],
+        [
+          "M",
+          "Let me take a look. Checkout is normally at eleven, and with the medical conference in town, we’re fully booked tonight."
+        ],
+        [
+          "W",
+          "I understand. Even an extra hour or two would help. I’ve got a video call with my team at noon."
+        ],
+        [
+          "M",
+          "I can give you until one o’clock at no charge. Any later than that, and we’d have to bill you for half a night."
+        ],
+        [
+          "W",
+          "One should be enough for the call. But that still leaves me with a very long afternoon."
+        ],
+        [
+          "M",
+          "Well, we can keep your luggage here at the desk, and the lounge on the top floor is open to all guests. It even has showers."
+        ],
+        [
+          "W",
+          "Oh, that’s good to know. I’ll bring my bags down right after the call."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour. Je suis à la chambre 418, et j’espérais pouvoir libérer la chambre un peu plus tard aujourd’hui. Mon vol de retour n’est qu’à neuf heures ce soir.",
+        "Je regarde. Le départ se fait normalement à onze heures, et avec le congrès médical en ville, nous sommes complets ce soir.",
+        "Je comprends. Même une heure ou deux de plus m’aideraient. J’ai une visioconférence avec mon équipe à midi.",
+        "Je peux vous laisser jusqu’à treize heures sans frais. Au-delà, nous devrions vous facturer une demi-nuit.",
+        "Treize heures, ça devrait suffire pour la visioconférence. Mais il me reste quand même un très long après-midi.",
+        "Eh bien, nous pouvons garder vos bagages ici, à la réception, et le salon du dernier étage est ouvert à tous les clients. Il y a même des douches.",
+        "Ah, bon à savoir. Je descendrai mes bagages juste après la visioconférence."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why does the woman speak to the man?",
+          "opts": [
+            "To change the date of her flight home",
+            "To keep her room beyond the normal checkout time",
+            "To book a room for the medical conference",
+            "To find out when the airport shuttle departs"
+          ],
+          "ans": "B",
+          "type": "sujet",
+          "expl": "Elle demande à libérer sa chambre plus tard (*check out a little later*), car son vol ne part que le soir. Le congrès médical explique seulement pourquoi l’hôtel est complet, et elle ne parle ni de changer son vol ni d’une navette.",
+          "q_fr": "Pourquoi la femme s’adresse-t-elle à l’homme ?"
+        },
+        {
+          "q": "What does the woman imply when she says, “that still leaves me with a very long afternoon”?",
+          "opts": [
+            "She expects her video call to run past one o’clock.",
+            "She thinks the half-night charge is unreasonable.",
+            "She would like a tour of the city this afternoon.",
+            "She has time to fill before her flight."
+          ],
+          "ans": "D",
+          "type": "intention",
+          "expl": "Elle doit rendre la chambre à treize heures alors que son vol part à vingt et une heures : elle laisse entendre qu’elle ne sait pas où passer l’après-midi, et l’homme lui propose aussitôt la consigne et le salon. Elle dit au contraire qu’un départ à treize heures lui laisse assez de temps pour sa visioconférence.",
+          "q_fr": "Que sous-entend la femme quand elle dit « il me reste quand même un très long après-midi » ?"
+        },
+        {
+          "q": "What does the man offer to do?",
+          "opts": [
+            "Store the woman’s bags until she leaves",
+            "Move her to a room on the top floor",
+            "Waive the fee for half a night",
+            "Reserve a meeting room for her video call"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "*We can keep your luggage here at the desk* : il propose de garder ses bagages. Le dernier étage est celui du salon, pas d’une autre chambre, et la demi-nuit ne serait facturée qu’au-delà de treize heures.",
+          "q_fr": "Que propose de faire l’homme ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-002",
+      "speakers": {
+        "W": "f",
+        "M": "m",
+        "M2": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Bruno, Samir says there’s a problem with tonight’s menu for the anniversary dinner in the private room."
+        ],
+        [
+          "M",
+          "There is. The supplier only delivered half the halibut we ordered. The rest is stuck at the port because of the storm."
+        ],
+        [
+          "M2",
+          "And when the host booked, she chose the halibut as the main course for all forty guests."
+        ],
+        [
+          "W",
+          "Can’t we get more from another supplier?"
+        ],
+        [
+          "M",
+          "Not at this hour, and not at the quality I’d want. But we have plenty of sea bass, and it would work with the same sauce and sides."
+        ],
+        [
+          "M2",
+          "She was very particular about the menu, though. I don’t think we should switch it without asking her."
+        ],
+        [
+          "W",
+          "Agreed. Samir, give her a call now and explain. Tell her we’ll take fifteen percent off the bill for the inconvenience."
+        ],
+        [
+          "M2",
+          "Will do. I’ll let you know what she says."
+        ]
+      ],
+      "lines_fr": [
+        "Bruno, Samir dit qu’il y a un problème avec le menu de ce soir pour le dîner d’anniversaire dans le salon privé.",
+        "Oui. Le fournisseur n’a livré que la moitié du flétan que nous avions commandé. Le reste est bloqué au port à cause de la tempête.",
+        "Et quand l’organisatrice a réservé, elle a choisi le flétan comme plat principal pour les quarante invités.",
+        "On ne peut pas en avoir davantage chez un autre fournisseur ?",
+        "Pas à cette heure-ci, et pas de la qualité que je voudrais. Mais nous avons du bar en quantité, et il irait avec la même sauce et les mêmes accompagnements.",
+        "Elle tenait beaucoup à ce menu, pourtant. Je ne pense pas qu’on devrait le changer sans lui demander.",
+        "D’accord. Samir, appelle-la tout de suite pour lui expliquer. Dis-lui que nous lui ferons quinze pour cent de remise sur l’addition pour le désagrément.",
+        "Entendu. Je te dirai ce qu’elle a répondu."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What problem are the speakers discussing?",
+          "opts": [
+            "A storm has forced a private event to be canceled.",
+            "A supplier delivered the wrong kind of fish.",
+            "They do not have enough of a key ingredient.",
+            "More guests are coming to a dinner than planned."
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "Bruno explique que le fournisseur n’a livré que la moitié du flétan (*only delivered half*), prévu pour les quarante invités : il leur manque l’ingrédient principal du plat. La tempête retarde le reste de la livraison mais n’annule pas le dîner, et le poisson livré est bien celui qui était commandé.",
+          "q_fr": "De quel problème les interlocuteurs parlent-ils ?"
+        },
+        {
+          "q": "What does Bruno propose?",
+          "opts": [
+            "Substituting another type of fish",
+            "Ordering more halibut from a different supplier",
+            "Postponing the dinner until the delivery arrives",
+            "Reducing the number of courses on the menu"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Bruno dit qu’ils ont beaucoup de bar (*plenty of sea bass*), qui irait avec la même sauce : il propose de remplacer le flétan par un autre poisson. C’est la femme qui suggère un autre fournisseur, et Bruno refuse.",
+          "q_fr": "Que propose Bruno ?"
+        },
+        {
+          "q": "What is Samir asked to do?",
+          "opts": [
+            "Print a revised menu for the private room",
+            "Tell the guests about the change at their tables",
+            "Confirm the price of the sea bass with the chef",
+            "Phone the customer who organized the dinner"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "La femme dit *Samir, give her a call now and explain* : il doit téléphoner à l’organisatrice du dîner. La remise de quinze pour cent sera annoncée pendant cet appel ; il n’est question ni d’un nouveau menu imprimé ni de prévenir les invités à table.",
+          "q_fr": "Que demande-t-on à Samir de faire ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-003",
+      "speakers": {
+        "M": "m",
+        "W": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Hi, I have a reservation for a compact car under the name Kovacs. It’s for the whole week."
+        ],
+        [
+          "W",
+          "I’m sorry, Mr. Kovacs. Several cars came back late this morning, and we don’t have any compacts left. I can give you a midsize at no extra cost, though."
+        ],
+        [
+          "M",
+          "Well, I’m picking up three colleagues, and we’ve got a lot of display equipment for a trade show. I doubt it would all fit."
+        ],
+        [
+          "W",
+          "Probably not. The minivan has the most room, but you’d have to pay its full rate."
+        ],
+        [
+          "M",
+          "Hmm. Our travel policy doesn’t allow more than sixty dollars a day."
+        ],
+        [
+          "W",
+          "Then I’d go with the next size down. It still has a large cargo area, and it’s within your limit."
+        ],
+        [
+          "M",
+          "Sounds good. I’ll take it."
+        ],
+        [
+          "W",
+          "Great. Before you drive off, please walk around the vehicle with our attendant and note any scratches or dents."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, j’ai une réservation pour une petite citadine au nom de Kovacs. C’est pour toute la semaine.",
+        "Je suis désolée, monsieur Kovacs. Plusieurs voitures ont été rendues en retard ce matin, et il ne nous reste plus de citadines. Je peux quand même vous donner une berline intermédiaire sans supplément.",
+        "Eh bien, je dois aller chercher trois collègues, et nous avons beaucoup de matériel d’exposition pour un salon professionnel. Je doute que tout rentre.",
+        "Sans doute pas. C’est le monospace qui a le plus de place, mais vous devriez payer son plein tarif.",
+        "Hum. Notre politique de déplacement n’autorise pas plus de soixante dollars par jour.",
+        "Alors je prendrais la catégorie juste en dessous. Elle a encore un grand coffre, et elle reste dans votre limite.",
+        "Très bien. Je la prends.",
+        "Parfait. Avant de partir, faites le tour du véhicule avec notre agent, s’il vous plaît, et notez les éventuelles rayures ou bosses."
+      ],
+      "graphic": {
+        "title": "Rental rates",
+        "rows": [
+          [
+            "Category",
+            "Seats",
+            "Daily rate"
+          ],
+          [
+            "Compact",
+            "4",
+            "$38"
+          ],
+          [
+            "Midsize",
+            "5",
+            "$45"
+          ],
+          [
+            "SUV",
+            "5",
+            "$59"
+          ],
+          [
+            "Minivan",
+            "7",
+            "$74"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "Why is the man unable to get the vehicle he reserved?",
+          "opts": [
+            "Some vehicles were not returned on time.",
+            "His reservation was made for a different week.",
+            "The compact cars are all being serviced.",
+            "His company has changed its travel policy."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "L’employée explique que plusieurs voitures sont revenues en retard (*several cars came back late*) : il ne reste plus de citadine. La politique de déplacement de l’entreprise est citée, mais pour limiter le prix, pas parce qu’elle a changé.",
+          "q_fr": "Pourquoi l’homme ne peut-il pas avoir le véhicule qu’il a réservé ?"
+        },
+        {
+          "q": "Look at the graphic. What daily rate will the man most likely pay?",
+          "opts": [
+            "$38",
+            "$45",
+            "$59",
+            "$74"
+          ],
+          "ans": "C",
+          "type": "graphique",
+          "expl": "Le Minivan, à 74 dollars, dépasse la limite de soixante dollars ; l’employée conseille *the next size down*, la catégorie juste en dessous : le SUV, à 59 dollars. La Midsize, offerte au prix de la réservation, serait trop petite pour le matériel.",
+          "q_fr": "Regardez le graphique. Quel tarif journalier l’homme va-t-il sans doute payer ?"
+        },
+        {
+          "q": "What does the woman ask the man to do before leaving?",
+          "opts": [
+            "Fill the tank before returning the car",
+            "Inspect the car with a staff member",
+            "Show a copy of his company’s travel policy",
+            "Pick up his colleagues at the main entrance"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "Elle lui demande de faire le tour du véhicule avec un employé (*walk around the vehicle with our attendant*) pour noter rayures et bosses : une inspection. Le plein, la politique de déplacement et les collègues ne font l’objet d’aucune demande.",
+          "q_fr": "Que demande la femme à l’homme de faire avant de partir ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-004",
+      "speakers": {
+        "M": "m",
+        "W": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Ms. Nwosu, thanks for coming in. I’ve gone through your application for a loan to buy a second oven."
+        ],
+        [
+          "W",
+          "Thank you. Is there anything else you need from me?"
+        ],
+        [
+          "M",
+          "Well, that’s where it gets a little tricky. For business loans, we normally ask for two full years of tax returns, and your bakery opened about eighteen months ago."
+        ],
+        [
+          "W",
+          "I see. But our sales have doubled since then, and we now supply bread to three cafés downtown."
+        ],
+        [
+          "M",
+          "That certainly helps your case. There’s another route, though. We also offer equipment financing, and since the oven itself secures the loan, the two-year rule doesn’t apply."
+        ],
+        [
+          "W",
+          "Is the interest rate any higher?"
+        ],
+        [
+          "M",
+          "Slightly, but approval usually takes less than a week. If you bring me a written quote from the oven supplier, I can get started right away."
+        ],
+        [
+          "W",
+          "I’ll ask them for one this afternoon."
+        ]
+      ],
+      "lines_fr": [
+        "Madame Nwosu, merci d’être venue. J’ai examiné votre demande de prêt pour l’achat d’un deuxième four.",
+        "Merci. Avez-vous besoin d’autre chose de ma part ?",
+        "Eh bien, c’est là que ça se complique un peu. Pour les prêts aux entreprises, nous demandons normalement deux années complètes de déclarations fiscales, et votre boulangerie a ouvert il y a environ dix-huit mois.",
+        "Je vois. Mais nos ventes ont doublé depuis, et nous fournissons maintenant du pain à trois cafés du centre-ville.",
+        "Cela joue clairement en votre faveur. Mais il existe une autre voie. Nous proposons aussi un financement d’équipement, et comme le four lui-même garantit le prêt, la règle des deux ans ne s’applique pas.",
+        "Le taux d’intérêt est-il plus élevé ?",
+        "Légèrement, mais l’accord prend en général moins d’une semaine. Si vous m’apportez un devis écrit du fournisseur du four, je peux lancer le dossier tout de suite.",
+        "Je leur en demande un cet après-midi."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who most likely is the woman?",
+          "opts": [
+            "A supplier of commercial ovens",
+            "The manager of a downtown café",
+            "A tax advisor for small companies",
+            "The owner of a small food business"
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "Elle demande un prêt pour acheter un deuxième four pour sa boulangerie (*your bakery*, *our sales*) : elle dirige un commerce alimentaire. Les cafés du centre-ville sont ses clients, et le fournisseur de fours est un tiers.",
+          "q_fr": "Qui est sans doute la femme ?"
+        },
+        {
+          "q": "What does the man mean when he says, “that’s where it gets a little tricky”?",
+          "opts": [
+            "The application form is difficult to fill out.",
+            "He is about to point out an obstacle.",
+            "The new oven will be hard to install.",
+            "The bank’s lending rules have just changed."
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "La femme demande s’il lui faut autre chose ; il annonce une difficulté, qu’il explique aussitôt : la banque exige deux ans de déclarations fiscales et la boulangerie n’a que dix-huit mois. Rien n’indique que le formulaire soit compliqué ni que les règles viennent de changer.",
+          "q_fr": "Que veut dire l’homme quand il dit « c’est là que ça se complique un peu » ?"
+        },
+        {
+          "q": "What does the man ask the woman to provide?",
+          "opts": [
+            "Her tax returns for the past two years",
+            "A copy of her contracts with the cafés",
+            "A price estimate from a vendor",
+            "Evidence that her sales have doubled"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*Bring me a written quote from the oven supplier* : un devis du fournisseur. Les déclarations fiscales sur deux ans sont justement ce qu’elle n’a pas, et les cafés et la hausse des ventes ne sont cités que pour appuyer sa demande.",
+          "q_fr": "Que demande l’homme à la femme de fournir ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-005",
+      "speakers": {
+        "M": "m",
+        "W": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Hi, I’d like to make an appointment with a physical therapist. I hurt my knee playing tennis two weeks ago, and it’s still swollen."
+        ],
+        [
+          "W",
+          "I’m sorry to hear that. Has a doctor referred you to us? Your insurance won’t cover the sessions without a referral."
+        ],
+        [
+          "M",
+          "Yes, my doctor gave me one yesterday. Should I e-mail it to you?"
+        ],
+        [
+          "W",
+          "You can just bring it with you. Our first opening is next Wednesday at seven thirty in the morning."
+        ],
+        [
+          "M",
+          "Seven thirty? I start work at eight, and my office is on the other side of town."
+        ],
+        [
+          "W",
+          "In that case, there’s Wednesday at six in the evening, with one of our newer therapists."
+        ],
+        [
+          "M",
+          "That’s much better. I’ll take it."
+        ],
+        [
+          "W",
+          "All right. Please arrive fifteen minutes early. You’ll need to fill out a medical history form before your first session."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, j’aimerais prendre rendez-vous avec un kinésithérapeute. Je me suis blessé au genou en jouant au tennis il y a deux semaines, et il est toujours enflé.",
+        "Désolée de l’apprendre. Un médecin vous a-t-il adressé à nous ? Votre assurance ne prendra pas en charge les séances sans ordonnance.",
+        "Oui, mon médecin m’en a fait une hier. Je vous l’envoie par courriel ?",
+        "Vous pouvez simplement l’apporter. Notre premier créneau libre est mercredi prochain à sept heures et demie du matin.",
+        "Sept heures et demie ? Je commence le travail à huit heures, et mon bureau est à l’autre bout de la ville.",
+        "Dans ce cas, il y a mercredi à dix-huit heures, avec l’un de nos kinésithérapeutes arrivés plus récemment.",
+        "C’est beaucoup mieux. Je le prends.",
+        "Très bien. Merci d’arriver quinze minutes en avance. Vous devrez remplir un questionnaire sur vos antécédents médicaux avant la première séance."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why is the man calling?",
+          "opts": [
+            "To arrange treatment for an injury",
+            "To ask whether a doctor accepts his insurance",
+            "To request a referral to a specialist",
+            "To cancel a session with a new therapist"
+          ],
+          "ans": "A",
+          "type": "sujet",
+          "expl": "Il veut un rendez-vous chez un kinésithérapeute pour son genou blessé au tennis : des soins pour une blessure. L’ordonnance (*referral*), il l’a déjà, et c’est la femme qui parle d’assurance.",
+          "q_fr": "Pourquoi l’homme appelle-t-il ?"
+        },
+        {
+          "q": "What problem does the man mention about the first time offered?",
+          "opts": [
+            "He has another medical appointment that morning.",
+            "He would not be able to get to work on time.",
+            "He prefers to see an experienced therapist.",
+            "His office is closed on Wednesday mornings."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "Il commence le travail à huit heures, à l’autre bout de la ville : un rendez-vous à sept heures et demie le mettrait en retard. Il accepte justement le créneau avec un kinésithérapeute arrivé plus récemment.",
+          "q_fr": "Quel problème l’homme mentionne-t-il au sujet du premier horaire proposé ?"
+        },
+        {
+          "q": "What is the man asked to do?",
+          "opts": [
+            "Come in ahead of his appointment time",
+            "E-mail his doctor’s referral in advance",
+            "Bring his insurance card to every session",
+            "Call back to confirm next Wednesday"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "*Please arrive fifteen minutes early* : il doit venir en avance pour remplir un questionnaire médical. Envoyer l’ordonnance par courriel est justement inutile (*You can just bring it with you*).",
+          "q_fr": "Que demande-t-on à l’homme de faire ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-006",
+      "speakers": {
+        "W": "f",
+        "W2": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Well, Tobias, that covers all our questions. Is there anything you’d like to ask us?"
+        ],
+        [
+          "M",
+          "Yes, actually. When would the job start? I’d have to give my current employer six weeks’ notice."
+        ],
+        [
+          "W2",
+          "Ideally at the beginning of May. That’s when our wedding season kicks off, and we host events almost every weekend through September."
+        ],
+        [
+          "W",
+          "Six weeks from now would be the middle of May, so you’d miss the first few weddings."
+        ],
+        [
+          "M",
+          "I could work some weekends before then, if that would help. My current job is Monday to Friday."
+        ],
+        [
+          "W2",
+          "That might work well. You could shadow Greta, our current coordinator, before she leaves."
+        ],
+        [
+          "W",
+          "I like that idea. Ines, could you check whether we can offer a short part-time contract for those weekends?"
+        ],
+        [
+          "W2",
+          "Of course. Tobias, either way, we’ll be in touch by Friday."
+        ]
+      ],
+      "lines_fr": [
+        "Eh bien, Tobias, nous avons fait le tour de nos questions. Y a-t-il quelque chose que vous voudriez nous demander ?",
+        "Oui, justement. Quand le poste commencerait-il ? Je devrais donner un préavis de six semaines à mon employeur actuel.",
+        "Idéalement début mai. C’est le début de notre saison des mariages, et nous accueillons des événements presque tous les week-ends jusqu’en septembre.",
+        "Six semaines à partir de maintenant, ça nous mène à la mi-mai : vous manqueriez les premiers mariages.",
+        "Je pourrais travailler certains week-ends avant, si ça peut aider. Mon emploi actuel est du lundi au vendredi.",
+        "Ça pourrait bien marcher. Vous pourriez suivre Greta, notre coordinatrice actuelle, avant son départ.",
+        "L’idée me plaît. Ines, tu pourrais vérifier si nous pouvons proposer un court contrat à temps partiel pour ces week-ends ?",
+        "Bien sûr. Tobias, quoi qu’il arrive, nous vous recontacterons d’ici vendredi."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Where do the women most likely work?",
+          "opts": [
+            "At an agency that recruits seasonal staff",
+            "At a shop that sells wedding dresses",
+            "At a venue that hosts private celebrations",
+            "At a travel agency that plans honeymoons"
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "Elles recrutent un coordinateur et accueillent des mariages presque chaque week-end (*we host events*) : c’est un lieu de réception. Le mot *wedding* sert de piège : elles ne vendent pas de robes et n’organisent pas de voyages de noces, et elles recrutent pour elles-mêmes, pas pour d’autres entreprises.",
+          "q_fr": "Où les femmes travaillent-elles sans doute ?"
+        },
+        {
+          "q": "Why is the man’s start date a concern?",
+          "opts": [
+            "He plans to take a vacation in early May.",
+            "His current job requires him to work weekends.",
+            "Several weddings have been moved to September.",
+            "He would miss the start of the busiest season."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "Avec six semaines de préavis, il n’arriverait qu’à la mi-mai, alors que la saison des mariages commence début mai : il manquerait les premiers événements. Son emploi actuel est du lundi au vendredi, il est donc libre le week-end.",
+          "q_fr": "Pourquoi la date d’arrivée de l’homme pose-t-elle problème ?"
+        },
+        {
+          "q": "What does Ines agree to look into?",
+          "opts": [
+            "Hiring a second events coordinator",
+            "A temporary arrangement for weekend work",
+            "Extending Greta’s contract until September",
+            "Moving the first weddings to weekdays"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "On demande à Ines de vérifier si l’on peut proposer *a short part-time contract for those weekends* : un arrangement temporaire pour les week-ends. Greta doit partir, et rien n’indique qu’on prolonge son contrat.",
+          "q_fr": "Qu’est-ce qu’Ines accepte d’étudier ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-007",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Excuse me, are you the coordinator for this hall? I’ve just seen where our booth is, and it’s right next to the loading dock."
+        ],
+        [
+          "M",
+          "Yes, I’m in charge of Hall C. Is that a problem?"
+        ],
+        [
+          "W",
+          "Trucks have been backing in all morning, and every time the doors open, cold air pours in. We’re serving coffee samples, so nobody will want to stand there."
+        ],
+        [
+          "M",
+          "I see your point. A few booths are still free. The one by the main entrance gets a lot of visitors."
+        ],
+        [
+          "W",
+          "That would be ideal, but our roasting machine alone takes up half of our space. We really can’t go any smaller."
+        ],
+        [
+          "M",
+          "Then I have just one option for you. It’s in a corner, so it’s open on two sides, and it’s much quieter."
+        ],
+        [
+          "W",
+          "Perfect. Can we move before the show opens tomorrow?"
+        ],
+        [
+          "M",
+          "Of course. I’ll send our crew over at six this evening to help with your equipment."
+        ]
+      ],
+      "lines_fr": [
+        "Excusez-moi, c’est vous le coordinateur de ce hall ? Je viens de voir où se trouve notre stand, et il est juste à côté du quai de chargement.",
+        "Oui, je m’occupe du hall C. C’est un problème ?",
+        "Les camions manœuvrent depuis ce matin, et chaque fois que les portes s’ouvrent, de l’air froid s’engouffre. Nous servons des dégustations de café, alors personne ne voudra rester là.",
+        "Je comprends. Il reste quelques stands libres. Celui de l’entrée principale voit passer beaucoup de visiteurs.",
+        "Ce serait idéal, mais notre machine de torréfaction occupe à elle seule la moitié de notre surface. Nous ne pouvons vraiment pas prendre plus petit.",
+        "Alors je n’ai qu’une solution à vous proposer. Il est dans un angle, donc ouvert sur deux côtés, et beaucoup plus calme.",
+        "Parfait. Pouvons-nous déménager avant l’ouverture du salon demain ?",
+        "Bien sûr. J’enverrai notre équipe à dix-huit heures ce soir pour vous aider avec votre matériel."
+      ],
+      "graphic": {
+        "title": "Hall C: booths",
+        "rows": [
+          [
+            "Booth",
+            "Location",
+            "Size"
+          ],
+          [
+            "C12",
+            "Main entrance",
+            "12 m²"
+          ],
+          [
+            "C20",
+            "Next to the café",
+            "9 m²"
+          ],
+          [
+            "C31",
+            "Loading dock",
+            "16 m²"
+          ],
+          [
+            "C44",
+            "Back corner",
+            "16 m²"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "What does the woman complain about?",
+          "opts": [
+            "Her booth is in an uncomfortable location.",
+            "Her booth is smaller than she requested.",
+            "Her coffee samples were delivered to the wrong hall.",
+            "Her equipment was damaged by a delivery truck."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Son stand est à côté du quai de chargement : camions qui manœuvrent et air froid à chaque ouverture des portes, si bien que personne ne s’y arrêtera. La taille ne pose pas problème, puisqu’elle ne peut justement pas prendre plus petit.",
+          "q_fr": "De quoi la femme se plaint-elle ?"
+        },
+        {
+          "q": "Look at the graphic. Which booth will the woman most likely move to?",
+          "opts": [
+            "C12",
+            "C20",
+            "C31",
+            "C44"
+          ],
+          "ans": "D",
+          "type": "graphique",
+          "expl": "Elle ne peut pas prendre plus petit que son stand actuel, le C31 (16 m²), et l’homme propose un emplacement en angle, plus calme : le C44, au fond, de même surface. Le C12, près de l’entrée, ne fait que 12 m².",
+          "q_fr": "Regardez le graphique. Vers quel stand la femme va-t-elle sans doute déménager ?"
+        },
+        {
+          "q": "What does the man say he will do?",
+          "opts": [
+            "Reduce the price of the new booth",
+            "Keep the loading dock doors closed",
+            "Move the show’s opening to six o’clock",
+            "Send workers to help her relocate"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "*I’ll send our crew over at six this evening to help with your equipment* : des employés viendront l’aider à déménager. Dix-huit heures est l’heure de leur arrivée ce soir, pas celle de l’ouverture du salon.",
+          "q_fr": "Que dit l’homme qu’il va faire ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-008",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi, Mr. Castellano, it’s Yvette from the dance studio on the top floor. The ceiling is leaking again."
+        ],
+        [
+          "M",
+          "Oh, no. Is it the same spot by the windows?"
+        ],
+        [
+          "W",
+          "Yes, and this time the water got onto the floor. I had to cancel this morning’s classes because the floor is slippery and starting to warp."
+        ],
+        [
+          "M",
+          "I’m really sorry. The roofer assured me his repair would hold until the whole roof is replaced in the fall."
+        ],
+        [
+          "W",
+          "I’ve heard that before. My students won’t keep coming if classes are canceled every time it rains."
+        ],
+        [
+          "M",
+          "You’re right. I’ll have a different contractor look at it tomorrow, and the building will pay to repair your floor."
+        ],
+        [
+          "W",
+          "Thank you. In the meantime, is the community room downstairs free this week? We could hold classes there."
+        ],
+        [
+          "M",
+          "I think so. Let me check the booking calendar, and I’ll call you back within the hour."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour monsieur Castellano, c’est Yvette, de l’école de danse du dernier étage. Le plafond fuit encore.",
+        "Oh non. Au même endroit, près des fenêtres ?",
+        "Oui, et cette fois l’eau a atteint le sol. J’ai dû annuler les cours de ce matin, parce que le parquet est glissant et commence à gondoler.",
+        "Je suis vraiment désolé. Le couvreur m’avait assuré que sa réparation tiendrait jusqu’au remplacement complet du toit à l’automne.",
+        "On me l’a déjà dit. Mes élèves ne continueront pas à venir si les cours sont annulés chaque fois qu’il pleut.",
+        "Vous avez raison. Je fais venir un autre entrepreneur demain, et l’immeuble paiera la réparation de votre parquet.",
+        "Merci. En attendant, la salle commune d’en bas est-elle libre cette semaine ? Nous pourrions y donner les cours.",
+        "Je crois que oui. Je vérifie le calendrier des réservations et je vous rappelle d’ici une heure."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why is the woman calling?",
+          "opts": [
+            "To ask about replacing the floor of her studio",
+            "To book the community room for a performance",
+            "To complain about noise from roof repairs",
+            "To report a problem that has happened before"
+          ],
+          "ans": "D",
+          "type": "sujet",
+          "expl": "Elle signale que le plafond fuit de nouveau (*leaking again*), au même endroit que la dernière fois : un problème qui se répète. La salle commune n’est évoquée qu’à la fin, pour y donner des cours, pas un spectacle.",
+          "q_fr": "Pourquoi la femme appelle-t-elle ?"
+        },
+        {
+          "q": "Why does the woman say, “I’ve heard that before”?",
+          "opts": [
+            "To explain that the roofer has already called her",
+            "To ask the man to repeat what he just said",
+            "To show that she doubts the man’s reassurance",
+            "To remind the man that the roof will be replaced in the fall"
+          ],
+          "ans": "C",
+          "type": "intention",
+          "expl": "L’homme répète l’assurance du couvreur ; elle répond qu’on lui a déjà promis la même chose, et le plafond fuit encore : elle n’y croit plus. Elle ne demande pas de répéter, et ce n’est pas elle qui a parlé au couvreur.",
+          "q_fr": "Pourquoi la femme dit-elle « On me l’a déjà dit » ?"
+        },
+        {
+          "q": "What will the man most likely do next?",
+          "opts": [
+            "Find out whether a room is available",
+            "Repair the studio floor himself",
+            "Call the roofer who did the first repair",
+            "Cancel the woman’s classes for the week"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "Il va consulter le calendrier des réservations (*check the booking calendar*) pour savoir si la salle commune est libre, puis la rappeler. Il fera venir un autre entrepreneur, pas le même couvreur, et l’immeuble paiera la réparation du parquet sans qu’il la fasse lui-même.",
+          "q_fr": "Que va sans doute faire l’homme ensuite ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-009",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi, I bought this blender here about five weeks ago, and yesterday the motor just stopped. I’d like my money back, please."
+        ],
+        [
+          "M",
+          "I’m sorry to hear that. Unfortunately, our return period is thirty days, so I can’t give you a refund."
+        ],
+        [
+          "W",
+          "But it’s obviously defective. I’ve only used it a handful of times."
+        ],
+        [
+          "M",
+          "I understand. The good news is that it’s under the manufacturer’s warranty, so I can send it off for repair. That usually takes about three weeks."
+        ],
+        [
+          "W",
+          "Three weeks? I make a smoothie every single morning."
+        ],
+        [
+          "M",
+          "Well, since you’re a member of our rewards program, there’s another option. I can give you store credit for the full price, and you can choose a new blender today."
+        ],
+        [
+          "W",
+          "That sounds better. Is the one at the end of the shelf any good?"
+        ],
+        [
+          "M",
+          "It’s our best seller, and it happens to be on sale this week."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, j’ai acheté ce mixeur ici il y a environ cinq semaines, et hier le moteur s’est tout simplement arrêté. J’aimerais être remboursée, s’il vous plaît.",
+        "Je suis désolé. Malheureusement, notre délai de retour est de trente jours, je ne peux donc pas vous rembourser.",
+        "Mais il est manifestement défectueux. Je ne m’en suis servie qu’une poignée de fois.",
+        "Je comprends. La bonne nouvelle, c’est qu’il est sous garantie du fabricant, je peux donc l’envoyer en réparation. Ça prend en général environ trois semaines.",
+        "Trois semaines ? Je me fais un smoothie tous les matins.",
+        "Eh bien, comme vous êtes membre de notre programme de fidélité, il y a une autre solution. Je peux vous faire un avoir du prix total, et vous pouvez choisir un nouveau mixeur dès aujourd’hui.",
+        "Ça me convient mieux. Celui du bout du rayon, il est bien ?",
+        "C’est notre meilleure vente, et il se trouve qu’il est en promotion cette semaine."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What problem does the woman report?",
+          "opts": [
+            "She was charged twice for a purchase.",
+            "A kitchen appliance has stopped working.",
+            "She lost the receipt for her blender.",
+            "A product arrived later than promised."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "Le moteur de son mixeur s’est arrêté (*the motor just stopped*) : l’appareil ne fonctionne plus. Elle n’évoque ni ticket perdu, ni double facturation, ni retard de livraison.",
+          "q_fr": "Quel problème la femme signale-t-elle ?"
+        },
+        {
+          "q": "Why is the woman probably unwilling to have the blender repaired?",
+          "opts": [
+            "She would be without it for too long.",
+            "The repair would not be covered by the warranty.",
+            "She has already had it repaired once.",
+            "The motor cannot be replaced."
+          ],
+          "ans": "A",
+          "type": "inference",
+          "expl": "Quand l’homme annonce trois semaines de réparation, elle répond qu’elle se fait un smoothie tous les matins : elle ne peut pas s’en passer si longtemps. La garantie couvre bien la réparation, et rien n’indique une réparation antérieure.",
+          "q_fr": "Pourquoi la femme ne veut-elle sans doute pas faire réparer le mixeur ?"
+        },
+        {
+          "q": "What will the woman most likely do next?",
+          "opts": [
+            "Join the store’s rewards program",
+            "Return later with her receipt",
+            "Pick out another model in the store",
+            "Send the blender to the manufacturer"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "Elle accepte un avoir du prix total (*store credit*) et demande ce que vaut le mixeur du bout du rayon : elle va en choisir un autre. Elle est déjà membre du programme de fidélité, et l’envoi au fabricant est l’option qu’elle a écartée.",
+          "q_fr": "Que va sans doute faire la femme ensuite ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-010",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Excuse me, sir, are you Mr. Sorensen? I’m with the airline. Your flight to Boston is overbooked, and we’re looking for volunteers to take a later flight."
+        ],
+        [
+          "M",
+          "What would that involve?"
+        ],
+        [
+          "W",
+          "We’d rebook you at no cost and give you a travel voucher worth three hundred dollars."
+        ],
+        [
+          "M",
+          "It’s tempting, but I’m having dinner with clients in Boston at seven. I really need to land by around five."
+        ],
+        [
+          "W",
+          "Hmm. The next Boston flight doesn’t get in until after six, and with rush-hour traffic, that’s cutting it close."
+        ],
+        [
+          "M",
+          "Then I’m afraid I’ll have to keep my seat."
+        ],
+        [
+          "W",
+          "Wait, there’s one more possibility. We fly to Providence this afternoon, and it’s about an hour from Boston by train. We’d cover the train fare, too."
+        ],
+        [
+          "M",
+          "Well, if I’d still get there in time, that works for me."
+        ]
+      ],
+      "lines_fr": [
+        "Excusez-moi, monsieur, vous êtes bien M. Sorensen ? Je travaille pour la compagnie. Votre vol pour Boston est en surréservation, et nous cherchons des volontaires pour prendre un vol plus tard.",
+        "Qu’est-ce que ça impliquerait ?",
+        "Nous vous réserverions un autre vol sans frais et vous donnerions un bon de voyage d’une valeur de trois cents dollars.",
+        "C’est tentant, mais je dîne avec des clients à Boston à dix-neuf heures. Il faut vraiment que j’atterrisse vers dix-sept heures.",
+        "Hum. Le prochain vol pour Boston n’arrive qu’après dix-huit heures, et avec la circulation de l’heure de pointe, ce serait juste.",
+        "Alors je crains de devoir garder ma place.",
+        "Attendez, il y a une autre possibilité. Nous avons un vol pour Providence cet après-midi, et c’est à environ une heure de Boston en train. Nous paierions aussi le billet de train.",
+        "Eh bien, si j’arrive quand même à temps, ça me va."
+      ],
+      "graphic": {
+        "title": "Afternoon departures",
+        "rows": [
+          [
+            "Flight",
+            "To",
+            "Departs",
+            "Arrives"
+          ],
+          [
+            "306",
+            "Boston",
+            "12:10 P.M.",
+            "2:25 P.M."
+          ],
+          [
+            "318",
+            "Boston",
+            "3:45 P.M.",
+            "6:05 P.M."
+          ],
+          [
+            "522",
+            "Providence",
+            "1:30 P.M.",
+            "3:35 P.M."
+          ],
+          [
+            "540",
+            "Providence",
+            "4:20 P.M.",
+            "6:30 P.M."
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "What problem does the woman mention?",
+          "opts": [
+            "A flight to Boston has been canceled.",
+            "More passengers are booked than there are seats.",
+            "Heavy traffic has delayed several flight crews.",
+            "The man’s seat was given to another traveler by mistake."
+          ],
+          "ans": "B",
+          "type": "sujet",
+          "expl": "*Your flight to Boston is overbooked* : la compagnie a vendu plus de billets qu’il n’y a de places, d’où l’appel aux volontaires. Le vol n’est pas annulé, et la circulation n’est évoquée que pour le trajet à l’arrivée à Boston.",
+          "q_fr": "Quel problème la femme mentionne-t-elle ?"
+        },
+        {
+          "q": "Look at the graphic. Which flight will the man most likely take?",
+          "opts": [
+            "Flight 306",
+            "Flight 318",
+            "Flight 522",
+            "Flight 540"
+          ],
+          "ans": "C",
+          "type": "graphique",
+          "expl": "Il doit atterrir vers dix-sept heures, et le vol suivant pour Boston arrive après dix-huit heures. Reste Providence, à une heure de train : le vol 522, qui arrive à 15 h 35, lui laisse le temps, alors que le 540 n’arrive qu’à 18 h 30.",
+          "q_fr": "Regardez le graphique. Quel vol l’homme va-t-il sans doute prendre ?"
+        },
+        {
+          "q": "What does the woman say the airline will pay for?",
+          "opts": [
+            "A hotel room near the airport",
+            "A taxi to the man’s dinner",
+            "An upgrade on his return flight",
+            "The cost of a rail ticket"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*We’d cover the train fare, too* : la compagnie paierait le billet de train de Providence à Boston, en plus du bon de trois cents dollars. Il n’est question ni d’hôtel, ni de taxi, ni de surclassement.",
+          "q_fr": "Selon la femme, que paiera la compagnie aérienne ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-011",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Thanks for showing me around. The sculpture hall is stunning. We’d love to hold our cocktail reception right in here."
+        ],
+        [
+          "M",
+          "I can see why. Unfortunately, our insurance doesn’t allow food or drinks anywhere near the collection."
+        ],
+        [
+          "W",
+          "Not even if the caterer keeps everything on covered tables in the middle of the room?"
+        ],
+        [
+          "M",
+          "I’m afraid not. A single spilled glass of wine could cost more than your entire event."
+        ],
+        [
+          "W",
+          "Fair enough. So where would the reception be held?"
+        ],
+        [
+          "M",
+          "In the atrium, just outside. It holds two hundred people, and the glass roof is lovely in the evening."
+        ],
+        [
+          "W",
+          "But then the guests wouldn’t see the sculptures at all."
+        ],
+        [
+          "M",
+          "Actually, they could. Our curators can lead short tours of the hall in small groups throughout the evening."
+        ],
+        [
+          "W",
+          "That could be the highlight of the night. Could you send me a price for the tours?"
+        ]
+      ],
+      "lines_fr": [
+        "Merci de me faire visiter. La salle des sculptures est magnifique. Nous aimerions beaucoup organiser notre cocktail ici même.",
+        "Je comprends pourquoi. Malheureusement, notre assurance n’autorise ni nourriture ni boissons à proximité de la collection.",
+        "Même si le traiteur garde tout sur des tables couvertes au milieu de la salle ?",
+        "Malheureusement non. Un seul verre de vin renversé pourrait coûter plus cher que tout votre événement.",
+        "C’est compréhensible. Alors, où aurait lieu la réception ?",
+        "Dans l’atrium, juste à côté. Il peut accueillir deux cents personnes, et la verrière est superbe le soir.",
+        "Mais alors les invités ne verraient pas du tout les sculptures.",
+        "Si, justement. Nos conservateurs peuvent faire de courtes visites de la salle par petits groupes tout au long de la soirée.",
+        "Ça pourrait être le clou de la soirée. Pourriez-vous m’envoyer un tarif pour les visites ?"
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who most likely is the woman?",
+          "opts": [
+            "A curator at the museum",
+            "A sculptor preparing an exhibition",
+            "Someone organizing an event",
+            "An employee of a catering firm"
+          ],
+          "ans": "C",
+          "type": "inference",
+          "expl": "Elle visite les lieux pour y organiser une réception (*our cocktail reception*) et s’informe sur le traiteur et les visites : elle prépare un événement. Les conservateurs et le traiteur sont des tiers dont elle parle.",
+          "q_fr": "Qui est sans doute la femme ?"
+        },
+        {
+          "q": "Why does the man say, “A single spilled glass of wine could cost more than your entire event”?",
+          "opts": [
+            "To warn the woman that the wine is expensive",
+            "To suggest that her budget is too small",
+            "To ask her to pay a deposit for damage",
+            "To explain why a rule cannot be relaxed"
+          ],
+          "ans": "D",
+          "type": "intention",
+          "expl": "La femme demande une exception (des tables couvertes) ; il répond qu’un seul verre renversé sur une œuvre coûterait une fortune : la règle de l’assurance ne peut pas être assouplie. Il ne parle ni du prix du vin, ni de son budget, ni d’une caution.",
+          "q_fr": "Pourquoi l’homme dit-il « Un seul verre de vin renversé pourrait coûter plus cher que tout votre événement » ?"
+        },
+        {
+          "q": "What does the woman ask the man to send her?",
+          "opts": [
+            "A list of approved caterers",
+            "The rates for the guided visits",
+            "A floor plan of the atrium",
+            "A copy of the insurance policy"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "*Could you send me a price for the tours?* : elle veut le tarif des visites guidées par les conservateurs. Le traiteur, l’atrium et l’assurance sont cités, mais elle ne demande aucun document à leur sujet.",
+          "q_fr": "Que demande la femme à l’homme de lui envoyer ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-012",
+      "speakers": {
+        "M": "m",
+        "W": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Hi, I’m here to pick up a prescription for Raymond Tsai. My doctor sent it over this morning."
+        ],
+        [
+          "W",
+          "Let me check. Yes, it’s ready. Just so you know, your insurance plan changed in January, and it now covers only the generic version of this medication."
+        ],
+        [
+          "M",
+          "Oh. Is there any difference?"
+        ],
+        [
+          "W",
+          "The active ingredient is exactly the same. Only the inactive ingredients differ, like the coating on the tablets."
+        ],
+        [
+          "M",
+          "That could be a problem. I’m allergic to a dye that some tablets contain. That’s why my doctor prescribed the brand-name version."
+        ],
+        [
+          "W",
+          "Then your doctor will have to confirm that it’s medically necessary. I can send a request to her office right now."
+        ],
+        [
+          "M",
+          "How long does that take? I’ve only got two pills left."
+        ],
+        [
+          "W",
+          "Usually a day or two. In the meantime, I can give you a three-day supply at no charge."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, je viens chercher les médicaments de Raymond Tsai. Mon médecin a envoyé l’ordonnance ce matin.",
+        "Je regarde. Oui, c’est prêt. Pour information, votre contrat d’assurance a changé en janvier, et il ne couvre plus que la version générique de ce médicament.",
+        "Ah. Il y a une différence ?",
+        "Le principe actif est exactement le même. Seuls les excipients diffèrent, comme l’enrobage des comprimés.",
+        "Ça pourrait poser problème. Je suis allergique à un colorant que contiennent certains comprimés. C’est pour ça que mon médecin m’a prescrit le médicament de marque.",
+        "Dans ce cas, votre médecin devra confirmer qu’il est médicalement nécessaire. Je peux envoyer une demande à son cabinet tout de suite.",
+        "Ça prend combien de temps ? Il ne me reste que deux comprimés.",
+        "En général un jour ou deux. En attendant, je peux vous donner trois jours de traitement gratuitement."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "According to the woman, what changed in January?",
+          "opts": [
+            "The coverage of his health plan",
+            "The pharmacy’s opening hours",
+            "The dosage of the man’s medication",
+            "The coating used on some tablets"
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "*Your insurance plan changed in January* : son assurance ne rembourse plus que le générique : c’est ce qu’elle prend en charge qui a changé. L’enrobage est cité comme la seule différence entre les deux versions, pas comme un changement.",
+          "q_fr": "Selon la femme, qu’est-ce qui a changé en janvier ?"
+        },
+        {
+          "q": "Why does the man need the brand-name medication?",
+          "opts": [
+            "It works faster than the generic version.",
+            "He reacts badly to a certain additive.",
+            "The generic tablets are harder to swallow.",
+            "It is the only version his pharmacy carries."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "Il est allergique à un colorant présent dans certains comprimés (*I’m allergic to a dye*), un additif auquel il réagit mal, d’où la prescription du médicament de marque. Le principe actif est le même, et il n’est question ni de rapidité ni de difficulté à avaler.",
+          "q_fr": "Pourquoi l’homme a-t-il besoin du médicament de marque ?"
+        },
+        {
+          "q": "What does the woman offer the man while he waits for a decision?",
+          "opts": [
+            "A refund for his last prescription",
+            "A small supply of medicine free of charge",
+            "A discount on the generic version of the medication",
+            "A list of pharmacies that carry the brand"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "*In the meantime, I can give you a three-day supply at no charge* : quelques jours de traitement gratuits en attendant la réponse du médecin. Elle ne propose ni remboursement ni remise sur le générique.",
+          "q_fr": "Que propose la femme à l’homme en attendant une décision ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-013",
+      "speakers": {
+        "M": "m",
+        "W": "f",
+        "W2": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Hi, I’m Peter Szabo. Your team delivered my sofa yesterday, and there’s a long tear in the fabric on the back. I e-mailed some photos last night."
+        ],
+        [
+          "W",
+          "Yes, Mr. Szabo, I saw them this morning, and I’m very sorry. Ruth handles our deliveries. Ruth, do we have another one in stock?"
+        ],
+        [
+          "W2",
+          "Not in that color, unfortunately. The next shipment from the factory is due in about three weeks."
+        ],
+        [
+          "M",
+          "Three weeks? We’re hosting my wife’s family for the holidays next weekend."
+        ],
+        [
+          "W",
+          "I understand. One option is the display model by the window. It’s the same sofa, in excellent condition, and we’d take thirty percent off."
+        ],
+        [
+          "M",
+          "It’s a much lighter gray than the one we chose, though."
+        ],
+        [
+          "W2",
+          "Then how about this: we lend you the display model until your new sofa arrives, and swap them at no charge."
+        ],
+        [
+          "M",
+          "That’s very generous. Let’s do that."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, je suis Peter Szabo. Votre équipe m’a livré mon canapé hier, et il y a une longue déchirure dans le tissu, au dos. J’ai envoyé des photos par courriel hier soir.",
+        "Oui, monsieur Szabo, je les ai vues ce matin, et j’en suis vraiment désolée. C’est Ruth qui gère nos livraisons. Ruth, nous en avons un autre en stock ?",
+        "Pas dans cette couleur, malheureusement. La prochaine livraison de l’usine est prévue dans trois semaines environ.",
+        "Trois semaines ? Nous recevons la famille de ma femme pour les fêtes le week-end prochain.",
+        "Je comprends. Une solution serait le modèle d’exposition, près de la fenêtre. C’est le même canapé, en excellent état, et nous vous ferions trente pour cent de remise.",
+        "Il est d’un gris beaucoup plus clair que celui que nous avons choisi, pourtant.",
+        "Alors voici ce que je propose : nous vous prêtons le modèle d’exposition jusqu’à l’arrivée de votre nouveau canapé, et nous faisons l’échange sans frais.",
+        "C’est très généreux. Faisons comme ça."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What problem does the man report?",
+          "opts": [
+            "A delivery arrived later than scheduled.",
+            "Some photos of a product were misleading.",
+            "A piece of furniture he bought is damaged.",
+            "He was sent a sofa in the wrong color."
+          ],
+          "ans": "C",
+          "type": "detail",
+          "expl": "Le canapé livré la veille a une longue déchirure dans le tissu (*a long tear*) : il est abîmé. Les photos sont celles que l’homme a envoyées, et la couleur ne pose problème que pour le modèle d’exposition.",
+          "q_fr": "Quel problème l’homme signale-t-il ?"
+        },
+        {
+          "q": "Why is the man concerned about waiting three weeks?",
+          "opts": [
+            "He is expecting guests soon.",
+            "He is moving to a new home next weekend.",
+            "The store may close for the holidays.",
+            "The factory might discontinue the color."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Il reçoit la famille de sa femme pour les fêtes le week-end suivant (*We’re hosting my wife’s family*) : des invités arrivent bientôt. Il ne parle ni de déménagement ni d’une fermeture du magasin.",
+          "q_fr": "Pourquoi l’homme s’inquiète-t-il d’attendre trois semaines ?"
+        },
+        {
+          "q": "What does the man agree to?",
+          "opts": [
+            "Buying a display model at a reduced price",
+            "Picking up a new sofa from the factory",
+            "Choosing a lighter shade of fabric",
+            "Using a temporary replacement for free"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "Ruth propose de lui prêter le modèle d’exposition jusqu’à l’arrivée du nouveau canapé, sans frais, et il accepte. Il a écarté l’achat de ce modèle avec trente pour cent de remise à cause de sa couleur plus claire.",
+          "q_fr": "À quoi l’homme donne-t-il son accord ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-014",
+      "speakers": {
+        "M": "m",
+        "W": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "So, Ms. Takahashi, what kind of space are you looking for?"
+        ],
+        [
+          "W",
+          "I’m opening a café with a small lunch menu, so I’ll need room for about forty seats. Nothing under a thousand square feet."
+        ],
+        [
+          "M",
+          "Got it. And the kitchen? Some of our units already have a ventilation hood installed."
+        ],
+        [
+          "W",
+          "That’s a must. I got a quote for putting one in, and it was more than the rest of the renovation combined."
+        ],
+        [
+          "M",
+          "That narrows it down. What’s your budget for rent?"
+        ],
+        [
+          "W",
+          "No more than three thousand a month, at least for the first year."
+        ],
+        [
+          "M",
+          "Then there’s really just one unit for you. And there’s some good news: the landlord is offering two months of free rent to anyone who signs a lease before June."
+        ],
+        [
+          "W",
+          "That would help a lot with my opening costs. Can we see it today?"
+        ]
+      ],
+      "lines_fr": [
+        "Alors, madame Takahashi, quel genre de local cherchez-vous ?",
+        "J’ouvre un café avec une petite carte pour le déjeuner, il me faut donc de la place pour une quarantaine de couverts. Rien en dessous de mille pieds carrés.",
+        "Entendu. Et la cuisine ? Certains de nos locaux ont déjà une hotte d’aspiration installée.",
+        "C’est indispensable. J’ai fait faire un devis pour en installer une, et c’était plus cher que tout le reste des travaux réunis.",
+        "Ça réduit le choix. Quel est votre budget pour le loyer ?",
+        "Pas plus de trois mille dollars par mois, au moins pour la première année.",
+        "Alors il n’y a vraiment qu’un local pour vous. Et j’ai une bonne nouvelle : le propriétaire offre deux mois de loyer à quiconque signe un bail avant juin.",
+        "Ça m’aiderait beaucoup pour mes frais d’ouverture. Pouvons-nous le visiter aujourd’hui ?"
+      ],
+      "graphic": {
+        "title": "Available units",
+        "rows": [
+          [
+            "Unit",
+            "Size (sq. ft.)",
+            "Monthly rent",
+            "Kitchen hood"
+          ],
+          [
+            "1A",
+            "850",
+            "$2,200",
+            "Yes"
+          ],
+          [
+            "1B",
+            "1,100",
+            "$2,750",
+            "Yes"
+          ],
+          [
+            "2A",
+            "1,300",
+            "$3,400",
+            "Yes"
+          ],
+          [
+            "2B",
+            "1,250",
+            "$2,600",
+            "No"
+          ]
+        ]
+      },
+      "questions": [
+        {
+          "q": "What is the woman planning to do?",
+          "opts": [
+            "Renovate her current kitchen",
+            "Install equipment for a landlord",
+            "Open a food-service business",
+            "Expand an existing restaurant"
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "*I’m opening a café with a small lunch menu* : elle va ouvrir un établissement de restauration. Les travaux et la hotte concernent le futur local, pas une cuisine qu’elle aurait déjà.",
+          "q_fr": "Qu’est-ce que la femme prévoit de faire ?"
+        },
+        {
+          "q": "Look at the graphic. Which unit will the woman most likely visit?",
+          "opts": [
+            "Unit 1A",
+            "Unit 1B",
+            "Unit 2A",
+            "Unit 2B"
+          ],
+          "ans": "B",
+          "type": "graphique",
+          "expl": "Elle veut au moins mille pieds carrés, une hotte déjà installée et un loyer de trois mille dollars au plus : seul le 1B (1 100 pieds carrés, 2 750 dollars, hotte) convient. Le 1A est trop petit, le 2A dépasse le budget et le 2B n’a pas de hotte.",
+          "q_fr": "Regardez le graphique. Quel local la femme va-t-elle sans doute visiter ?"
+        },
+        {
+          "q": "What does the man say the landlord is offering?",
+          "opts": [
+            "A free renovation of the kitchen",
+            "A lower rent after the first year",
+            "A longer lease at the same price",
+            "A short period without rent payments"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Two months of free rent* : deux mois sans loyer pour un bail signé avant juin. La première année n’est citée que par la femme, pour son budget, et rien n’est dit d’une rénovation offerte.",
+          "q_fr": "Selon l’homme, que propose le propriétaire ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-015",
+      "speakers": {
+        "M": "m",
+        "W": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Hi, I’d like to put my membership on hold. My company is sending me to Singapore for three months, starting next week."
+        ],
+        [
+          "W",
+          "No problem. We can freeze it for you. There’s a fee of ten dollars a month while it’s frozen."
+        ],
+        [
+          "M",
+          "Ten dollars just to keep it? Couldn’t I cancel and then sign up again when I get back?"
+        ],
+        [
+          "W",
+          "You could, but you’d lose your current rate. You joined during our opening promotion, so you’re paying about half what new members pay."
+        ],
+        [
+          "M",
+          "Oh, I didn’t realize that. Then ten dollars a month doesn’t sound so bad."
+        ],
+        [
+          "W",
+          "I thought you might say that. And here’s a bonus: we have a partner club in Singapore, and frozen members can use it for free."
+        ],
+        [
+          "M",
+          "Really? That’s great. What do I need to do?"
+        ],
+        [
+          "W",
+          "Just fill out this form, and I’ll e-mail you a guest pass for the club there."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, j’aimerais suspendre mon abonnement. Mon entreprise m’envoie à Singapour pour trois mois, à partir de la semaine prochaine.",
+        "Pas de problème. Nous pouvons le geler. Il y a des frais de dix dollars par mois pendant la suspension.",
+        "Dix dollars juste pour le garder ? Je ne pourrais pas résilier, puis me réinscrire à mon retour ?",
+        "Vous pourriez, mais vous perdriez votre tarif actuel. Vous vous êtes inscrit pendant notre offre d’ouverture, vous payez donc environ moitié moins que les nouveaux membres.",
+        "Ah, je ne m’en étais pas rendu compte. Alors dix dollars par mois, ce n’est pas si cher.",
+        "Je me doutais que vous diriez ça. Et voici un bonus : nous avons un club partenaire à Singapour, et les membres en suspension peuvent y aller gratuitement.",
+        "Vraiment ? C’est super. Qu’est-ce que je dois faire ?",
+        "Remplissez simplement ce formulaire, et je vous enverrai par courriel un laissez-passer pour le club là-bas."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why does the man want to suspend his membership?",
+          "opts": [
+            "He will be working abroad for a while.",
+            "He can no longer afford the monthly fee.",
+            "He is moving to a different neighborhood.",
+            "He has been injured and cannot exercise."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Son entreprise l’envoie à Singapour pendant trois mois : il va travailler à l’étranger quelque temps. Il trouve les dix dollars de frais un peu chers, mais ne dit pas qu’il ne peut plus payer son abonnement.",
+          "q_fr": "Pourquoi l’homme veut-il suspendre son abonnement ?"
+        },
+        {
+          "q": "What does the woman imply when she says, “I thought you might say that”?",
+          "opts": [
+            "She often hears complaints about the fee.",
+            "She expected the man to change his mind.",
+            "She had already filled out the form for him.",
+            "She knew the man was planning to cancel."
+          ],
+          "ans": "B",
+          "type": "intention",
+          "expl": "Après avoir appris qu’il perdrait son tarif avantageux, l’homme renonce à résilier ; la femme montre qu’elle s’attendait à ce revirement. Elle n’a pas rempli le formulaire à sa place, et elle ne parle pas des plaintes d’autres clients.",
+          "q_fr": "Que sous-entend la femme quand elle dit « Je me doutais que vous diriez ça » ?"
+        },
+        {
+          "q": "What will the woman send the man?",
+          "opts": [
+            "A refund for the current month",
+            "A form to cancel his membership",
+            "A pass to use a facility abroad",
+            "A list of rates for new members"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "*I’ll e-mail you a guest pass for the club there* : un laissez-passer pour le club partenaire de Singapour. Le formulaire, il le remplit sur place, et il sert à suspendre l’abonnement, pas à le résilier.",
+          "q_fr": "Qu’est-ce que la femme va envoyer à l’homme ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-016",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi. Your banner says you’re hiring in revenue management. Could you tell me what that involves?"
+        ],
+        [
+          "M",
+          "Sure. Our revenue analysts decide what to charge for our hotel rooms each night, based on demand, local events, and what other hotels are charging."
+        ],
+        [
+          "W",
+          "That sounds right up my alley. I’ve just finished a degree in accounting, and I love working with data."
+        ],
+        [
+          "M",
+          "Then you might be a good fit for our graduate program. It lasts eighteen months, and you spend six months at each of three hotels."
+        ],
+        [
+          "W",
+          "Would I need to relocate?"
+        ],
+        [
+          "M",
+          "Most likely. Two of the hotels are overseas, which is why we ask for a second language. Do you speak one?"
+        ],
+        [
+          "W",
+          "I’m fluent in Portuguese. My mother is from Brazil."
+        ],
+        [
+          "M",
+          "Excellent. Applications close on Friday. If you scan this code, it’ll take you to an online test. That’s the first step."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour. Votre banderole dit que vous recrutez en gestion des revenus. Pourriez-vous m’expliquer en quoi ça consiste ?",
+        "Bien sûr. Nos analystes fixent le prix de nos chambres d’hôtel chaque soir, en fonction de la demande, des événements locaux et des prix pratiqués par les autres hôtels.",
+        "Ça me semble tout à fait dans mes cordes. Je viens de finir un diplôme de comptabilité, et j’adore travailler avec des données.",
+        "Alors vous pourriez convenir à notre programme pour jeunes diplômés. Il dure dix-huit mois, et vous passez six mois dans chacun de trois hôtels.",
+        "Est-ce que je devrais déménager ?",
+        "Très probablement. Deux des hôtels sont à l’étranger, c’est pourquoi nous demandons une deuxième langue. Vous en parlez une ?",
+        "Je parle couramment portugais. Ma mère est brésilienne.",
+        "Excellent. Les candidatures se terminent vendredi. Si vous scannez ce code, vous arriverez sur un test en ligne. C’est la première étape."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "According to the man, what do revenue analysts do?",
+          "opts": [
+            "They organize local events for hotel guests.",
+            "They prepare accounts for overseas hotels.",
+            "They compare the services of rival hotels.",
+            "They set the rates that guests are charged."
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "*Our revenue analysts decide what to charge for our hotel rooms* : ils fixent les tarifs payés par les clients. Les événements locaux et les hôtels concurrents (leurs prix, pas leurs services) sont des éléments dont ils tiennent compte, pas leur mission.",
+          "q_fr": "Selon l’homme, que font les analystes en gestion des revenus ?"
+        },
+        {
+          "q": "What does the woman mean when she says, “That sounds right up my alley”?",
+          "opts": [
+            "She has worked in a hotel before.",
+            "She lives close to one of the hotels.",
+            "The job matches her skills and interests.",
+            "The program seems harder than she expected."
+          ],
+          "ans": "C",
+          "type": "intention",
+          "expl": "*Right up my alley* : tout à fait dans ses cordes. Elle explique aussitôt qu’elle sort d’études de comptabilité et adore travailler avec des données. L’expression ne parle ni d’un lieu ni d’une expérience dans l’hôtellerie.",
+          "q_fr": "Que veut dire la femme quand elle dit « Ça me semble tout à fait dans mes cordes » ?"
+        },
+        {
+          "q": "What does the man encourage the woman to do?",
+          "opts": [
+            "Take an online assessment",
+            "Visit one of the hotels overseas",
+            "Send him her university transcripts",
+            "Come back to the booth on Friday"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "Il lui fait scanner un code qui mène à un test en ligne, première étape de la candidature. Vendredi est la date de clôture des candidatures, pas un rendez-vous au stand.",
+          "q_fr": "Qu’est-ce que l’homme encourage la femme à faire ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-017",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi, my credit card was declined at my hotel in Mexico City this morning, so I had to pay with my personal card instead."
+        ],
+        [
+          "M",
+          "I’m sorry about that. For security purposes, could you confirm your full name and date of birth?"
+        ],
+        [
+          "W",
+          "Miriam Weiss, March ninth, 1988."
+        ],
+        [
+          "M",
+          "Thank you, Ms. Weiss. I can see what happened. Two large charges abroad were flagged as possible fraud, so the card was blocked automatically."
+        ],
+        [
+          "W",
+          "That’s frustrating. I travel for work almost every month."
+        ],
+        [
+          "M",
+          "I understand. I’ve removed the block, so the card works again. Next time, just add a travel notice in our mobile app before you leave."
+        ],
+        [
+          "W",
+          "I didn’t know that was an option. Will the hotel charge go through now?"
+        ],
+        [
+          "M",
+          "No, the hotel will have to run your card again. Then you could ask them to refund the payment on your personal card."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, ma carte de crédit a été refusée à mon hôtel à Mexico ce matin, j’ai donc dû payer avec ma carte personnelle.",
+        "J’en suis désolé. Pour des raisons de sécurité, pourriez-vous me confirmer vos nom et prénom et votre date de naissance ?",
+        "Miriam Weiss, le 9 mars 1988.",
+        "Merci, madame Weiss. Je vois ce qui s’est passé. Deux grosses dépenses à l’étranger ont été signalées comme une fraude possible, et la carte a donc été bloquée automatiquement.",
+        "C’est agaçant. Je voyage pour le travail presque tous les mois.",
+        "Je comprends. J’ai levé le blocage, la carte fonctionne de nouveau. La prochaine fois, ajoutez simplement un avis de voyage dans notre application mobile avant de partir.",
+        "Je ne savais pas que c’était possible. Le paiement de l’hôtel va-t-il passer maintenant ?",
+        "Non, l’hôtel devra repasser votre carte. Vous pourrez ensuite lui demander de rembourser le paiement fait avec votre carte personnelle."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Why is the woman calling?",
+          "opts": [
+            "To report that her card was stolen",
+            "To dispute a charge from her hotel",
+            "To find out why a payment was refused",
+            "To request a higher limit for business travel"
+          ],
+          "ans": "C",
+          "type": "sujet",
+          "expl": "Sa carte a été refusée à l’hôtel (*declined*) et elle veut comprendre pourquoi. Elle ne conteste aucun montant et ne signale aucun vol ; c’est la banque qui a soupçonné une fraude.",
+          "q_fr": "Pourquoi la femme appelle-t-elle ?"
+        },
+        {
+          "q": "What caused the problem?",
+          "opts": [
+            "Some foreign transactions looked suspicious.",
+            "The card had expired before the woman’s trip.",
+            "The hotel entered the wrong amount on the bill.",
+            "The woman had exceeded her credit limit."
+          ],
+          "ans": "A",
+          "type": "detail",
+          "expl": "Deux grosses dépenses à l’étranger ont été signalées comme une fraude possible (*flagged as possible fraud*), et la carte a été bloquée automatiquement. Ni la date d’expiration ni le montant de l’hôtel ne sont en cause.",
+          "q_fr": "Qu’est-ce qui a causé le problème ?"
+        },
+        {
+          "q": "What does the man suggest the woman do before future trips?",
+          "opts": [
+            "Request a second credit card for business use",
+            "Inform the bank through an application",
+            "Ask the hotel to run her card again",
+            "Carry her personal card as a backup"
+          ],
+          "ans": "B",
+          "type": "action",
+          "expl": "*Next time, just add a travel notice in our mobile app before you leave* : prévenir la banque de ses voyages par l’application. Faire repasser la carte à l’hôtel concerne le séjour actuel, pas les prochains voyages.",
+          "q_fr": "Que suggère l’homme à la femme de faire avant ses prochains voyages ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-018",
+      "speakers": {
+        "W": "f",
+        "M": "m",
+        "M2": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Gabriel, Noah, we have a problem. Dr. Ishikawa’s train is stuck outside the city, and she won’t get here until eleven at the earliest."
+        ],
+        [
+          "M",
+          "But her keynote opens the conference at nine. People are already picking up their badges downstairs."
+        ],
+        [
+          "M2",
+          "What if we moved this afternoon’s panel to the morning? All four panelists stayed at the hotel last night."
+        ],
+        [
+          "W",
+          "Good thinking. Gabriel, could the ballroom be ready for a panel in time?"
+        ],
+        [
+          "M",
+          "We’d need a table on stage and four microphones instead of the podium. Give me forty minutes."
+        ],
+        [
+          "W",
+          "That works. The keynote can take the panel’s slot at two."
+        ],
+        [
+          "M2",
+          "I’ll go and find the panelists. They’ll want a few minutes to prepare."
+        ],
+        [
+          "W",
+          "Thanks, Noah. And I’ll post an announcement on the conference app so that everyone knows about the switch."
+        ]
+      ],
+      "lines_fr": [
+        "Gabriel, Noah, nous avons un problème. Le train de la Dre Ishikawa est bloqué à l’extérieur de la ville, et elle n’arrivera pas avant onze heures au plus tôt.",
+        "Mais sa conférence ouvre le congrès à neuf heures. Les gens sont déjà en train de récupérer leurs badges en bas.",
+        "Et si on avançait au matin la table ronde de cet après-midi ? Les quatre intervenants ont dormi à l’hôtel hier soir.",
+        "Bonne idée. Gabriel, la salle de bal pourrait-elle être prête à temps pour une table ronde ?",
+        "Il faudrait une table sur scène et quatre micros à la place du pupitre. Donnez-moi quarante minutes.",
+        "Ça marche. La conférence d’ouverture peut prendre le créneau de la table ronde, à quatorze heures.",
+        "Je vais chercher les intervenants. Ils voudront quelques minutes pour se préparer.",
+        "Merci, Noah. Et je publierai une annonce dans l’application du congrès pour que tout le monde soit au courant du changement."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What problem are the speakers discussing?",
+          "opts": [
+            "A ballroom has been booked twice.",
+            "A speaker’s arrival has been delayed.",
+            "Some badges were printed incorrectly.",
+            "Several panelists have canceled."
+          ],
+          "ans": "B",
+          "type": "sujet",
+          "expl": "Le train de la Dre Ishikawa est bloqué et elle n’arrivera pas avant onze heures : l’intervenante qui doit ouvrir le congrès est retardée. Les badges sont cités parce que les participants arrivent, pas parce qu’ils seraient mal imprimés.",
+          "q_fr": "De quel problème les interlocuteurs parlent-ils ?"
+        },
+        {
+          "q": "What does Gabriel say he needs?",
+          "opts": [
+            "Additional staff for the registration desk",
+            "A list of the panelists’ names",
+            "A larger room for the keynote",
+            "Time to rearrange the stage"
+          ],
+          "ans": "D",
+          "type": "detail",
+          "expl": "Il faut remplacer le pupitre par une table et quatre micros, et il demande quarante minutes (*Give me forty minutes*) : du temps pour réaménager la scène. Il ne réclame ni personnel ni autre salle.",
+          "q_fr": "De quoi Gabriel dit-il avoir besoin ?"
+        },
+        {
+          "q": "What will the woman most likely do?",
+          "opts": [
+            "Pick up Dr. Ishikawa at the train station",
+            "Ask the panelists to prepare their remarks",
+            "Inform attendees of the change via an app",
+            "Move the keynote to the following day"
+          ],
+          "ans": "C",
+          "type": "action",
+          "expl": "Elle va publier une annonce dans l’application du congrès (*post an announcement on the conference app*) pour prévenir tout le monde. C’est Noah qui va chercher les intervenants de la table ronde, et la conférence d’ouverture est seulement décalée à quatorze heures.",
+          "q_fr": "Que va sans doute faire la femme ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-019",
+      "speakers": {
+        "W": "f",
+        "M": "m"
+      },
+      "lines": [
+        [
+          "W",
+          "Hi, I’d like to apply for a permit to sell from my food truck at the farmers’ market on Saturdays."
+        ],
+        [
+          "M",
+          "Sure. Has the health department inspected your vehicle yet?"
+        ],
+        [
+          "W",
+          "Not yet. I only bought the truck last month. Someone told me I could apply for both at the same time."
+        ],
+        [
+          "M",
+          "You can submit the application today, but the permit won’t be issued until the inspection is done. Right now, inspections are booked about six weeks out."
+        ],
+        [
+          "W",
+          "Six weeks? The market season starts in three."
+        ],
+        [
+          "M",
+          "I know. That said, people cancel all the time. If you put your name on the waiting list, you could be called on short notice."
+        ],
+        [
+          "W",
+          "Then please add me. I can be ready the next day."
+        ],
+        [
+          "M",
+          "Done. Oh, and you’ll also need proof of insurance for the truck, so bring that when you come back."
+        ]
+      ],
+      "lines_fr": [
+        "Bonjour, je voudrais demander un permis pour vendre depuis mon camion-restaurant au marché fermier le samedi.",
+        "Bien sûr. Le service d’hygiène a-t-il déjà inspecté votre véhicule ?",
+        "Pas encore. Je n’ai acheté le camion que le mois dernier. On m’a dit que je pouvais faire les deux demandes en même temps.",
+        "Vous pouvez déposer la demande aujourd’hui, mais le permis ne sera délivré qu’une fois l’inspection faite. En ce moment, il faut compter environ six semaines pour obtenir une inspection.",
+        "Six semaines ? La saison du marché commence dans trois.",
+        "Je sais. Cela dit, les gens annulent tout le temps. Si vous vous inscrivez sur la liste d’attente, on pourrait vous appeler au dernier moment.",
+        "Alors inscrivez-moi, s’il vous plaît. Je peux être prête dès le lendemain.",
+        "C’est fait. Ah, et il vous faudra aussi une attestation d’assurance pour le camion, apportez-la quand vous reviendrez."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "What does the woman want to do?",
+          "opts": [
+            "Sell food at a weekly market",
+            "Buy a used truck from the city",
+            "Organize a farmers’ market",
+            "Become a health inspector"
+          ],
+          "ans": "A",
+          "type": "sujet",
+          "expl": "Elle demande un permis pour vendre depuis son camion-restaurant au marché fermier le samedi : vendre de la nourriture sur un marché hebdomadaire. Elle a déjà acheté son camion, et elle n’organise pas le marché.",
+          "q_fr": "Que veut faire la femme ?"
+        },
+        {
+          "q": "What does the man imply when he says, “people cancel all the time”?",
+          "opts": [
+            "The market often cancels its Saturday events.",
+            "The woman should not rely on the waiting list.",
+            "An earlier inspection date may become available.",
+            "Many vendors give up their permits after a season."
+          ],
+          "ans": "C",
+          "type": "intention",
+          "expl": "Les inspections sont prises six semaines à l’avance, mais des gens annulent souvent : une date plus proche peut se libérer, d’où la liste d’attente. Il n’est question ni d’annulations du marché, ni de vendeurs qui renoncent à leur permis.",
+          "q_fr": "Que sous-entend l’homme quand il dit « les gens annulent tout le temps » ?"
+        },
+        {
+          "q": "What does the man tell the woman to bring?",
+          "opts": [
+            "A letter from the market organizers",
+            "A receipt for the purchase of her truck",
+            "The results of a previous inspection",
+            "Evidence that her vehicle is insured"
+          ],
+          "ans": "D",
+          "type": "action",
+          "expl": "*You’ll also need proof of insurance for the truck* : un justificatif d’assurance du véhicule. Elle n’a encore passé aucune inspection, et l’achat du camion n’est cité que pour dire qu’il est récent.",
+          "q_fr": "Que dit l’homme à la femme d’apporter ?"
+        }
+      ]
+    },
+    {
+      "id": "3b-020",
+      "speakers": {
+        "M": "m",
+        "W": "f",
+        "W2": "f"
+      },
+      "lines": [
+        [
+          "M",
+          "Thanks for stopping by, Ayesha. How’s the garden project coming along?"
+        ],
+        [
+          "W",
+          "The new paths and the fountain are finished. The trouble is the hedges and flowering shrubs. The nursery we buy from lost a lot of plants in a late frost, and they can’t deliver until mid-June."
+        ],
+        [
+          "W2",
+          "Mid-June? Our first garden wedding is on May twenty-fourth, and the photographer for the new brochure is coming the week before."
+        ],
+        [
+          "M",
+          "That doesn’t leave us much time. Could you order from a different nursery?"
+        ],
+        [
+          "W",
+          "I’ve tried. Nobody has that many mature plants this season. But we could rent large potted trees and flowers for a couple of months. They’d look full and green in the photos."
+        ],
+        [
+          "W2",
+          "As long as the couples can’t tell the difference, I’m happy."
+        ],
+        [
+          "M",
+          "And what would the rental cost us?"
+        ],
+        [
+          "W",
+          "I’ll put together an estimate and e-mail it to you tomorrow."
+        ]
+      ],
+      "lines_fr": [
+        "Merci d’être passée, Ayesha. Où en est le projet du jardin ?",
+        "Les nouvelles allées et la fontaine sont terminées. Le problème, ce sont les haies et les arbustes à fleurs. La pépinière où nous achetons a perdu beaucoup de plantes à cause d’une gelée tardive, et elle ne peut pas livrer avant la mi-juin.",
+        "La mi-juin ? Notre premier mariage dans le jardin est le 24 mai, et le photographe de la nouvelle brochure vient la semaine d’avant.",
+        "Ça ne nous laisse pas beaucoup de temps. Vous pourriez commander dans une autre pépinière ?",
+        "J’ai essayé. Personne n’a autant de plantes adultes cette saison. Mais nous pourrions louer de grands arbres et des fleurs en pots pour deux ou trois mois. Ils paraîtraient bien fournis et verts sur les photos.",
+        "Du moment que les mariés ne voient pas la différence, ça me va.",
+        "Et combien nous coûterait la location ?",
+        "Je prépare un devis et je vous l’envoie par courriel demain."
+      ],
+      "graphic": null,
+      "questions": [
+        {
+          "q": "Who most likely is Ayesha?",
+          "opts": [
+            "An employee of a plant nursery",
+            "A photographer for a brochure",
+            "The venue’s wedding coordinator",
+            "A contractor hired for the garden"
+          ],
+          "ans": "D",
+          "type": "inference",
+          "expl": "Ayesha fait le point sur les travaux du jardin (allées, fontaine) et achète les plantes à une pépinière : elle est paysagiste. La pépinière est son fournisseur, et c’est l’autre femme qui s’occupe des mariages.",
+          "q_fr": "Qui est sans doute Ayesha ?"
+        },
+        {
+          "q": "Why is the delivery date a concern?",
+          "opts": [
+            "The fountain cannot be finished without the plants.",
+            "Some events will take place before then.",
+            "Plants are more expensive later in the season.",
+            "The couples have asked for different flowers."
+          ],
+          "ans": "B",
+          "type": "detail",
+          "expl": "Le premier mariage dans le jardin a lieu le 24 mai et le photographe de la brochure vient la semaine précédente, donc avant la livraison de mi-juin. La fontaine, elle, est déjà terminée.",
+          "q_fr": "Pourquoi la date de livraison pose-t-elle problème ?"
+        },
+        {
+          "q": "What will Ayesha send tomorrow?",
+          "opts": [
+            "A cost estimate for a temporary solution",
+            "Photographs of the finished fountain",
+            "A list of nurseries with mature plants",
+            "A revised schedule for the garden weddings"
+          ],
+          "ans": "A",
+          "type": "action",
+          "expl": "L’homme demande ce que coûterait la location des plantes en pots ; elle enverra un devis (*an estimate*) demain. Aucune autre pépinière n’a de plantes adultes cette saison, et elle ne parle pas d’envoyer des photos.",
+          "q_fr": "Qu’est-ce qu’Ayesha va envoyer demain ?"
+        }
+      ]
+    }
+  ]
+}

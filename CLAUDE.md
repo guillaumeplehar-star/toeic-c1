@@ -13,9 +13,9 @@ framework, pas de compilation : `index.html` contient tout le HTML, le CSS et le
 
 Version 1 : vocabulaire, Part 5, Part 2. Version 2 : Parts 3-4 (conversations et exposés, questions écrites lues
 avant l’audio) et Parts 6-7 (textes à trous ; lecture simple, double, triple). Version 3 : examens blancs (onglet
-Examen, score estimé sur 990 et niveau CECRL) et tirage selon les points faibles. Idées en attente : synchronisation
-entre appareils (le serveur Cloudflare de 形音义 peut servir, avec un préfixe de code à part), séries B des Parts 3,
-4, 6, relecture séparée du vocabulaire. La Part 1 (photos) est laissée de côté.
+Examen, score estimé sur 990 et niveau CECRL) et tirage selon les points faibles ; puis séries B des Parts 3, 4 et
+6. Idées en attente : synchronisation entre appareils (le serveur Cloudflare de 形音义 peut servir, avec un préfixe de
+code à part), relecture séparée du vocabulaire. La Part 1 (photos) est laissée de côté.
 
 ## Fichiers
 

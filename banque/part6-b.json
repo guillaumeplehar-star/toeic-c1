@@ -1,0 +1,784 @@
+{
+  "sets": [
+    {
+      "id": "6b-001",
+      "kind": "note de service",
+      "text": "MEMO\nTo: All warehouse staff\nFrom: Graham Oyelaran, Operations Manager\nDate: June 2\nSubject: Annual inventory count\n\nOur annual inventory count will take place on Friday, June 27. [1], no orders will be shipped or received that day, and the loading docks will remain closed. Our sales team has already informed customers of the interruption.\n\nEach team will be assigned one section of the warehouse and given a handheld scanner. [2] Any [3] between the scanned quantities and our records must be reported to a supervisor before the end of the shift.\n\nBecause the count requires every available person, no vacation requests for that date can be approved. Anyone [4] request was approved before today should contact Human Resources.\n\nThank you for your cooperation.",
+      "text_fr": "NOTE DE SERVICE\nÀ : tout le personnel de l’entrepôt\nDe : Graham Oyelaran, directeur des opérations\nDate : 2 juin\nObjet : inventaire annuel\n\nNotre inventaire annuel aura lieu le vendredi 27 juin. Par conséquent, aucune commande ne sera expédiée ni reçue ce jour-là, et les quais de chargement resteront fermés. Notre équipe commerciale a déjà prévenu les clients de cette interruption.\n\nChaque équipe se verra attribuer une section de l’entrepôt et recevra un lecteur de codes-barres portable. Scannez d’abord l’étiquette de chaque étagère, puis chacun des articles qui s’y trouvent. Tout écart entre les quantités scannées et nos registres doit être signalé à un responsable avant la fin du service.\n\nComme l’inventaire mobilise toutes les personnes disponibles, aucune demande de congé pour cette date ne pourra être acceptée. Toute personne dont la demande a été acceptée avant aujourd’hui doit contacter les ressources humaines.\n\nMerci de votre coopération.",
+      "questions": [
+        {
+          "opts": [
+            "However",
+            "Similarly",
+            "Consequently",
+            "Otherwise"
+          ],
+          "ans": "C",
+          "type": "lien",
+          "expl": "L’inventaire du 27 juin entraîne l’arrêt des expéditions et des réceptions : il faut un lien de conséquence, *Consequently* (par conséquent). *However* (cependant) marquerait une opposition, *Similarly* (de même) une ressemblance, et *Otherwise* (sinon) une hypothèse contraire."
+        },
+        {
+          "opts": [
+            "Scan the label on each shelf first, then every item on it.",
+            "Shipments will therefore continue as usual throughout the day.",
+            "Our new distribution center is expected to open next spring.",
+            "The scanners were all sold last year in order to reduce costs."
+          ],
+          "ans": "A",
+          "type": "phrase",
+          "expl": "Entre la remise du lecteur et la vérification des quantités scannées, il faut la consigne d’utilisation : scanner l’étagère, puis chaque article. (B) contredit l’arrêt des expéditions, (D) contredit *given a handheld scanner*, et (C) est hors sujet."
+        },
+        {
+          "opts": [
+            "discount",
+            "discrepancy",
+            "discretion",
+            "disposal"
+          ],
+          "ans": "B",
+          "type": "vocab",
+          "expl": "*Discrepancy* : écart, différence entre deux chiffres qui devraient concorder (ici le comptage et les registres). *Discount* (remise), *discretion* (discrétion, libre appréciation) et *disposal* (élimination ; *at your disposal* : à votre disposition) n’ont pas de sens ici."
+        },
+        {
+          "opts": [
+            "who",
+            "whom",
+            "whose",
+            "which"
+          ],
+          "ans": "C",
+          "type": "pronom",
+          "expl": "Le relatif relie *Anyone* au nom *request* : la demande de cette personne, donc *whose* (dont la). *Who* et *whom* ne se placent pas devant un nom, et *which* ne renvoie pas à une personne."
+        }
+      ]
+    },
+    {
+      "id": "6b-002",
+      "kind": "lettre",
+      "text": "Dear Ms. Adeyemi,\n\n[1] Your bakery may now borrow up to $40,000 whenever it needs to, and interest will be charged only on the amount you [2] use. The current rate is 7.5 percent and will be reviewed every six months.\n\nTo activate the line of credit, please sign the enclosed agreement and return it to our Riverside branch by May 9. [3] that date, the approval will expire, and you will need to submit a new application.\n\nThank you for choosing Fairmount Community Bank. We look forward to [4] your business as it grows.\n\nSincerely,\n\nVictor Lindahl\nBusiness Banking Officer",
+      "text_fr": "Madame Adeyemi,\n\nJ’ai le plaisir de vous informer que votre demande de ligne de crédit professionnelle a été acceptée. Votre boulangerie peut désormais emprunter jusqu’à 40 000 dollars dès qu’elle en a besoin, et les intérêts ne porteront que sur le montant que vous utiliserez réellement. Le taux actuel est de 7,5 % et sera révisé tous les six mois.\n\nPour activer la ligne de crédit, veuillez signer le contrat ci-joint et le renvoyer à notre agence de Riverside au plus tard le 9 mai. Passé cette date, l’accord expirera et vous devrez déposer une nouvelle demande.\n\nMerci d’avoir choisi Fairmount Community Bank. Nous nous réjouissons de soutenir votre entreprise dans sa croissance.\n\nVeuillez agréer, Madame, l’expression de mes salutations distinguées.\n\nVictor Lindahl\nChargé de clientèle entreprises",
+      "questions": [
+        {
+          "opts": [
+            "I am pleased to inform you that your application for a business line of credit has been approved.",
+            "We regret to inform you that we are unable to approve your application for a business loan at this time.",
+            "Thank you for attending our recent seminar on managing cash flow in a small business.",
+            "Your monthly statement for your business savings account is enclosed with this letter."
+          ],
+          "ans": "A",
+          "type": "phrase",
+          "expl": "La suite (*may now borrow*, *the line of credit*, *the approval*) suppose qu’une ligne de crédit vient d’être accordée : la lettre doit commencer par cette annonce. (B) dit l’inverse ; (C) et (D) ne donnent aucun antécédent à *the line of credit* ni à *the approval*."
+        },
+        {
+          "opts": [
+            "actual",
+            "actuality",
+            "actualize",
+            "actually"
+          ],
+          "ans": "D",
+          "type": "forme",
+          "expl": "Un adverbe modifie le verbe *use* : *the amount you actually use* (le montant que vous utilisez réellement). Faux ami : *actually* veut dire « réellement, en fait », jamais « actuellement ». *Actual* est un adjectif, *actuality* un nom, *actualize* un verbe."
+        },
+        {
+          "opts": [
+            "Until",
+            "Since",
+            "Within",
+            "After"
+          ],
+          "ans": "D",
+          "type": "prep",
+          "expl": "*After that date* (passé cette date) : si le contrat n’est pas renvoyé avant le 9 mai, l’accord expire. *Until* (jusqu’à) donnerait le sens inverse, *since* (depuis) demande un repère passé, et *within* (dans un délai de) se construit avec une durée, pas avec une date."
+        },
+        {
+          "opts": [
+            "support",
+            "supporting",
+            "be supporting",
+            "have supported"
+          ],
+          "ans": "B",
+          "type": "verbe",
+          "expl": "Dans *look forward to*, *to* est une préposition : elle est suivie d’un gérondif, *look forward to supporting* (nous nous réjouissons de soutenir). Le piège est la base verbale *support*, comme après le *to* d’un infinitif ; *be supporting* et *have supported* ne conviennent pas davantage."
+        }
+      ]
+    },
+    {
+      "id": "6b-003",
+      "kind": "article",
+      "text": "Farmers’ Market Moves to Larkspur Square\n\nGLENHAVEN — After eleven years in the parking lot behind City Hall, the Glenhaven Farmers’ Market is moving. Starting Saturday, May 3, it will be held in Larkspur Square, a pedestrian plaza that [1] by the city last year.\n\nMarket manager Rosa Delgado said the old site had simply become too small. “We had a waiting list of nearly thirty farmers and food producers,” she explained. [2] The square can accommodate up to 85 stalls, [3] the parking lot could hold only 50.\n\nSome shoppers have expressed concern about parking, since the square has no lot of its own. To [4] these concerns, the city will offer free parking in the Elm Street garage, two blocks away, every Saturday morning.",
+      "text_fr": "Le marché fermier s’installe sur la place Larkspur\n\nGLENHAVEN — Après onze ans sur le parking situé derrière l’hôtel de ville, le marché fermier de Glenhaven déménage. À partir du samedi 3 mai, il se tiendra sur la place Larkspur, une esplanade piétonne que la ville a rénovée l’an dernier.\n\nSelon la responsable du marché, Rosa Delgado, l’ancien site était tout simplement devenu trop petit. « Nous avions une liste d’attente de près de trente agriculteurs et producteurs », a-t-elle expliqué. Le déménagement sur un site plus grand leur permettra à tous de participer cette année. La place peut accueillir jusqu’à 85 stands, alors que le parking ne pouvait en recevoir que 50.\n\nCertains clients se sont inquiétés du stationnement, car la place n’a pas de parking à elle. Pour apaiser ces inquiétudes, la ville offrira le stationnement gratuit dans le parking couvert de la rue Elm, à deux rues de là, tous les samedis matin.",
+      "questions": [
+        {
+          "opts": [
+            "renovated",
+            "renovates",
+            "was renovated",
+            "renovating"
+          ],
+          "ans": "C",
+          "type": "verbe",
+          "expl": "La place a été rénovée par la ville : il faut le passif, et *last year* impose le prétérit, *was renovated*. *Renovated* et *renovates* seraient actifs (la place rénoverait quelque chose), et *renovating* ne peut pas suivre *that* sans auxiliaire."
+        },
+        {
+          "opts": [
+            "As a result, the number of stalls will be reduced this season.",
+            "Moving to the larger site will allow all of them to take part this year.",
+            "The market will, however, continue to be held behind City Hall.",
+            "Ms. Delgado previously worked as a pastry chef at several local restaurants."
+          ],
+          "ans": "B",
+          "type": "phrase",
+          "expl": "*All of them* reprend les trente producteurs de la liste d’attente, et la phrase suivante explique pourquoi c’est possible (85 stands au lieu de 50). (A) contredit cet agrandissement, (C) contredit le déménagement, et (D) est hors sujet."
+        },
+        {
+          "opts": [
+            "whereas",
+            "unless",
+            "so that",
+            "as if"
+          ],
+          "ans": "A",
+          "type": "lien",
+          "expl": "La phrase oppose deux capacités, 85 stands sur la place et 50 sur le parking : *whereas* (alors que). *Unless* (à moins que) pose une condition, *so that* (pour que) un but, et *as if* (comme si) une comparaison irréelle."
+        },
+        {
+          "opts": [
+            "alleviate",
+            "aggravate",
+            "accelerate",
+            "allocate"
+          ],
+          "ans": "A",
+          "type": "vocab",
+          "expl": "*Alleviate a concern* : apaiser une inquiétude (ici grâce au stationnement gratuit). *Aggravate* (aggraver) dirait l’inverse, et *accelerate* (accélérer) et *allocate* (attribuer, affecter) n’ont pas de sens avec *concerns*."
+        }
+      ]
+    },
+    {
+      "id": "6b-004",
+      "kind": "publicité",
+      "text": "Northway Rail Business Class: Travel the Way You Work\n\nStarting March 1, Business Class will be available on every Northway Rail train between Ashford and Port Selby. For just $35 more than a standard fare, you will enjoy seats that are considerably [1] than those in standard cars, extra legroom, and a quiet car reserved for working or resting.\n\nBusiness Class passengers may also board [2] other travelers and wait for their train in our station lounges, where coffee and light snacks are served. [3]\n\nTickets are available online, through our mobile app, and at any station ticket office. [4], book a standard ticket before February 15 and receive a free upgrade to Business Class on your return journey!",
+      "text_fr": "Classe affaires de Northway Rail : voyagez comme vous travaillez\n\nÀ partir du 1er mars, la classe affaires sera proposée dans tous les trains Northway Rail entre Ashford et Port Selby. Pour seulement 35 dollars de plus qu’un billet standard, vous profiterez de sièges nettement plus larges que ceux des voitures standard, de plus d’espace pour les jambes et d’une voiture silencieuse réservée au travail ou au repos.\n\nLes passagers de la classe affaires peuvent aussi monter à bord avant les autres voyageurs et attendre leur train dans nos salons en gare, où l’on sert du café et des en-cas légers. L’accès aux salons est compris dans le prix de chaque billet de classe affaires.\n\nLes billets sont en vente en ligne, sur notre application mobile et à tous les guichets des gares. Mieux encore, réservez un billet standard avant le 15 février et bénéficiez d’un surclassement gratuit en classe affaires pour votre trajet retour !",
+      "questions": [
+        {
+          "opts": [
+            "more wide",
+            "widest",
+            "as wide",
+            "wider"
+          ],
+          "ans": "D",
+          "type": "compar",
+          "expl": "*Than* appelle un comparatif, et *wide*, adjectif court, le forme avec *-er* : *considerably wider than* (nettement plus larges que). *More wide* est fautif, *widest* est un superlatif et *as wide* se construit avec *as … as*."
+        },
+        {
+          "opts": [
+            "instead of",
+            "ahead of",
+            "on behalf of",
+            "in spite of"
+          ],
+          "ans": "B",
+          "type": "prep",
+          "expl": "*Board ahead of other travelers* : monter à bord avant les autres voyageurs, un avantage de la classe affaires. *Instead of* (au lieu de) voudrait dire que les autres ne montent pas ; *on behalf of* (au nom de) et *in spite of* (malgré) n’ont pas de sens ici."
+        },
+        {
+          "opts": [
+            "Please note that no food or drinks of any kind are available in our lounges.",
+            "Business Class service will be discontinued at the end of the month.",
+            "Lounge access is included in the price of every Business Class ticket.",
+            "The station in Ashford was built more than a century ago."
+          ],
+          "ans": "C",
+          "type": "phrase",
+          "expl": "Après la description des salons, la phrase précise ce que comprend le billet : l’accès y est inclus. (A) contredit *coffee and light snacks are served*, (B) contredit le lancement du service le 1er mars, et (D) est hors sujet."
+        },
+        {
+          "opts": [
+            "Even so",
+            "For this reason",
+            "Otherwise",
+            "Better still"
+          ],
+          "ans": "D",
+          "type": "lien",
+          "expl": "*Better still* (mieux encore) ajoute un argument encore plus attirant que le précédent : après la facilité d’achat des billets, un surclassement gratuit. *Even so* (malgré cela) supposerait une opposition, *For this reason* (pour cette raison) une conséquence de la phrase précédente, et *Otherwise* (sinon) une condition contraire : aucun de ces liens n’existe ici."
+        }
+      ]
+    },
+    {
+      "id": "6b-005",
+      "kind": "e-mail",
+      "text": "To: Kenji Moreau\nFrom: Brookside Dental Care\nSubject: Your appointment on October 16\n\nDear Mr. Moreau,\n\nThis is a reminder of your checkup with Dr. Halima Osei on Thursday, October 16, at 2:30 P.M.\n\nPlease note that we are no longer on Main Street. Last month, our clinic [1] to Suite 210 of the Wexford Medical Building, 220 Garden Avenue. [2] Free parking is available in the lot behind the building.\n\nBefore your visit, please fill out the updated health questionnaire on our patient portal. We recommend [3] it at least two days in advance so that Dr. Osei has time to review it.\n\nIf you need to reschedule, please let us know at least 24 hours ahead. [4], a $40 cancellation fee will be charged.\n\nWe look forward to seeing you.\n\nBrookside Dental Care",
+      "text_fr": "À : Kenji Moreau\nDe : Brookside Dental Care\nObjet : votre rendez-vous du 16 octobre\n\nMonsieur Moreau,\n\nNous vous rappelons votre rendez-vous de contrôle avec la Dre Halima Osei le jeudi 16 octobre à 14 h 30.\n\nVeuillez noter que nous ne sommes plus rue Main. Le mois dernier, notre cabinet s’est installé au bureau 210 du centre médical Wexford, 220, avenue Garden. L’immeuble se trouve juste en face d’un arrêt de bus. Un parking gratuit est à votre disposition derrière l’immeuble.\n\nAvant votre visite, merci de remplir le questionnaire de santé mis à jour sur notre portail patients. Nous vous conseillons de le remplir au moins deux jours à l’avance, pour que la Dre Osei ait le temps de le consulter.\n\nSi vous devez déplacer votre rendez-vous, merci de nous prévenir au moins 24 heures à l’avance. Sinon, des frais d’annulation de 40 dollars vous seront facturés.\n\nAu plaisir de vous voir.\n\nBrookside Dental Care",
+      "questions": [
+        {
+          "opts": [
+            "renewed",
+            "restored",
+            "relocated",
+            "retired"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*Relocate to* : déménager, s’installer ailleurs (le cabinet n’est plus rue Main). *Renew* (renouveler), *restore* (restaurer, rétablir) et *retire* (prendre sa retraite) ne décrivent pas un changement d’adresse."
+        },
+        {
+          "opts": [
+            "The building is directly across the street from a bus stop.",
+            "Our Main Street office will, however, remain open on weekends.",
+            "Unfortunately, there is no parking available near the new building.",
+            "Dr. Osei recently completed an advanced course in pediatric dentistry."
+          ],
+          "ans": "A",
+          "type": "phrase",
+          "expl": "Entre la nouvelle adresse et le stationnement, la phrase logique donne une autre information pour s’y rendre : un arrêt de bus juste en face. (B) contredit *we are no longer on Main Street*, (C) contredit le parking gratuit de la phrase suivante, et (D) est hors sujet."
+        },
+        {
+          "opts": [
+            "to complete",
+            "complete",
+            "completing",
+            "completed"
+          ],
+          "ans": "C",
+          "type": "verbe",
+          "expl": "*Recommend* se construit avec un gérondif : *We recommend completing it* (nous vous conseillons de le remplir). *Recommend to complete*, calqué sur le français, est fautif ; *complete* et *completed* ne peuvent pas suivre *recommend* ici."
+        },
+        {
+          "opts": [
+            "Moreover",
+            "Otherwise",
+            "Therefore",
+            "Meanwhile"
+          ],
+          "ans": "B",
+          "type": "lien",
+          "expl": "*Otherwise* (sinon) : si le patient ne prévient pas 24 heures à l’avance, des frais sont facturés. *Moreover* (de plus) et *Therefore* (donc) feraient payer ceux qui préviennent, et *Meanwhile* (pendant ce temps) n’a pas de sens ici."
+        }
+      ]
+    },
+    {
+      "id": "6b-006",
+      "kind": "avis",
+      "text": "NOTICE TO ALL OCCUPANTS\nHalden Business Park, Buildings C and D\n\nThe annual inspection of the fire alarm and sprinkler systems will take place on Tuesday, September 9, between 8:00 A.M. and 5:00 P.M. The inspection is required by the city fire code and [1] by a licensed contractor, Redline Fire Protection.\n\nDuring the inspection, the alarms will sound several times for short periods. [2], there is no need to leave the building unless a member of building management instructs you to do so.\n\nTechnicians will need access to every office in order to test the sprinkler heads and smoke detectors. [3] Please also make sure that nothing is stored [4] 18 inches of a sprinkler head, as this could prevent the system from working properly.\n\nBuilding Management Office",
+      "text_fr": "AVIS À TOUS LES OCCUPANTS\nParc d’affaires Halden, bâtiments C et D\n\nL’inspection annuelle des systèmes d’alarme incendie et d’extinction automatique (sprinklers) aura lieu le mardi 9 septembre, de 8 h à 17 h. Cette inspection est exigée par le code municipal de sécurité incendie et sera effectuée par une entreprise agréée, Redline Fire Protection.\n\nPendant l’inspection, les alarmes retentiront plusieurs fois, brièvement. Malgré cela, il n’est pas nécessaire de quitter le bâtiment, sauf si un membre de la direction de l’immeuble vous le demande.\n\nLes techniciens devront accéder à chaque bureau pour tester les têtes de sprinklers et les détecteurs de fumée. Si vous comptez fermer votre bureau à clé ce jour-là, merci de laisser une clé au poste de sécurité. Veillez aussi à ce que rien ne soit entreposé à moins de 18 pouces (environ 45 cm) d’une tête de sprinkler, car cela pourrait empêcher le système de bien fonctionner.\n\nDirection de l’immeuble",
+      "questions": [
+        {
+          "opts": [
+            "will be performed",
+            "was performed",
+            "will perform",
+            "has been performing"
+          ],
+          "ans": "A",
+          "type": "verbe",
+          "expl": "L’inspection n’a pas encore eu lieu (*will take place on Tuesday, September 9*) et elle est effectuée par l’entreprise : futur passif, *will be performed*. *Was performed* la présente comme passée ; *will perform* et *has been performing* sont actifs, comme si l’inspection effectuait elle-même quelque chose."
+        },
+        {
+          "opts": [
+            "For example",
+            "Likewise",
+            "Instead",
+            "Even so"
+          ],
+          "ans": "D",
+          "type": "lien",
+          "expl": "Les alarmes vont sonner, ce qui pousserait normalement à évacuer ; *Even so* (malgré cela) introduit la consigne contraire : inutile de sortir. *For example* (par exemple) et *Likewise* (de même) ne marquent pas d’opposition, et *Instead* (à la place) supposerait qu’on remplace une action déjà mentionnée."
+        },
+        {
+          "opts": [
+            "As a result, they will not need to enter any of the individual offices in the building.",
+            "The parking lot behind Building D will be repaved later this fall.",
+            "If you plan to lock your office that day, please leave a key at the security desk.",
+            "Smoke detectors were removed from all offices when the buildings were renovated."
+          ],
+          "ans": "C",
+          "type": "phrase",
+          "expl": "Les techniciens doivent entrer dans chaque bureau : la phrase logique dit quoi faire si le bureau est fermé à clé. (A) contredit cet accès à chaque bureau, (D) contredit le test des détecteurs de fumée, et (B) est hors sujet."
+        },
+        {
+          "opts": [
+            "within",
+            "among",
+            "beyond",
+            "into"
+          ],
+          "ans": "A",
+          "type": "prep",
+          "expl": "*Within 18 inches of* : à moins de 18 pouces (environ 45 cm) de. *Beyond* (au-delà de) dirait l’inverse, alors que le danger vient des objets trop proches, et ne se construit pas avec *of* ; *among* (parmi) demande un groupe, et *into* (dans, vers l’intérieur) un mouvement."
+        }
+      ]
+    },
+    {
+      "id": "6b-007",
+      "kind": "page web",
+      "text": "Plan Your Visit: Threads of the Silk Road\n\nThe Calloway Museum of Art is proud to present Threads of the Silk Road, an exhibition of more than 200 textiles, many of which have never been [1] outside their countries of origin. The exhibition runs from April 4 through August 30 in the museum’s east wing.\n\nAdmission to the exhibition is by timed ticket only. Visitors choose a thirty-minute entry window when buying their tickets, [2] keeps the galleries from becoming overcrowded. Once inside, they may stay as long as they like. [3]\n\nTickets are $18 for adults and $12 for students. Museum members are admitted free of charge but must still reserve an entry time. Members who cannot come at their reserved time are asked to cancel online. [4], the slot can be offered to another visitor.",
+      "text_fr": "Préparer votre visite : Les Fils de la route de la soie\n\nLe musée d’art Calloway a le plaisir de présenter Les Fils de la route de la soie, une exposition de plus de 200 textiles, dont beaucoup n’ont jamais été exposés hors de leur pays d’origine. L’exposition se tient du 4 avril au 30 août dans l’aile est du musée.\n\nL’entrée de l’exposition se fait uniquement avec un billet horodaté. Les visiteurs choisissent un créneau d’entrée de trente minutes en achetant leur billet, ce qui évite que les salles soient surpeuplées. Une fois à l’intérieur, ils peuvent rester aussi longtemps qu’ils le souhaitent. La plupart des visiteurs passent environ une heure et demie dans l’exposition.\n\nLes billets coûtent 18 dollars pour les adultes et 12 dollars pour les étudiants. Les membres du musée entrent gratuitement, mais doivent tout de même réserver un horaire d’entrée. Les membres qui ne peuvent pas venir à l’heure réservée sont priés d’annuler en ligne. Ainsi, le créneau pourra être proposé à un autre visiteur.",
+      "questions": [
+        {
+          "opts": [
+            "exposed",
+            "expressed",
+            "exploited",
+            "exhibited"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*Exhibit* : exposer, présenter au public (*never been exhibited* : jamais exposés). Faux ami : *exposed* signifie « exposé à » (un risque, la lumière), pas « présenté dans une exposition ». *Expressed* (exprimé) et *exploited* (exploité) n’ont pas de sens ici."
+        },
+        {
+          "opts": [
+            "that",
+            "which",
+            "whose",
+            "it"
+          ],
+          "ans": "B",
+          "type": "pronom",
+          "expl": "Après la virgule, *which* reprend toute la proposition précédente (le choix d’un créneau) : ce qui évite que les salles soient surpeuplées. *That* ne s’emploie pas après une virgule, *whose* demande un nom derrière lui, et *it* souderait deux propositions indépendantes par une simple virgule."
+        },
+        {
+          "opts": [
+            "Visitors will, however, be asked to leave the galleries after thirty minutes.",
+            "No reservation is needed: simply walk in at any time during opening hours.",
+            "The museum’s west wing was designed by a local architect in 1962.",
+            "Most visitors spend about ninety minutes in the exhibition."
+          ],
+          "ans": "D",
+          "type": "phrase",
+          "expl": "Après *they may stay as long as they like*, la phrase logique donne la durée habituelle d’une visite. (A) contredit cette liberté, (B) contredit les billets horodatés obligatoires, et (C) est hors sujet."
+        },
+        {
+          "opts": [
+            "Even so",
+            "By contrast",
+            "That way",
+            "Until then"
+          ],
+          "ans": "C",
+          "type": "lien",
+          "expl": "*That way* (ainsi, de cette façon) : grâce à l’annulation demandée dans la phrase précédente, le créneau peut être proposé à un autre visiteur. *Even so* (malgré cela) et *By contrast* (en revanche) marquent une opposition, et *Until then* (d’ici là) n’a pas de sens ici."
+        }
+      ]
+    },
+    {
+      "id": "6b-008",
+      "kind": "communiqué",
+      "text": "FOR IMMEDIATE RELEASE\n\nContact: Ingrid Solberg, Customer Relations, 555-0147\n\nASHBROOK — Harlow Home Appliances is voluntarily recalling about 18,000 of its Model 310 electric kettles, which were sold between January and March of this year. The company has found that the handle on some units can [1] loosen with use, causing the kettle to tip and spill hot water. No injuries have been reported.\n\nCustomers should stop using the kettle immediately and check the serial number printed on its base. Only kettles with serial numbers beginning [2] the letters BK are affected. Their owners will receive a full refund or a free replacement.\n\n“The safety of our customers is our highest priority,” said company president Desmond Achterberg. “We have already changed the way the handle is attached to make sure the problem does not [3].” [4]",
+      "text_fr": "COMMUNIQUÉ DE PRESSE, POUR DIFFUSION IMMÉDIATE\n\nContact : Ingrid Solberg, relations clientèle, 555-0147\n\nASHBROOK — Harlow Home Appliances rappelle volontairement environ 18 000 bouilloires électriques de son modèle 310, vendues entre janvier et mars de cette année. L’entreprise a constaté que la poignée de certains appareils peut se desserrer progressivement à l’usage, ce qui peut faire basculer la bouilloire et renverser de l’eau chaude. Aucun blessé n’a été signalé.\n\nLes clients doivent cesser immédiatement d’utiliser la bouilloire et vérifier le numéro de série imprimé sur son socle. Seules les bouilloires dont le numéro de série commence par les lettres BK sont concernées. Leurs propriétaires recevront un remboursement intégral ou un appareil de remplacement gratuit.\n\n« La sécurité de nos clients est notre priorité absolue », a déclaré le président de l’entreprise, Desmond Achterberg. « Nous avons déjà modifié la façon dont la poignée est fixée, pour que le problème ne se reproduise pas. » Pour organiser un retour, les clients peuvent appeler le numéro ci-dessus ou consulter le site Web de l’entreprise.",
+      "questions": [
+        {
+          "opts": [
+            "gradual",
+            "gradually",
+            "gradualness",
+            "graduate"
+          ],
+          "ans": "B",
+          "type": "forme",
+          "expl": "Entre le modal *can* et le verbe *loosen*, il faut un adverbe : *can gradually loosen* (peut se desserrer progressivement). *Gradual* est un adjectif, *gradualness* un nom, et *graduate* un verbe (obtenir son diplôme), qui ne peut pas se placer devant *loosen*."
+        },
+        {
+          "opts": [
+            "with",
+            "by",
+            "from",
+            "on"
+          ],
+          "ans": "A",
+          "type": "prep",
+          "expl": "*Begin with* : commencer par (des numéros qui commencent par BK). Piège pour un francophone : *begin by* s’emploie devant un gérondif (*begin by checking* : commencer par vérifier), pas devant un nom de chose. *From* et *on* ne se construisent pas avec *begin* dans ce sens."
+        },
+        {
+          "opts": [
+            "refer",
+            "remind",
+            "recur",
+            "recover"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*Recur* : se reproduire. Le problème de poignée s’est déjà produit, et l’entreprise veut éviter qu’il revienne. *Refer* (renvoyer à) et *remind* (rappeler à quelqu’un) demandent un complément, et *recover* (se rétablir, récupérer) n’a pas de sens avec *problem*."
+        },
+        {
+          "opts": [
+            "Affected kettles cannot be returned, but their handles can easily be tightened at home.",
+            "To arrange a return, customers can call the number above or visit the company’s Web site.",
+            "The company has therefore decided that no changes to its production process are needed.",
+            "Sales of the Model 310 rose by twelve percent during the first quarter of the year."
+          ],
+          "ans": "B",
+          "type": "phrase",
+          "expl": "Le communiqué se termine par la marche à suivre pour le retour annoncé plus haut (remboursement ou remplacement) ; *the number above* renvoie au contact donné en tête. (A) contredit le remboursement, (C) contredit *We have already changed the way the handle is attached*, et (D) est hors sujet."
+        }
+      ]
+    },
+    {
+      "id": "6b-009",
+      "kind": "e-mail",
+      "text": "To: Marcus Feld\nFrom: Leilani Kahale, Silverline Corporate Travel\nSubject: Change to your Lisbon itinerary\n\nDear Mr. Feld,\n\nThe airline has canceled your 7:15 A.M. flight to Lisbon on Monday, May 12. I have [1] you on a later flight, which departs at 11:40 A.M. and arrives at 3:05 P.M. local time. [2]\n\nBecause you will now land several hours later than planned, I have also contacted your hotel. Your airport pickup, originally booked for 10:30 A.M., [3] for 3:30 P.M.\n\nYour updated itinerary is attached. Please let me know whether these new arrangements are [4] to you, and I will then confirm them with the airline and the hotel.\n\nBest regards,\n\nLeilani Kahale",
+      "text_fr": "À : Marcus Feld\nDe : Leilani Kahale, Silverline Corporate Travel\nObjet : modification de votre itinéraire pour Lisbonne\n\nMonsieur Feld,\n\nLa compagnie aérienne a annulé votre vol de 7 h 15 pour Lisbonne du lundi 12 mai. Je vous ai transféré sur un vol plus tardif, qui part à 11 h 40 et arrive à 15 h 05, heure locale. Vos préférences de siège et de repas ont été reportées sur le nouveau vol.\n\nComme vous atterrirez plusieurs heures plus tard que prévu, j’ai aussi contacté votre hôtel. La voiture qui devait venir vous chercher à l’aéroport à 10 h 30 a été reprogrammée pour 15 h 30.\n\nVotre itinéraire mis à jour est joint à ce courriel. Merci de me dire si ces nouvelles dispositions vous conviennent ; je les confirmerai ensuite auprès de la compagnie aérienne et de l’hôtel.\n\nBien cordialement,\n\nLeilani Kahale",
+      "questions": [
+        {
+          "opts": [
+            "refunded",
+            "reissued",
+            "rebooked",
+            "reclaimed"
+          ],
+          "ans": "C",
+          "type": "vocab",
+          "expl": "*Rebook someone on a flight* : réserver pour quelqu’un une place sur un autre vol, après une annulation. *Refund* (rembourser), *reissue* (émettre de nouveau, un billet par exemple) et *reclaim* (récupérer, réclamer) ne se construisent pas avec une personne suivie de *on a flight*."
+        },
+        {
+          "opts": [
+            "Unfortunately, there are no other flights to Lisbon available on that day.",
+            "Your original flight, however, is still expected to depart as scheduled.",
+            "Lisbon is well known for its historic yellow trams and steep streets.",
+            "Your seat and meal preferences have been carried over to the new flight."
+          ],
+          "ans": "D",
+          "type": "phrase",
+          "expl": "Après le changement de vol, la phrase logique précise ce qui suit le voyageur sur le nouveau vol : ses préférences de siège et de repas. (A) contredit la place trouvée sur un vol plus tardif, (B) contredit l’annulation, et (C) est hors sujet."
+        },
+        {
+          "opts": [
+            "has rescheduled",
+            "has been rescheduled",
+            "rescheduling",
+            "has been rescheduling"
+          ],
+          "ans": "B",
+          "type": "verbe",
+          "expl": "Le transfert ne reprogramme rien, il est reprogrammé, à cause de l’arrivée plus tardive annoncée dans la phrase précédente : passif, *has been rescheduled*. *Has rescheduled* et *has been rescheduling* sont actifs, et *rescheduling* n’est pas un verbe conjugué."
+        },
+        {
+          "opts": [
+            "satisfy",
+            "satisfaction",
+            "satisfactorily",
+            "satisfactory"
+          ],
+          "ans": "D",
+          "type": "forme",
+          "expl": "Après le verbe *be*, il faut un adjectif attribut : *satisfactory to you* (qui vous conviennent). *Satisfy* est un verbe, *satisfaction* un nom, et *satisfactorily* un adverbe, qui ne peut pas être attribut après *are*."
+        }
+      ]
+    },
+    {
+      "id": "6b-010",
+      "kind": "note de service",
+      "text": "MEMO\nTo: All budget holders\nFrom: Tobias Mwangi, Controller\nDate: November 20\nSubject: Year-end closing\n\nOur fiscal year ends on December 31, and the accounting team will begin closing the books the following week. To make sure that every expense is recorded in the correct year, please adhere [1] to the deadlines below.\n\nAll supplier invoices for this year must reach Accounts Payable by Friday, December 19. Invoices that arrive after that date will be charged to next year’s budget. [2]\n\nPurchase orders that are still open on December 31 [3] closed automatically. If an order needs to remain open, please let us know by December 12.\n\nWe realize that this is a busy time of year. However, the earlier we receive your documents, the [4] the closing process will be for everyone.",
+      "text_fr": "NOTE DE SERVICE\nÀ : tous les responsables budgétaires\nDe : Tobias Mwangi, contrôleur financier\nDate : 20 novembre\nObjet : clôture de fin d’exercice\n\nNotre exercice se termine le 31 décembre, et l’équipe comptable commencera la clôture des comptes la semaine suivante. Pour que chaque dépense soit enregistrée sur le bon exercice, merci de respecter strictement les dates limites ci-dessous.\n\nToutes les factures fournisseurs de cette année doivent parvenir à la comptabilité fournisseurs au plus tard le vendredi 19 décembre. Les factures qui arriveront après cette date seront imputées au budget de l’année prochaine. Cela pourrait réduire les fonds dont votre service disposera l’an prochain.\n\nLes bons de commande encore ouverts au 31 décembre seront clôturés automatiquement. Si une commande doit rester ouverte, merci de nous en informer au plus tard le 12 décembre.\n\nNous savons que cette période de l’année est chargée. Cependant, plus tôt nous recevrons vos documents, plus la clôture se déroulera facilement pour tout le monde.",
+      "questions": [
+        {
+          "opts": [
+            "strictly",
+            "strict",
+            "strictness",
+            "stricter"
+          ],
+          "ans": "A",
+          "type": "forme",
+          "expl": "Un adverbe modifie le verbe *adhere* : *adhere strictly to the deadlines* (respecter strictement les dates limites). *Strict* et *stricter* sont des adjectifs, *strictness* un nom."
+        },
+        {
+          "opts": [
+            "Late invoices will therefore still be included in this year’s accounts.",
+            "The accounting team moved to the fourth floor of the building last month.",
+            "This could reduce the funds available to your department next year.",
+            "Invoices may therefore be submitted at any time until the end of January."
+          ],
+          "ans": "C",
+          "type": "phrase",
+          "expl": "*This* reprend l’imputation des factures en retard au budget de l’année suivante, et la phrase en donne la conséquence : moins de fonds l’an prochain. (A) et (D) contredisent la date limite du 19 décembre, et (B) est hors sujet."
+        },
+        {
+          "opts": [
+            "will be",
+            "have been",
+            "had been",
+            "would have been"
+          ],
+          "ans": "A",
+          "type": "verbe",
+          "expl": "La note est datée du 20 novembre : la clôture des bons de commande au 31 décembre est à venir, d’où le futur passif *will be closed*. *Have been* et *had been* la présentent comme déjà faite, et *would have been* comme une hypothèse passée non réalisée."
+        },
+        {
+          "opts": [
+            "smoothest",
+            "smoother",
+            "more smoothly",
+            "smoothly"
+          ],
+          "ans": "B",
+          "type": "compar",
+          "expl": "*The earlier …, the smoother …* : plus …, plus … ; les deux parties prennent un comparatif. Après *will be*, il faut un adjectif : *the smoother the closing process will be*. *More smoothly* est un adverbe, *smoothest* un superlatif, et *smoothly* n’est pas un comparatif."
+        }
+      ]
+    },
+    {
+      "id": "6b-011",
+      "kind": "article",
+      "text": "New Urgent Care Center Opens in Westbrook\n\nWESTBROOK — Residents of Westbrook no longer need to drive forty minutes to Lakeview General Hospital for minor injuries and illnesses. On Monday, the hospital opened an urgent care center on Brandt Road, in the building that [1] housed the town’s public library.\n\nThe center is open from 8:00 A.M. to 10:00 P.M. every day, and no appointment is necessary. Its two doctors and four nurses can treat conditions such as sprains, minor burns, and ear infections. For serious emergencies, [2], patients should still call 911 or go directly to the hospital.\n\nHospital director Amara Nwosu said the new center should also ease the pressure on Lakeview’s emergency room, where waiting times [3] sharply over the past two years. [4]",
+      "text_fr": "Un centre de soins non programmés ouvre à Westbrook\n\nWESTBROOK — Les habitants de Westbrook n’ont plus besoin de faire quarante minutes de route jusqu’à l’hôpital général de Lakeview pour des blessures ou des maladies bénignes. Lundi, l’hôpital a ouvert un centre de soins non programmés sur Brandt Road, dans le bâtiment qui abritait autrefois la bibliothèque municipale.\n\nLe centre est ouvert tous les jours de 8 h à 22 h, sans rendez-vous. Ses deux médecins et ses quatre infirmiers peuvent traiter des problèmes comme les entorses, les brûlures légères et les otites. En cas d’urgence grave, en revanche, les patients doivent toujours appeler le 911 ou se rendre directement à l’hôpital.\n\nSelon la directrice de l’hôpital, Amara Nwosu, le nouveau centre devrait aussi soulager les urgences de Lakeview, où les temps d’attente ont fortement augmenté ces deux dernières années. Elle s’attend à ce que le nombre de patients qui y sont soignés baisse d’environ 15 %.",
+      "questions": [
+        {
+          "opts": [
+            "formally",
+            "frequently",
+            "firmly",
+            "formerly"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*Formerly* : autrefois, anciennement (le bâtiment abritait la bibliothèque avant d’accueillir le centre). Piège : *formally* (officiellement, dans les formes) ne diffère que d’une lettre. *Frequently* (souvent) et *firmly* (fermement) n’ont pas de sens ici."
+        },
+        {
+          "opts": [
+            "for instance",
+            "however",
+            "moreover",
+            "likewise"
+          ],
+          "ans": "B",
+          "type": "lien",
+          "expl": "Le centre soigne les problèmes bénins ; pour les urgences graves, en revanche, il faut aller à l’hôpital : *however* marque cette opposition avec la phrase précédente. *For instance* (par exemple) annoncerait un exemple de ce qui précède, *moreover* (de plus) et *likewise* (de même) ajoutent sans opposer."
+        },
+        {
+          "opts": [
+            "had risen",
+            "are rising",
+            "have risen",
+            "will have risen"
+          ],
+          "ans": "C",
+          "type": "verbe",
+          "expl": "*Over the past two years* désigne une période qui commence dans le passé et va jusqu’à aujourd’hui : *present perfect*, *have risen* (ont augmenté). *Had risen* demande un repère passé, *will have risen* un repère futur, et le présent *are rising* ne se combine pas avec une telle période."
+        },
+        {
+          "opts": [
+            "As a result, Lakeview’s emergency room will close permanently at the end of next month.",
+            "In fact, waiting times there have fallen steadily since last year.",
+            "She expects the number of patients treated there to drop by about 15 percent.",
+            "The town’s public library now offers free evening language classes for adults."
+          ],
+          "ans": "C",
+          "type": "phrase",
+          "expl": "La phrase prolonge les propos de la directrice : *She* renvoie à Amara Nwosu et *there* aux urgences de Lakeview, que le centre doit soulager. (A) contredit le conseil d’aller à l’hôpital pour les urgences graves, (B) contredit *have risen sharply*, et (D) est hors sujet."
+        }
+      ]
+    },
+    {
+      "id": "6b-012",
+      "kind": "lettre",
+      "text": "Dear Mr. Oduya,\n\nThank you for choosing Cardinal Builders to renovate the kitchen at Saffron Table. As we discussed on Tuesday, work will begin on Monday, July 7, and should take about three weeks.\n\nDuring our inspection, we found that the ventilation hood is in [1] worse condition than we had expected. [2] This will add approximately $2,800 to the original estimate, as shown in the enclosed revised quote.\n\nA new hood takes about ten days to arrive once it has been ordered. [3], I would ask you to sign and return the revised quote by June 25.\n\nShould you prefer to keep the restaurant open during the renovation, we could also complete the work in stages. This would take about five weeks but would [4] you to continue serving a limited menu.\n\nSincerely,\n\nHelena Brandt\nProject Manager, Cardinal Builders",
+      "text_fr": "Monsieur Oduya,\n\nMerci d’avoir choisi Cardinal Builders pour rénover la cuisine du restaurant Saffron Table. Comme convenu mardi, les travaux commenceront le lundi 7 juillet et devraient durer environ trois semaines.\n\nLors de notre inspection, nous avons constaté que la hotte d’aspiration est en bien plus mauvais état que nous ne le pensions. Nous recommandons donc de la remplacer plutôt que de simplement la réparer. Cela ajoutera environ 2 800 dollars au devis initial, comme l’indique le devis révisé ci-joint.\n\nUne nouvelle hotte met environ dix jours à arriver une fois commandée. C’est pourquoi je vous demanderais de signer et de renvoyer le devis révisé au plus tard le 25 juin.\n\nSi vous préférez garder le restaurant ouvert pendant la rénovation, nous pourrions aussi réaliser les travaux en plusieurs étapes. Cela prendrait environ cinq semaines, mais vous permettrait de continuer à servir une carte réduite.\n\nVeuillez agréer, Monsieur, l’expression de mes salutations distinguées.\n\nHelena Brandt\nCheffe de projet, Cardinal Builders",
+      "questions": [
+        {
+          "opts": [
+            "significant",
+            "significantly",
+            "significance",
+            "signify"
+          ],
+          "ans": "B",
+          "type": "forme",
+          "expl": "Un adverbe de degré modifie le comparatif *worse* : *significantly worse* (nettement plus mauvais). *Significant* est un adjectif, qui ne peut pas modifier *worse* ; *significance* est un nom et *signify* un verbe."
+        },
+        {
+          "opts": [
+            "We therefore recommend replacing it rather than simply repairing it.",
+            "As a result, the existing hood can be kept and will not need any work at all.",
+            "Our company was founded by two brothers in this city in 1987.",
+            "Saffron Table has received excellent reviews since it opened last year."
+          ],
+          "ans": "A",
+          "type": "phrase",
+          "expl": "*This will add approximately $2,800* demande un antécédent qui coûte de l’argent : le remplacement de la hotte, conseillé à cause de son mauvais état. (B) contredit ce mauvais état et ce surcoût ; (C) et (D) sont hors sujet et ne donnent aucun antécédent à *This*."
+        },
+        {
+          "opts": [
+            "Nonetheless",
+            "Conversely",
+            "Likewise",
+            "Therefore"
+          ],
+          "ans": "D",
+          "type": "lien",
+          "expl": "Comme la hotte met dix jours à arriver et que les travaux commencent le 7 juillet, le devis doit être signé tôt : *Therefore* (c’est pourquoi). *Nonetheless* (néanmoins) et *Conversely* (à l’inverse) marquent une opposition, *Likewise* (de même) une ressemblance."
+        },
+        {
+          "opts": [
+            "allow",
+            "let",
+            "make",
+            "suggest"
+          ],
+          "ans": "A",
+          "type": "vocab",
+          "expl": "*Allow someone to do something* : permettre à quelqu’un de faire quelque chose. *Let* et *make* se construisent sans *to* (*let you continue*), et *suggest* ne se construit pas avec une personne suivie de *to* : on dit *suggest that you continue*."
+        }
+      ]
+    },
+    {
+      "id": "6b-013",
+      "kind": "publicité",
+      "text": "The Brookhaven Summer Music Festival Is Back!\n\nFor three weekends in July, Riverside Park will once again come alive with music. This year’s festival features more than forty performers, from local jazz trios to a full symphony orchestra, on four outdoor stages.\n\nNew this year is the Family Tent, where children can try out instruments and take part in short workshops. Many of [1] are led by members of the symphony orchestra.\n\nA weekend pass costs $65 if purchased before June 1 and $80 after that date. Single-day tickets are also available. Children under twelve are admitted free when [2] by an adult.\n\nBecause the festival takes place outdoors, some performances may be delayed or canceled in [3] weather. [4]",
+      "text_fr": "Le festival de musique d’été de Brookhaven est de retour !\n\nPendant trois week-ends en juillet, le parc Riverside va de nouveau vibrer au son de la musique. Cette année, le festival réunit plus de quarante artistes, des trios de jazz locaux à un orchestre symphonique au complet, sur quatre scènes en plein air.\n\nNouveauté de cette année : la Tente des familles, où les enfants peuvent essayer des instruments et participer à de courts ateliers. Beaucoup d’entre eux sont animés par des membres de l’orchestre symphonique.\n\nLe pass week-end coûte 65 dollars s’il est acheté avant le 1er juin, et 80 dollars après cette date. Des billets à la journée sont aussi en vente. Les enfants de moins de douze ans entrent gratuitement s’ils sont accompagnés d’un adulte.\n\nComme le festival a lieu en plein air, certains concerts pourront être retardés ou annulés en cas d’intempéries. Tout changement de programme sera annoncé sur notre site Web.",
+      "questions": [
+        {
+          "opts": [
+            "which",
+            "whom",
+            "them",
+            "it"
+          ],
+          "ans": "C",
+          "type": "pronom",
+          "expl": "Après le point commence une phrase indépendante : il faut un pronom personnel, *Many of them* (beaucoup d’entre eux), qui reprend *workshops*, le nom pluriel de la phrase précédente. *Which* et *whom* sont des relatifs : il faudrait rattacher la phrase à la précédente par une virgule (*workshops, many of which…*), et *whom* ne renvoie qu’à des personnes ; *it*, singulier, ne peut pas reprendre *workshops* après *many*."
+        },
+        {
+          "opts": [
+            "accompany",
+            "accompanies",
+            "accompanying",
+            "accompanied"
+          ],
+          "ans": "D",
+          "type": "verbe",
+          "expl": "*When accompanied by an adult* : quand ils sont accompagnés d’un adulte (proposition réduite pour *when they are accompanied*). Le participe passé donne le sens passif voulu ; *accompanying* ferait des enfants ceux qui accompagnent, et *accompany* et *accompanies* demanderaient un sujet."
+        },
+        {
+          "opts": [
+            "severity",
+            "severe",
+            "severely",
+            "severeness"
+          ],
+          "ans": "B",
+          "type": "forme",
+          "expl": "Le nom *weather* demande un adjectif : *in severe weather* (en cas d’intempéries, par très mauvais temps). *Severely* est un adverbe, *severity* et *severeness* sont des noms."
+        },
+        {
+          "opts": [
+            "Any changes to the schedule will be announced on our Web site.",
+            "All performances will therefore be held in the park’s indoor theater.",
+            "Children under twelve, however, must buy a full-price weekend pass.",
+            "The park’s rose garden was planted by local volunteers in 1990."
+          ],
+          "ans": "A",
+          "type": "phrase",
+          "expl": "Après l’annonce de concerts retardés ou annulés, la phrase logique dit où trouver les changements de programme. (B) contredit *takes place outdoors*, (C) contredit l’entrée gratuite des moins de douze ans, et (D) est hors sujet."
+        }
+      ]
+    },
+    {
+      "id": "6b-014",
+      "kind": "page web",
+      "text": "Mobile Check Deposit: Frequently Asked Questions\n\nHow do I deposit a check with my phone?\nOpen the Harborline Bank app, select “Deposit,” and photograph both sides of the check. Make sure the whole check fits inside the frame and that the image is [1] enough to read.\n\nWhen will my deposit be processed?\nChecks deposited before 6:00 P.M. on a business day are processed the same day. Checks deposited after that time [2] on the following business day.\n\nWhat should I do with the paper check?\nWrite “Mobile deposit” and the date on the back, and keep the check in a safe place for 30 days. [3] After that, you may destroy it.\n\nIs there a limit?\nYou may deposit up to $5,000 per day through the app. Checks that [4] this amount should be deposited at a branch.",
+      "text_fr": "Dépôt de chèques sur mobile : questions fréquentes\n\nComment déposer un chèque avec mon téléphone ?\nOuvrez l’application Harborline Bank, sélectionnez « Deposit » (dépôt) et photographiez les deux faces du chèque. Vérifiez que le chèque entier tient dans le cadre et que l’image est assez nette pour être lue.\n\nQuand mon dépôt sera-t-il traité ?\nLes chèques déposés avant 18 h un jour ouvré sont traités le jour même. Les chèques déposés après cette heure sont traités le jour ouvré suivant.\n\nQue dois-je faire du chèque papier ?\nÉcrivez « Mobile deposit » (dépôt mobile) et la date au dos, et conservez le chèque en lieu sûr pendant 30 jours. Nous pourrions vous le demander en cas de problème avec votre dépôt. Passé ce délai, vous pouvez le détruire.\n\nY a-t-il un plafond ?\nVous pouvez déposer jusqu’à 5 000 dollars par jour avec l’application. Les chèques qui dépassent ce montant doivent être déposés en agence.",
+      "questions": [
+        {
+          "opts": [
+            "clear",
+            "clarity",
+            "clarify",
+            "clearly"
+          ],
+          "ans": "A",
+          "type": "forme",
+          "expl": "Après *is*, il faut un adjectif attribut de *the image*, et *enough* se place après lui : *clear enough to read* (assez nette pour être lue). *Clearly* est un adverbe, *clarity* un nom et *clarify* un verbe."
+        },
+        {
+          "opts": [
+            "processed",
+            "processing",
+            "are processed",
+            "to process"
+          ],
+          "ans": "C",
+          "type": "verbe",
+          "expl": "La phrase précédente donne la règle au présent passif (*are processed the same day*) ; celle-ci donne l’autre cas de la même façon : *are processed on the following business day*. Sans auxiliaire, *processed* et *processing* ne forment pas un verbe conjugué, et *to process* est un infinitif."
+        },
+        {
+          "opts": [
+            "Please destroy it as soon as the photo has been taken.",
+            "Paper checks are becoming less common every year.",
+            "The funds will usually appear in your account within one business day.",
+            "We may ask you for it if there is a problem with your deposit."
+          ],
+          "ans": "D",
+          "type": "phrase",
+          "expl": "La phrase explique pourquoi garder le chèque 30 jours : la banque peut le demander en cas de problème ; *After that* renvoie ensuite à ces 30 jours. (A) contredit la consigne de le garder, (C) revient au délai de traitement et ferait renvoyer *After that* à un seul jour, et (B) est hors sujet."
+        },
+        {
+          "opts": [
+            "excel",
+            "exert",
+            "excess",
+            "exceed"
+          ],
+          "ans": "D",
+          "type": "vocab",
+          "expl": "*Exceed* : dépasser (un montant, une limite) ; un chèque de plus de 5 000 dollars doit être déposé en agence. *Excess* est un nom (excédent), pas un verbe, *excel* (exceller) n’a pas ce sens, et *exert* signifie « exercer » (une pression, une influence)."
+        }
+      ]
+    },
+    {
+      "id": "6b-015",
+      "kind": "avis",
+      "text": "NOTICE TO RESIDENTS\nMillbrook Fall Leaf Collection\n\nThe Department of Public Works will collect leaves from the curb in all residential neighborhoods between October 20 and November 28. A schedule showing the collection dates for each street [1] on the town’s Web site next week.\n\nEach neighborhood will be visited twice. [2], residents who miss the first collection will have a second chance.\n\nLeaves should be raked into piles at the edge of your property, not into the street. [3] Please also keep piles free of branches and rocks, which can damage the collection trucks.\n\nYour [4] in keeping our streets clean and safe is greatly appreciated.\n\nDepartment of Public Works",
+      "text_fr": "AVIS AUX HABITANTS\nRamassage des feuilles mortes à Millbrook\n\nLe service des travaux publics ramassera les feuilles mortes en bordure de trottoir dans tous les quartiers résidentiels entre le 20 octobre et le 28 novembre. Un calendrier indiquant les dates de ramassage de chaque rue sera publié sur le site Web de la ville la semaine prochaine.\n\nChaque quartier sera desservi deux fois. De ce fait, les habitants qui manqueront le premier passage auront une seconde chance.\n\nLes feuilles doivent être ratissées en tas en limite de votre propriété, et non dans la rue. Les feuilles laissées sur la chaussée peuvent boucher les bouches d’égout et provoquer des inondations. Veillez aussi à ce que les tas ne contiennent ni branches ni pierres, qui peuvent endommager les camions de ramassage.\n\nNous vous remercions de votre coopération pour garder nos rues propres et sûres.\n\nService des travaux publics",
+      "questions": [
+        {
+          "opts": [
+            "has been posted",
+            "will be posted",
+            "was posted",
+            "is posting"
+          ],
+          "ans": "B",
+          "type": "verbe",
+          "expl": "*Next week* situe la publication dans l’avenir, et le calendrier ne publie rien, il est publié : futur passif, *will be posted*. *Has been posted* et *was posted* la présentent comme déjà faite, et *is posting* est actif."
+        },
+        {
+          "opts": [
+            "In contrast",
+            "Similarly",
+            "Nevertheless",
+            "As a result"
+          ],
+          "ans": "D",
+          "type": "lien",
+          "expl": "Chaque quartier étant desservi deux fois (phrase précédente), ceux qui manquent le premier passage ont une seconde chance : c’est une conséquence, *As a result* (de ce fait). *In contrast* (en revanche) et *Nevertheless* (néanmoins) marquent une opposition, et *Similarly* (de même) une ressemblance."
+        },
+        {
+          "opts": [
+            "Leaves may therefore be raked directly into the street.",
+            "Leaves left in the road can block storm drains and cause flooding.",
+            "Collection will take place only once in each neighborhood.",
+            "The town hall will be closed on Monday for a public holiday."
+          ],
+          "ans": "B",
+          "type": "phrase",
+          "expl": "La phrase justifie la consigne qui précède (*not into the street*) : les feuilles sur la chaussée bouchent les bouches d’égout. (A) contredit cette consigne, (C) contredit *visited twice*, et (D) est hors sujet."
+        },
+        {
+          "opts": [
+            "cooperation",
+            "cooperate",
+            "cooperative",
+            "cooperatively"
+          ],
+          "ans": "A",
+          "type": "forme",
+          "expl": "Après le possessif *Your*, il faut un nom, sujet de *is greatly appreciated* : *Your cooperation* (votre coopération). *Cooperate* est un verbe, *cooperative* un adjectif et *cooperatively* un adverbe."
+        }
+      ]
+    }
+  ]
+}
