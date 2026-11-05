@@ -11,15 +11,11 @@ import os
 
 from playwright.sync_api import sync_playwright
 
-from commun import CAPTURES, check, finish, fresh_copy, new_page, nb, serve, shot, wait_ready
+from commun import CAPTURES, check, finish, fresh_copy, new_page, nb, serve, shot, state, wait_ready
 
 
 def today(page):
     return page.evaluate("() => dayNum()")
-
-
-def state(page):
-    return page.evaluate("() => state")
 
 
 def vocab(page, errors):
@@ -506,21 +502,21 @@ def voice_choice(browser, url, errors):
     page.click('.switch[data-acc="autres"]')
     check("com.apple.voice.enhanced.en-IE.Moira" in pool(), "autres accents : tirés une fois choisis")
     page.click('.switch[data-acc="autres"]')
-    i = keys.index("com.apple.voice.compact.en-GB.Daniel")
-    page.click('.switch[data-voice="%d"]' % i)
+    daniel, ava = "com.apple.voice.compact.en-GB.Daniel", "com.apple.voice.premium.en-US.Ava"
+    page.click('.switch[data-voice="%s"]' % daniel)
     check("com.apple.voice.compact.en-GB.Daniel" in pool() and state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True},
           "une voix standard remise")
     check(page.locator("details.vlist[open]").count() == 1, "la liste reste ouverte")
-    a = keys.index("com.apple.voice.premium.en-US.Ava")
-    page.click('.switch[data-voice="%d"]' % a)
+    check(page.evaluate("() => document.activeElement.dataset.voice") == daniel, "le focus reste sur l'interrupteur")
+    page.click('.switch[data-voice="%s"]' % ava)
     check("com.apple.voice.premium.en-US.Ava" not in pool(), "une voix coupée n'est plus tirée")
     n = page.evaluate("() => window.__said.length")
-    page.click('[data-hear="%d"]' % a)
+    page.click('[data-hear="%s"]' % ava)
     page.wait_for_function("n => window.__said.length > n", arg=n)
     check(page.evaluate("() => window.__said.at(-1).uri") == "com.apple.voice.premium.en-US.Ava", "Écouter : la voix choisie, même coupée")
     page.click('.tab[data-view="mots"]')
     page.click('.tab[data-view="reglages"]')
-    page.click('.switch[data-voice="%d"]' % a)
+    page.click('.switch[data-voice="%s"]' % ava)
     check(state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True}, "un choix revenu à la valeur d'office est oublié")
     check("Google UK English Male" in pool(), "en ligne : la voix en ligne est tirée")
     ctx.set_offline(True)

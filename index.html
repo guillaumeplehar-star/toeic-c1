@@ -68,7 +68,7 @@ html,body{height:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:calc(16px * var(--tz));line-height:1.45;
   -webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;overscroll-behavior:none}
 [hidden]{display:none!important}
-button,input,select{font:inherit;color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
 button{cursor:pointer}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .num{font-variant-numeric:tabular-nums}
@@ -136,7 +136,7 @@ button.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--acc
 .switch[aria-checked="true"]{background:var(--accent);border-color:var(--accent)}
 .switch[aria-checked="true"]::after{transform:translateX(20px);background:var(--on-accent)}
 .switch:disabled{opacity:.45}
-input[type="search"],input[type="date"],input[type="text"]{width:100%;font-size:max(16px, calc(16px * var(--tz)));padding:10px 12px;border:1.5px solid var(--rule);
+input[type="search"],input[type="date"],input[type="text"],textarea{width:100%;font-size:max(16px, calc(16px * var(--tz)));padding:10px 12px;border:1.5px solid var(--rule);
   border-radius:12px;background:var(--page);color:var(--ink);min-height:46px}
 .say{appearance:none;flex:none;border:1.5px solid var(--rule);background:var(--page);color:var(--accent);border-radius:50%;width:38px;height:38px;
   display:inline-grid;place-items:center;padding:0;vertical-align:middle}
@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "3 novembre 2026 à 18 h 48";
+const BUILD = "6 novembre 2026 à 0 h 33";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -463,12 +463,13 @@ const ACCENTS = [
 // novelty and robotic voices of Apple devices: useless for listening practice (their names in English and in French)
 const ODD_VOICES = /^(Albert|Bad News|Bahh|Bells|Boing|Bubbles|Cellos|Deranged|Good News|Hysterical|Jester|Organ|Pipe Organ|Superstar|Trinoids|Whisper|Wobble|Zarvox|Fred|Junior|Kathy|Ralph|Grandma|Grandpa|Eddy|Flo|Reed|Rocko|Sandy|Shelley|Princess|Mauvaises nouvelles|Bonnes nouvelles|Cloches|Bulles|Violoncelles|Orgue|Chuchotement|Trinoïdes|Bouffon|Grand-mère|Grand-père|Hystérique|Dérangé|Princesse)(?![a-zà-ÿ])/i;
 // what Apple's identifiers say: Eloquence (Eddy, Flo, Reed…), and the old novelty voices (com.apple.speech.synthesis.voice.Bahh…),
-// except the real voices among them (Alex, Samantha, Victoria… on a Mac)
+// except the real voices that a Mac still names this way
+const OLD_APPLE_VOICES = /^(Alex|Agnes|Bruce|Victoria|Vicki|Samantha|Allison|Ava|Susan|Tom|Daniel|Karen|Moira|Tessa|Fiona|Veena|Kate|Serena|Oliver|Lee)$/i;
 function voiceOdd(v) {
   const uri = v.voiceURI || "";
   if (/eloquence/i.test(uri) || ODD_VOICES.test(v.name || "")) return true;
   const m = /com\.apple\.speech\.synthesis\.voice\.([a-z]+)/i.exec(uri);
-  return !!m && !FEMALE_VOICES.test(m[1]) && !MALE_VOICES.test(m[1]);
+  return !!m && !OLD_APPLE_VOICES.test(m[1]);
 }
 const P6_SECONDS = 40;                             // C1 pace for a Part 6 question (16 questions in about 10 min)
 const P7_SECONDS = 60;                             // and for Part 7 (54 questions in about 55 min)
@@ -597,12 +598,13 @@ function loadState() {
   try { const raw = localStorage.getItem(KEY); if (raw) return normalizeState(JSON.parse(raw)); } catch (e) {}
   return blank();
 }
-let saveWarned = false;
-function store() {
+let saveWarned = false, changes = 0;              // changes: writes of the state, so that a sync knows what happened meanwhile
+function store() {                                 // a change that stays on this device (screen, tab, voices)
+  changes++;
   try { localStorage.setItem(KEY, JSON.stringify(state)); }
   catch (e) { if (!saveWarned) { saveWarned = true; toast("Enregistrement impossible : la mémoire de l’appareil est pleine ?", 5000); } }
 }
-function save() { store(); if (sync) syncSoon(20000); }   // the other devices know about it within 20 s
+function save() { store(); if (sync) syncSoon(120e3); }  // the other devices know about it within 2 minutes (or as soon as the app goes to the background)
 let state = loadState();
 
 /* ---------- the bank: banque/banque.json and its TSV files ---------- */
@@ -873,14 +875,14 @@ function voicePair() {
 const FEMALE_VOICES = /^(Samantha|Allison|Ava|Susan|Victoria|Vicki|Joelle|Noelle|Nicky|Zoe|Karen|Catherine|Matilda|Moira|Tessa|Veena|Fiona|Kate|Serena|Martha|Stephanie|Zira|Hazel|Heera|Linda|Jenny|Aria|Michelle|Sonia|Libby|Maisie|Natasha|Clara|Emily|Ana|Emma|Sara|Siri Female|US English)\b/i;
 const MALE_VOICES = /^(Alex|Aaron|Tom|Evan|Nathan|Daniel|Arthur|Oliver|Jamie|Gordon|Lee|Rishi|David|Mark|George|James|Ravi|Richard|Sean|Guy|Ryan|Liam|William|Christopher|Eric|Roger|Brian|Andrew|Thomas|Siri Male)\b/i;
 function voiceSex(name) {
-  const n = String(name || "").replace(/^(Microsoft|Google)\s+/i, "").replace(/Multilingual/i, " ");
-  if (/\bfemale\b/i.test(n) || FEMALE_VOICES.test(n)) return "f";
-  if (/\bmale\b/i.test(n) || MALE_VOICES.test(n)) return "m";
+  const raw = String(name || ""), n = voiceBase(raw);
+  if (/\bfemale\b/i.test(raw) || FEMALE_VOICES.test(n)) return "f";
+  if (/\bmale\b/i.test(raw) || MALE_VOICES.test(n)) return "m";
   return null;
 }
 // a voice's name without its maker, quality or language: “Microsoft Aria Online (Natural) - English (United States)” → Aria
 function voiceBase(name) {
-  const n = String(name || "").replace(/^(Microsoft|Apple)\s+/i, "").replace(/\s+-\s+.*$/, "").replace(/\s*\(.*?\)/g, "")
+  const n = String(name || "").replace(/^(Microsoft|Apple|Google)\s+/i, "").replace(/\s+-\s+.*$/, "").replace(/\s*\(.*?\)/g, "")
     .replace(/\s+Online\b/i, "").replace(/Multilingual/i, "").trim();
   return n || String(name || "");
 }
@@ -893,10 +895,11 @@ function voiceTier(v) {
   return 1;
 }
 const TIERS = { 1: "standard", 2: "améliorée", 3: "très naturelle" };
+let regionNames = null;
 function regionOf(lang) {                          // en-IE → Irlande
   if (/scotland|gbsct/i.test(lang)) return "Écosse";
   const m = /^en[-_]([a-z]{2})\b/i.exec(lang || "");
-  try { if (m) return new Intl.DisplayNames(["fr"], { type: "region" }).of(m[1].toUpperCase()); } catch (e) {}
+  try { if (m) return (regionNames || (regionNames = new Intl.DisplayNames(["fr"], { type: "region" }))).of(m[1].toUpperCase()); } catch (e) {}
   return lang || "?";
 }
 function accentName(x) {                           // Américain…, or for the other accents « Anglais (Irlande) »
@@ -930,10 +933,10 @@ function voicesReport() {
   let vs = [];
   try { vs = speechSynthesis.getVoices() || []; } catch (e) {}
   const en = vs.filter(v => /^en/i.test(v.lang || "") || /[-_.]en[-_]/i.test(v.voiceURI || ""));
-  const mine = new Map(speech.voices.map(x => [x.v, x]));
+  const mine = new Map(speech.voices.map(x => [x.key, x]));
   return [`Cap 945, version du ${BUILD}`, navigator.userAgent, `${vs.length} voix en tout, dont ${en.length} anglaises :`,
     ...en.map(v => {
-      const x = mine.get(v);
+      const x = mine.get(v.voiceURI || v.name);
       return [v.name, v.lang, v.voiceURI, v.localService === false ? "en ligne" : "locale",
         x ? (x.odd ? "robotique" : x.twin ? "autre version" : TIERS[x.tier]) + (voiceOn(x) ? ", allumée" : ", coupée") : "ignorée"].join(" | ");
     })].join("\n");
@@ -944,12 +947,12 @@ async function copyVoices() {
   try { await navigator.clipboard.writeText(text); toast("Liste copiée : colle-la dans ton message."); }
   catch (e) {
     openSheet("Liste des voix", `<p class="small">Sélectionne tout le texte, puis copie-le.</p>` +
-      `<textarea readonly rows="14" style="width:100%;font-size:16px;font-family:inherit">${esc(text)}</textarea>`);
+      `<textarea readonly rows="14">${esc(text)}</textarea>`);
   }
 }
 function voicesChanged() {
-  if (current === "reglages") renderSettings();
-  if (current === "ecoute") { const k = state.settings.listenPart; if (!$(`#${k}-home`).hidden) renderHome(k); }
+  if (current === "reglages") renderVoiceBox();
+  else if (current === "ecoute") refreshView();
 }
 
 /* ---------- views ---------- */
@@ -958,9 +961,9 @@ function partOf(tab) { return tab === "lecture" ? state.settings.readPart : tab 
 function showView(v) {
   if ((current === "lecture" || current === "ecoute") && v !== current) suspend(partOf(current));
   if (v !== "mots") speech.stop();
-  if (v === "reglages") speech.load();             // voices that came late (Safari does not always say so)
   current = v;
-  if (state.settings.view !== v) { state.settings.view = v; save(); }
+  speech.load();                                   // voices that came late (Safari does not always say so)
+  if (state.settings.view !== v) { state.settings.view = v; store(); }
   for (const t of $$(".tab")) t.setAttribute("aria-current", t.dataset.view === v ? "page" : "false");
   for (const s of $$("main > .view")) s.hidden = s.id !== "view-" + v;
   $("#main").scrollTop = 0;
@@ -974,6 +977,13 @@ function renderView() {
   else if (current === "progres") renderProgress();
   else if (current === "reglages") renderSettings();
   renderCounts();
+}
+// the state or the voices changed from elsewhere (sync, another window): the view follows, but a card turned over, a
+// series under way and the results of the last one stay as they are
+function refreshView() {
+  const k = partOf(current);
+  if ((k && (live[k].done || (state.runs[k] && live[k].on))) || (current === "mots" && vstudy.turned)) renderCounts();
+  else renderView();
 }
 function countHTML(n, label) { return `<span class="count"><b>${n}</b>${label}</span>`; }
 function renderCounts() {
@@ -2071,6 +2081,40 @@ function switchHTML(attr, val, on, label, disabled) {
   return `<button type="button" class="switch" role="switch" ${attr}="${esc(val)}" aria-checked="${String(!!on)}" aria-label="${esc(label)}"${disabled ? " disabled" : ""}></button>`;
 }
 let voicesOpen = false;                            // Réglages: the list of voices stays open when it is redrawn
+function voiceBoxHTML() {                          // Réglages › Voix, redrawn alone when the voices or a choice change
+  if (!speech.ok) return `<p class="small">Cet appareil ne lit pas le texte à voix haute.</p>`;
+  let h = `<p class="small">Le TOEIC fait entendre des accents américain, britannique, australien et canadien. Choisis ceux que tu veux entendre.</p><div class="box">`;
+  for (const A of ACCENTS) {
+    const mine = speech.voices.filter(x => x.accent === A.id), c = mine.length, off = mine.filter(x => !voiceOn(x)).length;
+    const what = A.id === "autres" ? [...new Set(mine.map(x => regionOf(x.lang)))].join(", ") : "";
+    h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + (what ? ` (${esc(what)}), accents absents du TOEIC` : " sur cet appareil") +
+      (off ? `, ${plural(off, "coupée", "coupées")}` : "") : "aucune voix sur cet appareil"}</small></div>` +
+      (c ? `<button type="button" class="btn small" data-try="${A.id}">Essayer</button>` : "") +
+      switchHTML("data-acc", A.id, state.settings.accents.includes(A.id), A.nom, !c) + `</div>`;
+  }
+  h += `</div><div class="field"><span class="lbl">Vitesse</span>${segHTML("rate", [[0.8, "Lente"], [0.9, "Posée"], [1, "Normale"], [1.1, "Rapide"]])}</div>`;
+  h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une (${speech.voices.length})</summary>`;
+  if (speech.voices.length) {
+    h += `<p class="small">Toutes les voix anglaises que le navigateur donne à l’appli. Écoute-les et coupe celles qui sonnent mal. ` +
+      `Coupées d’office${NB}: les voix robotiques ou fantaisie, la version de base d’une voix dont une version plus naturelle est là` +
+      `${speech.rich ? ", et les voix standard, car l’appareil en a de plus naturelles" : ""}.</p><div class="box">`;
+    for (const x of speech.voices) {
+      const info = [accentName(x), x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "", TIERS[x.tier],
+        x.net ? "en ligne seulement" : "", x.odd ? "robotique ou fantaisie" : "", x.twin ? "une version plus naturelle est là" : ""].filter(Boolean).join(", ");
+      h += `<div class="switchrow"><div class="txt">${esc(x.v.name)}<small>${esc(info)}</small></div>` +
+        `<button type="button" class="btn small" data-hear="${esc(x.key)}">Écouter</button>${switchHTML("data-voice", x.key, voiceOn(x), x.v.name)}</div>`;
+    }
+    h += `</div>`;
+  } else h += `<p class="small">${speech.loaded ? "Le navigateur ne donne aucune voix anglaise à l’appli." : "Recherche des voix…"}</p>`;
+  h += `<p class="small">Il manque une voix${NB}? Copie la liste que voit l’appli et envoie-la${NB}: elle dit ce que l’appareil donne vraiment.</p>` +
+    `<div class="row"><button type="button" class="btn small" id="voices-copy">Copier la liste des voix</button></div></details>`;
+  return h + `<p class="hint">Sur iPhone et iPad, Safari ne donne aux pages web que les voix de base livrées avec l’appareil (Samantha, ` +
+    `Daniel, Karen…)${NB}: les voix téléchargées dans Réglages › Accessibilité › Contenu énoncé, plus naturelles, et les voix Siri n’y sont pas ` +
+    `accessibles. C’est une limite d’Apple, la même pour toute appli web. Sur ordinateur, chaque navigateur a ses voix${NB}: Edge en propose ` +
+    `de très naturelles, en ligne, pour les quatre accents du TOEIC.</p>`;
+}
+function renderVoiceBox() { const el = $("#voice-box"); if (el) el.innerHTML = voiceBoxHTML(); }
+const voiceByKey = key => speech.voices.find(x => x.key === key);
 function renderSettings() {
   const S = state.settings;
   let h = `<h2>Vocabulaire</h2><div class="box">`;
@@ -2084,39 +2128,7 @@ function renderSettings() {
   h += `<div class="field"><span class="lbl">Face montrée d’abord</span>${segHTML("firstSide", [["en", "Anglais"], ["fr", "Français"]])}</div>`;
   h += `<div class="box"><div class="switchrow"><div class="txt">Lire le mot à voix haute<small>Quand la carte montre l’anglais.</small></div>${switchHTML("data-flag", "autoAudio", S.autoAudio, "Lire le mot à voix haute")}</div></div>`;
 
-  h += `<h2>Voix</h2>`;
-  if (!speech.ok) h += `<p class="small">Cet appareil ne lit pas le texte à voix haute.</p>`;
-  else {
-    h += `<p class="small">Le TOEIC fait entendre des accents américain, britannique, australien et canadien. Choisis ceux que tu veux entendre.</p><div class="box">`;
-    for (const A of ACCENTS) {
-      const c = speech.voices.filter(x => x.accent === A.id).length, off = c - speech.count(A.id);
-      const what = A.id === "autres" ? [...new Set(speech.voices.filter(x => x.accent === A.id).map(x => regionOf(x.lang)))].join(", ") : "";
-      h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + (what ? ` (${esc(what)}), accents absents du TOEIC` : " sur cet appareil") +
-        (off ? `, ${plural(off, "coupée", "coupées")}` : "") : "aucune voix sur cet appareil"}</small></div>` +
-        (c ? `<button type="button" class="btn small" data-try="${A.id}">Essayer</button>` : "") +
-        switchHTML("data-acc", A.id, S.accents.includes(A.id), A.nom, !c) + `</div>`;
-    }
-    h += `</div><div class="field"><span class="lbl">Vitesse</span>${segHTML("rate", [[0.8, "Lente"], [0.9, "Posée"], [1, "Normale"], [1.1, "Rapide"]])}</div>`;
-    h += `<details class="more vlist"${voicesOpen ? " open" : ""}><summary>Voix une par une (${speech.voices.length})</summary>`;
-    if (speech.voices.length) {
-      h += `<p class="small">Toutes les voix anglaises que le navigateur donne à l’appli. Écoute-les et coupe celles qui sonnent mal. ` +
-        `Coupées d’office${NB}: les voix robotiques ou fantaisie, la version de base d’une voix dont une version plus naturelle est là` +
-        `${speech.rich ? ", et les voix standard, car l’appareil en a de plus naturelles" : ""}.</p><div class="box">`;
-      speech.voices.forEach((x, i) => {
-        const info = [accentName(x), x.sex === "f" ? "voix de femme" : x.sex === "m" ? "voix d’homme" : "", TIERS[x.tier],
-          x.net ? "en ligne seulement" : "", x.odd ? "robotique ou fantaisie" : "", x.twin ? "une version plus naturelle est là" : ""].filter(Boolean).join(", ");
-        h += `<div class="switchrow"><div class="txt">${esc(x.v.name)}<small>${esc(info)}</small></div>` +
-          `<button type="button" class="btn small" data-hear="${i}">Écouter</button>${switchHTML("data-voice", i, voiceOn(x), x.v.name)}</div>`;
-      });
-      h += `</div>`;
-    } else h += `<p class="small">${speech.loaded ? "Le navigateur ne donne aucune voix anglaise à l’appli." : "Recherche des voix…"}</p>`;
-    h += `<p class="small">Il manque une voix${NB}? Copie la liste que voit l’appli et envoie-la${NB}: elle dit ce que l’appareil donne vraiment.</p>` +
-      `<div class="row"><button type="button" class="btn small" id="voices-copy">Copier la liste des voix</button></div></details>`;
-    h += `<p class="hint">Sur iPhone et iPad, Safari ne donne aux pages web que les voix de base livrées avec l’appareil (Samantha, ` +
-      `Daniel, Karen…)${NB}: les voix téléchargées dans Réglages › Accessibilité › Contenu énoncé, plus naturelles, et les voix Siri n’y sont pas ` +
-      `accessibles. C’est une limite d’Apple, la même pour toute appli web. Sur ordinateur, chaque navigateur a ses voix${NB}: Edge en propose ` +
-      `de très naturelles, en ligne, pour les quatre accents du TOEIC.</p>`;
-  }
+  h += `<h2>Voix</h2><div id="voice-box">${voiceBoxHTML()}</div>`;
 
   h += `<h2>Séries</h2><div class="box"><div class="switchrow"><div class="txt">Insister sur mes points faibles<small>Les nouvelles questions viennent ` +
     `plus souvent des compétences où tu réussis le moins au premier essai.</small></div>${switchHTML("data-flag", "adaptive", S.adaptive, "Insister sur mes points faibles")}</div></div>`;
@@ -2145,7 +2157,7 @@ function setSetting(key, raw) {
   const val = key === "rate" || /^p\dSize$/.test(key) ? Number(raw) : raw;
   if (S[key] === val) return;
   S[key] = val;
-  save();
+  if (DEVICE_SETTINGS.includes(key)) store(); else save();
   if (key === "theme" || key === "textSize") applyLook(S);
   if (key === "newOrder") { buildOrder(); vstudy.cur = null; }
   if (key === "firstSide") vstudy.turned = false;
@@ -2212,10 +2224,20 @@ function canon(x) {
   return JSON.stringify(x === undefined ? null : x);
 }
 const same = (a, b) => canon(a) === canon(b);
+// an entry of a map (a card, a question's record, a day of the log, a list switch): a flat object of plain values
+function eq(a, b) {
+  if (a === b) return true;
+  if (!isObj(a) || !isObj(b)) return false;
+  const ka = Object.keys(a);
+  return ka.length === Object.keys(b).length && ka.every(k => a[k] === b[k]);
+}
+const SHARED = ["words", "q", "lists", "log", "seq", "mocks"];   // the progress in the shared document
+const sharedSetting = k => k in DEFAULTS && !DEVICE_SETTINGS.includes(k);
 function docOf(s) {
-  const settings = {};
-  for (const k of Object.keys(DEFAULTS)) if (!DEVICE_SETTINGS.includes(k)) settings[k] = s.settings[k];
-  return JSON.parse(JSON.stringify({ app: "cap945", fmt: SYNC_FMT, words: s.words, q: s.q, lists: s.lists, log: s.log, seq: s.seq, mocks: s.mocks, settings }));
+  const d = { app: "cap945", fmt: SYNC_FMT, settings: {} };
+  for (const k of SHARED) d[k] = s[k];
+  for (const k in s.settings) if (sharedSetting(k)) d.settings[k] = s.settings[k];
+  return JSON.parse(JSON.stringify(d));
 }
 function checkDoc(d) {
   if (!isObj(d) || d.app !== "cap945") throw new SyncError("le serveur a renvoyé un document illisible");
@@ -2227,11 +2249,11 @@ function mergeDocs(b, l, r) {
   const has = !!b;
   const added = (f, B, L, R) => has ? (L[f] || 0) + (R[f] || 0) - ((B || {})[f] || 0) : Math.max(L[f] || 0, R[f] || 0);
   const later = (L, R) => (L.t || 0) !== (R.t || 0) ? ((L.t || 0) > (R.t || 0) ? L : R) : (L.r || 0) >= (R.r || 0) ? L : R;
-  function mergeMap(B, L, R, both) {
+  function mergeMap(B, L, R, both) {               // B: the base's map, or nothing
     const out = {};
     for (const k of new Set([...Object.keys(L || {}), ...Object.keys(R || {}), ...Object.keys(B || {})])) {
-      const b1 = has && B ? B[k] : undefined, l1 = (L || {})[k], r1 = (R || {})[k];
-      const v = same(l1, r1) ? l1 : has && same(l1, b1) ? r1 : has && same(r1, b1) ? l1 : !l1 || !r1 ? l1 || r1 : both(b1, l1, r1);
+      const b1 = (B || {})[k], l1 = (L || {})[k], r1 = (R || {})[k];
+      const v = eq(l1, r1) || eq(r1, b1) ? l1 : eq(l1, b1) ? r1 : !l1 || !r1 ? l1 || r1 : both(b1, l1, r1);
       if (v != null) out[k] = v;
     }
     return out;
@@ -2257,25 +2279,21 @@ function mergeDocs(b, l, r) {
   const settings = {}, BS = has ? b.settings || {} : {};
   for (const k of new Set([...Object.keys(l.settings || {}), ...Object.keys(r.settings || {})])) {
     const L = (l.settings || {})[k], R = (r.settings || {})[k];
-    settings[k] = R === undefined ? L : L === undefined ? R : same(L, R) ? L : has && same(L, BS[k]) ? R : has ? L : R;
+    // this device's when it changed it since the base, or when the server does not have it; the server's otherwise
+    settings[k] = R === undefined || (L !== undefined && has && !same(L, BS[k])) ? L : R;
   }
   const seq = Math.max(l.seq || 0, r.seq || 0, has ? (l.seq || 0) + (r.seq || 0) - (b.seq || 0) : 0);
   return { app: "cap945", fmt: SYNC_FMT, words, q, lists, log, seq,
     mocks: [...mocks.values()].sort((x, y) => y.at - x.at).slice(0, MOCKS_MAX), settings };
 }
 function applyDoc(d) {
-  const settings = { ...state.settings };
-  for (const [k, v] of Object.entries(d.settings || {})) if (k in DEFAULTS && !DEVICE_SETTINGS.includes(k)) settings[k] = v;
-  state = normalizeState({ ...state, words: d.words, q: d.q, lists: d.lists, log: d.log, seq: d.seq, mocks: d.mocks, settings });
+  const settings = { ...state.settings }, next = { ...state, settings };
+  for (const k of SHARED) next[k] = d[k];
+  for (const [k, v] of Object.entries(d.settings || {})) if (sharedSetting(k)) settings[k] = v;
+  state = normalizeState(next);
   store();
   buildOrder();
-  if (!BANK) return;
-  // the screen follows, without touching a card turned over or a series under way
-  if (current === "mots") { if (!vstudy.turned) vShow(); }
-  else if (current === "lecture" || current === "ecoute") { const k = partOf(current); if (!(state.runs[k] && live[k].on) && !live[k].done) renderHome(k); }
-  else if (current === "progres") renderProgress();
-  else if (current === "examen") renderExam();
-  renderCounts();
+  refreshView();
 }
 
 function codeKey(s) {                              // what counts in a code: its letters and digits
@@ -2304,47 +2322,50 @@ function syncSoon(ms) {
   clearTimeout(syncTimer); syncAt = at;
   syncTimer = setTimeout(() => { syncTimer = 0; syncNow(); }, ms);
 }
-function syncPending() {                           // something changed here since the last exchange
-  const base = readJSON(SYNC_BASE);
-  return !!sync && !(isObj(base) && base.key === sync.key && same(docOf(state), base.doc));
+// the base: the last document exchanged with the server for this code, with the hash of its canonical text
+function syncBase(key) {
+  const b = readJSON(SYNC_BASE);
+  if (!isObj(b) || b.key !== key || !isObj(b.doc)) return null;
+  if (b.h == null) b.h = hash(canon(b.doc));       // a base written by an earlier version
+  return b;
 }
+function setBase(key, v, doc, text) { writeJSON(SYNC_BASE, { key, v, doc, h: hash(text) }); }
+function resetSync(s) { sync = s; writeJSON(SYNC_KEY, s); writeJSON(SYNC_BASE, null); writeJSON(SYNC_SENT, null); }
+let syncedChanges = -1;                            // the value of `changes` when this device last matched the server
+function syncPending() { return !!sync && changes !== syncedChanges; }
 async function syncNow() {
   if (!sync) return;
   if (syncing) { syncAgain = true; return; }
   clearTimeout(syncTimer); syncTimer = 0;
   syncing = true; syncAgain = false;
-  renderSyncStatus();
+  renderSyncBox();
   const me = sync;
   try {
     for (let round = 0; round < 6; round++) {
-      let base = readJSON(SYNC_BASE);
-      if (!isObj(base) || base.key !== me.key) base = null;
-      const mine = docOf(state);
+      const base = syncBase(me.key), c0 = changes, mine = docOf(state), text = canon(mine), h = hash(text);
       let res;
-      if (base && same(mine, base.doc)) {
+      if (base && base.h === h) {
         res = await syncCall(me.key, "GET", null, base.v);
         if (sync !== me) return;
-        if (res.data === undefined && res.v === base.v) break;           // nothing new on either side
-        if (res.data == null) { writeJSON(SYNC_BASE, null); continue; }  // the server lost the document: it is sent again
+        if (res.data === undefined && res.v === base.v) { syncedChanges = c0; break; }   // nothing new on either side
       } else {
         // the last documents sent: one that comes back is ours, whose answer was lost (nothing is counted twice)
-        const sent = (readJSON(SYNC_SENT) || []).slice(-4);
-        sent.push(hash(canon(mine)));
-        writeJSON(SYNC_SENT, sent);
+        writeJSON(SYNC_SENT, [...(readJSON(SYNC_SENT) || []).slice(-4), h]);
         res = await syncCall(me.key, "PUT", { v: base ? base.v : 0, data: mine });
         if (sync !== me) return;
         if (!res.conflict) {
-          writeJSON(SYNC_BASE, { key: me.key, v: res.v, doc: mine });
-          if (same(docOf(state), mine)) break;
+          setBase(me.key, res.v, mine, text);
+          if (changes === c0) { syncedChanges = c0; break; }
           continue;
         }
-        if (res.data == null) { writeJSON(SYNC_BASE, null); continue; }
       }
+      if (res.data == null) { writeJSON(SYNC_BASE, null); continue; }   // the server lost the document: it is sent again
       checkDoc(res.data);
-      if ((readJSON(SYNC_SENT) || []).includes(hash(canon(res.data)))) { writeJSON(SYNC_BASE, { key: me.key, v: res.v, doc: res.data }); continue; }
-      const merged = mergeDocs(base ? base.doc : null, mine, res.data), now = docOf(state);
-      applyDoc(same(now, mine) ? merged : mergeDocs(mine, now, merged));   // changes made during the exchange stay
-      writeJSON(SYNC_BASE, { key: me.key, v: res.v, doc: res.data });
+      const theirs = canon(res.data);
+      if ((readJSON(SYNC_SENT) || []).includes(hash(theirs))) { setBase(me.key, res.v, res.data, theirs); continue; }
+      const merged = mergeDocs(base ? base.doc : null, mine, res.data);
+      applyDoc(changes === c0 ? merged : mergeDocs(mine, docOf(state), merged));   // changes made during the exchange stay
+      setBase(me.key, res.v, res.data, theirs);
     }
     me.at = Date.now(); me.err = "";
   } catch (e) {
@@ -2353,42 +2374,40 @@ async function syncNow() {
     syncing = false;
     if (sync === me) {
       writeJSON(SYNC_KEY, me);
-      renderSyncStatus();
+      renderSyncBox();
       if (syncAgain) syncSoon(500);
       else if (!document.hidden) syncSoon(5 * 60e3);   // what the other devices did, every five minutes
     }
   }
 }
 async function syncJoin(code, create) {
-  const k = codeKey(code);
+  const k = codeKey(code), fail = m => { syncNote = m; renderSyncBox(); };
   syncNote = ""; syncAsk = "";
-  if (k.length < 8) { syncNote = "Le code doit avoir au moins 8 lettres ou chiffres."; renderSyncBox(); return; }
-  if (!window.crypto || !crypto.subtle) { syncNote = "Ce navigateur ne peut pas calculer l’empreinte du code (il faut une page en https)."; renderSyncBox(); return; }
+  if (k.length < 8) return fail("Le code doit avoir au moins 8 lettres ou chiffres.");
+  if (!window.crypto || !crypto.subtle) return fail("Ce navigateur ne peut pas calculer l’empreinte du code (il faut une page en https).");
   const key = await sha256("cap945:" + k);
   if (!create) {
-    syncNote = "Recherche du code…"; renderSyncBox();
+    fail("Recherche du code…");
     let res;
     try { res = await syncCall(key, "GET"); }
-    catch (e) { syncNote = `Échec${NB}: ${e.message}.`; renderSyncBox(); return; }
+    catch (e) { return fail(`Échec${NB}: ${e.message}.`); }
     syncNote = "";
     if (!res.data) { syncAsk = code.trim(); renderSyncBox(); return; }   // a typo would create a new, empty code
   }
-  sync = { code: code.trim(), key, at: 0, err: "" };
-  writeJSON(SYNC_KEY, sync); writeJSON(SYNC_BASE, null); writeJSON(SYNC_SENT, null);
+  resetSync({ code: code.trim(), key, at: 0, err: "" });
   renderSyncBox();
   await syncNow();
   if (sync && !sync.err) toast(create ? "Code créé : tape-le sur tes autres appareils." : "Progression synchronisée.");
 }
 function syncStop() {
-  sync = null; syncAsk = ""; syncNote = "";
+  resetSync(null); syncAsk = ""; syncNote = "";
   clearTimeout(syncTimer); syncTimer = 0;
-  writeJSON(SYNC_KEY, null); writeJSON(SYNC_BASE, null); writeJSON(SYNC_SENT, null);
   renderSyncBox();
   toast("Synchronisation arrêtée sur cet appareil. Ta progression y reste.");
 }
-function whenText(t) {
-  const d = new Date(t), hm = `${d.getHours()}${NB}h${NB}${String(d.getMinutes()).padStart(2, "0")}`;
-  return (d.toDateString() === new Date().toDateString() ? "aujourd’hui" : "le " + d.toLocaleDateString("fr-FR", { day: "numeric", month: "long" })) + " à " + hm;
+function whenText(t) {                             // « aujourd’hui à 9 h 05 », « le 1er décembre 2026 à 18 h 30 »
+  const d = new Date(t), day = x => Math.floor(Date.UTC(x.getFullYear(), x.getMonth(), x.getDate()) / 864e5);
+  return (day(d) === day(new Date()) ? "aujourd’hui" : "le " + dateText(day(d))) + ` à ${d.getHours()}${NB}h${NB}${String(d.getMinutes()).padStart(2, "0")}`;
 }
 function syncBoxHTML() {
   if (!sync) {
@@ -2414,7 +2433,6 @@ function keepTyped(draw) {                         // a code being typed survive
   if (g && typed) g.value = typed;
   if (g && focus) g.focus();
 }
-function renderSyncStatus() { if (sync) renderSyncBox(); }
 
 /* ---------- sheet, toast, update ---------- */
 let sheetFrom = null;
@@ -2467,7 +2485,7 @@ function onKindClick(kind, e) {
     if (to !== kind && KINDS[to]) {
       suspend(kind);
       state.settings[KINDS[to].tab === "lecture" ? "readPart" : "listenPart"] = to;
-      save();
+      store();
       renderKind(to);
       renderCounts();
     }
@@ -2538,14 +2556,14 @@ function bind() {
         state.settings.accents = A;
       } else if (sw.dataset.flag) state.settings[sw.dataset.flag] = on;
       else if (sw.dataset.voice) {
-        const x = speech.voices[Number(sw.dataset.voice)];
+        const x = voiceByKey(sw.dataset.voice);
         if (x) {                                   // only a choice that differs from the default is kept
           if (on === x.def) delete state.settings.voiceChoice[x.key];
           else state.settings.voiceChoice[x.key] = on;
         }
-        save();
-        renderSettings();                          // the count of each accent changes
-        const again = $(`#view-reglages .switch[data-voice="${sw.dataset.voice}"]`);
+        store();
+        renderVoiceBox();                          // the count of each accent changes
+        const again = $$("#voice-box .switch[data-voice]").find(b => b.dataset.voice === sw.dataset.voice);
         if (again) again.focus();
         return;
       }
@@ -2563,7 +2581,7 @@ function bind() {
     }
     const hear = t.closest("[data-hear]");
     if (hear) {
-      const x = speech.voices[Number(hear.dataset.hear)];
+      const x = voiceByKey(hear.dataset.hear);
       if (x) speech.say(VOICE_SAMPLE, x.v, hear);
       return;
     }
@@ -2583,8 +2601,9 @@ function bind() {
     else if (t.closest("#app-update")) updateApp();
     else if (t.closest("#app-install") && installEvt) {
       const ev = installEvt;
-      ev.prompt();
-      Promise.resolve(ev.userChoice).then(c => { if (c && c.outcome === "accepted") installEvt = null; if (current === "reglages") renderSettings(); }).catch(() => {});
+      installEvt = null;                           // an install prompt opens once; the browser offers a new one when it can
+      Promise.resolve(ev.prompt()).catch(() => {});
+      renderSettings();
     }
   });
   $("#view-reglages").addEventListener("keydown", e => {
@@ -2607,7 +2626,7 @@ function bind() {
   document.addEventListener("keydown", onKey);
   document.addEventListener("visibilitychange", onVisibility);
   matchMedia("(prefers-color-scheme: dark)").addEventListener?.("change", () => applyLook(state.settings));
-  window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { state = loadState(); buildOrder(); renderView(); } });
+  window.addEventListener("storage", e => { if (e.key === KEY && e.newValue) { state = loadState(); buildOrder(); refreshView(); } });
   window.addEventListener("online", () => syncSoon(1000));
   window.addEventListener("pagehide", () => { if (syncPending()) syncNow(); });
 }

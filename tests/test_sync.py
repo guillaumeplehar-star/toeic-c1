@@ -22,7 +22,7 @@ import urllib.request
 
 from playwright.sync_api import sync_playwright
 
-from commun import REPO, check, finish, fresh_copy, nb, new_page, serve, shot, wait_ready
+from commun import REPO, check, finish, fresh_copy, nb, new_page, serve, shot, state, wait_ready
 
 CODE = "Tigre violet 2028"
 
@@ -66,10 +66,6 @@ def server_put(url, v, data):
         return json.loads(urllib.request.urlopen(req).read())
     except urllib.error.HTTPError as e:
         return {"status": e.code, **json.loads(e.read())}
-
-
-def state(page):
-    return page.evaluate("() => state")
 
 
 def sync_now(page):

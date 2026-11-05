@@ -166,7 +166,7 @@ difficile à deviner (8 lettres ou chiffres au moins ; les espaces, tirets et ma
 touche **Synchroniser**. Sur le premier appareil, l’appli demande de **Créer ce code** ; tape ensuite le même sur les
 autres. Ce que chaque appareil a déjà fait est réuni, rien n’est perdu.
 
-Ensuite, tout se fait seul : à l’ouverture, au retour sur l’appli, 20 secondes après une réponse, à la mise en
+Ensuite, tout se fait seul : à l’ouverture, au retour sur l’appli, 2 minutes après une réponse, à la mise en
 arrière-plan et toutes les 5 minutes. Le bouton **Synchroniser** le fait tout de suite. Hors ligne, l’appli attend le
 retour du réseau.
 

@@ -126,6 +126,11 @@ def wait_ready(page):
     page.wait_for_timeout(300)
 
 
+def state(page):
+    """L'état de l'appli (progression et réglages)."""
+    return page.evaluate("() => state")
+
+
 def nb(s):
     """Espaces insécables (fines ou non) -> espaces ordinaires, pour comparer les textes de l'appli."""
     return (s or "").replace(" ", " ").replace(" ", " ")
