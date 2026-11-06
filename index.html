@@ -436,7 +436,7 @@ try { applyLook((JSON.parse(localStorage.getItem("cap945.v1") || "{}") || {}).se
 
 <script>
 "use strict";
-const BUILD = "6 novembre 2026 à 0 h 33";
+const BUILD = "6 novembre 2026 à 20 h 21";
 
 /* ---------- constants ---------- */
 const KEY = "cap945.v1";                           // the state (progress and settings), never renamed
@@ -719,7 +719,7 @@ function buildOrder() {
 
 /* ---------- vocabulary planning: buckets 0 to 6 and one line ---------- */
 // Card (absent = never seen): {b bucket, d day due (bucket ≥ 1), k state.seq when missed (bucket 0 after a ×),
-// r reviews, l lapses (× from bucket ≥ 1), t day of the last review, s day of the first}.
+// r reviews, l lapses (× from bucket ≥ 1), t day of the last review, at its time in ms, s day of the first}.
 // Line: missed words that have rested GAP cards, words due, new words (first pass), then missed words still resting.
 function card(id) { return state.words[id]; }
 function inPass(id) { const c = card(id); return !c || (c.b === 0 && c.k == null); }
@@ -758,7 +758,7 @@ function applyGrade(id, ok) {
   } else {
     c.b = Math.min(TOP, c.b + 1); c.d = today + DELAYS[c.b - 1]; delete c.k;
   }
-  c.r = (c.r || 0) + 1; c.t = today;
+  c.r = (c.r || 0) + 1; c.t = today; c.at = Date.now();   // at: the time, for the merge of two devices
   if (first) c.s = today;
   state.words[id] = c;
   state.seq++;
@@ -796,8 +796,8 @@ const speech = {
     const order = x => ACCENTS.findIndex(A => A.id === x.accent);
     const rank = x => x.odd ? 2 : x.twin ? 1 : 0;
     out.sort((a, b) => order(a) - order(b) || rank(a) - rank(b) || b.tier - a.tier || a.name.localeCompare(b.name));
-    // standard voices are off at first when there are enough better ones, a woman's and a man's among them
-    const good = out.filter(x => !x.odd && !x.twin && x.tier > 1);
+    // standard voices are off at first when there are enough better ones in the TOEIC's accents, a woman's and a man's among them
+    const good = out.filter(x => !x.odd && !x.twin && x.tier > 1 && x.accent !== "autres");
     const rich = good.length >= 3 && good.some(x => x.sex === "f") && good.some(x => x.sex === "m");
     for (const x of out) x.def = !x.odd && !x.twin && (x.tier > 1 || !rich);
     const changed = out.map(x => x.key).join("\n") !== this.voices.map(x => x.key).join("\n") || ((vs.length || last) && !this.loaded);
@@ -806,15 +806,24 @@ const speech = {
     if (changed) voicesChanged();
   },
   has() { return this.ok && this.voices.some(x => !x.odd); },
+  netDown: 0,                                      // when a network voice last failed: local voices for ten minutes
+  netOk() { return navigator.onLine !== false && Date.now() - this.netDown > 10 * 60e3; },
   usable() {                                       // a network voice is silent offline
-    const online = navigator.onLine !== false;
+    const online = this.netOk();
     return this.voices.filter(x => online || !x.net);
   },
-  pool() {                                         // the voices on, of the accents chosen; otherwise, never a robotic one
-    const allowed = state.settings.accents, mine = x => allowed.includes(x.accent);
+  // the voices on, of the accents chosen; otherwise the TOEIC's accents before the others (Autres accents stays off
+  // unless chosen), and never a robotic voice
+  pool() {
+    const allowed = state.settings.accents, mine = x => allowed.includes(x.accent), toeic = x => mine(x) || x.accent !== "autres";
     const u = this.usable(), on = u.filter(voiceOn), fine = u.filter(x => !x.odd);
-    for (const p of [on.filter(mine), on, fine.filter(mine), fine, this.voices.filter(x => !x.odd)]) if (p.length) return p;
+    for (const p of [on.filter(mine), on.filter(toeic), fine.filter(mine), fine.filter(toeic), fine, this.voices.filter(x => !x.odd)]) if (p.length) return p;
     return [];
+  },
+  localFor(v) {                                    // a local voice in place of a network voice that fails, of the same sex if possible
+    const sex = voiceSex(v.name), ok = this.voices.filter(x => !x.net && !x.odd);
+    const pick = l => l.length ? l[Math.floor(Math.random() * l.length)].v : null;
+    return pick(ok.filter(x => voiceOn(x) && x.sex === sex)) || pick(ok.filter(x => x.sex === sex)) || pick(ok.filter(voiceOn)) || pick(ok);
   },
   count(accent) { return this.voices.filter(x => x.accent === accent && voiceOn(x)).length; },
   stop() {
@@ -843,19 +852,35 @@ const speech = {
     this.timer = setTimeout(() => step(0), 80);    // Safari drops an utterance spoken right after cancel()
   },
   utter(p, next) {
+    // a network voice that failed lately gives way to a local one; one that fails now says the words again with a local one
+    if (p.voice && p.voice.localService === false && !this.netOk()) p = { ...p, voice: this.localFor(p.voice) || p.voice };
+    const net = !!(p.voice && p.voice.localService === false), tok = this.token;
     let fired = false, dog = 0;
     const go = () => { if (fired) return; fired = true; clearTimeout(dog); next(); };
+    const failed = e => {
+      if (fired) return;
+      const why = e && e.error;
+      if (net && tok === this.token && why !== "interrupted" && why !== "canceled") {
+        this.netDown = Date.now();
+        const alt = this.localFor(p.voice);
+        if (alt) { fired = true; clearTimeout(dog); this.utter({ ...p, voice: alt }, next); return; }
+      }
+      go();
+    };
     try {
       const u = new SpeechSynthesisUtterance(plain(p.text));
       u.lang = p.voice ? p.voice.lang : "en-US";
       if (p.voice) { try { u.voice = p.voice; } catch (e) {} }
       u.rate = state.settings.rate;
       u.pitch = p.pitch || 1;
-      u.onend = go; u.onerror = go;
+      u.onend = go; u.onerror = failed;
       this.keep.push(u); if (this.keep.length > 12) this.keep.shift();   // Safari: a collected utterance never ends
       speechSynthesis.speak(u);
     } catch (e) { go(); return; }
-    dog = setTimeout(go, 5000 + String(p.text).length * 110 / state.settings.rate);   // onend sometimes never comes
+    dog = setTimeout(() => {                       // onend sometimes never comes; a network voice that stalls counts as failed
+      if (net && !fired) this.netDown = Date.now();
+      go();
+    }, 5000 + String(p.text).length * 110 / state.settings.rate);
   },
   say(text, voice, btn) { this.seq([{ text, voice }], null, btn); },
 };
@@ -1130,7 +1155,7 @@ function recordAnswer(q, ok, ms, choice) {
   if (!s.r) s.f = ok ? 1 : 0;
   s.r++;
   if (ok) s.ok++; else s.l++;
-  s.t = today; s.ms = Math.round(ms); s.a = choice;
+  s.t = today; s.at = Date.now(); s.ms = Math.round(ms); s.a = choice;
   if (!ok) { s.e = 1; s.d = today + ERR_DELAYS[0]; }
   else if (s.e >= 1) {
     if (s.e < ERR_DELAYS.length) { s.d = today + ERR_DELAYS[s.e]; s.e++; }
@@ -2085,7 +2110,7 @@ function voiceBoxHTML() {                          // Réglages › Voix, redraw
   if (!speech.ok) return `<p class="small">Cet appareil ne lit pas le texte à voix haute.</p>`;
   let h = `<p class="small">Le TOEIC fait entendre des accents américain, britannique, australien et canadien. Choisis ceux que tu veux entendre.</p><div class="box">`;
   for (const A of ACCENTS) {
-    const mine = speech.voices.filter(x => x.accent === A.id), c = mine.length, off = mine.filter(x => !voiceOn(x)).length;
+    const mine = speech.voices.filter(x => x.accent === A.id && !x.odd), c = mine.length, off = mine.filter(x => !voiceOn(x)).length;
     const what = A.id === "autres" ? [...new Set(mine.map(x => regionOf(x.lang)))].join(", ") : "";
     h += `<div class="switchrow"><div class="txt">${A.nom}<small>${c ? plural(c, "voix", "voix") + (what ? ` (${esc(what)}), accents absents du TOEIC` : " sur cet appareil") +
       (off ? `, ${plural(off, "coupée", "coupées")}` : "") : "aucune voix sur cet appareil"}</small></div>` +
@@ -2205,15 +2230,30 @@ function importBackup(file) {
 // document it received or sent (its base), merges what changed on each side since, and sends the result. The code
 // never leaves the device: the server sees the SHA-256 of "cap945:" and its letters and digits.
 const SYNC_URL = "https://xingyinyi-sync.guillaume-plehar.workers.dev";
-const SYNC_KEY = "cap945.sync", SYNC_BASE = "cap945.sync-base", SYNC_SENT = "cap945.sync-sent";
+const SYNC_KEY = "cap945.sync", SYNC_BASE = "cap945.sync-base", SYNC_PENDING = "cap945.sync-pending";
 const SYNC_FMT = 1;                                // format of the shared document
 // settings of each device (screen, voices, tab); the others are shared. A series or a mock test under way stays on its device.
 const DEVICE_SETTINGS = ["theme", "textSize", "rate", "voiceChoice", "view", "readPart", "listenPart"];
 class SyncError extends Error {}
 function readJSON(key) { try { return JSON.parse(localStorage.getItem(key) || "null"); } catch (e) { return null; } }
-function writeJSON(key, v) { try { if (v == null) localStorage.removeItem(key); else localStorage.setItem(key, JSON.stringify(v)); } catch (e) {} }
-let sync = readJSON(SYNC_KEY);                     // {code, key, at (last success), err (last failure)}, or null
+function writeJSON(key, v) {                       // false when the device's storage is full
+  try { if (v == null) localStorage.removeItem(key); else localStorage.setItem(key, JSON.stringify(v)); return true; } catch (e) { return false; }
+}
+let sync = readJSON(SYNC_KEY);                     // {code, key, at (last success), err (last failure), n (last mark sent)}, or null
 if (!isObj(sync) || !/^[0-9a-f]{64}$/.test(sync.key || "")) sync = null;
+writeJSON("cap945.sync-sent", null);               // hashes kept by a version before the marks
+// this device in the shared document: every send carries a mark (`marks[device]`), kept by the merges of the other
+// devices, so that a send whose answer was lost is recognised in the server's document, merged or not
+const DEVICE = (() => {
+  let id = readJSON("cap945.device");
+  if (typeof id !== "string" || !/^[0-9a-f]{16}$/.test(id)) {
+    const b = new Uint8Array(8);
+    try { crypto.getRandomValues(b); } catch (e) { for (let i = 0; i < 8; i++) b[i] = Math.floor(Math.random() * 256); }
+    id = [...b].map(x => x.toString(16).padStart(2, "0")).join("");
+    writeJSON("cap945.device", id);
+  }
+  return id;
+})();
 let syncTimer = 0, syncAt = 0, syncing = false, syncAgain = false;
 let syncNote = "", syncAsk = "";                   // Réglages: a message under the code; a new code waiting for « Créer »
 
@@ -2248,7 +2288,9 @@ function checkDoc(d) {
 function mergeDocs(b, l, r) {
   const has = !!b;
   const added = (f, B, L, R) => has ? (L[f] || 0) + (R[f] || 0) - ((B || {})[f] || 0) : Math.max(L[f] || 0, R[f] || 0);
-  const later = (L, R) => (L.t || 0) !== (R.t || 0) ? ((L.t || 0) > (R.t || 0) ? L : R) : (L.r || 0) >= (R.r || 0) ? L : R;
+  // the latest review or answer: its time (`at`, in ms), or for an entry from a version before it, its day, then its count
+  const later = (L, R) => L.at && R.at ? (L.at >= R.at ? L : R)
+    : (L.t || 0) !== (R.t || 0) ? ((L.t || 0) > (R.t || 0) ? L : R) : (L.r || 0) >= (R.r || 0) ? L : R;
   function mergeMap(B, L, R, both) {               // B: the base's map, or nothing
     const out = {};
     for (const k of new Set([...Object.keys(L || {}), ...Object.keys(R || {}), ...Object.keys(B || {})])) {
@@ -2283,8 +2325,10 @@ function mergeDocs(b, l, r) {
     settings[k] = R === undefined || (L !== undefined && has && !same(L, BS[k])) ? L : R;
   }
   const seq = Math.max(l.seq || 0, r.seq || 0, has ? (l.seq || 0) + (r.seq || 0) - (b.seq || 0) : 0);
+  const marks = {};                                // the last send of each device that this document contains
+  for (const m of [l.marks, r.marks]) for (const [k, n] of Object.entries(isObj(m) ? m : {})) marks[k] = Math.max(marks[k] || 0, n);
   return { app: "cap945", fmt: SYNC_FMT, words, q, lists, log, seq,
-    mocks: [...mocks.values()].sort((x, y) => y.at - x.at).slice(0, MOCKS_MAX), settings };
+    mocks: [...mocks.values()].sort((x, y) => y.at - x.at).slice(0, MOCKS_MAX), settings, marks };
 }
 function applyDoc(d) {
   const settings = { ...state.settings }, next = { ...state, settings };
@@ -2322,15 +2366,19 @@ function syncSoon(ms) {
   clearTimeout(syncTimer); syncAt = at;
   syncTimer = setTimeout(() => { syncTimer = 0; syncNow(); }, ms);
 }
-// the base: the last document exchanged with the server for this code, with the hash of its canonical text
+// the base: the last document exchanged with the server for this code, with the hash of its content (marks aside)
+const contentText = d => { const { marks, ...rest } = d; return canon(rest); };
 function syncBase(key) {
   const b = readJSON(SYNC_BASE);
   if (!isObj(b) || b.key !== key || !isObj(b.doc)) return null;
-  if (b.h == null) b.h = hash(canon(b.doc));       // a base written by an earlier version
+  if (b.h == null) b.h = hash(contentText(b.doc));   // a base written by an earlier version
   return b;
 }
-function setBase(key, v, doc, text) { writeJSON(SYNC_BASE, { key, v, doc, h: hash(text) }); }
-function resetSync(s) { sync = s; writeJSON(SYNC_KEY, s); writeJSON(SYNC_BASE, null); writeJSON(SYNC_SENT, null); }
+const FULL = "la mémoire de l’appareil est pleine";
+function setBase(key, v, doc, text) {
+  if (!writeJSON(SYNC_BASE, { key, v, doc, h: hash(text || contentText(doc)) })) throw new SyncError(FULL);
+}
+function resetSync(s) { sync = s; writeJSON(SYNC_KEY, s); writeJSON(SYNC_BASE, null); writeJSON(SYNC_PENDING, null); }
 let syncedChanges = -1;                            // the value of `changes` when this device last matched the server
 function syncPending() { return !!sync && changes !== syncedChanges; }
 async function syncNow() {
@@ -2341,43 +2389,49 @@ async function syncNow() {
   renderSyncBox();
   const me = sync;
   try {
-    for (let round = 0; round < 6; round++) {
+    let done = false;
+    for (let round = 0; round < 6 && !done; round++) {
       const base = syncBase(me.key), c0 = changes, mine = docOf(state), text = canon(mine), h = hash(text);
+      // a send whose answer never came: first ask the server whether it got it
+      const pend = readJSON(SYNC_PENDING), sent = isObj(pend) && pend.key === me.key && isObj(pend.doc) ? pend : null;
       let res;
-      if (base && base.h === h) {
-        res = await syncCall(me.key, "GET", null, base.v);
+      if (sent || (base && base.h === h)) {
+        res = await syncCall(me.key, "GET", null, sent ? null : base.v);
         if (sync !== me) return;
-        if (res.data === undefined && res.v === base.v) { syncedChanges = c0; break; }   // nothing new on either side
+        if (!sent && res.data === undefined && res.v === base.v) { syncedChanges = c0; done = true; continue; }   // nothing new
       } else {
-        // the last documents sent: one that comes back is ours, whose answer was lost (nothing is counted twice)
-        writeJSON(SYNC_SENT, [...(readJSON(SYNC_SENT) || []).slice(-4), h]);
-        res = await syncCall(me.key, "PUT", { v: base ? base.v : 0, data: mine });
+        const n = Math.max(Date.now(), (me.n || 0) + 1), doc = { ...mine, marks: { ...(base ? base.doc.marks : {}), [DEVICE]: n } };
+        me.n = n;
+        if (!writeJSON(SYNC_PENDING, { key: me.key, n, doc })) throw new SyncError(FULL);
+        res = await syncCall(me.key, "PUT", { v: base ? base.v : 0, data: doc });
         if (sync !== me) return;
+        writeJSON(SYNC_PENDING, null);             // an answer came: the server took the document, or refused it (409)
         if (!res.conflict) {
-          setBase(me.key, res.v, mine, text);
-          if (changes === c0) { syncedChanges = c0; break; }
+          setBase(me.key, res.v, doc, text);
+          if (changes === c0) { syncedChanges = c0; done = true; }
           continue;
         }
       }
+      // the server's document: merged with this device's since the base, or since the lost send when it contains it
+      const got = sent && res.data && ((res.data.marks || {})[DEVICE] || 0) >= sent.n;
+      if (sent) writeJSON(SYNC_PENDING, null);
       if (res.data == null) { writeJSON(SYNC_BASE, null); continue; }   // the server lost the document: it is sent again
       checkDoc(res.data);
-      const theirs = canon(res.data);
-      if ((readJSON(SYNC_SENT) || []).includes(hash(theirs))) { setBase(me.key, res.v, res.data, theirs); continue; }
-      const merged = mergeDocs(base ? base.doc : null, mine, res.data);
+      const merged = mergeDocs(got ? sent.doc : base ? base.doc : null, mine, res.data);
       applyDoc(changes === c0 ? merged : mergeDocs(mine, docOf(state), merged));   // changes made during the exchange stay
-      setBase(me.key, res.v, res.data, theirs);
+      setBase(me.key, res.v, res.data);
     }
+    if (!done) throw new SyncError("l’échange n’a pas abouti, nouvel essai dans quelques minutes");
     me.at = Date.now(); me.err = "";
   } catch (e) {
     if (sync === me) me.err = e instanceof SyncError ? e.message : "erreur inattendue (" + (e && e.message || e) + ")";
   } finally {
     syncing = false;
-    if (sync === me) {
-      writeJSON(SYNC_KEY, me);
-      renderSyncBox();
-      if (syncAgain) syncSoon(500);
-      else if (!document.hidden) syncSoon(5 * 60e3);   // what the other devices did, every five minutes
-    }
+    if (sync === me) writeJSON(SYNC_KEY, me);
+    renderSyncBox();
+    // asked for during the exchange, or another code set meanwhile (a second tap on « Synchroniser »): once more, soon
+    if (sync && (syncAgain || sync !== me)) syncSoon(500);
+    else if (sync && !document.hidden) syncSoon(5 * 60e3);   // what the other devices did, every five minutes
   }
 }
 async function syncJoin(code, create) {
@@ -2394,10 +2448,11 @@ async function syncJoin(code, create) {
     syncNote = "";
     if (!res.data) { syncAsk = code.trim(); renderSyncBox(); return; }   // a typo would create a new, empty code
   }
-  resetSync({ code: code.trim(), key, at: 0, err: "" });
+  const mine = { code: code.trim(), key, at: 0, err: "" };
+  resetSync(mine);
   renderSyncBox();
-  await syncNow();
-  if (sync && !sync.err) toast(create ? "Code créé : tape-le sur tes autres appareils." : "Progression synchronisée.");
+  await syncNow();                                 // returns at once if an exchange was already under way: it follows that one
+  if (sync === mine && mine.at) toast(create ? "Code créé : tape-le sur tes autres appareils." : "Progression synchronisée.");
 }
 function syncStop() {
   resetSync(null); syncAsk = ""; syncNote = "";
@@ -2415,9 +2470,9 @@ function syncBoxHTML() {
       `<div class="row"><button type="button" class="btn primary" data-sync="create">Créer ce code</button><button type="button" class="btn" data-sync="cancel">Annuler</button></div>`;
     return `<p class="small">Pour retrouver ta progression sur l’iPhone et sur l’ordinateur${NB}: choisis un code difficile à deviner (8 lettres ou chiffres au moins) et tape le même sur chaque appareil.</p>` +
       `<div class="field"><label class="lbl" for="sync-code">Code commun</label><input type="text" id="sync-code" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go"></div>` +
-      `<div class="row"><button type="button" class="btn primary" data-sync="join">Synchroniser</button></div>` + (syncNote ? `<p class="hint" role="status">${esc(syncNote)}</p>` : "");
+      `<div class="row"><button type="button" class="btn primary" data-sync="join">Synchroniser</button></div>` + (syncNote ? `<p class="hint" role="status">${frTypo(esc(syncNote))}</p>` : "");
   }
-  const st = syncing ? "Synchronisation en cours…" : sync.err ? `Échec de la dernière synchronisation${NB}: ${esc(sync.err)}.`
+  const st = syncing ? "Synchronisation en cours…" : sync.err ? `Échec de la dernière synchronisation${NB}: ${frTypo(esc(sync.err))}.`
     : sync.at ? `Synchronisé ${whenText(sync.at)}.` : "Pas encore synchronisé.";
   return `<div class="box"><div class="switchrow"><div class="txt">Code «${NB}${esc(sync.code)}${NB}»<small id="sync-status" role="status">${st}</small></div>` +
     `<button type="button" class="btn small" data-sync="now"${syncing ? " disabled" : ""}>Synchroniser</button></div></div>` +

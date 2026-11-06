@@ -95,6 +95,10 @@ def speech_script(voices=VOICES):
     getVoices() { return voices; },
     speak(u) {
       said.push({ text: u.text, voice: u.voice && u.voice.name, uri: u.voice && u.voice.voiceURI, pitch: u.pitch, rate: u.rate });
+      if (window.__netFails && u.voice && u.voice.localService === false) {   // a network voice that cannot reach its server
+        setTimeout(() => { if (u.onerror) u.onerror({ error: "network" }); }, 5);
+        return;
+      }
       setTimeout(() => { if (u.onend) u.onend({}); }, window.__speechMs == null ? 20 : window.__speechMs);
     },
     cancel() {}, pause() {}, resume() {},

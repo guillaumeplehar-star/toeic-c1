@@ -164,7 +164,9 @@ après confirmation.
 **Réglages › Synchronisation** garde la même progression sur l’iPhone et sur l’ordinateur. Choisis un code commun,
 difficile à deviner (8 lettres ou chiffres au moins ; les espaces, tirets et majuscules ne comptent pas), tape-le et
 touche **Synchroniser**. Sur le premier appareil, l’appli demande de **Créer ce code** ; tape ensuite le même sur les
-autres. Ce que chaque appareil a déjà fait est réuni, rien n’est perdu.
+autres. Ce que chaque appareil a déjà fait est réuni : chaque mot et chaque question gardent leur dernière révision.
+Seule exception, pour ne jamais rien compter deux fois : un même jour ou une même question travaillés sur deux
+appareils *avant* leur premier échange gardent le plus grand des deux compteurs, pas leur somme.
 
 Ensuite, tout se fait seul : à l’ouverture, au retour sur l’appli, 2 minutes après une réponse, à la mise en
 arrière-plan et toutes les 5 minutes. Le bouton **Synchroniser** le fait tout de suite. Hors ligne, l’appli attend le

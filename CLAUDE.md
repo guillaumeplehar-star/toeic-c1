@@ -31,7 +31,7 @@ relecture séparée du vocabulaire. La Part 1 (photos) est laissée de côté.
 | `outils/version_appli.py` | À lancer après toute modification de l’appli : `const BUILD` et `VERSION`/`EXTRA` de `sw.js`. |
 | `outils/icones.py` | Refait les icônes (Pillow). |
 | `tests/test_appli.py`, `tests/commun.py` | Test Playwright complet ; `tests/donnees/banque` : banque figée des tests (ne pas la synchroniser avec `banque/` ; lots JSON écrits par `tests/donnees/fabrique_lots.py`). Voix simulée : `window.__said` (Samantha et Karen voix de femme, Daniel voix d’homme ; `speech_script` accepte aussi un identifiant `voiceURI` et une voix en ligne, `CHOSEN_VOICES` du test `voice_choice`). L’examen de Part 3 tourne sur une horloge simulée (`page.clock`). |
-| `tests/test_sync.py` | Deux appareils (iPhone et ordinateur) et le serveur de synchronisation local ; bouton Installer et critères d’installation de Chrome. |
+| `tests/test_sync.py` | Deux appareils (iPhone et ordinateur) et le serveur de synchronisation local ; bouton Installer et critères d’installation de Chrome ; compare `outils/sync` au dépôt xingyinyi s’il est sur l’ordinateur (variable `XINGYINYI`). |
 | `outils/sync/` | Copie du serveur de synchronisation de 形音义 (`worker.mjs`, `serveur_local.mjs`), pour les tests. Le serveur en ligne est celui de 形音义 : toute modification se fait d’abord dans le dépôt `xingyinyi`. |
 | `LISEZMOI.md` | Guide de l’utilisateur, à tenir à jour quand une fonction visible change. |
 
@@ -126,9 +126,13 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
   leur sexe `voiceSex`, leur nom court `voiceBase` et leur qualité `voiceTier` (1 standard, 2 améliorée ou Google,
   3 premium ou « Natural » d’Edge, `TIERS`) ; une seule version d’une même voix, la meilleure (sur iPhone, la version
   compacte et l’améliorée portent le même nom), locale à qualité égale ; `x.def` : allumée d’office, sauf une voix
-  standard quand l’appareil a trois voix meilleures dont une de femme et une d’homme, `speech.rich` ; `x.key` =
+  standard quand l’appareil a trois voix meilleures dans les accents du TOEIC (pas `autres`), dont une de femme et
+  une d’homme, `speech.rich` ; `x.key` =
   `voiceURI`, clé de `settings.voiceChoice` (les seuls choix qui diffèrent de `def`), `voiceOn(x)` ; `usable()` sans
-  les voix en ligne hors ligne ; `pool()` : voix allumées des accents choisis, sinon de repli en repli jusqu’à toutes ;
+  les voix en ligne hors ligne ou après un échec (`netDown`, `netOk()` : dix minutes) ; une voix en ligne qui échoue
+  (`onerror` ou minuterie de secours) fait redire la phrase par une voix locale du même sexe (`localFor`) ; `pool()` :
+  voix allumées des accents choisis, puis des accents du TOEIC avant `autres` (coupé tant qu’il n’est pas choisi),
+  jamais une voix robotique ; les lignes d’accent de Réglages ne comptent pas les voix robotiques ;
   Réglages › Voix : `#voice-box` (`voiceBoxHTML`, redessiné seul par `renderVoiceBox` quand les voix ou un choix
   changent), « Voix une par une » `details.vlist`, `data-hear` et `.switch[data-voice]` portant `x.key` (`voiceByKey`),
   `voicesOpen` ; `voicesChanged` → `renderVoiceBox` ou `refreshView` ;
@@ -145,19 +149,28 @@ py outils\version_appli.py       # après une modification de index.html, sw.js,
 - **Synchronisation** (section « sync between devices ») : serveur `SYNC_URL` (celui de 形音义 :
   https://xingyinyi-sync.guillaume-plehar.workers.dev, `MAX_CODES` codes au plus, toutes applis comprises ; un 403 le
   dit), clé = SHA-256 de `"cap945:"` + `codeKey(code)` (lettres et chiffres). Stockage : `cap945.sync` (`{code, key,
-  at, err}`, jamais dans les sauvegardes), `cap945.sync-base` (`{key, v, doc, h}` : dernier document échangé, base de la
-  fusion, `h` = `hash(canon(doc))` ; `syncBase`, `setBase`, `resetSync`), `cap945.sync-sent` (empreintes `hash(canon(doc))` des derniers envois : un envoi reçu dont la réponse s’est
-  perdue devient la base, rien n’est compté deux fois). `docOf(state)` : `SHARED` (`words`, `q`, `lists`, `log`, `seq`,
+  at, err, n}`, jamais dans les sauvegardes), `cap945.sync-base` (`{key, v, doc, h}` : dernier document échangé, base de la
+  fusion, `h` = `hash(canon(doc))` ; `syncBase`, `setBase`, `resetSync`), `cap945.device` (identifiant de l’appareil, `DEVICE`), `cap945.sync-pending`
+  (`{key, n, doc}` : l’envoi en cours, effacé dès qu’une réponse arrive ; resté là, sa réponse s’est perdue). Chaque
+  envoi porte une marque `marks[DEVICE] = n` (croissante, `sync.n`) que les fusions des autres appareils gardent
+  (maximum par appareil) ; au prochain échange, un envoi en attente est d’abord demandé au serveur (`GET`) : si le
+  document du serveur porte sa marque, l’envoi y est (tel quel ou fusionné ailleurs) et sert de base à la fusion,
+  rien n’est compté deux fois. `h` et la comparaison avec l’état ignorent `marks` (`contentText`). `docOf(state)` : `SHARED` (`words`, `q`, `lists`, `log`, `seq`,
   `mocks`), réglages `sharedSetting` (tous sauf `DEVICE_SETTINGS` (thème, taille, vitesse, `voiceChoice`, onglets) ; un changement qui reste sur
   l’appareil passe par `store()`, les autres par `save()`) ; `runs` et `mock` restent
   sur l’appareil ; `SYNC_FMT` (un document plus récent est refusé, `checkDoc`). `canon` : JSON aux clés triées (sinon
   deux appareils se renverraient le même contenu sans fin) ; `eq` : égalité des entrées plates d’une table (carte,
   question, jour, liste). `mergeDocs(base, ici, serveur)` : changé d’un seul côté →
-  ce côté ; des deux → la carte ou la question à la révision la plus récente (`t`, puis `r`), `r`, `l`, `ok`
+  ce côté ; des deux → la carte ou la question à la révision la plus récente (`at`, heure en ms écrite par `applyGrade` et `recordAnswer` ;
+  pour une entrée d’avant, `t` puis `r`), `r`, `l`, `ok`
   additionnés depuis la base, `f` de la base, historique additionné par jour, `seq` additionné, examens blancs réunis
-  (par `at`), réglages d’ici ; sans base (premier code sur un appareil) : maximum, union, réglages du serveur.
+  (par `at`), réglages d’ici ; sans base (premier code sur un appareil, ou code rejoint de nouveau) : maximum, union, réglages du serveur ; la somme
+  compterait deux fois l’historique déjà sur le serveur.
   `syncNow` (`GET ?have=v` sans changement ici, sinon `PUT {v}` ; un 409 apporte le document du serveur : fusion,
-  `applyDoc`, nouvel envoi ; les changements faits pendant l’échange restent), `applyDoc` (via `normalizeState`, puis
+  `applyDoc`, nouvel envoi ; les changements faits pendant l’échange restent ; six tours sans accord, ou une base qui ne s’écrit pas, `FULL`,
+  sont un échec affiché ; `writeJSON` rend `false` quand la mémoire est pleine ; un échange demandé pendant un autre,
+  ou un code changé entre-temps (double appui sur « Synchroniser »), en relance un 500 ms après ; erreurs affichées
+  par `frTypo`), `applyDoc` (via `normalizeState`, puis
   `refreshView` : l’écran suit sans toucher à une carte retournée, à une série en cours ni à ses résultats ; aussi
   après l’écriture d’une autre fenêtre, événement `storage`), `syncSoon(ms)` (jamais plus tard qu’une
   synchronisation prévue) : `save()` 2 min, démarrage, retour au premier plan, réseau retrouvé, toutes les 5 min ;

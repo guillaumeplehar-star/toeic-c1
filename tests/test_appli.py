@@ -522,6 +522,15 @@ def voice_choice(browser, url, errors):
     ctx.set_offline(True)
     check("Google UK English Male" not in pool(), "hors ligne : la voix en ligne est écartée", (page.evaluate("navigator.onLine"), pool()))
     ctx.set_offline(False)
+    # a network voice that fails: the same words again with a local voice of the same sex, then local voices only
+    n = page.evaluate("() => { window.__netFails = true; return window.__said.length; }")
+    page.evaluate("() => speech.say('Network test.', speech.voices.find(x => x.net).v)")
+    page.wait_for_function("n => window.__said.length >= n + 2", arg=n)
+    said = page.evaluate("n => window.__said.slice(n)", n)
+    check(said[0]["voice"] == "Google UK English Male" and said[1]["text"] == "Network test." and said[1]["uri"] != "Google UK English Male"
+          and page.evaluate("() => speech.voices.find(x => x.key === %s).sex" % json.dumps(said[1]["uri"])) == "m",
+          "voix en ligne en échec : la phrase redite par une voix locale du même sexe", said)
+    check("Google UK English Male" not in pool(), "voix en ligne en échec : voix locales pendant un moment")
     page.reload()
     wait_ready(page)
     check(state(page)["settings"]["voiceChoice"] == {"com.apple.voice.compact.en-GB.Daniel": True}, "choix gardés au rechargement")

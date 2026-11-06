@@ -80,8 +80,23 @@ def doc(page):
     return page.evaluate("() => canon(docOf(state))")
 
 
+def same_server():
+    """outils/sync est une copie du serveur de 形音义 : la comparer au dépôt xingyinyi s'il est sur cet ordinateur
+    (variable XINGYINYI, sinon Documents\\Chinois_App\\xingyinyi-appli à côté de ce dépôt)."""
+    print("\n— copie du serveur")
+    xing = os.environ.get("XINGYINYI") or os.path.join(REPO, "..", "..", "Chinois_App", "xingyinyi-appli")
+    read = lambda p: open(p, encoding="utf-8").read().replace("\r\n", "\n")
+    for f in ("worker.mjs", "serveur_local.mjs"):
+        theirs = os.path.join(xing, "outils", "sync", f)
+        if not os.path.exists(theirs):
+            print("  (dépôt xingyinyi introuvable : %s non comparé)" % f)
+            continue
+        check(read(theirs) == read(os.path.join(REPO, "outils", "sync", f)), "outils/sync/%s identique à celui du dépôt xingyinyi" % f)
+
+
 def main():
     errors = []
+    same_server()
     proc, sync_url = start_server()
     site = fresh_copy("sync")
     path = os.path.join(site, "index.html")
@@ -170,6 +185,31 @@ def main():
             check(not sync_now(b), "nouvel essai réussi")
             check(state(b)["words"][ids[2]]["r"] == r1 + 1 and server_doc(sync_url)["data"]["words"][ids[2]]["r"] == r1 + 1, "rien n'est compté deux fois")
 
+            print("\n— réponse perdue, puis fusion par l'autre appareil")
+            r2 = state(b)["words"][ids[2]]["r"]
+            today = str(b.evaluate("() => dayNum()"))
+            lr = state(b)["log"][today].get("r", 0)
+            b.evaluate("ids => { applyGrade(ids[2], true); save(); }", ids)
+            b.route(sync_url + "/p/**", lose)
+            check(bool(sync_now(b)), "réponse perdue de nouveau")
+            b.unroute(sync_url + "/p/**")
+            a.evaluate("ids => { applyGrade(ids[1], true); save(); }", ids)
+            check(not sync_now(a) and state(a)["words"][ids[2]]["r"] == r2 + 1, "l'autre appareil reçoit l'envoi arrivé et le fusionne avec le sien")
+            check(not sync_now(b) and not sync_now(a), "nouvel essai, puis échange")
+            check(state(b)["words"][ids[2]]["r"] == r2 + 1 and state(a)["words"][ids[2]]["r"] == r2 + 1 and doc(a) == doc(b),
+                  "envoi perdu puis fusionné ailleurs : rien n'est compté deux fois", (state(b)["words"][ids[2]], r2))
+            check(state(b)["log"][today]["r"] == state(a)["log"][today]["r"] == lr + 2, "… ni dans l'historique du jour (une révision de chaque côté)",
+                  (state(b)["log"][today], lr))
+
+            print("\n— même mot, le même jour, sur les deux appareils")
+            b.evaluate("ids => { applyGrade(ids[0], true); save(); }", ids)           # the earlier review
+            b.wait_for_timeout(30)
+            a.evaluate("ids => { applyGrade(ids[0], false); save(); }", ids)          # the later one
+            wa = state(a)["words"][ids[0]]
+            check(not sync_now(a) and not sync_now(b) and not sync_now(a), "échanges réussis")
+            w1, w2 = state(a)["words"][ids[0]], state(b)["words"][ids[0]]
+            check(w1["b"] == w2["b"] == wa["b"] == 0 and w1["at"] == w2["at"] == wa["at"], "la révision la plus récente l'emporte, même le même jour", (wa, w1, w2))
+
             print("\n— hors ligne")
             ctx_a.set_offline(True)
             a.evaluate("() => { recordAnswer(P5[2], true, 8000, P5[2].ans); save(); }")
@@ -186,6 +226,17 @@ def main():
                   total: 780, readMs: 0 }); save(); }""", t)
             check(not sync_now(a) and not sync_now(b) and not sync_now(a), "échanges réussis")
             check(len(state(a)["mocks"]) == 2 and len(state(b)["mocks"]) == 2, "les examens blancs des deux appareils sont gardés")
+
+            print("\n— double appui sur « Synchroniser »")
+            a.click('[data-sync="stop"]')
+            a.fill("#sync-code", CODE)
+            a.evaluate("() => { const b = document.querySelector('[data-sync=\"join\"]'); b.click(); b.click(); }")   # two taps at once
+            try:
+                a.wait_for_function("() => sync && sync.at > 0 && !syncing", timeout=10000)
+                joined = True
+            except Exception:
+                joined = False
+            check(joined and not a.evaluate("() => sync.err") and doc(a) == doc(b), "double appui : le code est rejoint quand même")
 
             print("\n— version plus récente")
             s = server_doc(sync_url)
